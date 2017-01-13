@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="3000"
+    android:fillAfter="true">
+    
+  <alpha 
+    android:fromAlpha="0.0"
+    android:toAlpha="1.0"/>
+  
+  <scale
+    android:fromXScale="0.0"
+    android:toXScale="1.4"
+    android:fromYScale="0.0"
+    android:toYScale="1.4"
+    android:pivotX="50%"
+    android:pivotY="50%"/>
+  
+  <rotate
+    android:fromDegrees="0"
+    android:toDegrees="720"
+    android:pivotX="50%"
+    android:pivotY="50%"/>
+  <translate
+   android:fromXDelta="0"
+   android:toXDelta="-180"
+   android:fromYDelta="20"
+   android:toYDelta="-180"
+   android:duration="4000"
+   android:fillBefore="true"/>
+</set>
+
+<!-- 透明度控制动画效果 alpha
+        浮点型值：
+            fromAlpha 属性为动画起始时透明度
+            toAlpha   属性为动画结束时透明度
+            说明: 
+                0.0表示完全透明
+                1.0表示完全不透明
+            以上值取0.0-1.0之间的float数据类型的数字
+
+        长整型值：
+            duration  属性为动画持续时间
+            说明:     
+                时间以毫秒为单位
+-->
