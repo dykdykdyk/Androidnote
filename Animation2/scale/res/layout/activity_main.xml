@@ -1,0 +1,108 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.harvic.try_interpolator.MainActivity" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tv"
+            android:layout_width="80dip"
+            android:layout_height="150dip"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="40dip"
+            android:layout_marginTop="40dip"
+            android:background="#ff00ff"
+            android:text="@string/hello_world" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv"
+            android:shrinkColumns="0,1"
+            android:stretchColumns="0,1" >
+
+            <TableRow>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="scale 相关插值器演示" />
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/btn_AccelerateDecelerate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AccelerateDecelerate" />
+
+                <Button
+                    android:id="@+id/btn_Accelerate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Accelerate" />
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/btn_Decelerate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Decelerate" />
+
+                <Button
+                    android:id="@+id/btn_Anticipate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Anticipate" />
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/btn_AnticipateOvershoot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AnticipateOvershoot" />
+
+                <Button
+                    android:id="@+id/btn_Bounce"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bounce" />
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/btn_Cycle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cycle" />
+
+                <Button
+                    android:id="@+id/btn_Linear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Linear" />
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/btn_Overshoot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Overshoot" />
+            </TableRow>
+        </TableLayout>
+    </RelativeLayout>
+
+</ScrollView>
