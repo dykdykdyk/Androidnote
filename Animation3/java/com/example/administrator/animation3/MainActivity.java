@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setAnim.addAnimation(scaleAnim);
         setAnim.addAnimation(rotateAnim);
         setAnim.setFillAfter(true);
-
+//用代码实现插值器
         interpolateScaleAnim=new ScaleAnimation(0.0f,1.4f,0.0f,1.4f,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
         interpolateScaleAnim.setInterpolator(new BounceInterpolator());
         interpolateScaleAnim.setDuration(3000);

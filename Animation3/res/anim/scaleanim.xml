@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scale xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fromXScale="0.0"
+    android:toXScale="1.4"
+    android:fromYScale="0.0"
+    android:toYScale="1.4"
+    android:pivotX="50%"
+    android:pivotY="50%"
+    android:duration="700" 
+    android:fillBefore="true"
+    android:repeatCount="1"
+    android:repeatMode="restart"
+/>
+<!-- 
+fade_in ：不可用
+fade_out:不可用
+slide_in_left:不可用
+slide_out_right:不可用
+ -->
+<!-- 
+android:repeatMode
+int. How an animation behaves when it reaches the end of the animation. 
+
+android:repeatCount must be set to a positive integer or "-1" for this attribute to have an effect. 
+Set to "reverse" to have the animation reverse direction with each iteration or 
+"repeat" to have the animation loop from the beginning each time. 
+
+android:pivotX
+Float or percentage. The X coordinate of the center of rotation.
+ Expressed either: in pixels relative to the object's left edge (such as "5"), 
+ in percentage relative to the object's left edge (such as "5%"),
+ or in percentage relative to the parent container's left edge (such as "5%p").
+ 
+android:pivotX="50%p" 表示在他的原点上，加上父亲X轴宽度的50%；高度同理
+-->
+<!-- 
+Animation变化坐标点的参照类型
+
+上面看到，RotateAnimation、ScaleAnimation、TranslateAnimation都存在一对pivotXType，pivotYType参数，
+它们是用来指定点的参照类型，使用int类型以静态常量的形式定义在Animation中，它有如下个值：
+
+ABSOLUTE：以绝对坐标为参照。
+RELATIVE_TO_PARENT：以父容器为参照。
+RELATIVE_TO_SELF：以当前容器为参照。
+　　细心的朋友有发现到，在使用XML定义动画资源的时候，没有关于pivotXType、pivotYType两个属性，其实它们结合到了设定点的坐标中中，
+以 pivotXValue、pivotYValue两个属性替代，其中如果需要设定为父容器为参照，需要在属性值后面加"p"即可。 
+-->
+
+<!-- 尺寸伸缩动画效果 scale
+       属性：interpolator 指定一个动画的插入器
+        在我试验过程中，使用android.res.anim中的资源时候发现
+        有三种动画插入器:
+            accelerate_decelerate_interpolator  加速-减速 动画插入器
+            accelerate_interpolator        	加速-动画插入器
+            decelerate_interpolator        	减速- 动画插入器
+        其他的属于特定的动画效果
+      浮点型值：
+         
+            fromXScale 属性为动画起始时 X坐标上的伸缩尺寸    
+            toXScale   属性为动画结束时 X坐标上的伸缩尺寸     
+        
+            fromYScale 属性为动画起始时Y坐标上的伸缩尺寸    
+            toYScale   属性为动画结束时Y坐标上的伸缩尺寸    
+        
+            说明:
+                 以上四种属性值    
+    
+                    0.0表示收缩到没有 
+                    1.0表示正常无伸缩     
+                    值小于1.0表示收缩  
+                    值大于1.0表示放大
+        
+            pivotX     属性为动画相对于物件的X坐标的开始位置(坐标原点X点坐标)
+            pivotY     属性为动画相对于物件的Y坐标的开始位置（坐标原点Y点坐标）
+        
+            说明:
+                    以上两个属性值 从0%-100%中取值
+                    50%为物件的X或Y方向坐标上的中点位置
+        
+        长整型值：
+            duration  属性为动画持续时间
+            说明:   时间以毫秒为单位
+
+        布尔型值:
+            fillAfter 属性 当设置为true ，该动画转化在动画结束后被应用
+-->
