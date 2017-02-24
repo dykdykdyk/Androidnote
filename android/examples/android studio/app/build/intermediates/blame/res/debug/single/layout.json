@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "D:\\svn\\udemo\\android\\examples\\android studio\\app\\build\\intermediates\\res\\merged\\debug\\layout\\list_fragment.xml",
+        "source": "D:\\svn\\udemo\\android\\examples\\android studio\\app\\src\\main\\res\\layout\\list_fragment.xml"
+    },
+    {
+        "merged": "D:\\svn\\udemo\\android\\examples\\android studio\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_bleinfo.xml",
+        "source": "D:\\svn\\udemo\\android\\examples\\android studio\\app\\src\\main\\res\\layout\\activity_bleinfo.xml"
+    },
+    {
+        "merged": "D:\\svn\\udemo\\android\\examples\\android studio\\app\\build\\intermediates\\res\\merged\\debug\\layout\\device_list.xml",
+        "source": "D:\\svn\\udemo\\android\\examples\\android studio\\app\\src\\main\\res\\layout\\device_list.xml"
+    },
+    {
+        "merged": "D:\\svn\\udemo\\android\\examples\\android studio\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "D:\\svn\\udemo\\android\\examples\\android studio\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\svn\\udemo\\android\\examples\\android studio\\app\\build\\intermediates\\res\\merged\\debug\\layout\\device_viewpager.xml",
+        "source": "D:\\svn\\udemo\\android\\examples\\android studio\\app\\src\\main\\res\\layout\\device_viewpager.xml"
+    },
+    {
+        "merged": "D:\\svn\\udemo\\android\\examples\\android studio\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_dfu_file.xml",
+        "source": "D:\\svn\\udemo\\android\\examples\\android studio\\app\\src\\main\\res\\layout\\item_dfu_file.xml"
+    },
+    {
+        "merged": "D:\\svn\\udemo\\android\\examples\\android studio\\app\\build\\intermediates\\res\\merged\\debug\\layout\\peripheral_viewpager.xml",
+        "source": "D:\\svn\\udemo\\android\\examples\\android studio\\app\\src\\main\\res\\layout\\peripheral_viewpager.xml"
+    },
+    {
+        "merged": "D:\\svn\\udemo\\android\\examples\\android studio\\app\\build\\intermediates\\res\\merged\\debug\\layout\\charts_fragment.xml",
+        "source": "D:\\svn\\udemo\\android\\examples\\android studio\\app\\src\\main\\res\\layout\\charts_fragment.xml"
+    },
+    {
+        "merged": "D:\\svn\\udemo\\android\\examples\\android studio\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_ble_list.xml",
+        "source": "D:\\svn\\udemo\\android\\examples\\android studio\\app\\src\\main\\res\\layout\\item_ble_list.xml"
+    }
+]

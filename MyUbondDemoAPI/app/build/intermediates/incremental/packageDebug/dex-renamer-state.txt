@@ -1,0 +1,7 @@
+#Wed Feb 22 17:40:41 CST 2017
+base.0=C\:\\Users\\Administrator\\Desktop\\MyUbondDemoAPI\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_1fc09b5ca0472d75d8ae4f0d9760ec07e6b0cdb9
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=C\:\\Users\\Administrator\\Desktop\\MyUbondDemoAPI\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_f0b61fced9237a88e377fe5ec2408965c1f62fd6\\classes.dex
+base.1=C\:\\Users\\Administrator\\Desktop\\MyUbondDemoAPI\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_f0b61fced9237a88e377fe5ec2408965c1f62fd6
+file.0=C\:\\Users\\Administrator\\Desktop\\MyUbondDemoAPI\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_1fc09b5ca0472d75d8ae4f0d9760ec07e6b0cdb9\\classes.dex

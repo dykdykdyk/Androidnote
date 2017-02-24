@@ -1,0 +1,9 @@
+需要在AndroidManifest.xml 中添加权限：
+
+    <uses-permission android:name="android.permission.CAMERA" />
+ 
+   <uses-feature android:name="android.hardware.camera" />
+  
+  <uses-feature android:name="android.hardware.camera.autofocus" />
+
+360手机 必须要在同一个activity里面操作才有用

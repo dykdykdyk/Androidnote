@@ -1,0 +1,38 @@
+[
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\MyUbondDemoAPI\\app\\build\\intermediates\\res\\merged\\debug\\layout\\device_list.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\MyUbondDemoAPI\\app\\res\\layout\\device_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\MyUbondDemoAPI\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_ble_list.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\MyUbondDemoAPI\\app\\res\\layout\\item_ble_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\MyUbondDemoAPI\\app\\build\\intermediates\\res\\merged\\debug\\layout\\charts_fragment.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\MyUbondDemoAPI\\app\\res\\layout\\charts_fragment.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\MyUbondDemoAPI\\app\\build\\intermediates\\res\\merged\\debug\\layout\\item_dfu_file.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\MyUbondDemoAPI\\app\\res\\layout\\item_dfu_file.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\MyUbondDemoAPI\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_bleinfo.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\MyUbondDemoAPI\\app\\res\\layout\\activity_bleinfo.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\MyUbondDemoAPI\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\MyUbondDemoAPI\\app\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\MyUbondDemoAPI\\app\\build\\intermediates\\res\\merged\\debug\\layout\\list_fragment.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\MyUbondDemoAPI\\app\\res\\layout\\list_fragment.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\MyUbondDemoAPI\\app\\build\\intermediates\\res\\merged\\debug\\layout\\device_viewpager.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\MyUbondDemoAPI\\app\\res\\layout\\device_viewpager.xml"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\MyUbondDemoAPI\\app\\build\\intermediates\\res\\merged\\debug\\layout\\peripheral_viewpager.xml",
+        "source": "C:\\Users\\Administrator\\Desktop\\MyUbondDemoAPI\\app\\res\\layout\\peripheral_viewpager.xml"
+    }
+]

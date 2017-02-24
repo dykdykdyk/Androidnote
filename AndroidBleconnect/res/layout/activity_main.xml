@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <Button
+        android:id="@+id/scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="扫描" />
+      <Button
+        android:id="@+id/bound"
+        android:layout_toRightOf="@id/scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="绑定" />
+       <Button
+        android:id="@+id/unbound"
+        android:layout_toRightOf="@id/bound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="解绑" />
+       
+       
+
+       <Button
+           android:id="@+id/call"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_toRightOf="@id/unbound"
+           android:text="来电提醒" />
+
+       <Button
+        android:id="@+id/login"
+        android:layout_below="@id/call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="登录" />
+    <ListView 
+        android:id="@+id/listview"
+        android:layout_below="@id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        
+        ></ListView>
+
+
+</RelativeLayout>

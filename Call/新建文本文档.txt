@@ -1,0 +1,4 @@
+	//²¦´òµç»°
+
+			Intent intent = new Intent(Intent.ACTION_CALL,Uri.parse("tel:"+"15989483180"));
+	    	MainActivity.instance.startActivity(intent);

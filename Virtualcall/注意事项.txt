@@ -1,0 +1,2 @@
+需要在AndroidManifest.xml 中添加权限：
+没有权限

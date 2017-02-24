@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_calling"
+     xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+
+    <ImageView
+        android:id="@+id/imgAccept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="false"
+        android:paddingBottom="70px"
+        android:src="@drawable/bg_accept" />
+
+    <ImageView
+        android:id="@+id/imgReject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="false"
+        android:paddingBottom="70px"
+        android:src="@drawable/bg_reject" />
+
+   <ImageView
+        android:id="@+id/imgcallfinish"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imgAccept"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"
+        android:src="@drawable/call_finish" />
+
+    <TextView
+        android:id="@+id/tvCallingCaller"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="100sp"
+        android:layout_centerInParent="true"
+        android:text="TextView"
+        android:textColor="#FFF"
+        android:textSize="40sp"
+         />
+
+    <TextView
+        android:id="@+id/tvCallingPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentTop="false"
+        android:layout_below="@id/tvCallingCaller"
+        android:layout_centerHorizontal="true"
+        android:text="TextView"
+        android:textColor="#FFF"
+        android:textSize="30sp" />
+    
+     <RelativeLayout
+        android:id="@+id/RelativeLayout01"
+        android:layout_width="300dp"
+        android:layout_height="130dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" >
+
+        <TextView
+            android:id="@+id/miao"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="11dp"
+            android:layout_toRightOf="@+id/fen"
+            android:textColor="#FFF"
+            android:text="00"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="35sp" />
+
+        <TextView
+            android:id="@+id/fen"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/miao"
+            android:layout_alignBottom="@+id/miao"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="103dp"
+            android:textColor="#FFF"
+            android:text="00"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="35sp" />
+
+    </RelativeLayout>
+
+    
+
+</RelativeLayout>
