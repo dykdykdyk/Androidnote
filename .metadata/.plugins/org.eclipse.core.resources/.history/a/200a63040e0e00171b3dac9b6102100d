@@ -1,0 +1,16 @@
+package com.test;
+
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+
+public class MyTextView extends View{
+
+	public MyTextView(Context context) {
+		super(context);
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+}

@@ -1,0 +1,19 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <com.test.LayoutView1 xmlns:android="http://schemas.android.com/apk/res/android"  
+    android:orientation="vertical" android:layout_width="fill_parent"  
+    android:layout_height="fill_parent">  
+    <com.test.LayoutView2  
+        android:orientation="vertical" android:layout_width="fill_parent"  
+        android:layout_height="fill_parent" android:gravity="center">  
+        <com.test.MyTextView  
+            android:layout_width="wrap_content"   android:layout_height="wrap_content"  
+      />  
+    </com.test.LayoutView2>  
+</com.test.LayoutView1>
+
+</RelativeLayout>
