@@ -604,3 +604,11 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY com.android.ide.eclipse.adt 4 0 2017-03-22 11:58:05.749
 !MESSAGE Failed to load properties file for project 'event'
+
+!ENTRY org.eclipse.jface.text 4 0 2017-03-22 16:22:00.303
+!MESSAGE Unexpected runtime error while computing a text hover
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.jst.jsp.ui.internal.taginfo.XMLJavadocHoverProcessor.getHoverInfo(XMLJavadocHoverProcessor.java:53)
+	at org.eclipse.wst.sse.ui.internal.taginfo.BestMatchHover.getHoverInfo2(BestMatchHover.java:142)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:166)

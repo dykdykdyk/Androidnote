@@ -25,7 +25,6 @@ public class MyView extends Button{
 		return super.onTouchEvent(event);
 //	        return false; 
 	}
-	//默认返回值为true
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent event) {
 		 Log.e(MainActivity.TAG, "MyView dispatchTouchEvent."+ super.onTouchEvent(event));   
