@@ -1,2 +1,11 @@
+<<<<<<< HEAD
 INDEX VERSION 1.127+C:\Users\Administrator\Desktop\git\Androidnote\.metadata\.plugins\org.eclipse.jdt.core
 1509691271.index
+=======
+INDEX VERSION 1.127+C:\Users\Administrator\Desktop\gittest\Androidnote\Androidnote\.metadata\.plugins\org.eclipse.jdt.core
+1611258261.index
+1509691271.index
+1882339399.index
+3157587775.index
+715257351.index
+>>>>>>> c9a40051d8bc13e4a096008f98c8c4bda6b223ab
