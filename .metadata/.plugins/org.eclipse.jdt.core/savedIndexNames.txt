@@ -1,0 +1,5 @@
+INDEX VERSION 1.127+C:\Users\Administrator\Desktop\git\Androidnote\.metadata\.plugins\org.eclipse.jdt.core
+715257351.index
+1611258261.index
+3088228845.index
+34681271.index
