@@ -14,5 +14,10 @@
 			<type>2</type>
 			<location>F:/android/androidtools/eclipse/android-sdk-windows/sources/android-19</location>
 		</link>
+		<link>
+			<name>.link2</name>
+			<type>2</type>
+			<location>F:/android/androidtools/eclipse/android-sdk-windows/sources/android-21</location>
+		</link>
 	</linkedResources>
 </projectDescription>

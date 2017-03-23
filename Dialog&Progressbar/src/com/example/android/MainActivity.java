@@ -14,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
+	
     Button button;
     ListView li;	
     ProgressBar pbar;
@@ -41,17 +42,8 @@ public class MainActivity extends Activity {
 					
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						// TODO Auto-generated method stub
-						
-					}
-				});
-				scanbuilder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-					
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						Field field;
 						try {
-							field = dialog.getClass().getSuperclass()
+							Field field = dialog.getClass().getSuperclass()
 									.getDeclaredField("mShowing");
 							field.setAccessible(true);
 							field.set(dialog, false);// true表示要关闭
@@ -59,8 +51,22 @@ public class MainActivity extends Activity {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-
 						
+					}
+				});
+				scanbuilder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+					
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						try {
+							Field field = dialog.getClass().getSuperclass()
+									.getDeclaredField("mShowing");
+							field.setAccessible(true);
+							field.set(dialog, true);// true表示要关闭
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 					}
 				});
 				scanbuilder.create();
