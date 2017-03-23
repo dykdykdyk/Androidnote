@@ -6,5 +6,9 @@
 <fullyQualifiedTypeName name="android.widget.TextView"/>
 <fullyQualifiedTypeName name="android.widget.FrameLayout"/>
 <fullyQualifiedTypeName name="android.widget.Button"/>
+<fullyQualifiedTypeName name="android.view.View.OnClickListener"/>
 <fullyQualifiedTypeName name="android.util.Log"/>
+<fullyQualifiedTypeName name="android.view.View.OnTouchListener"/>
+<fullyQualifiedTypeName name="com.example.event.R.id"/>
+<fullyQualifiedTypeName name="android.app.Activity"/>
 </qualifiedTypeNameHistroy>
