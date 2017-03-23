@@ -1,2 +1,5 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=c9a40051d8bc13e4a096008f98c8c4bda6b223ab
 eclipse.preferences.version=1
-org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1490081294274">\r\n<vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\r\n<vm id\="1490081294274" name\="jre1.8.0_31" path\="C\:\\Program Files\\Java\\jre1.8.0_31"/>\r\n</vmType>\r\n</vmSettings>\r\n
+org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1490185966729" defaultVMConnector\="">\r\n<vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\r\n<vm id\="1490185966729" name\="jre1.8.0_111" path\="C\:\\Program Files\\Java\\jre1.8.0_111"/>\r\n</vmType>\r\n</vmSettings>\r\n
