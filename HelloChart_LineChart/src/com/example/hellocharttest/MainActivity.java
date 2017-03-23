@@ -48,6 +48,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getdata();
         lineChart = (LineChartView)findViewById(R.id.line_chart);
    	 	getAxisXLables();//获取x轴的标注
    	 	getAxisPoints();//获取坐标点
@@ -90,6 +91,13 @@ public class MainActivity extends Activity {
 				
 			}
 		});
+    }
+    public void getdata(){
+    	Data data =new Data();
+    	data.adddata();
+    	for(int i =0;i<100;i++){
+    		System.out.println(" i: "+data.arr.get(i));
+    	}
     }
     class MyHandler extends Handler  
     {  
