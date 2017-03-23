@@ -2,12 +2,15 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="mListenerInfo" key="selection"/>
+		<item value="onOptionsItemSelected" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="onOptionsItemSelected"/>
+			<item value="initScanDialog"/>
+			<item value="initDialog"/>
 			<item value="mListenerInfo"/>
 			<item value="dispatchTouchEvent"/>
 		</list>
