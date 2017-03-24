@@ -1,0 +1,19 @@
+新建的xml文件，一定要记得放在layout文件里面，不然在res文件夹下，控件名一直报找不到。
+解决办法是  看后面一段代码的引用，才发现了 这个问题。
+
+
+3.24  gridview   
+ android:numColumns="auto_fit"  这个属性 表示的是设置列数 自动调整显示列数   3 显示的样式为3列表
+column 列，专栏
+
+android:gravity：
+这个是针对控件里的元素来说的，用来控制元素在该控件里的显示位置。例如，在一个Button按钮控件中设置如下两个属性，
+android:gravity="left"和android:text="提交"，这时Button上的文字“提交”将会位于Button的左部。
+
+android:layout_gravity：
+这个是针对控件本身而言，用来控制该控件在包含该控件的父控件中的位置。同样，当我们在Button按钮控件中
+设置android:layout_gravity="left"属性时，表示该Button按钮将位于界面的左部。
+
+AS  报错问题 android:showAsAction="always"
+  添加 xmlns:app="http://schemas.android.com/apk/res-auto" 命令空间，android改为app
+
