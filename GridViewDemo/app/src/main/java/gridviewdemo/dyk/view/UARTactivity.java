@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import gridviewdemo.dyk.gridviewdemo.R;
+import gridviewdemo.dyk.manager.Scanner;
 
 /**
  * Created by Administrator on 2017/3/24.
@@ -21,6 +22,7 @@ import gridviewdemo.dyk.gridviewdemo.R;
 
 public class UARTactivity extends AppCompatActivity {
     TextView tv;
+    private Scanner scanner;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +35,6 @@ public class UARTactivity extends AppCompatActivity {
     }
     private void init(){
         initSecurityDialog();
-
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -53,6 +54,8 @@ public class UARTactivity extends AppCompatActivity {
 //                break;
             case R.id.action_scan:
                 Toast.makeText(this, "扫描", Toast.LENGTH_LONG).show();
+                scanner =new Scanner(this);
+
                 break;
 //            case R.id.action_cheers:
 //                Toast.makeText(this, "水杯相关命令", Toast.LENGTH_LONG).show();
@@ -101,7 +104,7 @@ public class UARTactivity extends AppCompatActivity {
                 switch(which){
                     case 0:
                         //手机请求删除绑定
-                        write(dAddress, 16, 0x22, bluAddr);
+//                        write(dAddress, 16, 0x22, bluAddr);
                         break;
                     case 1:
                         //超级绑定
@@ -109,16 +112,16 @@ public class UARTactivity extends AppCompatActivity {
                                 (byte) 0x89, (byte) 0xAB, (byte) 0xCD, (byte) 0xEF,
                                 (byte) 0xFE, (byte) 0xDC, (byte) 0xBA, (byte) 0x98,
                                 0x76, 0x54, 0x32, 0x10 };
-                        write(dAddress, SUPER_BOUND_DATA.length, 0x24,
-                                SUPER_BOUND_DATA);
+//                        write(dAddress, SUPER_BOUND_DATA.length, 0x24,
+//                                SUPER_BOUND_DATA);
                         break;
                     case 2:
                         //用户登录请求
-                        write(dAddress, 16, 0x23, bluAddr);
+//                        write(dAddress, 16, 0x23, bluAddr);
                         break;
                     case 3:
                         //手机请求绑定
-                        write(dAddress, 16, 0x21, bluAddr);
+//                        write(dAddress, 16, 0x21, bluAddr);
                         break;
                 }
             }
