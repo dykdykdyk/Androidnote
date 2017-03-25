@@ -16,10 +16,11 @@ public final class R {
     public static final class id {
         public static final int bound=0x7f060001;
         public static final int call=0x7f060003;
-        public static final int devicet_tv=0x7f060006;
-        public static final int listview=0x7f060005;
+        public static final int devicet_tv=0x7f060007;
+        public static final int listview=0x7f060006;
         public static final int login=0x7f060004;
         public static final int scan=0x7f060000;
+        public static final int superbound=0x7f060005;
         public static final int unbound=0x7f060002;
     }
     public static final class layout {

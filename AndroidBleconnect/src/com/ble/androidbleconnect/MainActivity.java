@@ -6,8 +6,6 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.UUID;
-
-
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -35,7 +33,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener{
-	public Button scan,bound,unbound,call,login;
+	public Button scan,bound,unbound,call,login,superbpund;
 	public Timer timer2;
 	public ListView listview;
 	/** 开启notify的SERVICE的UUID */
@@ -47,6 +45,8 @@ public class MainActivity extends Activity implements OnClickListener{
 	private ArrayList<BluetoothDevice> dlist;
 	BluetoothDevice device;
 	BluetoothAdapter mBluetoothAdapter;
+	BluetoothGattService service;
+	BluetoothGattCharacteristic characteristic;
 	BluetoothGatt m_gatt;
 	MyAdate mydater;
 	private static final int REQUEST_ENABLE_BLUETOOTH = 1;
@@ -78,11 +78,13 @@ public class MainActivity extends Activity implements OnClickListener{
 			unbound =(Button) findViewById(R.id.unbound);
 			call =(Button) findViewById(R.id.call);
 			login =(Button) findViewById(R.id.login);
+			superbpund=(Button)findViewById(R.id.superbound);
 			scan.setOnClickListener(this);
 			bound.setOnClickListener(this);
 			unbound.setOnClickListener(this);
 			call.setOnClickListener(this);
 			login.setOnClickListener(this);
+			superbpund.setOnClickListener(this);
 			 mydater = new MyAdate(MainActivity.this, dlist);
 			listview.setAdapter(mydater);
 			listview.setOnItemClickListener(new OnItemClickListener() {
@@ -241,6 +243,14 @@ public class MainActivity extends Activity implements OnClickListener{
 		case  R.id.login:
 			write( 16, 0x23, bluAddr);
 			break;
+		case  R.id.superbound:
+			Log.i("", "超级绑定 ");
+			byte[] SUPER_BOUND_DATA = { 0x01, 0x23, 0x45, 0X67,
+					(byte) 0x89, (byte) 0xAB, (byte) 0xCD, (byte) 0xEF,
+					(byte) 0xFE, (byte) 0xDC, (byte) 0xBA, (byte) 0x98,
+					0x76, 0x54, 0x32, 0x10 };
+			write( SUPER_BOUND_DATA.length, 0x24, SUPER_BOUND_DATA);
+			break;
 		  default:
 		   break;	
 	    	//扫描指定的UUID，后面参数是实现扫描的对象
@@ -286,8 +296,8 @@ public class MainActivity extends Activity implements OnClickListener{
 	public void queueWrite(UUID serviceUUID, UUID characteristicUUID,
 			   byte[] data, int writeType) {
 		
-		BluetoothGattService service = m_gatt.getService(serviceUUID);
-		BluetoothGattCharacteristic characteristic =service.getCharacteristic(characteristicUUID);
+		service = m_gatt.getService(serviceUUID);
+		characteristic =service.getCharacteristic(characteristicUUID);
 		characteristic.setValue(data[0],BluetoothGattCharacteristic.FORMAT_UINT8, 0);
         characteristic.setValue(data);
         m_gatt.writeCharacteristic(characteristic);
