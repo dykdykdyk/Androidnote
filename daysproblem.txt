@@ -17,3 +17,5 @@ android:layout_gravity：
 AS  报错问题 android:showAsAction="always"
   添加 xmlns:app="http://schemas.android.com/apk/res-auto" 命令空间，android改为app
 
+AS   导包快捷键   Alt+Enter 
+
