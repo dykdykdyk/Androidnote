@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:text="解绑" />
        
-       
+
 
        <Button
            android:id="@+id/call"
@@ -37,6 +37,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="登录" />
+      <Button 
+        android:id="@+id/superbound"
+        android:layout_below="@id/bound"
+        android:layout_toRightOf="@id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="超级绑定"/>
     <ListView 
         android:id="@+id/listview"
         android:layout_below="@id/login"
