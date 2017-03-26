@@ -2,10 +2,13 @@ package gridviewdemo.dyk.manager;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
+
+import gridviewdemo.dyk.interfaces.InterfaceScanner;
 
 /**
  * Created by Administrator on 2017/3/25.
@@ -16,6 +19,7 @@ public class Scanner {
     private static final int REQUEST_ENABLE_BLUETOOTH = 1;
     private Activity mActivity;
     private Handler scanHandler;
+    private InterfaceScanner IScanner;//扫描接口
     public static final String[] RESPONE_STATE = { "成功", "版本号不正确，此协议只接受1", "长度信息和命令要求不匹配", "类型信息和命令要求不匹配", "命令不存在",
             "序列号不正常", "设备已经被绑定", "绑定信息和设备内部不匹配，无法删除绑定", "登录信息和设备内部不匹配，无法登录", "还没有登录，先登录先",
             "指令不支持，很多指令是设备发出去的，并不能接收，参考具体指令介绍" ,"指针移动失败，一般命令格式不对或者是指针已经移动到最末尾位置",
@@ -44,4 +48,12 @@ public class Scanner {
         }
         return bluetoothAdapter.isEnabled();
     }
+
+    private BluetoothAdapter.LeScanCallback mLeScanCallback =new BluetoothAdapter.LeScanCallback(){
+
+        @Override
+        public void onLeScan(BluetoothDevice bluetoothDevice, int rssi, byte[] scanRecord) {
+            mLeScanCallback.
+        }
+    };
 }
