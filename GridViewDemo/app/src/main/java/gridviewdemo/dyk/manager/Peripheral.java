@@ -1,5 +1,6 @@
 package gridviewdemo.dyk.manager;
 
+import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothGatt;
 import android.bluetooth.BluetoothGattCallback;
 import android.bluetooth.BluetoothGattCharacteristic;
@@ -21,7 +22,16 @@ public class Peripheral extends BluetoothGattCallback{
     /** 开启notify的CHARACTERISTIC的UUID */
     private static final UUID NOTIFY_CHARACTERISTIC_UUID = UUIDHelper
             .uuidFromString("2a06");
-    BluetoothGatt m_gatt;
+    public BluetoothGatt m_gatt;
+    public BluetoothDevice mDevice;
+    /**
+     * 连接步骤 1、 连接成功回调则去发现服务 2、 发现服务回调成功则开启notify 3、 开启notify回调成功则发送绑定指令 4、
+     * 处理设备的绑定应答，判断是否绑定成功 5、 绑定成功则发送设备登录
+     *
+     */
+    public Peripheral(BluetoothDevice device){
+        this.mDevice = device;
+    }
     @Override
     public void onCharacteristicChanged(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic) {
         super.onCharacteristicChanged(gatt, characteristic);

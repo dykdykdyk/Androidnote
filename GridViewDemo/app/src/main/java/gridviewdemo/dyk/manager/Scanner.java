@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
+import android.bluetooth.le.BluetoothLeScanner;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
@@ -16,9 +17,11 @@ import gridviewdemo.dyk.interfaces.InterfaceScanner;
 
 public class Scanner {
     private BluetoothAdapter bluetoothAdapter;
+    private BluetoothLeScanner leScanner;//Android 5.0新的扫描方法
     private static final int REQUEST_ENABLE_BLUETOOTH = 1;
     private Activity mActivity;
     private Handler scanHandler;
+    int result =1;
     private InterfaceScanner IScanner;//扫描接口
     public static final String[] RESPONE_STATE = { "成功", "版本号不正确，此协议只接受1", "长度信息和命令要求不匹配", "类型信息和命令要求不匹配", "命令不存在",
             "序列号不正常", "设备已经被绑定", "绑定信息和设备内部不匹配，无法删除绑定", "登录信息和设备内部不匹配，无法登录", "还没有登录，先登录先",
@@ -31,8 +34,48 @@ public class Scanner {
           }
         init();
     }
+    private Handler scanHander;
     private void init(){
+         scanHander =new Handler();
+    }
 
+    /**
+     *
+     * @param scanSeconds 用户自己设置扫描的时间
+     */
+    public void startScan(int scanSeconds){
+        if(enableBlue()){
+            if(bluetoothAdapter  !=null){
+                bluetoothAdapter.startLeScan(mLeScanCallback);
+                scanHander.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        stopScan();
+                    }
+                },scanSeconds * 1000);
+            }
+        }
+    }
+
+    /**
+     * 停止扫描
+     */
+    public void stopScan(){
+         if(bluetoothAdapter !=null){
+             result =1;
+            bluetoothAdapter.stopLeScan(mLeScanCallback);
+             IScanner.onScanResult(0,0,null);
+         }
+    }
+
+    /**
+     * 设置扫描接口
+     * @param interfaceScanner
+     */
+    public void setScanner(InterfaceScanner interfaceScanner){
+        if(interfaceScanner !=null){
+            this.IScanner =interfaceScanner;
+        }
     }
 
     /**
@@ -53,7 +96,8 @@ public class Scanner {
 
         @Override
         public void onLeScan(BluetoothDevice bluetoothDevice, int rssi, byte[] scanRecord) {
-            mLeScanCallback.
+            IScanner.onScanResult(0,rssi,scanRecord);
+
         }
     };
 }

@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import gridviewdemo.dyk.gridviewdemo.R;
+import gridviewdemo.dyk.interfaces.InterfaceScanner;
 import gridviewdemo.dyk.manager.Scanner;
 
 /**
@@ -55,7 +56,12 @@ public class UARTactivity extends AppCompatActivity {
             case R.id.action_scan:
                 Toast.makeText(this, "扫描", Toast.LENGTH_LONG).show();
                 scanner =new Scanner(this);
+                scanner.setScanner(new InterfaceScanner() {
+                    @Override
+                    public void onScanResult(int result, int rssi, byte[] scanReco) {
 
+                    }
+                });
                 break;
 //            case R.id.action_cheers:
 //                Toast.makeText(this, "水杯相关命令", Toast.LENGTH_LONG).show();
