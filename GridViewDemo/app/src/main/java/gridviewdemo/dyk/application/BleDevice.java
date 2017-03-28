@@ -32,6 +32,21 @@ public class BleDevice implements CallbackContext{
 
 
     }
+
+    /**
+     * 获取设备address地址
+     */
+    public String getAddress() {
+        return mDevice.getAddress();
+    }
+    /**
+     * 获取设备名字
+     *
+     * @return
+     */
+    public String getName() {
+        return mDevice.getName();
+    }
     /**
      *
      * @param address mac地址

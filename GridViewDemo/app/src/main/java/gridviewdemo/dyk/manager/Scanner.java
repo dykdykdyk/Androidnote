@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 
+import gridviewdemo.dyk.application.BleDevice;
 import gridviewdemo.dyk.interfaces.InterfaceScanner;
 
 /**
@@ -64,7 +65,7 @@ public class Scanner {
          if(bluetoothAdapter !=null){
              result =1;
             bluetoothAdapter.stopLeScan(mLeScanCallback);
-             IScanner.onScanResult(0,0,null);
+             IScanner.onScanResult(result,null,0,null);
          }
     }
 
@@ -96,8 +97,9 @@ public class Scanner {
 
         @Override
         public void onLeScan(BluetoothDevice bluetoothDevice, int rssi, byte[] scanRecord) {
-            IScanner.onScanResult(0,rssi,scanRecord);
-
+            result = 0;
+            BleDevice bleDevice =new BleDevice(bluetoothDevice.getAddress(),mActivity);
+            IScanner.onScanResult(result,bleDevice,rssi,scanRecord);
         }
     };
 }
