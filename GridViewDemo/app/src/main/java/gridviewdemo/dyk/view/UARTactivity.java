@@ -9,9 +9,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import gridviewdemo.dyk.adapter.ListViewAdapter;
+import gridviewdemo.dyk.application.BleDevice;
 import gridviewdemo.dyk.gridviewdemo.R;
 import gridviewdemo.dyk.interfaces.InterfaceScanner;
 import gridviewdemo.dyk.manager.Scanner;
@@ -23,7 +32,15 @@ import gridviewdemo.dyk.manager.Scanner;
 
 public class UARTactivity extends AppCompatActivity {
     TextView tv;
+    ListView listview;
     private Scanner scanner;
+  //  Map<String, BleDevice> mBLEList = new LinkedHashMap<String, BleDevice>();
+    //添加数据 mBLEDevices.put(device.getAddress(), device);mBLEDevices.get(dAddress);
+    private ArrayList<BleDevice> mBLEList;//存放扫描到的设备信息的集合
+    Map<String, Integer> rssiMap =new LinkedHashMap<String, Integer>();
+    private MenuItem itemScan;
+    private boolean scaning = false; // 是否正在扫描
+    ListViewAdapter mydater;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,9 +50,70 @@ public class UARTactivity extends AppCompatActivity {
         toolbar.setTitle("UART");
         setSupportActionBar(toolbar);
         init();
+        initview();
+    }
+    private void initview(){
+        mBLEList = new ArrayList<>();
+        listview=(ListView)findViewById(R.id.listview);
+        mydater = new ListViewAdapter(UARTactivity.this, mBLEList,rssiMap);
+        listview.setAdapter(mydater);
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+            }
+        });
     }
     private void init(){
         initSecurityDialog();
+        //初始化扫描的监听
+        scanner =new Scanner(this);
+        scanner.setScanner(new InterfaceScanner() {
+            @Override
+            public void onScanResult(final int result, final BleDevice bleDevice,final int rssi, final byte[] scanRecod) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if( result == 0 ){
+                            System.out.println("找到了device:"
+                                    + bleDevice.getName() + " Rssi : "
+                                    + rssi + "" + "Address : "
+                                    + bleDevice.getAddress());
+                          if(!mBLEList.contains(bleDevice)){
+                              mBLEList.add(bleDevice);
+                          } if(!rssiMap.containsKey(rssi)){
+                                rssiMap.put(bleDevice.getAddress(),rssi);
+                            }
+                            mydater.notifyDataSetChanged();
+                        } else{
+                            // 扫描结束
+                            scaning = false;
+                            itemScan.setTitle("scan");
+                        }
+                    }
+                });
+            }
+        });
+
+    }
+
+
+    private void scanLeDevice(){
+         itemScan.setTitle("Stop Scan");
+        if(mBLEList !=null){
+            mBLEList.clear();
+        }
+        if(scaning)
+            stopScan();
+        scanner.startScan(7); //扫描7秒
+    }
+
+    /**
+     * 停止扫描
+     */
+    private void stopScan(){
+        scaning =false;
+        scanner.stopScan();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -43,6 +121,7 @@ public class UARTactivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -54,14 +133,9 @@ public class UARTactivity extends AppCompatActivity {
 //                Toast.makeText(this, "设置相关命令", Toast.LENGTH_LONG).show();
 //                break;
             case R.id.action_scan:
+                itemScan= item;
                 Toast.makeText(this, "扫描", Toast.LENGTH_LONG).show();
-                scanner =new Scanner(this);
-                scanner.setScanner(new InterfaceScanner() {
-                    @Override
-                    public void onScanResult(int result, int rssi, byte[] scanReco) {
-
-                    }
-                });
+                scanLeDevice();
                 break;
 //            case R.id.action_cheers:
 //                Toast.makeText(this, "水杯相关命令", Toast.LENGTH_LONG).show();

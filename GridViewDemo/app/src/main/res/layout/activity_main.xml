@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="gridviewdemo.dyk.gridviewdemo.MainActivity"
+    tools:context="gridviewdemo.dyk.view.MainActivity"
     android:background="@color/backColorDark">
     <include
         android:id="@+id/toolbar_actionbar"

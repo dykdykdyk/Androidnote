@@ -14,10 +14,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
-<<<<<<< HEAD
-	
-=======
->>>>>>> 6fdc13b58191d282e183506a07f9f18322f5af8a
     Button button;
     ListView li;	
     ProgressBar pbar;
@@ -45,7 +41,6 @@ public class MainActivity extends Activity {
 					
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-<<<<<<< HEAD
 						try {
 							Field field = dialog.getClass().getSuperclass()
 									.getDeclaredField("mShowing");
@@ -55,9 +50,7 @@ public class MainActivity extends Activity {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-=======
 						// TODO Auto-generated method stub
->>>>>>> 6fdc13b58191d282e183506a07f9f18322f5af8a
 						
 					}
 				});
@@ -65,29 +58,17 @@ public class MainActivity extends Activity {
 					
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-<<<<<<< HEAD
-						try {
-							Field field = dialog.getClass().getSuperclass()
-									.getDeclaredField("mShowing");
-							field.setAccessible(true);
-							field.set(dialog, true);// true表示要关闭
-=======
 						Field field;
 						try {
 							field = dialog.getClass().getSuperclass()
 									.getDeclaredField("mShowing");
 							field.setAccessible(true);
 							field.set(dialog, false);// true表示要关闭
->>>>>>> 6fdc13b58191d282e183506a07f9f18322f5af8a
+
 						} catch (Exception e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-<<<<<<< HEAD
-=======
-
-						
->>>>>>> 6fdc13b58191d282e183506a07f9f18322f5af8a
 					}
 				});
 				scanbuilder.create();

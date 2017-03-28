@@ -11,7 +11,7 @@ import gridviewdemo.dyk.application.BleDevice;
     /**
      * @param result  扫描的信息
      * @param rssi 设备信号
-     * @param scanReco The content of the advertisement record offered by the remote device
+     * @param scanRecod The content of the advertisement record offered by the remote device
      */
-     void  onScanResult(int result, BleDevice mbledevice, int rssi, byte[] scanReco);
+     void  onScanResult(int result, BleDevice mbledevice, int rssi, byte[] scanRecod);
 }
