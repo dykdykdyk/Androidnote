@@ -1,5 +1,6 @@
 package gridviewdemo.dyk.view;
 
+import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
@@ -7,9 +8,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,14 +22,19 @@ import android.widget.Toast;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import gridviewdemo.dyk.adapter.ListViewAdapter;
 import gridviewdemo.dyk.application.BleDevice;
 import gridviewdemo.dyk.gridviewdemo.R;
+import gridviewdemo.dyk.interfaces.DeviceMessageListener;
 import gridviewdemo.dyk.interfaces.InterfaceScanner;
 import gridviewdemo.dyk.manager.Scanner;
+
+import static gridviewdemo.dyk.utils.Utils.strToByteArray;
 
 /**
  * Created by Administrator on 2017/3/24.
@@ -39,6 +45,7 @@ public class UARTactivity extends AppCompatActivity {
     private BluetoothManager myBluetoothManager;
     private BluetoothAdapter myBluetoothAdapter;
     TextView tv;
+    private String dAddress; // 操作当前的设备mac地址
     ListView listview,lv;
     ProgressBar pbar;
     private Scanner scanner;
@@ -210,8 +217,9 @@ public class UARTactivity extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                BleDevice device = mBLEList.get(position);
-                addDevice(device);
+                dBleDevice = mBLEList.get(position);
+                dAddress =dBleDevice.getAddress();
+                addDevice(dBleDevice);
                 scanDialog.dismiss();
                 scanDialog.cancel();
             }
@@ -231,8 +239,18 @@ public class UARTactivity extends AppCompatActivity {
         if(scaning)
             stopScan();//先判断是否正在扫描
         mBleDev.connect();
-    }
+        mBleDev.setDeviceMessageListener(new DeviceMessageListener() {
+            @Override
+            public void onSendResult(String address, int cmd, byte[] data) {
+                Log.i("收到数据:", "10:02:"+Arrays.toString(data));
+            }
 
+            @Override
+            public void onSendHistory(String address, int cmd, List<byte[]> historyData) {
+
+            }
+        });
+    }
     private void scanLeDevice(){
          itemScan.setTitle("Stop Scan");
         if(mBLEList !=null){
@@ -262,6 +280,8 @@ public class UARTactivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+        final byte[] bluAddr = BluetoothAdapter.getDefaultAdapter()
+                .getAddress().replace(":", "").getBytes();
         int id = item.getItemId();
         switch(id) {
 //            case R.id.action_settings:
@@ -313,7 +333,7 @@ public class UARTactivity extends AppCompatActivity {
         AlertDialog.Builder builder =new AlertDialog.Builder(this);
         builder.setTitle("安全相关命令");
         final String[] commants = { "手机请求删除绑定","超级绑定","用户登录请求",
-                "手机请求绑定"};
+                "手机请求绑定","手机请求报警"};
         builder.setItems(commants, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -328,8 +348,9 @@ public class UARTactivity extends AppCompatActivity {
                                 (byte) 0x89, (byte) 0xAB, (byte) 0xCD, (byte) 0xEF,
                                 (byte) 0xFE, (byte) 0xDC, (byte) 0xBA, (byte) 0x98,
                                 0x76, 0x54, 0x32, 0x10 };
-//                        write(dAddress, SUPER_BOUND_DATA.length, 0x24,
-//                                SUPER_BOUND_DATA);
+                        Log.i("超级绑定","超级绑定");
+                        write(dAddress, SUPER_BOUND_DATA.length, 0x24,
+                                SUPER_BOUND_DATA);
                         break;
                     case 2:
                         //用户登录请求
@@ -339,9 +360,18 @@ public class UARTactivity extends AppCompatActivity {
                         //手机请求绑定
 //                        write(dAddress, 16, 0x21, bluAddr);
                         break;
+                    case 4:
+                        Log.i("请求报警","请求报警");
+                        String str = "+12345678910";
+                        byte[] st =strToByteArray(str);
+                        write(dAddress,st.length, 0x14, st);
                 }
             }
         });
         securityDialog =builder.create();
+    }
+    private void write(String address, int length, int cmd, byte[] data) {
+//        BleDevice bleDevice = mBLEDevice.get(address);
+        dBleDevice.write(length, cmd, data);
     }
 }

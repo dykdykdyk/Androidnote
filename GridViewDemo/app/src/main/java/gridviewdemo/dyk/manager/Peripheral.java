@@ -28,6 +28,8 @@ public class Peripheral extends BluetoothGattCallback{
     private boolean connected = false; // 连接断开/成功
     public BluetoothGatt mGatt;
     public BluetoothDevice mDevice;
+    BluetoothGattService service;
+    BluetoothGattCharacteristic characteristic;
     private Activity mActivity;
     private CallbackContext callbackContext;
     /**
@@ -50,7 +52,41 @@ public class Peripheral extends BluetoothGattCallback{
         mGatt =device.connectGatt(mActivity,false,this);
 
     }
+    public void write(int length, int cmd, byte[] data) {
+        int v = 1;
+        int t = 0;
+        final byte[] value = new byte[20];
+        value[0] = (byte) ((v << 5) | ((length - 1) << 1) | t);
+        value[1] = (byte) (cmd & 0xFF);
+        value[2] = (byte) (0);
+        value[3] = (byte) (0);
+        System.arraycopy(data, 0, value, 4, data.length);
+//        L.i(TAG,"发送的数据包 :"+ Arrays.toString(Utils.byteTo16String(value)));
+//        if (isConnected()) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        Thread.sleep(25);
+                        queueWrite(NOTIFY_SERVICE_UUID,
+                                NOTIFY_CHARACTERISTIC_UUID, value,
+                                BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+//        }
+    }
+    public void queueWrite(UUID serviceUUID, UUID characteristicUUID,
+                           byte[] data, int writeType) {
 
+        service = mGatt.getService(serviceUUID);
+        characteristic =service.getCharacteristic(characteristicUUID);
+        characteristic.setValue(data[0],BluetoothGattCharacteristic.FORMAT_UINT8, 0);
+        characteristic.setValue(data);
+        mGatt.writeCharacteristic(characteristic);
+    }
     public String getAddress() {
         return this.mDevice.getAddress();
     }
