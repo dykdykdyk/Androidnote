@@ -5,8 +5,8 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "gridviewdemo.dyk.gridviewdemo"
-        minSdkVersion 19
-        targetSdkVersion 25
+        minSdkVersion 18
+        targetSdkVersion 19
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"

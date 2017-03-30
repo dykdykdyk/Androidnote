@@ -67,7 +67,7 @@ public class ListViewAdapter extends BaseAdapter{
          }
         // 直接操作holder中的成员变量即可，不需要每次都findViewById
         holder.tvHolder.setText(Utils.Stringname(device_list.get(position).getName())+"@"+
-                device_list.get(position).getAddress()+" rssi:"+rssiMap.get(device_list.get(position).getAddress()));
+                device_list.get(position).getAddress()+" 信号:"+rssiMap.get(device_list.get(position).getAddress()));
 //        holder.tvHolder.setText(device_list.get(position)+"@"
 //                );
 //        TextView  devicet_tv =(TextView)view.findViewById(R.id.devicet_tv);

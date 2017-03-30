@@ -29,9 +29,13 @@ public class BleDevice implements CallbackContext{
         this.mDevice =bluetoothAdapter.getRemoteDevice(address);
         this.mActivity =activity;
         this.peripheral =new Peripheral(mDevice);
-
-
+        //设置回调数据监听接口
+        peripheral.setOnCallbackListent(this);
     }
+    public void connect(){
+        peripheral.connect(mActivity);
+    }
+
 
     /**
      * 获取设备address地址
