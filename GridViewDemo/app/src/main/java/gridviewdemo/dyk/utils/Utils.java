@@ -25,4 +25,11 @@ public class Utils {
         }
         return nameTest;
     }
+    /** 字符串转换为byte数组 */
+    public static byte[] strToByteArray(String str) {
+        byte[] byBuffer = new byte[16];
+        byBuffer = str.getBytes();
+        return byBuffer;
+
+    }
 }

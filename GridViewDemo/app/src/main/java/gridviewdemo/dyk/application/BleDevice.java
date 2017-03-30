@@ -9,6 +9,7 @@ import android.content.Context;
 import java.util.List;
 
 import gridviewdemo.dyk.interfaces.CallbackContext;
+import gridviewdemo.dyk.interfaces.DeviceMessageListener;
 import gridviewdemo.dyk.manager.Peripheral;
 
 /**
@@ -20,6 +21,7 @@ public class BleDevice implements CallbackContext{
     private BluetoothDevice mDevice;
     private Activity mActivity;
     private Peripheral peripheral;
+    private DeviceMessageListener mDeviceMessageListener;
     public BleDevice(String address,Activity activity){
         if(bluetoothAdapter == null){
             BluetoothManager bluetoothManager = (BluetoothManager)activity.
@@ -29,9 +31,13 @@ public class BleDevice implements CallbackContext{
         this.mDevice =bluetoothAdapter.getRemoteDevice(address);
         this.mActivity =activity;
         this.peripheral =new Peripheral(mDevice);
-
-
+        //设置回调数据监听接口
+        peripheral.setOnCallbackListent(this);
     }
+    public void connect(){
+        peripheral.connect(mActivity);
+    }
+
 
     /**
      * 获取设备address地址
@@ -46,6 +52,11 @@ public class BleDevice implements CallbackContext{
      */
     public String getName() {
         return mDevice.getName();
+    }
+
+    public void setDeviceMessageListener(DeviceMessageListener listener) {
+        if (listener != null)
+            mDeviceMessageListener = listener;
     }
     /**
      *
@@ -69,8 +80,10 @@ public class BleDevice implements CallbackContext{
 
     @Override
     public void onNotify(String address, int cmd, byte[] value) {
-
+        if (mDeviceMessageListener != null)
+            mDeviceMessageListener.onSendResult(address, cmd, value);
     }
+
 
     @Override
     public void sendHistory(String address, int cmd, List<byte[]> historyData) {
@@ -85,5 +98,8 @@ public class BleDevice implements CallbackContext{
     @Override
     public void onSendImageAndFontsResult(int cmd, int progress, int group) {
 
+    }
+    public void write(int length, int cmd, byte[] data) {
+        peripheral.write(length, cmd, data);
     }
 }

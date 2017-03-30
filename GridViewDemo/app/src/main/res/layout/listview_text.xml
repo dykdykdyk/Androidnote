@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/devicet_tv"    
-    android:textSize="60px"
-    android:textColor="@color/actionBarColorDark"
+    android:textSize="55px"
+    android:textColor="@color/backColorDark"
     android:padding="15px"
     >
 </TextView>
