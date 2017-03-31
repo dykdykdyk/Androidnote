@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="gridviewdemo.dyk.view.MainActivity"
+    android:background="@color/backColorDark">
+    <include
+        android:id="@+id/toolbar_actionbar"
+        layout="@layout/toolbar"/>
+    <GridView
+        android:id="@+id/gridview"
+        android:layout_below="@id/toolbar_actionbar"
+        android:paddingTop="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:columnWidth="90dp"
+        android:gravity="center"
+        android:horizontalSpacing="10dp"
+        android:numColumns="auto_fit"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="10dp"
+        />
+</android.support.design.widget.CoordinatorLayout>
