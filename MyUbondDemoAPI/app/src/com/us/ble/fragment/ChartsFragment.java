@@ -407,4 +407,5 @@ public class ChartsFragment extends Fragment {
 		return rootView;
 
 	}
+
 }
