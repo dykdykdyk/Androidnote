@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    >
+
+
+
+    <RelativeLayout
+        android:id="@+id/title1"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true">
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:background="@color/backColorDark"
+            android:text="Back"
+            android:textColor="#4169E1"
+            android:layout_alignParentTop="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="扫描基站"
+            android:padding="10dp"
+            android:textSize="20dp"
+            android:textColor="#9E9E9E"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textView"
+            android:layout_alignParentTop="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:background="@color/actionBarColorDark"
+            android:layout_height="wrap_content"
+            android:text="扫描"
+            android:textSize="18dp"
+            android:layout_gravity="right"
+            android:id="@+id/button"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+            <ListView
+                android:id="@+id/list"
+                android:layout_below="@id/title1"
+            android:layout_height="450dp"
+            android:layout_width="match_parent"/>
+    <Button
+        android:layout_below="@id/list"
+        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:background="@color/backColorDark"
+        android:text="next"
+        android:textColor="#4169E1"
+        android:layout_alignParentEnd="true"
+        android:paddingTop="@dimen/activity_horizontal_margin"
+        />
+</RelativeLayout>
