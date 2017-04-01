@@ -1,5 +1,8 @@
 package gridviewdemo.dyk.view;
 
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothManager;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import gridviewdemo.dyk.gridviewdemo.R;
 
@@ -20,20 +24,25 @@ import gridviewdemo.dyk.gridviewdemo.R;
  * 设置向导界面
  */
 
-public class Wizardactivity extends AppCompatActivity implements View.OnClickListener{
-    Button backbutton,nextbutton;
+public class Wizardactivity extends AppCompatActivity implements View.OnClickListener,FragOne.titleSelectInterface {
+    Button backbutton;
     FragmentManager manager;
+    private BluetoothAdapter bluetoothAdapter;
     FragOne fragment1;
     FragTwo fragment2;
-    private int fragmentstatus;
+    FragThree fragment3;
+    FragFour fragment4;
+    FragFive fragment5;
+    FragSix fragment6;
+    FragSeven fragment7;
+    int status;
+    private static final int REQUEST_ENABLE_BLUETOOTH = 1;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.wizard);
         backbutton =(Button)findViewById(R.id.backbutton);
-//        nextbutton =(Button)findViewById(R.id.nextbutton);
         backbutton.setOnClickListener(this);
-//        nextbutton.setOnClickListener(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_wizard);
         setSupportActionBar(toolbar);
         /**动态添加Fragment主要分为4步
@@ -46,25 +55,55 @@ public class Wizardactivity extends AppCompatActivity implements View.OnClickLis
         FragmentTransaction    transaction = manager.beginTransaction();
          fragment1 = new FragOne();
         fragment2 = new FragTwo();
+        fragment3 = new FragThree();
+        fragment4 = new FragFour();
+        fragment5 = new FragFive();
+        fragment6 = new FragSix();
+        fragment7 = new FragSeven();
         transaction.add(R.id.fragment_container, fragment1,"11");
         transaction.commit();
-        fragmentstatus =1;
-
-        Log.i("TAG","233333333333333: "+manager.findFragmentByTag("11"));
-
+        enableBlue();
+    }
+    /**
+     * 判断蓝牙是否开启，否则开启蓝牙
+     */
+    public boolean enableBlue() {
+        BluetoothManager manager = (BluetoothManager)
+                getSystemService(Context.BLUETOOTH_SERVICE);
+        bluetoothAdapter = manager.getAdapter();
+        if (!bluetoothAdapter.isEnabled()) {
+            Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(intent, REQUEST_ENABLE_BLUETOOTH);
+        }
+        return bluetoothAdapter.isEnabled();
+    }
+    /***
+     * 接收选择的结果
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // TODO Auto-generated method stub
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case REQUEST_ENABLE_BLUETOOTH:
+                if (resultCode == RESULT_OK) {
+                    // 刚打开蓝牙实际还不能立马就能用
+                } else {
+                    Toast.makeText(this, "请打开蓝牙", 1000).show();
+                }
+                break;
+            default:
+                break;
+        }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.wizard_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_scan) {
             return true;
@@ -82,44 +121,82 @@ public class Wizardactivity extends AppCompatActivity implements View.OnClickLis
         switch (v.getId()){
             case R.id.backbutton :
                 Log.i("TAG","backbutton");
-                if(fragmentstatus ==1){
                     startActivity(new Intent(this,MainActivity.class));
-                }else if(fragmentstatus ==2){
-                    FragmentTransaction    transaction = manager.beginTransaction();
-                    transaction.replace(R.id.fragment_container, fragment1,"11");
-                         transaction.commit();
-                    fragmentstatus=1;
-                    break;
-            }else if(fragmentstatus ==3){
-                    FragmentTransaction    transaction = manager.beginTransaction();
-                    transaction.replace(R.id.fragment_container, fragment2,"11");
-                    transaction.commit();
-                    fragmentstatus=2;
-                    break;
-                }
-                break;
-            case R.id.nextbutton :
-                if(fragmentstatus ==1){
-                    FragmentTransaction    transaction = manager.beginTransaction();
-                    transaction.replace(R.id.fragment_container, fragment2,"11");
-                    transaction.commit();
-                    fragmentstatus=2;
-                    break;
-                }else if(fragmentstatus ==2){
-                    FragmentTransaction    transaction = manager.beginTransaction();
-                    transaction.replace(R.id.fragment_container, fragment1,"11");
-                    transaction.commit();
-                    fragmentstatus=1;
-                    break;
-                }else if(fragmentstatus ==3){
-                    FragmentTransaction    transaction = manager.beginTransaction();
-                    transaction.replace(R.id.fragment_container, fragment1,"11");
-                    transaction.commit();
-                    fragmentstatus=2;
-                    break;
-                }
-                Log.i("TAG","nextbutton");
                 break;
         }
+    }
+    @Override
+    public void onTitleSelect(String title) {
+        Log.i("Wizardactivity","12800000000000000:   "+title);
+        if(title.equals("1")){
+            FragmentTransaction    transaction = manager.beginTransaction();
+            transaction.replace(R.id.fragment_container, fragment2,"11");
+            transaction.commit();
+        }else  if(title.equals("2next")){
+            FragmentTransaction    transaction = manager.beginTransaction();
+            transaction.replace(R.id.fragment_container, fragment3,"11");
+            transaction.commit();
+        }else  if(title.equals("2back")){
+            FragmentTransaction    transaction = manager.beginTransaction();
+            transaction.replace(R.id.fragment_container, fragment1,"11");
+            transaction.commit();
+        }else  if(title.equals("3wlan")){
+            //无线模式
+            FragmentTransaction    transaction = manager.beginTransaction();
+            transaction.replace(R.id.fragment_container, fragment5,"11");
+            transaction.commit();
+        }else  if(title.equals("3Wired")){
+            //有线模式
+            FragmentTransaction    transaction = manager.beginTransaction();
+            transaction.replace(R.id.fragment_container, fragment4,"11");
+            transaction.commit();
+        }else  if(title.equals("3back")){
+            FragmentTransaction    transaction = manager.beginTransaction();
+            transaction.replace(R.id.fragment_container, fragment2,"11");
+            transaction.commit();
+        }else  if(title.equals("4back")){
+            //有线模式
+            FragmentTransaction    transaction = manager.beginTransaction();
+            transaction.replace(R.id.fragment_container, fragment3,"11");
+            transaction.commit();
+        }else  if(title.equals("4next")){
+            FragmentTransaction    transaction = manager.beginTransaction();
+            transaction.replace(R.id.fragment_container, fragment6,"11");
+            transaction.commit();
+        }else  if(title.equals("5back")){
+            //无线模式
+            FragmentTransaction    transaction = manager.beginTransaction();
+            transaction.replace(R.id.fragment_container, fragment3,"11");
+            transaction.commit();
+        }else  if(title.equals("5next")){
+            status =1;
+            FragmentTransaction    transaction = manager.beginTransaction();
+            transaction.replace(R.id.fragment_container, fragment7,"11");
+            transaction.commit();
+        }else  if(title.equals("6back")){
+            //有线模式
+            FragmentTransaction    transaction = manager.beginTransaction();
+            transaction.replace(R.id.fragment_container, fragment4,"11");
+            transaction.commit();
+        }else  if(title.equals("6next")){
+            status =2;
+            FragmentTransaction    transaction = manager.beginTransaction();
+            transaction.replace(R.id.fragment_container, fragment7,"11");
+            transaction.commit();
+        }else  if(title.equals("7back")){
+            if(   status == 1){
+                FragmentTransaction    transaction = manager.beginTransaction();
+                transaction.replace(R.id.fragment_container, fragment5,"11");
+                transaction.commit();
+            }else if(status == 2){
+                //有线模式
+                FragmentTransaction    transaction = manager.beginTransaction();
+                transaction.replace(R.id.fragment_container, fragment6,"11");
+                transaction.commit();
+            }
+        }else  if(title.equals("7next")){
+            startActivity(new Intent(this,MainActivity.class));
+        }
+
     }
 }

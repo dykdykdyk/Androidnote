@@ -95,19 +95,6 @@ public class UARTactivity extends AppCompatActivity {
             startActivityForResult(intent, REQUEST_ENABLE_BLUETOOTH);
         }
     }
-
-    //    private void initview(){
-//        mBLEList = new ArrayList<>();
-//        listview=(ListView)findViewById(R.id.listview);
-//        mydater = new ListViewAdapter(UARTactivity.this, mBLEList,rssiMap);
-//        listview.setAdapter(mydater);
-//        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//
-//            }
-//        });
-//    }
     private void init(){
         initSecurityDialog();
         //初始化扫描的监听

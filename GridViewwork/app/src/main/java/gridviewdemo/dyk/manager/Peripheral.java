@@ -152,10 +152,12 @@ public class Peripheral extends BluetoothGattCallback{
         super.onServicesDiscovered(gatt, status);
         if(status == BluetoothGatt.GATT_SUCCESS){
             Log.i("onServicesDiscovered", "发现服务成功！");
+            callbackContext.onDeviceMessage("发现服务成功",null);
             Log.i("Peripheral", "连接成功！");
             getble();
         }else {
             Log.i("onServicesDiscovered", "发现服务错误！");
+            callbackContext.onDeviceMessage("发现服务错误",null);
         }
     }
 

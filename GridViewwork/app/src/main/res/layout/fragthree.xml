@@ -11,6 +11,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true">
         <Button
+            android:id="@+id/backbutton"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:background="@color/backColorDark"
@@ -35,7 +36,7 @@
             android:text=""
             android:textSize="18dp"
             android:layout_gravity="right"
-            android:id="@+id/button"
+            android:id="@+id/nextbutton"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true" />
     </RelativeLayout>
@@ -65,15 +66,15 @@
         android:layout_marginTop="125dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
-    <Button
-        android:layout_below="@id/wlan"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:background="@color/backColorDark"
-        android:text="next"
-        android:padding="10dp"
-        android:textColor="#4169E1"
-        android:layout_alignParentEnd="true"
-        android:paddingTop="@dimen/activity_horizontal_margin"
-        android:id="@+id/button2" />
+    <!--<Button-->
+        <!--android:layout_below="@id/wlan"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:background="@color/backColorDark"-->
+        <!--android:text="next"-->
+        <!--android:padding="10dp"-->
+        <!--android:textColor="#4169E1"-->
+        <!--android:layout_alignParentEnd="true"-->
+        <!--android:paddingTop="@dimen/activity_horizontal_margin"-->
+        <!--android:id="@+id/button2" />-->
 </RelativeLayout>

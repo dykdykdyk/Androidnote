@@ -16,7 +16,7 @@ import java.util.HashMap;
 
 import gridviewdemo.dyk.gridviewdemo.R;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
     TextView tv;
     //定义图标数组
     private int[] imageRes ={
@@ -85,5 +85,6 @@ public class MainActivity extends AppCompatActivity {
              }
          });
      }
+
 
 }
