@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import gridviewdemo.dyk.application.BleDevice;
 import gridviewdemo.dyk.gridviewdemo.R;
 
 /**
@@ -24,7 +25,8 @@ import gridviewdemo.dyk.gridviewdemo.R;
  * 设置向导界面
  */
 
-public class Wizardactivity extends AppCompatActivity implements View.OnClickListener,FragOne.titleSelectInterface {
+public class Wizardactivity extends AppCompatActivity implements View.OnClickListener,FragOne.titleSelectInterface
+        ,FragTwo.BleDeviceTransmit{
     Button backbutton;
     FragmentManager manager;
     private BluetoothAdapter bluetoothAdapter;
@@ -198,5 +200,13 @@ public class Wizardactivity extends AppCompatActivity implements View.OnClickLis
             startActivity(new Intent(this,MainActivity.class));
         }
 
+    }
+
+    @Override
+    public void onTitleSelect(BleDevice title) {
+        fragment3.setText(title);
+        fragment4.setText(title);
+        fragment5.setText(title);
+//        fragment6.setText(title);
     }
 }

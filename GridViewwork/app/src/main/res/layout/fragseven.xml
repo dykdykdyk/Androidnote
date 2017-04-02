@@ -30,9 +30,22 @@
             android:id="@+id/textView"
             android:layout_alignParentTop="true" />
     </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/imageview"
+        android:layout_below="@id/title1"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:weightSum="1">
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="301dp"
+            android:background="@drawable/shape"
+            android:layout_weight="0.70" />
+    </LinearLayout>
     <TextView
         android:id="@+id/tv"
-        android:layout_below="@id/title1"
+        android:layout_below="@id/imageview"
         android:padding="10dp"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"

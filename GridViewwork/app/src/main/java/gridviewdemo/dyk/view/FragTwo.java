@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -51,23 +53,30 @@ public class FragTwo extends Fragment{
     private boolean scaning = false; // 是否正在扫描
     Map<String, Integer> rssiMap =new LinkedHashMap<String, Integer>();
     FragOne.titleSelectInterface  mSelectInterface;
+    private BleDeviceTransmit mBleDeviceTransmit;
     //打印信息的listview 适配
     MyAdapter mydaterlist;
+    MyHandler mHandler ;//异步消息机制
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 //        return super.onCreateView(inflater, container, savedInstanceState);
         View view =inflater.inflate(R.layout.fragtwo,container,false);
         listview= (ListView) view.findViewById(R.id.list);
         next = (Button) view.findViewById(R.id.nextbutton);
+
+        //调试用
+        next.setVisibility(View.VISIBLE);
+
+
         back   = (Button) view.findViewById(R.id.backbutton);
-        scan  = (Button) view.findViewById(R.id.scan);
-        scan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                scanDialog.show();;
-                scanLeDevice();
-            }
-        });
+//        scan  = (Button) view.findViewById(R.id.scan);
+        mHandler = new MyHandler();
+//        scan.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,9 +96,18 @@ public class FragTwo extends Fragment{
         mBLEListlist =new ArrayList<>();
         mydaterlist = new MyAdapter(getActivity(), mBLEListlist);
         listview.setAdapter(mydaterlist);
+
+        scanDialog.show();;
+        scanLeDevice();
         return view;
     }
     private AlertDialog scanDialog;
+
+    //Fragment间传递参数方法三
+    public interface BleDeviceTransmit {
+        public void onTitleSelect(BleDevice title);
+    }
+
     private void initScanDialog(){
         AlertDialog.Builder scanbuilder = new AlertDialog.Builder(getActivity());
         mview =minflater.inflate(R.layout.device_list, null);
@@ -168,6 +186,7 @@ public class FragTwo extends Fragment{
         super.onAttach(activity);
         try {
             mSelectInterface = (FragOne.titleSelectInterface) activity;
+            mBleDeviceTransmit =(BleDeviceTransmit)activity;
         } catch (Exception e) {
             throw new ClassCastException(activity.toString() + "must implement OnArticleSelectedListener");
         }
@@ -177,6 +196,7 @@ public class FragTwo extends Fragment{
      */
     private void addDevice(final BleDevice device){
         final String address =device.getAddress();
+        mBleDeviceTransmit.onTitleSelect(device);
         connect(device); // 不要同时连几个蓝牙设备，要等连接成功后再连接下一个
     }
     /**
@@ -186,12 +206,16 @@ public class FragTwo extends Fragment{
         if(scaning)
             stopScan();//先判断是否正在扫描
         mBleDev.connect();
+
         mBLEListlist.add("开始连接:"+mBleDev.getAddress());
         mBleDev.setDeviceMessageListener(new DeviceMessageListener() {
             @Override
             public void onSendResult(String address, int cmd, byte[] data) {
                 Log.i("收到数据:", "address  "+ address);
                 mBLEListlist.add(address);
+                Message message=new Message();
+                message.what=1;
+                mHandler.sendMessage(message);
             }
             @Override
             public void onSendHistory(String address, int cmd, List<byte[]> historyData) {
@@ -199,6 +223,32 @@ public class FragTwo extends Fragment{
             }
         });
         mydaterlist.notifyDataSetChanged();
+    }
+    class MyHandler extends Handler
+    {
+        @Override
+        public void handleMessage(Message msg) {
+            // TODO Auto-generated method stub
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case 1:
+
+                    mydaterlist.notifyDataSetChanged();
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    if(mBLEListlist.contains("绑定成功")){
+                        next.setVisibility(View.VISIBLE);
+                    }
+                    break;
+//                case 2:
+//                    System.out.println("停止");
+//                    isSend = false;
+//                    break;
+            }
+        }
     }
     /**
      * 停止扫描
@@ -216,11 +266,16 @@ public class FragTwo extends Fragment{
         scanner.startScan(8); //扫描7秒
     }
     private void init() {
-        //初始化扫描的监听
+       //初始化扫描的监听
         scanner = new Scanner(getActivity());
+
+        Log.i("scanner"," "+scanner);
         scanner.setScanner(new InterfaceScanner() {
             @Override
             public void onScanResult(final int result, final BleDevice bleDevice, final int rssi, final byte[] scanRecod) {
+                if(getActivity() ==null){
+                    return;
+                }
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {

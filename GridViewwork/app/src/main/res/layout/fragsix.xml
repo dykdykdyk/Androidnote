@@ -34,10 +34,11 @@
         android:id="@+id/tv"
         android:layout_below="@id/title1"
         android:textColor="#696969"
+        android:textSize="20dp"
         android:padding="10dp"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="请确认网线是否已连接，如已连接，请点击完成！"/>
+        android:text="请确认网线是否已连接，如已连接，请点击next！"/>
     <Button
         android:layout_below="@id/tv"
         android:layout_height="wrap_content"

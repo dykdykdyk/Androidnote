@@ -17,8 +17,8 @@
             android:layout_gravity="center_horizontal"/>
     </LinearLayout>
     <LinearLayout
+        android:layout_below="@id/title1"
         android:id="@+id/imageview"
-        android:paddingTop="100dp"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:gravity="center"

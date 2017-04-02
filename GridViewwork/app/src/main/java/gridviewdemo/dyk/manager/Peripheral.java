@@ -101,8 +101,11 @@ public class Peripheral extends BluetoothGattCallback{
     public void onCharacteristicChanged(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic) {
         super.onCharacteristicChanged(gatt, characteristic);
         Log.i("onCharacteristicChanged", "characteristic  " + characteristic + "," + Arrays.toString(characteristic.getValue()));
-        if (characteristic.getValue() != null)
-            callback(characteristic.getValue());
+        if(characteristic.getValue()[1] ==36   && characteristic.getValue()[4] ==0){
+            callbackContext.onDeviceMessage("绑定成功",null);
+        }
+//        if (characteristic.getValue() != null)
+//            callback(characteristic.getValue());
         // mMessageManager.handlerDeviceMessage(characteristic.getValue());
         // callbackContext.onNotify(getAddress(),characteristic.getValue());
 
@@ -119,6 +122,9 @@ public class Peripheral extends BluetoothGattCallback{
     public void onCharacteristicWrite(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status) {
         super.onCharacteristicWrite(gatt, characteristic, status);
         Log.i("onCharacteristicWrite", "characteristic  " + characteristic + "," + Arrays.toString(characteristic.getValue()));
+//        if(characteristic.getValue()[1] ==36){
+//            callbackContext.onDeviceMessage("发送绑定指令成功",null);
+//        }
     }
 
     //连接状态改变
@@ -134,12 +140,14 @@ public class Peripheral extends BluetoothGattCallback{
             }
         }else if(newState == BluetoothGatt.STATE_DISCONNECTED){
             Log.i("","断开gatt");
+            callbackContext.onDeviceMessage("连接失败！",null);
         }
     }
 
     @Override
     public void onDescriptorWrite(BluetoothGatt gatt, BluetoothGattDescriptor descriptor, int status) {
         super.onDescriptorWrite(gatt, descriptor, status);
+        superBound();
     }
    //获取信号
     @Override
@@ -159,6 +167,13 @@ public class Peripheral extends BluetoothGattCallback{
             Log.i("onServicesDiscovered", "发现服务错误！");
             callbackContext.onDeviceMessage("发现服务错误",null);
         }
+    }
+    private final byte[] SUPER_BOUND_DATA = { 0x01, 0x23, 0x45, 0x67,
+            (byte) 0x89, (byte) 0xAB, (byte) 0xCD, (byte) 0xEF, (byte) 0xFE,
+            (byte) 0xDC, (byte) 0xBA, (byte) 0x98, 0x76, 0x54, 0x32, 0x10 };
+    private void superBound() {
+        callbackContext.onDeviceMessage("发送超级绑定命令",null);
+        write(16, 0x24, SUPER_BOUND_DATA);
     }
 
     /***

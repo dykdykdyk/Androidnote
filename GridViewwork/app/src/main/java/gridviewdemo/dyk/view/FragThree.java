@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import gridviewdemo.dyk.application.BleDevice;
 import gridviewdemo.dyk.gridviewdemo.R;
 
 /**
@@ -19,6 +21,8 @@ public class FragThree extends Fragment{
     @Nullable
     Button back,wlan,Wired;
     private FragOne.titleSelectInterface mSelectInterface;
+//    String address;
+    BleDevice mBleDevice;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 //        return super.onCreateView(inflater, container, savedInstanceState);
@@ -54,5 +58,10 @@ public class FragThree extends Fragment{
         } catch (Exception e) {
             throw new ClassCastException(activity.toString() + "must implement OnArticleSelectedListener");
         }
+    }
+    public void setText(BleDevice text){
+//            address =text;
+        mBleDevice=text;
+        Log.i("TAG","mBleDevice:"+mBleDevice);
     }
 }
