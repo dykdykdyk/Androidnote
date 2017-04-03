@@ -92,6 +92,8 @@ public class BleDevice implements CallbackContext{
 
     @Override
     public void onDeviceMessage(String address, byte[] data) {
+        if (mDeviceMessageListener != null)
+            mDeviceMessageListener.onSendResult(address, 0, null);
 
     }
 

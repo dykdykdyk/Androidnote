@@ -11,6 +11,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true">
         <Button
+            android:id="@+id/backbutton"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:background="@color/backColorDark"
@@ -29,80 +30,90 @@
             android:id="@+id/textView"
             android:layout_alignParentTop="true" />
     </RelativeLayout>
-    <LinearLayout
-        android:id="@+id/linear1"
-        android:layout_below="@id/title"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:paddingLeft="@dimen/activity_vertical_margin"
+        android:layout_below="@id/title1"
+        android:id="@+id/textview"
+        android:text="设置基站ip:"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="10dp"
         android:paddingRight="@dimen/activity_vertical_margin"
-        android:paddingTop="60dp"
-        android:paddingBottom="60dp"
-        android:gravity="center"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="设置基站ip:"
-            android:textSize="20dp"
-            android:paddingRight="@dimen/activity_vertical_margin"
-            android:textColor="@color/actionBarColorDark"/>
-        <EditText
-            android:padding="10px"
-            android:layout_width="150dp"
-            android:background="@drawable/shape"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linear2"
-        android:layout_below="@id/linear1"
+        android:textColor="@color/actionBarColorDark"/>
+    <EditText
+        android:layout_below="@id/textview"
+        android:id="@+id/edittext1"
+        android:padding="10px"
+        android:focusable="true"
+        android:layout_alignLeft="@id/textview"
+        android:digits="@string/alphabet_and_number"
+        android:inputType="number"
+        android:layout_width="150dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="30dp"
+        android:paddingRight="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:enabled="true"
+        android:background="@drawable/shape"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_below="@id/edittext1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:paddingLeft="@dimen/activity_vertical_margin"
+        android:layout_alignLeft="@id/textview"
+        android:text="设置基站子网掩码:"
+        android:id="@+id/textview2"
+        android:textSize="20dp"
+        android:paddingTop="30dp"
+        android:paddingBottom="10dp"
         android:paddingRight="@dimen/activity_vertical_margin"
-        android:paddingTop="60dp"
-        android:paddingBottom="60dp"
-        android:gravity="center"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="设置基站网关:"
-            android:textSize="20dp"
-            android:paddingRight="@dimen/activity_vertical_margin"
-            android:textColor="@color/actionBarColorDark"/>
-        <EditText
-            android:padding="10px"
-            android:layout_width="150dp"
-            android:background="@drawable/shape"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/linear3"
-        android:layout_below="@id/linear2"
+        android:textColor="@color/actionBarColorDark"/>
+    <EditText
+        android:padding="10px"
+        android:id="@+id/edittext2"
+        android:textSize="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="30dp"
+        android:paddingRight="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:layout_below="@id/textview2"
+        android:layout_alignLeft="@id/textview"
+        android:layout_width="150dp"
+        android:digits="@string/alphabet_and_number"
+        android:inputType="number"
+        android:background="@drawable/shape"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_alignLeft="@id/textview"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:paddingLeft="@dimen/activity_vertical_margin"
+        android:layout_below="@id/edittext2"
+        android:paddingTop="30dp"
+        android:paddingBottom="10dp"
         android:paddingRight="@dimen/activity_vertical_margin"
-        android:paddingTop="60dp"
-        android:paddingBottom="60dp"
-        android:gravity="center"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="设置服务器ip地址:"
-            android:textSize="20dp"
-            android:paddingRight="@dimen/activity_vertical_margin"
-            android:textColor="@color/actionBarColorDark"/>
-        <EditText
-            android:padding="10px"
-            android:layout_width="150dp"
-            android:background="@drawable/shape"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
+        android:id="@+id/textview3"
+        android:text="设置服务器ip和端口号:"
+        android:textSize="20dp"
+        android:textColor="@color/actionBarColorDark"/>
+    <EditText
+        android:padding="10px"
+        android:layout_alignLeft="@id/textview"
+        android:layout_below="@id/textview3"
+        android:layout_width="150dp"
+        android:id="@+id/edittext3"
+        android:textSize="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="30dp"
+        android:paddingRight="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:digits="@string/alphabet_and_number"
+        android:inputType="number"
+        android:background="@drawable/shape"
+        android:layout_height="wrap_content"/>
     <Button
-        android:layout_below="@id/linear3"
+        android:layout_below="@id/edittext3"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:background="@color/backColorDark"
@@ -111,6 +122,6 @@
         android:textColor="#4169E1"
         android:layout_alignParentEnd="true"
         android:paddingTop="@dimen/activity_horizontal_margin"
-        android:id="@+id/button2" />
+        android:id="@+id/nextbutton" />
 
 </RelativeLayout>

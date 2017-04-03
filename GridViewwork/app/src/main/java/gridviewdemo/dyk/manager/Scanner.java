@@ -38,6 +38,7 @@ public class Scanner {
     private Handler scanHander;
     private void init(){
          scanHander =new Handler();
+        enableBlue();
     }
 
     /**

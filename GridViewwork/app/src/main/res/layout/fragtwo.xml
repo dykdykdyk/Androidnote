@@ -14,6 +14,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true">
         <Button
+            android:id="@+id/backbutton"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:background="@color/backColorDark"
@@ -32,30 +33,31 @@
             android:id="@+id/textView"
             android:layout_alignParentTop="true" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:background="@color/actionBarColorDark"
-            android:layout_height="wrap_content"
-            android:text="扫描"
-            android:textSize="18dp"
-            android:layout_gravity="right"
-            android:id="@+id/button"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true" />
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:background="@color/actionBarColorDark"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="扫描"-->
+            <!--android:textSize="18dp"-->
+            <!--android:layout_gravity="right"-->
+            <!--android:id="@+id/scan"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_alignParentEnd="true" />-->
     </RelativeLayout>
             <ListView
                 android:id="@+id/list"
                 android:layout_below="@id/title1"
-            android:layout_height="450dp"
+            android:layout_height="400dp"
             android:layout_width="match_parent"/>
     <Button
-        android:layout_below="@id/list"
-        android:layout_height="30dp"
+        android:id="@+id/nextbutton"
+        android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:background="@color/backColorDark"
+        android:padding="10dp"
         android:text="next"
+        android:visibility="gone"
         android:textColor="#4169E1"
         android:layout_alignParentEnd="true"
-        android:paddingTop="@dimen/activity_horizontal_margin"
-        />
+        android:layout_below="@+id/list" />
 </RelativeLayout>
