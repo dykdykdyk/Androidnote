@@ -1,0 +1,29 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <Button
+        android:layout_width="80dip"
+        android:layout_height="wrap_content"
+        android:text="435"
+        android:id="@+id/id"
+        />
+
+    <Button
+        android:layout_below="@id/id"
+        android:layout_width="100dip"
+        android:layout_height="wrap_content"
+        android:text="liming"
+        android:id="@+id/name"
+        />
+
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="45"
+        android:layout_below="@id/name"
+        android:id="@+id/listview"
+        />
+
+</RelativeLayout>
