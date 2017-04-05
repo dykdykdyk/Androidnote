@@ -24,6 +24,7 @@
         </activity>
         <activity  android:name="gridviewdemo.dyk.view.UARTactivity"/>
         <activity  android:name="gridviewdemo.dyk.view.Wizardactivity"/>
+        <activity  android:name="gridviewdemo.dyk.view.DFUActivity"/>
     </application>
 
 </manifest>
