@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity  {
                          break;
                      //空中升级
                      case    1:
+                         startActivity(new Intent(MainActivity.this,DFUActivity.class));
                          Toast.makeText(MainActivity.this,name[position],Toast.LENGTH_LONG).show();
                          break;
                      //专家模式
