@@ -48,7 +48,7 @@ public class FragFour extends Fragment{
                 Log.i("FragFour","edit1:"+setIp);
                 Log.i("FragFour","edit2:"+setSub);
                 Log.i("FragFour","edit3:"+setSRV);
-                String ip ="AT+IP="+setIp;
+                String ip ="AT+IP="+setIp+"/r";
                 String sub ="AT+SUB="+setSub;
                 String srv ="AT+SRV="+setSRV;
                 Log.i("FragFour","ip:"+ip);

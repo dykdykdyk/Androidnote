@@ -8,6 +8,7 @@ import android.content.Context;
 
 import java.util.List;
 
+import gridviewdemo.dyk.interfaces.BleDevicetransfer;
 import gridviewdemo.dyk.interfaces.CallbackContext;
 import gridviewdemo.dyk.interfaces.DeviceMessageListener;
 import gridviewdemo.dyk.manager.Peripheral;
@@ -22,6 +23,7 @@ public class BleDevice implements CallbackContext{
     private Activity mActivity;
     private Peripheral peripheral;
     private DeviceMessageListener mDeviceMessageListener;
+    private BleDevicetransfer mBleDevicetransfer;
     public BleDevice(String address,Activity activity){
         if(bluetoothAdapter == null){
             BluetoothManager bluetoothManager = (BluetoothManager)activity.
@@ -58,6 +60,12 @@ public class BleDevice implements CallbackContext{
         if (listener != null)
             mDeviceMessageListener = listener;
     }
+
+//    public void setBleDevicetransfer(BleDevicetransfer mBleDe){
+//        if(mBleDe !=null)
+//            mBleDevicetransfer =mBleDe;
+//        mBleDevicetransfer.Devicetransfer(mDevice);
+//    }
     /**
      *
      * @param address mac地址

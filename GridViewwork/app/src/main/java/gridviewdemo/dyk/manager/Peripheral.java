@@ -56,11 +56,12 @@ public class Peripheral extends BluetoothGattCallback{
         int v = 1;
         int t = 0;
         final byte[] value = new byte[20];
-        value[0] = (byte) ((v << 5) | ((length - 1) << 1) | t);
-        value[1] = (byte) (cmd & 0xFF);
-        value[2] = (byte) (0);
-        value[3] = (byte) (0);
-        System.arraycopy(data, 0, value, 4, data.length);
+        //基站 暂时不要包头
+//        value[0] = (byte) ((v << 5) | ((length - 1) << 1) | t);
+//        value[1] = (byte) (cmd & 0xFF);
+//        value[2] = (byte) (0);
+//        value[3] = (byte) (0);
+//        System.arraycopy(data, 0, value, 4, data.length);
 //        L.i(TAG,"发送的数据包 :"+ Arrays.toString(Utils.byteTo16String(value)));
 //        if (isConnected()) {
             new Thread(new Runnable() {

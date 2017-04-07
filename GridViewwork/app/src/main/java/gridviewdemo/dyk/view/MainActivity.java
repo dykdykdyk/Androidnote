@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity  {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         init();
-
     }
     //初始化
      public void init(){
@@ -86,6 +85,4 @@ public class MainActivity extends AppCompatActivity  {
              }
          });
      }
-
-
 }

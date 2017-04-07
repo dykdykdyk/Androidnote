@@ -5,6 +5,8 @@ import android.bluetooth.BluetoothManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -29,6 +31,7 @@ public class Wizardactivity extends AppCompatActivity implements View.OnClickLis
         ,FragTwo.BleDeviceTransmit{
     Button backbutton;
     FragmentManager manager;
+    BleDevice mBLEDevice;
     private BluetoothAdapter bluetoothAdapter;
     FragOne fragment1;
     FragTwo fragment2;
@@ -204,9 +207,19 @@ public class Wizardactivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onTitleSelect(BleDevice title) {
+        Log.i("Wizardactivity","BleDevice:   "+title);
         fragment3.setText(title);
         fragment4.setText(title);
         fragment5.setText(title);
 //        fragment6.setText(title);
+        mBLEDevice =title;
+        Message msg = new Message();
+        msg.what=1;
+        msg.obj=mBLEDevice;
+        mMsgHander= DFUActivity.mMsgHander;
+        mMsgHander.sendMessage(msg);
     }
+    private Handler mMsgHander ;
+
+
 }
