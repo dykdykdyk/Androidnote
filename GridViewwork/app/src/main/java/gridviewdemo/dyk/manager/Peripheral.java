@@ -56,11 +56,12 @@ public class Peripheral extends BluetoothGattCallback{
         int v = 1;
         int t = 0;
         final byte[] value = new byte[20];
-        value[0] = (byte) ((v << 5) | ((length - 1) << 1) | t);
-        value[1] = (byte) (cmd & 0xFF);
-        value[2] = (byte) (0);
-        value[3] = (byte) (0);
-        System.arraycopy(data, 0, value, 4, data.length);
+        //基站 暂时不要包头
+//        value[0] = (byte) ((v << 5) | ((length - 1) << 1) | t);
+//        value[1] = (byte) (cmd & 0xFF);
+//        value[2] = (byte) (0);
+//        value[3] = (byte) (0);
+        System.arraycopy(data, 0, value, 0, data.length);
 //        L.i(TAG,"发送的数据包 :"+ Arrays.toString(Utils.byteTo16String(value)));
 //        if (isConnected()) {
             new Thread(new Runnable() {
@@ -104,6 +105,7 @@ public class Peripheral extends BluetoothGattCallback{
         if(characteristic.getValue()[1] ==36   && characteristic.getValue()[4] ==0){
             callbackContext.onDeviceMessage("绑定成功",null);
         }
+        callbackContext.onDeviceMessage("返回数据 ："+Arrays.toString(characteristic.getValue()),null);
 //        if (characteristic.getValue() != null)
 //            callback(characteristic.getValue());
         // mMessageManager.handlerDeviceMessage(characteristic.getValue());
@@ -133,6 +135,7 @@ public class Peripheral extends BluetoothGattCallback{
         super.onConnectionStateChange(gatt, status, newState);
         System.out.println("status "+status+" newState"+newState);
         if(newState == BluetoothGatt.STATE_CONNECTED) {
+            connected =true;
             if (gatt.getServices().size() == 0)
                 gatt.discoverServices();
             else {
@@ -140,14 +143,15 @@ public class Peripheral extends BluetoothGattCallback{
             }
         }else if(newState == BluetoothGatt.STATE_DISCONNECTED){
             Log.i("","断开gatt");
-            callbackContext.onDeviceMessage("连接失败！",null);
+            callbackContext.onDeviceMessage("断开",null);
+            connected =false;
         }
     }
 
     @Override
     public void onDescriptorWrite(BluetoothGatt gatt, BluetoothGattDescriptor descriptor, int status) {
         super.onDescriptorWrite(gatt, descriptor, status);
-        superBound();
+//        superBound();
     }
    //获取信号
     @Override
@@ -159,12 +163,10 @@ public class Peripheral extends BluetoothGattCallback{
     public void onServicesDiscovered(BluetoothGatt gatt, int status) {
         super.onServicesDiscovered(gatt, status);
         if(status == BluetoothGatt.GATT_SUCCESS){
-            Log.i("onServicesDiscovered", "发现服务成功！");
             callbackContext.onDeviceMessage("发现服务成功",null);
-            Log.i("Peripheral", "连接成功！");
+            callbackContext.onDeviceMessage("连接成功",null);
             getble();
         }else {
-            Log.i("onServicesDiscovered", "发现服务错误！");
             callbackContext.onDeviceMessage("发现服务错误",null);
         }
     }

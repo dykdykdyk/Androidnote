@@ -11,9 +11,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.Arrays;
+
 import gridviewdemo.dyk.application.BleDevice;
 import gridviewdemo.dyk.gridviewdemo.R;
-import gridviewdemo.dyk.utils.Utils;
 
 /**
  * Created by Administrator on 2017/3/31.
@@ -55,10 +56,13 @@ public class FragFour extends Fragment{
                 Log.i("FragFour","sub:"+sub);
                 Log.i("FragFour","srv:"+srv);
                 //写入函数方法
-                if(ip.length()<=20){
-                    byte[] st = Utils.strToByteArray(ip);
-                    write(null, st.length, 0x14, st);
-                }
+//                if(ip.length()<=20){
+//                    byte[] st = Utils.strToByteArray(ip);
+//                    write(null, st.length, 0x14, st);
+//                }
+                strToByte(ip);
+//                strToByte(sub);
+//                strToByte(srv);
                 /**
                  String str = "+12345678910";
                  byte[] st = Utils.strToByteArray(str);
@@ -77,6 +81,31 @@ public class FragFour extends Fragment{
             }
         });
         return view;
+    }
+    public  void strToByte(String str){
+        if(str.length()<=18){
+            str =str+"\r";
+            byte[]  arrs =new byte[20];
+            arrs =str.getBytes();
+            write(null, arrs.length, 0x14, arrs);
+        }else if(str.length()>18){
+            str =str+"\r";
+            System.out.println("strle2 "+str.length());
+            byte[]  arr =new byte[20];
+            String temparr =str.substring(0,20);
+            System.out.println("temparr "+temparr.length());
+            System.out.println("temparr "+temparr);
+            arr =temparr.getBytes();
+            System.out.println(Arrays.toString(arr));
+
+            //后面第二个包
+            String temptwo =str.substring(20);
+            System.out.println("temptwo "+temptwo.length());
+            System.out.println("temptwo "+temptwo);
+            byte[]  arrtwo =new byte[20];
+            arrtwo =temptwo.getBytes();
+            System.out.println(Arrays.toString(arrtwo));
+        }
     }
     @Override
     public void onAttach(Activity activity) {

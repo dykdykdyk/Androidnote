@@ -25,6 +25,15 @@
         <activity  android:name="gridviewdemo.dyk.view.UARTactivity"/>
         <activity  android:name="gridviewdemo.dyk.view.Wizardactivity"/>
         <activity  android:name="gridviewdemo.dyk.view.DFUActivity"/>
+        <service
+            android:name="gridviewdemo.dyk.service.DfuService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="no.nordicsemi.android.action.DFU_UPLOAD" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

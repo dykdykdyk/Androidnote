@@ -56,7 +56,7 @@ public class FragTwo extends Fragment{
     private BleDeviceTransmit mBleDeviceTransmit;
     //打印信息的listview 适配
     MyAdapter mydaterlist;
-    MyHandler mHandler ;//异步消息机制
+    MyHandler mHandler ;//异步
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 //        return super.onCreateView(inflater, container, savedInstanceState);
@@ -239,14 +239,10 @@ public class FragTwo extends Fragment{
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    if(mBLEListlist.contains("绑定成功")){
-                        next.setVisibility(View.VISIBLE);
-                    }
+//                    if(mBLEListlist.contains("绑定成功")){
+//                        next.setVisibility(View.VISIBLE);
+//                    }
                     break;
-//                case 2:
-//                    System.out.println("停止");
-//                    isSend = false;
-//                    break;
             }
         }
     }
