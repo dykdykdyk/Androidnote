@@ -41,7 +41,7 @@ public class Wizardactivity extends AppCompatActivity implements View.OnClickLis
     FragSix fragment6;
     FragSeven fragment7;
     int status;
-    private static final int REQUEST_ENABLE_BLUETOOTH = 1;
+    private static final int REQUEST_ENABLE_BLUETOOTH = 100;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -213,13 +213,7 @@ public class Wizardactivity extends AppCompatActivity implements View.OnClickLis
         fragment5.setText(title);
 //        fragment6.setText(title);
         mBLEDevice =title;
-        Message msg = new Message();
-        msg.what=1;
-        msg.obj=mBLEDevice;
-        mMsgHander= DFUActivity.mMsgHander;
-        mMsgHander.sendMessage(msg);
     }
-    private Handler mMsgHander ;
 
 
 }

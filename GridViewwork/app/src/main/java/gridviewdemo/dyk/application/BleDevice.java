@@ -40,7 +40,9 @@ public class BleDevice implements CallbackContext{
         peripheral.connect(mActivity);
     }
 
-
+   public boolean isConnecte(){
+     return   peripheral.isConnected();
+   }
     /**
      * 获取设备address地址
      */

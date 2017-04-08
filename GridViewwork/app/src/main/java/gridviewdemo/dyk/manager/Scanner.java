@@ -19,7 +19,7 @@ import gridviewdemo.dyk.interfaces.InterfaceScanner;
 public class Scanner {
     private BluetoothAdapter bluetoothAdapter;
     private BluetoothLeScanner leScanner;//Android 5.0新的扫描方法
-    private static final int REQUEST_ENABLE_BLUETOOTH = 1;
+    private static final int REQUEST_ENABLE_BLUETOOTH = 88;
     private Activity mActivity;
     private Handler scanHandler;
     int result =1;
