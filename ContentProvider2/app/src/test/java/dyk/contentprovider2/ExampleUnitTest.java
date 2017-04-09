@@ -1,4 +1,4 @@
-package com.dyk.contentprovider;
+package dyk.contentprovider2;
 
 import org.junit.Test;
 
