@@ -15,6 +15,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+            android:authorities="com.example.databasetest.provider"
+            android:name="dyk.contentprovider2.DatabaseProvider"
+            android:exported="true"></provider>
     </application>
 
 </manifest>

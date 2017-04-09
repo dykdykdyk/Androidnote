@@ -41,7 +41,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 //        String sql ="create table user(username varchar(20) not null,password varchar(60) not null);";
         db.execSQL(CREATE_BOOK);
         db.execSQL(CREATE_CATEGORY);
-        Toast.makeText(mContext, "Create succeeded", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(mContext, "Create succeeded", Toast.LENGTH_SHORT).show();
     }
 
     /**
