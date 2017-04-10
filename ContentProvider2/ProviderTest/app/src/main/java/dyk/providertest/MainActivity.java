@@ -10,6 +10,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+/**
+ * 在android 6.0的手机上面调试的时候 可能会有关联的权限 手机报错，注意在调试的时候，打开权限，去调试
+ */
 public class MainActivity extends Activity {
     private String newId;
     Button add,delete,query,update;
@@ -28,9 +31,9 @@ public class MainActivity extends Activity {
                 Uri uri = Uri.parse("content://com.example.databasetest.provider/book");
                 ContentValues values =new ContentValues();
                 values.put("name","A Clash of Kings");
-                values.put("author","Dan Brown");
+                values.put("author","George Martin");
                 values.put("pages",1040);
-                values.put("price",22.96);
+                values.put("price",22.85);
                 Uri newUri = getContentResolver().insert(uri,values);
                 newId =newUri.getPathSegments().get(1);
             }
@@ -68,7 +71,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 //更新数据
-                Uri uri =Uri.parse("content://com.example.databasetest.provider/book"+newId);
+                Uri uri =Uri.parse("content://com.example.databasetest.provider/book/"+newId);
                 ContentValues values =new ContentValues();
                 values.put("name","A Storm of Swords");
                 values.put("pages",1216);

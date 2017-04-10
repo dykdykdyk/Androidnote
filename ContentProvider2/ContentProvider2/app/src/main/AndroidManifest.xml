@@ -16,8 +16,8 @@
             </intent-filter>
         </activity>
         <provider
-            android:authorities="com.example.databasetest.provider"
             android:name="dyk.contentprovider2.DatabaseProvider"
+            android:authorities="com.example.databasetest.provider"
             android:exported="true"></provider>
     </application>
 
