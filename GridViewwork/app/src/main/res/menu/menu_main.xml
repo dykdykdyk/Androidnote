@@ -8,60 +8,91 @@
         app:showAsAction="always"
         android:title="scan"/>
 
-    <!--<item-->
-        <!--android:id="@+id/action_settings"-->
-        <!--android:orderInCategory="100"-->
-        <!--app:showAsAction="never"-->
-        <!--android:title="设置相关命令"/>-->
-    <!--<item-->
-        <!--android:id="@+id/action_message"-->
-        <!--android:orderInCategory="100"-->
-        <!--app:showAsAction="never"-->
-        <!--android:title="消息相关命令"/>-->
     <item
-        android:id="@+id/action_security"
+        android:id="@+id/AT_VER"
         android:orderInCategory="100"
         app:showAsAction="never"
-        android:title="安全相关命令"/>
-    <!--<item-->
-        <!--android:id="@+id/action_sports"-->
-        <!--android:orderInCategory="100"-->
-        <!--app:showAsAction="never"-->
-        <!--android:title="运动相关命令"/>-->
-    <!--<item-->
-        <!--android:id="@+id/action_health"-->
-        <!--android:orderInCategory="100"-->
-        <!--app:showAsAction="never"-->
-        <!--android:title="健康相关命令"/>-->
-    <!--<item-->
-        <!--android:id="@+id/action_cheers"-->
-        <!--android:orderInCategory="100"-->
-        <!--app:showAsAction="never"-->
-        <!--android:title="水杯相关命令"/>-->
-
+        android:title="AT+VER"/>
     <item
-        android:id="@+id/action_clear"
+        android:id="@+id/AT_EID"
         android:orderInCategory="100"
         app:showAsAction="never"
-        android:title="清除信息"/>
+        android:title="AT+EID"/>
+    <item
+        android:id="@+id/AT_MAC"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="AT+MAC"/>
+    <item
+        android:id="@+id/AT_IP"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="AT+IP"/>
+    <item
+        android:id="@+id/AT_SUB"
+        android:orderInCategory="100"
+        android:inputType="textMultiLine"
+        app:showAsAction="never"
+        android:title="AT+SUB"/>
+    <item
+        android:id="@+id/AT_GW"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="AT+GW"/>
+
+    <item
+        android:id="@+id/AT_DNS"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="AT+DNS"/>
 
 
     <item
-        android:id="@+id/action_disconn"
+        android:id="@+id/AT_NET"
         android:orderInCategory="100"
         app:showAsAction="never"
-        android:title="断开连接"/>
+        android:title="AT+NET"/>
 
     <item
-        android:id="@+id/action_connect"
+        android:id="@+id/AT_RST"
         android:orderInCategory="100"
         app:showAsAction="never"
-        android:title="连接"
+        android:title="AT+RST"
         />
     <item
-        android:id="@+id/action_rssi"
+        android:id="@+id/AT_SRV"
         android:orderInCategory="100"
         app:showAsAction="never"
-        android:title="信号"
+        android:title="AT+SRV"
         />
+    <item
+        android:id="@+id/AT_UPDATE"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="AT+UPDATE"/>
+    <item
+        android:id="@+id/AT_MODE"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="AT+MODE"/>
+    <item
+        android:id="@+id/AT_WMODE"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="AT+WMODE"/>
+    <item
+        android:id="@+id/AT_WSSID"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="AT+WSSID"/>
+    <item
+        android:id="@+id/AT_WPWD"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="AT+WPWD"/>
+    <item
+        android:id="@+id/AT_WSRV"
+        android:orderInCategory="100"
+        app:showAsAction="never"
+        android:title="AT+WSRV"/>
 </menu>

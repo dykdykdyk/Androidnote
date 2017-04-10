@@ -5,9 +5,10 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothManager;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -15,6 +16,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -28,12 +31,14 @@ import java.util.List;
 import java.util.Map;
 
 import gridviewdemo.dyk.adapter.ListViewAdapter;
+import gridviewdemo.dyk.adapter.MyAdapter;
 import gridviewdemo.dyk.application.BleDevice;
 import gridviewdemo.dyk.gridviewdemo.R;
 import gridviewdemo.dyk.interfaces.DeviceMessageListener;
 import gridviewdemo.dyk.interfaces.InterfaceScanner;
 import gridviewdemo.dyk.manager.Scanner;
 
+import static gridviewdemo.dyk.gridviewdemo.R.id.edittext;
 import static gridviewdemo.dyk.utils.Utils.strToByteArray;
 
 /**
@@ -48,6 +53,7 @@ public class UARTactivity extends AppCompatActivity {
     private String dAddress; // 操作当前的设备mac地址
     ListView listview,lv;
     ProgressBar pbar;
+    private ArrayList<String> mBLEListlist;//存放扫描到的设备信息的集合
     private Scanner scanner;
     private static final int REQUEST_ENABLE_BLUETOOTH = 1001;
   //  Map<String, BleDevice> mBLEList = new LinkedHashMap<String, BleDevice>();
@@ -58,6 +64,10 @@ public class UARTactivity extends AppCompatActivity {
     private BleDevice dBleDevice; // 当前正在操作的设备
     private boolean scaning = false; // 是否正在扫描
     ListViewAdapter mydater;
+    MyHandler3  mHandler ;//异步
+    MyAdapter mydaterlist;
+    EditText editText;
+    Button button;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,34 +79,23 @@ public class UARTactivity extends AppCompatActivity {
         myBluetoothManager = (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
         myBluetoothAdapter = myBluetoothManager.getAdapter();
         init();
-//        initview();
-//        initScanDialog();
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        /**
-         * 判断蓝牙是否开启
-         */
-        if (myBluetoothAdapter.isEnabled()) {
-            System.out.println("蓝牙已开启...");
-        } else {
-            enableBle();
-        }
-        initScanDialog();
-    }
-    /**
-     * 开启蓝牙
-     */
-    public void enableBle() {
-        if (!myBluetoothAdapter.enable()) {
-            Intent intent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(intent, REQUEST_ENABLE_BLUETOOTH);
-        }
     }
     private void init(){
         initSecurityDialog();
+        initScanDialog();
+        mHandler =new MyHandler3();
+        mBLEListlist =new ArrayList<>();
+        editText =(EditText)findViewById(edittext) ;
+        mydaterlist = new MyAdapter(this, mBLEListlist);
+        listview= (ListView)findViewById(R.id.listview);
+        listview.setAdapter(mydaterlist);
+        button =(Button)findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                buttonTiuchEvent();
+            }
+        });
         //初始化扫描的监听
         scanner =new Scanner(this);
         scanner.setScanner(new InterfaceScanner() {
@@ -136,6 +135,23 @@ public class UARTactivity extends AppCompatActivity {
             }
         });
 
+    }
+    class MyHandler3 extends Handler {
+        @Override
+        public void handleMessage(Message msg) {
+            // TODO Auto-generated method stub
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case 1:
+                    mydaterlist.notifyDataSetChanged();
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+            }
+        }
     }
   private AlertDialog scanDialog;
     private void initScanDialog(){
@@ -226,10 +242,17 @@ public class UARTactivity extends AppCompatActivity {
         if(scaning)
             stopScan();//先判断是否正在扫描
         mBleDev.connect();
+        mBLEListlist.add("开始连接:"+mBleDev.getAddress());
+        Log.i("TAG","开始链接");
         mBleDev.setDeviceMessageListener(new DeviceMessageListener() {
             @Override
             public void onSendResult(String address, int cmd, byte[] data) {
                 Log.i("收到数据:", "10:02:"+Arrays.toString(data));
+                mBLEListlist.add(address);
+                mBLEListlist.add(new String(address));
+                Message message=new Message();
+                message.what=1;
+                mHandler.sendMessage(message);
             }
 
             @Override
@@ -237,6 +260,7 @@ public class UARTactivity extends AppCompatActivity {
 
             }
         });
+        mydaterlist.notifyDataSetChanged();
     }
     private void scanLeDevice(){
          itemScan.setTitle("Stop Scan");
@@ -257,56 +281,109 @@ public class UARTactivity extends AppCompatActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+   private void  buttonTiuchEvent(){
+       if(editText.getText().toString().equals("")){
+           Toast.makeText(this, "请在输入框中输入命令后重试", Toast.LENGTH_LONG).show();
+           return ;
+       }else{
+           String setIp =editText.getText().toString().trim();
+           Log.i("FragFour","edit1:"+setIp);
+           strToByte(setIp);
+       }
+   }
+    public  void strToByte(String str){
+        if(str.length()<=18){
+            str =str+"\r";
+            byte[]  arrs =new byte[20];
+            arrs =str.getBytes();
+            write(null, arrs.length, 0x14, arrs);
+        }else if(str.length()>18){
+            str =str+"\r";
+            System.out.println("strle2 "+str.length());
+            byte[]  arr =new byte[20];
+            String temparr =str.substring(0,20);
+            System.out.println("temparr "+temparr.length());
+            System.out.println("temparr "+temparr);
+            arr =temparr.getBytes();
+            System.out.println(Arrays.toString(arr));
 
+            //后面第二个包
+            String temptwo =str.substring(20);
+            System.out.println("temptwo "+temptwo.length());
+            System.out.println("temptwo "+temptwo);
+            byte[]  arrtwo =new byte[20];
+            arrtwo =temptwo.getBytes();
+            System.out.println(Arrays.toString(arrtwo));
+        }
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         final byte[] bluAddr = BluetoothAdapter.getDefaultAdapter()
                 .getAddress().replace(":", "").getBytes();
         int id = item.getItemId();
         switch(id) {
-//            case R.id.action_settings:
-//                Toast.makeText(this, "设置相关命令", Toast.LENGTH_LONG).show();
-//                break;
             case R.id.action_scan:
                 itemScan= item;
                 Toast.makeText(this, "扫描", Toast.LENGTH_LONG).show();
                 scanDialog.show();;
                 scanLeDevice();
                 break;
-//            case R.id.action_cheers:
-//                Toast.makeText(this, "水杯相关命令", Toast.LENGTH_LONG).show();
-//                break;
-            case R.id.action_clear:
+            case R.id.AT_VER:
+                editText.setText("AT+VER?");
                 Toast.makeText(this, "清除", Toast.LENGTH_LONG).show();
                 break;
-            case R.id.action_connect:
+            case R.id.AT_EID:
+                editText.setText("AT+EID?");
                 Toast.makeText(this, "连接", Toast.LENGTH_LONG).show();
                 break;
-            case R.id.action_disconn:
+            case R.id.AT_MAC:
+                editText.setText("AT+MAC?");
                 Toast.makeText(this, "断开连接", Toast.LENGTH_LONG).show();
                 break;
-//            case R.id.action_health:
-//                Toast.makeText(this, "健康相关命令", Toast.LENGTH_LONG).show();
-//                break;
-//            case R.id.action_message:
-//                Toast.makeText(this, "消息相关命令", Toast.LENGTH_LONG).show();
-//                break;
-            case R.id.action_rssi:
+            case R.id.AT_IP:
+                editText.setText("AT+IP?");
                 Toast.makeText(this, "信号", Toast.LENGTH_LONG).show();
                 break;
-//            case R.id.action_sports:
-//                Toast.makeText(this, "运动相关命令", Toast.LENGTH_LONG).show();
-//                break;
-            case R.id.action_security:
-//                Toast.makeText(this, "安全相关命令", Toast.LENGTH_LONG).show();
+            case R.id.AT_SUB:
+                editText.setText("AT+SUB?");
                 securityDialog.show();;
+                break;
+            case R.id.AT_GW:
+                editText.setText("AT+SUB?");
+                Toast.makeText(this, "清除", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.AT_DNS:
+                Toast.makeText(this, "连接", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.AT_NET:
+                Toast.makeText(this, "断开连接", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.AT_RST:
+                Toast.makeText(this, "信号", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.AT_SRV:
+                Toast.makeText(this, "清除", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.AT_UPDATE:
+                Toast.makeText(this, "连接", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.AT_MODE:
+                Toast.makeText(this, "断开连接", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.AT_WMODE:
+                Toast.makeText(this, "信号", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.AT_WSSID:
+                Toast.makeText(this, "断开连接", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.AT_WPWD:
+                Toast.makeText(this, "信号", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.AT_WSRV:
+                Toast.makeText(this, "清除", Toast.LENGTH_LONG).show();
                 break;
         }
         return super.onOptionsItemSelected(item);
