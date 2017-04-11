@@ -2,6 +2,8 @@ package gridviewdemo.dyk.view;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -10,11 +12,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
+import gridviewdemo.dyk.adapter.MyAdapter;
 import gridviewdemo.dyk.application.BleDevice;
 import gridviewdemo.dyk.gridviewdemo.R;
+import gridviewdemo.dyk.interfaces.DeviceMessageListener;
 
 /**
  * Created by Administrator on 2017/3/31.
@@ -23,55 +30,59 @@ import gridviewdemo.dyk.gridviewdemo.R;
 
 public class FragFour extends Fragment{
     @Nullable
-    Button back,next;
+    Button back,next,edittext1button,edittext3button;
     BleDevice mBleDevice;
-
-
-    EditText editText1,editText2,editText3;
+    EditText editText1,editText3;
     private FragOne.titleSelectInterface mSelectInterface;
+    private ArrayList<String> mBLEListlist;//存放扫描到的设备信息的集合
+    MyAdapter mydaterlist;
+    ListView listView;
+    MyHandler4  mHandler ;//异步
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 //        return super.onCreateView(inflater, container, savedInstanceState);
         View view =inflater.inflate(R.layout.fragfour,container,false);
         back   = (Button) view.findViewById(R.id.backbutton);
         editText1 =(EditText)  view.findViewById(R.id.edittext1);
-        editText2 =(EditText)  view.findViewById(R.id.edittext2);
         editText3 =(EditText)  view.findViewById(R.id.edittext3);
+        edittext1button =(Button) view.findViewById(R.id.edittext1button);
+        edittext3button =(Button) view.findViewById(R.id.edittext3button);
+        mHandler =new MyHandler4();
 //        editText1.setInputType(InputType.TYPE_CLASS_NUMBER); //调用数字键盘
         next = (Button) view.findViewById(R.id.nextbutton);
+        editText1.setText("AT+IP=");
+        editText3.setText("AT+SRV=");
+
+        mBLEListlist =new ArrayList<>();
+        mydaterlist = new MyAdapter(getActivity(), mBLEListlist);
+        listView= (ListView)view.findViewById(R.id.listview_fragfour);
+        listView.setAdapter(mydaterlist);
+        //发送ip
+        edittext1button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                 initListener();
+                String setIp =editText1.getText().toString().trim();
+               Log.i("FragFour","edit1:"+setIp);
+                strToByte(setIp);
+                mBLEListlist.add("发送命令:"+setIp);
+                mydaterlist.notifyDataSetChanged();
+            }
+        });
+        edittext3button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String setSRV =editText3.getText().toString().trim();//服务器ip地址和端口号
+                Log.i("FragFour","edit3:"+setSRV);
+                strToByte(setSRV);
+                mBLEListlist.add("发送命令:"+setSRV);
+                mydaterlist.notifyDataSetChanged();
+            }
+        });
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //获取到edit的输入内容
-                String setIp =editText1.getText().toString().trim();
-                String setSub =editText2.getText().toString().trim();//子网掩码
-                String setSRV =editText3.getText().toString().trim();//服务器ip地址和端口号
-                Log.i("FragFour","edit1:"+setIp);
-                Log.i("FragFour","edit2:"+setSub);
-                Log.i("FragFour","edit3:"+setSRV);
-                String ip ="AT+IP="+setIp;
-                String sub ="AT+SUB="+setSub;
-                String srv ="AT+SRV="+setSRV;
-                Log.i("FragFour","ip:"+ip);
-                Log.i("FragFour","sub:"+sub);
-                Log.i("FragFour","srv:"+srv);
-                //写入函数方法
-//                if(ip.length()<=20){
-//                    byte[] st = Utils.strToByteArray(ip);
-//                    write(null, st.length, 0x14, st);
-//                }
-                strToByte(ip);
-//                strToByte(sub);
-//                strToByte(srv);
-                /**
-                 String str = "+12345678910";
-                 byte[] st = Utils.strToByteArray(str);
-                 updateList(dAddress, "cmd:0x14," + commants[1] + " :" + str);
-                 write(dAddress, st.length, 0x14, st);
-                 */
                 mSelectInterface.onTitleSelect("4next");
-                //写入函数
-
             }
         });
         back.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +92,23 @@ public class FragFour extends Fragment{
             }
         });
         return view;
+    }
+    class MyHandler4 extends Handler {
+        @Override
+        public void handleMessage(Message msg) {
+            // TODO Auto-generated method stub
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case 1:
+                    mydaterlist.notifyDataSetChanged();
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+            }
+        }
     }
     public  void strToByte(String str){
         if(str.length()<=18){
@@ -106,6 +134,23 @@ public class FragFour extends Fragment{
             arrtwo =temptwo.getBytes();
             System.out.println(Arrays.toString(arrtwo));
         }
+    }
+    public void initListener(){
+        mBleDevice.setDeviceMessageListener(new DeviceMessageListener() {
+            @Override
+            public void onSendResult(String address, int cmd, byte[] data) {
+                Log.i("收到", " :"+Arrays.toString(data));
+                mBLEListlist.add(address);
+                Message message=new Message();
+                message.what=1;
+                mHandler.sendMessage(message);
+            }
+
+            @Override
+            public void onSendHistory(String address, int cmd, List<byte[]> historyData) {
+
+            }
+        });
     }
     @Override
     public void onAttach(Activity activity) {

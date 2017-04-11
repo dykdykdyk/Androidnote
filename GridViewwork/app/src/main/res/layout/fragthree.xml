@@ -14,9 +14,9 @@
             android:id="@+id/backbutton"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:background="@color/backColorDark"
             android:text="Back"
-            android:textColor="#4169E1"
+            android:layout_margin="5dp"
+            android:background="@drawable/shape"
             android:layout_alignParentTop="true" />
 
         <TextView
@@ -46,7 +46,7 @@
         android:id="@+id/wlan"
         android:text="无线模式"
         android:textSize="25dp"
-        android:background="@color/actionBarColorDark"
+        android:background="@drawable/shape"
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:layout_gravity="center"
@@ -60,7 +60,7 @@
         android:text="有线模式"
         android:textSize="25dp"
         android:padding="10dp"
-        android:background="@color/actionBarColorDark"
+        android:background="@drawable/shape"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:layout_marginTop="125dp"

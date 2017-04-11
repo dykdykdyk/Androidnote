@@ -63,20 +63,10 @@ public class FragTwo extends Fragment{
         View view =inflater.inflate(R.layout.fragtwo,container,false);
         listview= (ListView) view.findViewById(R.id.list);
         next = (Button) view.findViewById(R.id.nextbutton);
-
         //调试用
         next.setVisibility(View.VISIBLE);
-
-
         back   = (Button) view.findViewById(R.id.backbutton);
-//        scan  = (Button) view.findViewById(R.id.scan);
         mHandler = new MyHandler();
-//        scan.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

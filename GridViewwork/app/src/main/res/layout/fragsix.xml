@@ -14,9 +14,9 @@
             android:id="@+id/backbutton"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:background="@color/backColorDark"
             android:text="Back"
-            android:textColor="#4169E1"
+            android:layout_margin="5dp"
+            android:background="@drawable/shape"
             android:layout_alignParentTop="true" />
 
         <TextView
@@ -43,12 +43,10 @@
         android:layout_below="@id/tv"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:background="@color/backColorDark"
         android:text="next"
-        android:padding="10dp"
-        android:textColor="#4169E1"
+        android:layout_margin="5dp"
+        android:background="@drawable/shape"
         android:layout_alignParentEnd="true"
-        android:paddingTop="@dimen/activity_horizontal_margin"
         android:id="@+id/nextbutton" />
 
 </RelativeLayout>

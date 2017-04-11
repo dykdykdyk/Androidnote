@@ -9,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -68,18 +67,17 @@ public class MainActivity extends AppCompatActivity  {
                  switch(position){
                      //设置向导
                      case    0:
-                                startActivity(new Intent(MainActivity.this,Wizardactivity.class));
-                         Toast.makeText(MainActivity.this,name[position],Toast.LENGTH_LONG).show();
+                         startActivity(new Intent(MainActivity.this,Wizardactivity.class));
                          break;
                      //空中升级
                      case    1:
                          startActivity(new Intent(MainActivity.this,DFUActivity.class));
-                         Toast.makeText(MainActivity.this,name[position],Toast.LENGTH_LONG).show();
+//                         Toast.makeText(MainActivity.this,name[position],Toast.LENGTH_LONG).show();
                          break;
                      //专家模式
                      case    2:
                          startActivity(new Intent(MainActivity.this,UARTactivity.class));
-                         Toast.makeText(MainActivity.this,name[position],Toast.LENGTH_LONG).show();
+//                         Toast.makeText(MainActivity.this,name[position],Toast.LENGTH_LONG).show();
                          break;
                  }
              }

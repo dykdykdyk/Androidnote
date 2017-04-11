@@ -337,8 +337,8 @@ public class DFUActivity extends AppCompatActivity{
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        super.onActivityResult(requestCode, resultCode, data);
-        Log.i("DFUActivity", "requestCode.:  "+requestCode+",resultCode.:  "+resultCode
-                +",data:"+data);
+        Log.i("DFUActivity",
+                ",data:"+data);
        switch(requestCode){
            case SELECT_FILE_REQ:
                 if(resultCode == RESULT_OK) {

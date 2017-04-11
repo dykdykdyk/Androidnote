@@ -14,9 +14,10 @@
         android:orientation="horizontal" >
         <ListView
             android:id="@+id/list"
+            android:background="@drawable/shape_three"
             android:layout_width="match_parent"
+            android:layout_margin="5dp"
             android:layout_height="200dp"
-            android:padding="4dp"
             android:textSize="18sp" />
     </LinearLayout>
 
@@ -26,21 +27,21 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:orientation="horizontal"
-        android:background="@color/actionBarColorDark">
+        android:layout_margin="5dp">
 
         <TextView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:padding="4dp"
             android:text="文件名： "
+            android:textColor="@color/actionBarColorDark"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/fileName"
+            android:textColor="@color/actionBarColorDark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="xxx000"
-            android:padding="4dp"
             android:textSize="18sp" />
     </LinearLayout>
     <LinearLayout
@@ -48,33 +49,33 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:orientation="horizontal"
-        android:background="@color/actionBarColorDark">
+        android:layout_margin="5dp">
         <TextView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="文件类型："
-            android:padding="4dp"
+            android:textColor="@color/actionBarColorDark"
             android:textSize="18sp" />
 
         <TextView
             android:id="@+id/fileType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/actionBarColorDark"
             android:text="xxx000"
-            android:padding="4dp"
             android:textSize="18sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:orientation="horizontal"
-        android:background="@color/actionBarColorDark">
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
         <TextView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="文件名："
-            android:padding="4dp"
+            android:textColor="@color/actionBarColorDark"
             android:textSize="18sp" />
 
         <TextView
@@ -82,20 +83,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="xxx000"
-            android:padding="4dp"
+            android:textColor="@color/actionBarColorDark"
             android:textSize="18sp" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:orientation="horizontal"
-        android:background="@color/actionBarColorDark">
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
         <TextView
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Status："
-            android:padding="4dp"
+            android:textColor="@color/actionBarColorDark"
             android:textSize="18sp" />
 
         <TextView
@@ -103,7 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="xxx000"
-            android:padding="4dp"
+            android:textColor="@color/actionBarColorDark"
             android:textSize="18sp" />
     </LinearLayout>
 
@@ -125,10 +126,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:enabled="true"
-            android:padding="10dp"
             android:text="选择文件"
-            android:paddingRight="5dp"
-            android:background="@color/actionBarColorDark"
+            android:background="@drawable/shape"
+            android:layout_margin="3dp"
             android:layout_weight="1"
             />
         <Button
@@ -137,9 +137,9 @@
             android:layout_height="match_parent"
             android:text="上传"
             android:enabled="false"
-            android:paddingLeft="5dp"
+            android:layout_margin="3dp"
             android:layout_weight="1"
-            android:background="@color/actionBarColorDark"
+            android:background="@drawable/shape"
             />
 
     </LinearLayout>

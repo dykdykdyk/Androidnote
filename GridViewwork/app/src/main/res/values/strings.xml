@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">nRF</string>
     <string name="action_settings">Settings</string>
-    <string name="alphabet_and_number">.:0123456789</string>
+    <string name="alphabet_and_number">.:0123456789?=</string>
 </resources>

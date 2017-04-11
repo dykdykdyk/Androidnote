@@ -17,9 +17,9 @@
             android:id="@+id/backbutton"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:background="@color/backColorDark"
             android:text="Back"
-            android:textColor="#4169E1"
+            android:layout_margin="5dp"
+            android:background="@drawable/shape"
             android:layout_alignParentTop="true" />
 
         <TextView
@@ -53,11 +53,10 @@
         android:id="@+id/nextbutton"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:background="@color/backColorDark"
-        android:padding="10dp"
         android:text="next"
         android:visibility="gone"
-        android:textColor="#4169E1"
+        android:layout_margin="5dp"
+        android:background="@drawable/shape"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/list" />
 </RelativeLayout>

@@ -14,9 +14,9 @@
             android:id="@+id/backbutton"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:background="@color/backColorDark"
             android:text="Back"
-            android:textColor="#4169E1"
+            android:layout_margin="5dp"
+            android:background="@drawable/shape"
             android:layout_alignParentTop="true" />
 
         <TextView
@@ -40,13 +40,14 @@
         <ImageView
             android:layout_width="300dp"
             android:layout_height="301dp"
+            android:layout_margin="5dp"
             android:background="@drawable/shape"
             android:layout_weight="0.70" />
     </LinearLayout>
     <TextView
         android:id="@+id/tv"
         android:layout_below="@id/imageview"
-        android:padding="10dp"
+        android:layout_margin="10dp"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:textSize="20dp"
@@ -56,12 +57,10 @@
         android:layout_below="@id/tv"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:background="@color/backColorDark"
         android:text="完成"
-        android:padding="10dp"
-        android:textColor="#4169E1"
+        android:layout_margin="5dp"
+        android:background="@drawable/shape"
         android:layout_alignParentEnd="true"
-        android:paddingTop="@dimen/activity_horizontal_margin"
         android:id="@+id/nextbutton" />
 
 </RelativeLayout>

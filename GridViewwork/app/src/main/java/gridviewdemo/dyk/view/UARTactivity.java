@@ -249,7 +249,6 @@ public class UARTactivity extends AppCompatActivity {
             public void onSendResult(String address, int cmd, byte[] data) {
                 Log.i("收到数据:", "10:02:"+Arrays.toString(data));
                 mBLEListlist.add(address);
-                mBLEListlist.add(new String(address));
                 Message message=new Message();
                 message.what=1;
                 mHandler.sendMessage(message);
@@ -344,7 +343,7 @@ public class UARTactivity extends AppCompatActivity {
                 Toast.makeText(this, "断开连接", Toast.LENGTH_LONG).show();
                 break;
             case R.id.AT_IP:
-                editText.setText("AT+IP?");
+                editText.setText("AT+IP=");
                 Toast.makeText(this, "信号", Toast.LENGTH_LONG).show();
                 break;
             case R.id.AT_SUB:
@@ -352,37 +351,47 @@ public class UARTactivity extends AppCompatActivity {
                 securityDialog.show();;
                 break;
             case R.id.AT_GW:
-                editText.setText("AT+SUB?");
+                editText.setText("AT+GW?");
                 Toast.makeText(this, "清除", Toast.LENGTH_LONG).show();
                 break;
             case R.id.AT_DNS:
+                    editText.setText("AT+DNS?");
                 Toast.makeText(this, "连接", Toast.LENGTH_LONG).show();
                 break;
             case R.id.AT_NET:
+                editText.setText("AT+NET?");
                 Toast.makeText(this, "断开连接", Toast.LENGTH_LONG).show();
                 break;
             case R.id.AT_RST:
+                editText.setText("AT+RST");
                 Toast.makeText(this, "信号", Toast.LENGTH_LONG).show();
                 break;
             case R.id.AT_SRV:
+                editText.setText("AT+SRV=");
                 Toast.makeText(this, "清除", Toast.LENGTH_LONG).show();
                 break;
             case R.id.AT_UPDATE:
+                editText.setText("AT+UPDATE");
                 Toast.makeText(this, "连接", Toast.LENGTH_LONG).show();
                 break;
             case R.id.AT_MODE:
+                editText.setText("AT+MODE=");
                 Toast.makeText(this, "断开连接", Toast.LENGTH_LONG).show();
                 break;
             case R.id.AT_WMODE:
+                editText.setText("AT+WMODE");
                 Toast.makeText(this, "信号", Toast.LENGTH_LONG).show();
                 break;
             case R.id.AT_WSSID:
+                editText.setText("AT+WSSID=");
                 Toast.makeText(this, "断开连接", Toast.LENGTH_LONG).show();
                 break;
             case R.id.AT_WPWD:
+                editText.setText("AT+WPWD=");
                 Toast.makeText(this, "信号", Toast.LENGTH_LONG).show();
                 break;
             case R.id.AT_WSRV:
+                editText.setText("AT+WSRV=");
                 Toast.makeText(this, "清除", Toast.LENGTH_LONG).show();
                 break;
         }

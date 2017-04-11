@@ -106,11 +106,7 @@ public class Peripheral extends BluetoothGattCallback{
             callbackContext.onDeviceMessage("绑定成功",null);
         }
         callbackContext.onDeviceMessage("返回数据 ："+Arrays.toString(characteristic.getValue()),null);
-//        if (characteristic.getValue() != null)
-//            callback(characteristic.getValue());
-        // mMessageManager.handlerDeviceMessage(characteristic.getValue());
-        // callbackContext.onNotify(getAddress(),characteristic.getValue());
-
+        callbackContext.onDeviceMessage("返回数据 ："+new String(characteristic.getValue()),null);
     }
 
     //读

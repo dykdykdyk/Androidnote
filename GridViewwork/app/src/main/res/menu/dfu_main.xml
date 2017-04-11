@@ -2,11 +2,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="gridviewdemo.dyk.gridviewdemo.MainActivity">
-    <!--<item-->
-        <!--android:id="@+id/action_scan"-->
-        <!--android:orderInCategory="100"-->
-        <!--app:showAsAction="always"-->
-        <!--android:title="下一步"/>-->
+    <item
+        android:id="@+id/action_scan"
+        android:orderInCategory="100"
+        app:showAsAction="always"
+        android:title="scan"/>
 
     <!--<item-->
         <!--android:id="@+id/action_settings"-->
