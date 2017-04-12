@@ -290,32 +290,36 @@ public class UARTactivity extends AppCompatActivity {
        }else{
            String setIp =editText.getText().toString().trim();
            Log.i("FragFour","edit1:"+setIp);
+           mBLEListlist.add("发送命令:"+setIp);
+           mydaterlist.notifyDataSetChanged();
            strToByte(setIp);
        }
    }
     public  void strToByte(String str){
-        if(str.length()<=18){
-            str =str+"\r";
+        str =str+"\n\r";
+        if(str.length()<=20){
             byte[]  arrs =new byte[20];
             arrs =str.getBytes();
             write(null, arrs.length, 0x14, arrs);
-        }else if(str.length()>18){
-            str =str+"\r";
-            System.out.println("strle2 "+str.length());
-            byte[]  arr =new byte[20];
-            String temparr =str.substring(0,20);
-            System.out.println("temparr "+temparr.length());
-            System.out.println("temparr "+temparr);
-            arr =temparr.getBytes();
-            System.out.println(Arrays.toString(arr));
-
-            //后面第二个包
-            String temptwo =str.substring(20);
-            System.out.println("temptwo "+temptwo.length());
-            System.out.println("temptwo "+temptwo);
-            byte[]  arrtwo =new byte[20];
-            arrtwo =temptwo.getBytes();
-            System.out.println(Arrays.toString(arrtwo));
+        }else if(str.length()>20){
+            System.out.println("写入命令总长度:"+str.length()+"str:"+str);
+            byte[]  arrtwo =new byte[40];
+            arrtwo=str.getBytes();
+            byte[]  temp =new byte[20];
+            byte[]  temptwo =new byte[20];
+            System.arraycopy(arrtwo, 0, temp, 0, temp.length);
+            System.arraycopy(arrtwo, 20, temptwo, 0, arrtwo.length-temp.length);
+            Log.i("TAG","arrtwo.length:"+arrtwo.length+"arrtwo:"+Arrays.toString(arrtwo));
+            Log.i("TAG","temp.length:"+temp.length+"temp:"+Arrays.toString(temp));
+            Log.i("TAG","temptwo.length:"+temptwo.length+"temptwo:"+Arrays.toString(temptwo));
+            write(null, temp.length, 0, temp);
+            try {
+                //不休眠  连续发两个包 就收不到数据，可能手机底层处理不过来。。。
+                Thread.sleep(200);
+                write(null, temptwo.length, 0, temptwo);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
     @Override

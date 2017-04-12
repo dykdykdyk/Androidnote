@@ -211,7 +211,7 @@ public class Wizardactivity extends AppCompatActivity implements View.OnClickLis
         fragment3.setText(title);
         fragment4.setText(title);
         fragment5.setText(title);
-//        fragment6.setText(title);
+        fragment7.setText(title);
         mBLEDevice =title;
     }
 

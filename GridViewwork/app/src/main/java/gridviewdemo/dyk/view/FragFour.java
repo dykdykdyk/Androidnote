@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,7 +33,7 @@ public class FragFour extends Fragment{
     @Nullable
     Button back,next,edittext1button,edittext3button;
     BleDevice mBleDevice;
-    EditText editText1,editText3;
+    EditText editText1,editText2,editText3,editText4, editText5,editText6, editText7,editText8,editText9;
     private FragOne.titleSelectInterface mSelectInterface;
     private ArrayList<String> mBLEListlist;//存放扫描到的设备信息的集合
     MyAdapter mydaterlist;
@@ -44,14 +45,18 @@ public class FragFour extends Fragment{
         View view =inflater.inflate(R.layout.fragfour,container,false);
         back   = (Button) view.findViewById(R.id.backbutton);
         editText1 =(EditText)  view.findViewById(R.id.edittext1);
+        editText2 =(EditText)  view.findViewById(R.id.edittext2);
         editText3 =(EditText)  view.findViewById(R.id.edittext3);
+        editText4 =(EditText)  view.findViewById(R.id.edittext4);
+        editText5 =(EditText)  view.findViewById(R.id.edittext5);
+        editText6 =(EditText)  view.findViewById(R.id.edittext6);
+        editText7 =(EditText)  view.findViewById(R.id.edittext7);
+        editText8 =(EditText)  view.findViewById(R.id.edittext8);
+        editText9 =(EditText)  view.findViewById(R.id.edittext9);
         edittext1button =(Button) view.findViewById(R.id.edittext1button);
         edittext3button =(Button) view.findViewById(R.id.edittext3button);
         mHandler =new MyHandler4();
-//        editText1.setInputType(InputType.TYPE_CLASS_NUMBER); //调用数字键盘
         next = (Button) view.findViewById(R.id.nextbutton);
-        editText1.setText("AT+IP=");
-        editText3.setText("AT+SRV=");
 
         mBLEListlist =new ArrayList<>();
         mydaterlist = new MyAdapter(getActivity(), mBLEListlist);
@@ -61,22 +66,37 @@ public class FragFour extends Fragment{
         edittext1button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                 initListener();
-                String setIp =editText1.getText().toString().trim();
-               Log.i("FragFour","edit1:"+setIp);
-                strToByte(setIp);
-                mBLEListlist.add("发送命令:"+setIp);
-                mydaterlist.notifyDataSetChanged();
+                if(!editText1.getText().toString().isEmpty()  &&  !editText2.getText().toString().isEmpty()
+                && !editText3.getText().toString().isEmpty() && !editText4.getText().toString().isEmpty()){
+                    String setIp ="AT+IP="+editText1.getText().toString()+"."+editText2.getText().toString()
+                            +"."+editText3.getText().toString()+"."+editText4.getText().toString();
+                    Log.i("FragFour","edit1:"+setIp);
+                    strToByte(setIp);
+                    mBLEListlist.add("发送命令:"+setIp);
+                    mydaterlist.notifyDataSetChanged();
+                }else{
+                    Toast.makeText(getActivity(),"请确认ip地址是否设置正确~",Toast.LENGTH_LONG).show();
+                }
+
+
             }
         });
         edittext3button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String setSRV =editText3.getText().toString().trim();//服务器ip地址和端口号
-                Log.i("FragFour","edit3:"+setSRV);
-                strToByte(setSRV);
-                mBLEListlist.add("发送命令:"+setSRV);
-                mydaterlist.notifyDataSetChanged();
+                if(!editText5.getText().toString().isEmpty()  &&  !editText6.getText().toString().isEmpty()
+                        && !editText7.getText().toString().isEmpty() && !editText8.getText().toString().isEmpty()
+                        && !editText9.getText().toString().isEmpty()){
+                    String setSRV ="AT+SRV="+editText5.getText().toString()+"."+editText6.getText().toString()
+                            +"."+editText7.getText().toString()+"."+editText8.getText().toString()
+                            +":"+editText9.getText().toString();
+                    Log.i("FragFour","edit3:"+setSRV);
+                    strToByte(setSRV);
+                    mBLEListlist.add("发送命令:"+setSRV);
+                    mydaterlist.notifyDataSetChanged();
+                }else{
+                    Toast.makeText(getActivity(),"请确认服务器ip地址和端口号是否设置正确~",Toast.LENGTH_LONG).show();
+                }
             }
         });
         next.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +111,7 @@ public class FragFour extends Fragment{
                 mSelectInterface.onTitleSelect("4back");
             }
         });
+        initListener();
         return view;
     }
     class MyHandler4 extends Handler {
@@ -111,31 +132,36 @@ public class FragFour extends Fragment{
         }
     }
     public  void strToByte(String str){
-        if(str.length()<=18){
-            str =str+"\r";
+        str =str+"\n\r";
+        if(str.length()<=20){
+            System.out.println("写入命令:"+str.length()+"str:"+str);
             byte[]  arrs =new byte[20];
             arrs =str.getBytes();
             write(null, arrs.length, 0x14, arrs);
-        }else if(str.length()>18){
-            str =str+"\r";
-            System.out.println("strle2 "+str.length());
-            byte[]  arr =new byte[20];
-            String temparr =str.substring(0,20);
-            System.out.println("temparr "+temparr.length());
-            System.out.println("temparr "+temparr);
-            arr =temparr.getBytes();
-            System.out.println(Arrays.toString(arr));
-
-            //后面第二个包
-            String temptwo =str.substring(20);
-            System.out.println("temptwo "+temptwo.length());
-            System.out.println("temptwo "+temptwo);
-            byte[]  arrtwo =new byte[20];
-            arrtwo =temptwo.getBytes();
-            System.out.println(Arrays.toString(arrtwo));
+        }else if(str.length()>20){
+            System.out.println("写入命令总长度:"+str.length()+"str:"+str);
+            byte[]  arrtwo =new byte[40];
+            arrtwo=str.getBytes();
+            byte[]  temp =new byte[20];
+            byte[]  temptwo =new byte[20];
+            System.arraycopy(arrtwo, 0, temp, 0, temp.length);
+            System.arraycopy(arrtwo, 20, temptwo, 0, arrtwo.length-temp.length);
+            Log.i("TAG","arrtwo.length:"+arrtwo.length+"arrtwo:"+Arrays.toString(arrtwo));
+            Log.i("TAG","temp.length:"+temp.length+"temp:"+Arrays.toString(temp));
+            Log.i("TAG","temptwo.length:"+temptwo.length+"temptwo:"+Arrays.toString(temptwo));
+                write(null, temp.length, 0, temp);
+            try {
+                //不休眠  连续发两个包 就收不到数据，可能手机底层处理不过来。。。
+                Thread.sleep(200);
+                write(null, temptwo.length, 0, temptwo);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
     public void initListener(){
+        if(mBleDevice == null)
+            return;
         mBleDevice.setDeviceMessageListener(new DeviceMessageListener() {
             @Override
             public void onSendResult(String address, int cmd, byte[] data) {
@@ -164,6 +190,7 @@ public class FragFour extends Fragment{
     public void setText(BleDevice text){
         mBleDevice=text;
         Log.i("TAG","mBleDevice:"+mBleDevice);
+
     }
     private void write(String address, int length, int cmd, byte[] data) {
 //        BleDevice bleDevice = mBLEDevice.get(address);

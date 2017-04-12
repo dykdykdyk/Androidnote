@@ -105,8 +105,26 @@ public class Peripheral extends BluetoothGattCallback{
         if(characteristic.getValue()[1] ==36   && characteristic.getValue()[4] ==0){
             callbackContext.onDeviceMessage("绑定成功",null);
         }
-        callbackContext.onDeviceMessage("返回数据 ："+Arrays.toString(characteristic.getValue()),null);
-        callbackContext.onDeviceMessage("返回数据 ："+new String(characteristic.getValue()),null);
+//       callbackContext.onDeviceMessage("返回数据 ："+Arrays.toString(characteristic.getValue()),null);
+        if(characteristic.getValue()[4] ==79   && characteristic.getValue()[5] ==75){
+            callbackContext.onDeviceMessage("OK,设置成功",null);
+            return;
+        }else if(characteristic.getValue()[4] ==69   && characteristic.getValue()[5] ==82 && characteristic.getValue()[9] ==49){
+            callbackContext.onDeviceMessage("ERROR: -1,设置失败，错误信息：无效的格式",null);
+            return;
+        }else if(characteristic.getValue()[4] ==69   && characteristic.getValue()[5] ==82 && characteristic.getValue()[9] ==50){
+            callbackContext.onDeviceMessage("ERROR: -2,设置失败，错误信息：无效的参数",null);
+            return;
+        }else if(characteristic.getValue()[4] ==69   && characteristic.getValue()[5] ==82 && characteristic.getValue()[9] ==51){
+            callbackContext.onDeviceMessage("ERROR: -3,设置失败，错误信息：命令不存在",null);
+            return;
+        }else if(characteristic.getValue()[4] ==69   && characteristic.getValue()[5] ==82 && characteristic.getValue()[9] ==52){
+            callbackContext.onDeviceMessage("ERROR: -4,设置失败，错误信息：命令未实现",null);
+            return;
+        }else if(characteristic.getValue()[4] !=79 && characteristic.getValue()[5] !=82){
+            callbackContext.onDeviceMessage("返回数据 ："+new String(characteristic.getValue()),null);
+        }
+
     }
 
     //读

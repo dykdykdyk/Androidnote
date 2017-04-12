@@ -121,29 +121,8 @@
                 android:textColor="@color/actionBarColorDark"
                 android:layout_below="@+id/edittext3"
                 android:layout_alignStart="@+id/edittext1" />
-            <EditText
-                android:layout_width="150dp"
-                android:id="@+id/edittext4"
-                android:textSize="20dp"
-                android:textColor="@color/actionBarColorDark"
-                android:digits="@string/alphabet_and_number"
-                android:inputType="number"
-                android:background="@drawable/shape_three"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textview2"
-                android:layout_alignStart="@+id/textview2" />
-            <Button
-                android:id="@+id/edittext2button"
-                android:layout_width="wrap_content"
-                android:enabled="true"
-                android:text="发送命令"
-                android:layout_marginLeft="5dp"
-                android:textSize="15dp"
-                android:background="@drawable/shape"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/edittext4"
-                android:layout_alignBottom="@+id/edittext4"
-                android:layout_below="@+id/textview2" />
+
+
             <ListView
                 android:layout_width="match_parent"
                 android:id="@+id/listview_fragfour"
@@ -153,15 +132,7 @@
                 android:background="@drawable/shape_two"
                 android:layout_height="200dp"
                 android:layout_below="@+id/title1" />
-            <Button
-                android:layout_below="@id/edittext4"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="next"
-                android:layout_margin="5dp"
-                android:background="@drawable/shape"
-                android:layout_alignParentEnd="true"
-                android:id="@+id/nextbutton" />
+
 
             <EditText
                 android:layout_width="150dp"
@@ -174,6 +145,122 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textview3"
                 android:layout_alignEnd="@+id/textview3" />
+
+            <EditText
+                android:layout_width="30dp"
+                android:id="@+id/edittext4"
+                android:textSize="20dp"
+                android:textColor="@color/actionBarColorDark"
+                android:digits="@string/alphabet_and_number"
+                android:inputType="number"
+                android:background="@drawable/shape_three"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview2"
+                android:layout_alignStart="@+id/textview2" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textview4"
+                android:text="."
+                android:paddingTop="8dp"
+                android:textSize="18dp"
+                android:textColor="@color/actionBarColorDark"
+                android:layout_toEndOf="@+id/edittext4"
+                android:layout_below="@+id/textview2" />
+            <EditText
+                android:layout_width="30dp"
+                android:id="@+id/edittext5"
+                android:textSize="20dp"
+                android:textColor="@color/actionBarColorDark"
+                android:digits="@string/alphabet_and_number"
+                android:inputType="number"
+                android:background="@drawable/shape_three"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview2"
+                android:layout_toRightOf="@id/textview4"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textview5"
+                android:text="."
+                android:paddingTop="8dp"
+                android:textSize="18dp"
+                android:textColor="@color/actionBarColorDark"
+                android:layout_toRightOf="@id/edittext5"
+                android:layout_below="@+id/textview2" />
+            <EditText
+                android:layout_width="30dp"
+                android:id="@+id/edittext6"
+                android:textSize="20dp"
+                android:textColor="@color/actionBarColorDark"
+                android:digits="@string/alphabet_and_number"
+                android:inputType="number"
+                android:background="@drawable/shape_three"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview2"
+                android:layout_toRightOf="@id/textview5"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textview6"
+                android:text="."
+                android:paddingTop="8dp"
+                android:textSize="18dp"
+                android:textColor="@color/actionBarColorDark"
+                android:layout_toRightOf="@id/edittext6"
+                android:layout_below="@+id/textview2" />
+            <EditText
+                android:layout_width="30dp"
+                android:id="@+id/edittext7"
+                android:textSize="20dp"
+                android:textColor="@color/actionBarColorDark"
+                android:digits="@string/alphabet_and_number"
+                android:inputType="number"
+                android:background="@drawable/shape_three"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview2"
+                android:layout_toRightOf="@id/textview6"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textview7"
+                android:text=":"
+                android:textSize="18dp"
+                android:textColor="@color/actionBarColorDark"
+                android:layout_toRightOf="@id/edittext7"
+                android:layout_below="@+id/textview2" />
+            <EditText
+                android:layout_width="30dp"
+                android:id="@+id/edittex8"
+                android:textSize="20dp"
+                android:textColor="@color/actionBarColorDark"
+                android:digits="@string/alphabet_and_number"
+                android:inputType="number"
+                android:background="@drawable/shape_three"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview2"
+                android:layout_toRightOf="@id/textview7"/>
+            <Button
+                android:id="@+id/edittext2button"
+                android:layout_width="wrap_content"
+                android:enabled="true"
+                android:text="发送命令"
+                android:layout_marginLeft="5dp"
+                android:textSize="15dp"
+                android:background="@drawable/shape"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/edittex8"
+                android:layout_below="@+id/textview2"
+                android:layout_alignBottom="@+id/edittext7" />
+            <Button
+                android:layout_below="@id/edittext4"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="next"
+                android:layout_margin="5dp"
+                android:background="@drawable/shape"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/nextbutton" />
         </RelativeLayout>
     </ScrollView>
 
