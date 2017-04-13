@@ -296,7 +296,7 @@ public class UARTactivity extends AppCompatActivity {
        }
    }
     public  void strToByte(String str){
-        str =str+"\n\r";
+        str =str+"\r\n";
         if(str.length()<=20){
             byte[]  arrs =new byte[20];
             arrs =str.getBytes();

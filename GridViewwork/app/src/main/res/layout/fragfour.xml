@@ -67,7 +67,19 @@
                 android:background="@drawable/shape"
                 android:layout_alignParentEnd="true"
                 android:id="@+id/nextbutton" />
-
+            <EditText
+                android:id="@+id/edittext1"
+                android:focusable="true"
+                android:digits="@string/alphabet_and_number"
+                android:inputType="number"
+                android:layout_width="35dp"
+                android:textSize="18dp"
+                android:enabled="true"
+                android:textColor="@color/actionBarColorDark"
+                android:background="@drawable/shape_three"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview"
+                android:layout_alignStart="@+id/textview" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -77,19 +89,6 @@
                 android:textColor="@color/actionBarColorDark"
                 android:layout_below="@id/edittext1"
                 android:layout_alignStart="@+id/textview" />
-
-            <Button
-                android:id="@+id/edittext1button"
-                android:layout_width="wrap_content"
-                android:enabled="true"
-                android:text="发送命令"
-                android:textSize="15dp"
-                android:layout_marginLeft="5dp"
-                android:background="@drawable/shape"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/edittext4"
-                android:layout_above="@+id/textview3"
-                android:layout_alignTop="@+id/edittext1" />
 
             <EditText
                 android:layout_width="35dp"
@@ -202,19 +201,7 @@
                 android:layout_below="@+id/textview3"
                 android:layout_toRightOf="@id/pointe6"/>
 
-            <EditText
-                android:id="@+id/edittext1"
-                android:focusable="true"
-                android:digits="@string/alphabet_and_number"
-                android:inputType="number"
-                android:layout_width="35dp"
-                android:textSize="18dp"
-                android:enabled="true"
-                android:textColor="@color/actionBarColorDark"
-                android:background="@drawable/shape_three"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textview"
-                android:layout_alignStart="@+id/textview" />
+
             <TextView
                 android:layout_width="5dp"
                 android:layout_height="wrap_content"
@@ -303,6 +290,19 @@
                 android:background="@drawable/shape_three"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/textview" />
+
+            <Button
+                android:id="@+id/edittext1button"
+                android:layout_width="wrap_content"
+                android:enabled="true"
+                android:text="发送命令"
+                android:textSize="15dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/shape"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/textview3"
+                android:layout_alignTop="@+id/edittext4"
+                android:layout_toEndOf="@+id/edittext9" />
         </RelativeLayout>
     </ScrollView>
 

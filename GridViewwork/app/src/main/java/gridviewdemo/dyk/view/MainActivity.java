@@ -1,6 +1,7 @@
 package gridviewdemo.dyk.view;
 
 import android.content.Intent;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity  {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         init();
+        WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
     }
     //初始化
      public void init(){

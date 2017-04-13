@@ -132,12 +132,12 @@ public class FragFour extends Fragment{
         }
     }
     public  void strToByte(String str){
-        str =str+"\n\r";
+        str =str+"\r\n";
         if(str.length()<=20){
             System.out.println("写入命令:"+str.length()+"str:"+str);
             byte[]  arrs =new byte[20];
             arrs =str.getBytes();
-            write(null, arrs.length, 0x14, arrs);
+            write(null, arrs.length, 0, arrs);
         }else if(str.length()>20){
             System.out.println("写入命令总长度:"+str.length()+"str:"+str);
             byte[]  arrtwo =new byte[40];
@@ -152,7 +152,7 @@ public class FragFour extends Fragment{
                 write(null, temp.length, 0, temp);
             try {
                 //不休眠  连续发两个包 就收不到数据，可能手机底层处理不过来。。。
-                Thread.sleep(200);
+                Thread.sleep(500);
                 write(null, temptwo.length, 0, temptwo);
             } catch (InterruptedException e) {
                 e.printStackTrace();

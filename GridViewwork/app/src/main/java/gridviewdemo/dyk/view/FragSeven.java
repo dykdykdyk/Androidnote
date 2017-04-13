@@ -37,7 +37,13 @@ public class FragSeven extends Fragment {
             @Override
             public void onClick(View v) {
                 strToByte("AT+RST");
-//                mSelectInterface.onTitleSelect("7next");
+                try {
+                    Thread.sleep(500);
+                    mSelectInterface.onTitleSelect("7next");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
             }
         });
         back.setOnClickListener(new View.OnClickListener() {
@@ -50,7 +56,7 @@ public class FragSeven extends Fragment {
         return view;
     }
     public  void strToByte(String str){
-        str =str+"\n\r";
+        str =str+"\r\n";
         if(str.length()<=20){
             byte[]  arrs =new byte[20];
             arrs =str.getBytes();
@@ -70,7 +76,7 @@ public class FragSeven extends Fragment {
             write(null, temp.length, 0, temp);
             try {
                 //不休眠  连续发两个包 就收不到数据，可能手机底层处理不过来。。。
-                Thread.sleep(200);
+                Thread.sleep(500);
                 write(null, temptwo.length, 0, temptwo);
             } catch (InterruptedException e) {
                 e.printStackTrace();

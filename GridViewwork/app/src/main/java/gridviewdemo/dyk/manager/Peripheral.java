@@ -87,6 +87,7 @@ public class Peripheral extends BluetoothGattCallback{
         characteristic.setValue(data[0],BluetoothGattCharacteristic.FORMAT_UINT8, 0);
         characteristic.setValue(data);
         mGatt.writeCharacteristic(characteristic);
+        Log.i("Peripheral"," mGatt.writeCharacteristic 写入： "+mGatt.writeCharacteristic(characteristic));
     }
     public String getAddress() {
         return this.mDevice.getAddress();

@@ -4,6 +4,7 @@
     android:background="@color/colorAccent"
     >
     <ScrollView
+        android:id="@+id/scrollview"
         android:layout_height="match_parent"
         android:layout_width="match_parent">
         <RelativeLayout
@@ -36,93 +37,6 @@
                     android:id="@+id/textView"
                     android:layout_alignParentTop="true" />
             </RelativeLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textview"
-                android:text="设置接入WIFI名称:"
-                android:layout_marginBottom="3dp"
-                android:textSize="18dp"
-                android:textColor="@color/actionBarColorDark"
-                android:layout_below="@+id/listview_fragfour"
-                android:layout_marginStart="50dp" />
-
-            <Button
-                android:id="@+id/edittext1button"
-                android:layout_width="wrap_content"
-                android:enabled="true"
-                android:text="发送命令"
-                android:textSize="15dp"
-                android:layout_marginLeft="5dp"
-                android:background="@drawable/shape"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/edittext1"
-                android:layout_alignTop="@+id/edittext1"
-                android:layout_above="@+id/textview3" />
-
-            <Button
-                android:id="@+id/edittext3button"
-                android:layout_width="wrap_content"
-                android:enabled="true"
-                android:text="发送命令"
-                android:layout_marginLeft="5dp"
-                android:textSize="15dp"
-                android:background="@drawable/shape"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/edittext3"
-                android:layout_below="@id/edittext3"
-                android:layout_alignTop="@+id/edittext3"
-                android:layout_alignBottom="@+id/edittext3" />
-
-
-
-            <EditText
-                android:id="@+id/edittext1"
-                android:focusable="true"
-                android:digits="@string/alphabet_and_number"
-                android:inputType="number"
-                android:layout_width="150dp"
-                android:enabled="true"
-                android:textSize="20dp"
-                android:textColor="@color/actionBarColorDark"
-                android:background="@drawable/shape_three"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textview"
-                android:layout_alignStart="@+id/textview" />
-            <EditText
-                android:id="@+id/edittext2"
-                android:focusable="true"
-                android:digits="@string/alphabet_and_number"
-                android:inputType="number"
-                android:layout_width="150dp"
-                android:enabled="true"
-                android:textSize="20dp"
-                android:textColor="@color/actionBarColorDark"
-                android:background="@drawable/shape_three"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textview"
-                android:layout_alignStart="@+id/textview" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textview3"
-                android:text="设置接入WIFI密码:"
-                android:textSize="18dp"
-                android:textColor="@color/actionBarColorDark"
-                android:layout_below="@+id/edittext2"
-                android:layout_alignStart="@+id/edittext1" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textview2"
-                android:text="设置服务器ip和端口号:"
-                android:textSize="18dp"
-                android:textColor="@color/actionBarColorDark"
-                android:layout_below="@+id/edittext3"
-                android:layout_alignStart="@+id/edittext1" />
-
-
             <ListView
                 android:layout_width="match_parent"
                 android:id="@+id/listview_fragfour"
@@ -132,24 +46,57 @@
                 android:background="@drawable/shape_two"
                 android:layout_height="200dp"
                 android:layout_below="@+id/title1" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text"
+                android:text="手机连接过的WIFI:"
+                android:layout_marginBottom="3dp"
+                android:textSize="18dp"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/actionBarColorDark"
+                android:layout_below="@+id/listview_fragfour"
+                android:layout_alignStart="@+id/edittext3" />
+            <ListView
 
+                android:layout_width="wrap_content"
+                android:id="@+id/listview_wififour"
+                android:textSize="18dp"
+                android:transcriptMode="alwaysScroll"
+                android:background="@drawable/shape_two"
+                android:layout_height="100dp"
+                android:layout_below="@+id/text"
+                android:layout_alignStart="@+id/textview"
+                android:layout_alignEnd="@+id/edittext2button" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textview"
+                android:text="设置接入WIFI名称:"
+                android:layout_marginBottom="3dp"
+                android:textSize="18dp"
+                android:textColor="@color/actionBarColorDark"
+                android:layout_below="@+id/listview_wififour"
+                android:layout_marginStart="50dp" />
 
             <EditText
+                android:id="@+id/edittext2"
+                android:focusable="true"
                 android:layout_width="150dp"
-                android:id="@+id/edittext3"
+                android:enabled="true"
                 android:textSize="20dp"
                 android:textColor="@color/actionBarColorDark"
-                android:digits="@string/alphabet_and_number"
-                android:inputType="number"
                 android:background="@drawable/shape_three"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textview3"
-                android:layout_alignEnd="@+id/textview3" />
+                android:layout_below="@+id/textview"
+                android:layout_alignStart="@+id/textview"
+                android:layout_toStartOf="@+id/edittext1button" />
+
 
             <EditText
-                android:layout_width="30dp"
+                android:layout_width="35dp"
                 android:id="@+id/edittext4"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:textColor="@color/actionBarColorDark"
                 android:digits="@string/alphabet_and_number"
                 android:inputType="number"
@@ -168,9 +115,9 @@
                 android:layout_toEndOf="@+id/edittext4"
                 android:layout_below="@+id/textview2" />
             <EditText
-                android:layout_width="30dp"
+                android:layout_width="35dp"
                 android:id="@+id/edittext5"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:textColor="@color/actionBarColorDark"
                 android:digits="@string/alphabet_and_number"
                 android:inputType="number"
@@ -189,9 +136,9 @@
                 android:layout_toRightOf="@id/edittext5"
                 android:layout_below="@+id/textview2" />
             <EditText
-                android:layout_width="30dp"
+                android:layout_width="35dp"
                 android:id="@+id/edittext6"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:textColor="@color/actionBarColorDark"
                 android:digits="@string/alphabet_and_number"
                 android:inputType="number"
@@ -210,9 +157,9 @@
                 android:layout_toRightOf="@id/edittext6"
                 android:layout_below="@+id/textview2" />
             <EditText
-                android:layout_width="30dp"
+                android:layout_width="35dp"
                 android:id="@+id/edittext7"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:textColor="@color/actionBarColorDark"
                 android:digits="@string/alphabet_and_number"
                 android:inputType="number"
@@ -230,9 +177,9 @@
                 android:layout_toRightOf="@id/edittext7"
                 android:layout_below="@+id/textview2" />
             <EditText
-                android:layout_width="30dp"
+                android:layout_width="40dp"
                 android:id="@+id/edittex8"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:textColor="@color/actionBarColorDark"
                 android:digits="@string/alphabet_and_number"
                 android:inputType="number"
@@ -261,6 +208,65 @@
                 android:background="@drawable/shape"
                 android:layout_alignParentEnd="true"
                 android:id="@+id/nextbutton" />
+
+            <Button
+                android:id="@+id/edittext3button"
+                android:layout_width="wrap_content"
+                android:enabled="true"
+                android:text="发送命令"
+                android:layout_marginLeft="5dp"
+                android:textSize="15dp"
+                android:background="@drawable/shape"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/textview2"
+                android:layout_toEndOf="@+id/edittex8"
+                android:layout_alignTop="@+id/edittext3" />
+
+            <Button
+                android:id="@+id/edittext1button"
+                android:layout_width="wrap_content"
+                android:enabled="true"
+                android:text="发送命令"
+                android:textSize="15dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/shape"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textview"
+                android:layout_toRightOf="@id/textview"
+                android:layout_toEndOf="@+id/edittext3"
+                android:layout_alignBottom="@+id/edittext2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textview2"
+                android:text="设置服务器ip和端口号:"
+                android:textSize="18dp"
+                android:textColor="@color/actionBarColorDark"
+                android:layout_below="@+id/edittext3"
+                android:layout_alignStart="@+id/textview" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textview3"
+                android:text="设置接入WIFI密码:"
+                android:textSize="18dp"
+                android:textColor="@color/actionBarColorDark"
+                android:layout_below="@+id/edittext2"
+                android:layout_alignStart="@+id/textview2" />
+
+            <EditText
+                android:layout_width="150dp"
+                android:id="@+id/edittext3"
+                android:textSize="20dp"
+                android:textColor="@color/actionBarColorDark"
+                android:background="@drawable/shape_three"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview3"
+                android:layout_alignStart="@+id/textview3" />
+
+
         </RelativeLayout>
     </ScrollView>
 

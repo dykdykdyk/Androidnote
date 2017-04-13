@@ -15,6 +15,7 @@
         android:layout_below="@id/toolbar_actionbar"
         android:layout_margin="2dp"
         android:background="@drawable/shape_two"
+        android:transcriptMode="alwaysScroll"
         android:layout_height="200dp"/>
     <EditText
         android:layout_width="250dp"
@@ -24,8 +25,6 @@
         android:textColor="@color/actionBarColorDark"
         android:layout_marginLeft="40sp"
         android:layout_marginRight="40sp"
-        android:digits="@string/alphabet_and_number"
-        android:inputType="number"
         android:background="@drawable/shape_three"
         android:enabled="true"
         android:layout_height="wrap_content"
