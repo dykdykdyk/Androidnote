@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\Users\Administrator\Desktop\MyUbondDemoAPI\app\libs"><file name="android-support-v4.jar" path="C:\Users\Administrator\Desktop\MyUbondDemoAPI\app\libs\android-support-v4.jar"/><file name="hellocharts-library-1.5.8.jar" path="C:\Users\Administrator\Desktop\MyUbondDemoAPI\app\libs\hellocharts-library-1.5.8.jar"/></source></dataSet><dataSet config="debug"><source path="C:\Users\Administrator\Desktop\MyUbondDemoAPI\app\src\debug\jniLibs"/></dataSet></merger>
