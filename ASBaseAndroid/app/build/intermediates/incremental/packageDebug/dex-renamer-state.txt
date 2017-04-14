@@ -1,7 +1,0 @@
-#Thu Mar 30 13:26:48 CST 2017
-base.0=C\:\\Users\\Administrator\\Desktop\\ASProject\\ASBaseAndroid\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_75941dc09e2212a79d841705b0288ac566523c18
-renamed.1=classes.dex
-renamed.0=classes2.dex
-file.1=C\:\\Users\\Administrator\\Desktop\\ASProject\\ASBaseAndroid\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_3d2bb18b69a63921a07130c752cc6abbf0144f16\\classes.dex
-base.1=C\:\\Users\\Administrator\\Desktop\\ASProject\\ASBaseAndroid\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_3d2bb18b69a63921a07130c752cc6abbf0144f16
-file.0=C\:\\Users\\Administrator\\Desktop\\ASProject\\ASBaseAndroid\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_75941dc09e2212a79d841705b0288ac566523c18\\classes.dex
