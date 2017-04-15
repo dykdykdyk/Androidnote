@@ -12,20 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:id="@+id/button1"
-        android:text="显示"/>
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:id="@+id/button2"
-        android:text="隐式"/>
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:id="@+id/button3"
-        android:text="拨打电话"/>
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:id="@+id/button4"
-        android:text="返回数据"/>
+        android:text="thired activity"/>
+
 </LinearLayout>

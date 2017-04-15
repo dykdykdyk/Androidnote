@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -17,7 +18,7 @@ import android.widget.Button;
  */
 
 public class activity extends Activity {
-    Button button1,button2,button3;
+    Button button1,button2,button3,button4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,10 +27,12 @@ public class activity extends Activity {
         button1 =(Button)findViewById(R.id.button1);
         button2 =(Button)findViewById(R.id.button2);
         button3 =(Button)findViewById(R.id.button3);
+        button4 =(Button)findViewById(R.id.button4);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent =new Intent(activity.this,SecondActivity.class);
+                intent.putExtra("ex","nanshu");//第一个参数是键,第二个参数是值
                 startActivity(intent);
             }
         });
@@ -49,5 +52,26 @@ public class activity extends Activity {
                 startActivity(intent);
             }
         });
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(activity.this,getBackDataActivity.class);
+                startActivityForResult(intent,1);
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch(requestCode){
+            case 1:
+                if(resultCode ==RESULT_OK){
+                    String resultdata =data.getStringExtra("returndata");
+                    Log.i("TAG activity","resultdata: "+resultdata);
+                }
+                break;
+            default:
+        }
     }
 }

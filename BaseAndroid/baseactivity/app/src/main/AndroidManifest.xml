@@ -15,6 +15,7 @@
         </intent-filter>
        </activity>
         <activity android:name=".SecondActivity"/>
+        <activity android:name=".getBackDataActivity"/>
         <activity android:name=".ThiredActivity">
             <intent-filter>
                 <action android:name="dyk.intent.ACTIVITY_START" />
