@@ -1,0 +1,318 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    >
+
+    <ScrollView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/title1"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentStart="true">
+                <Button
+                    android:id="@+id/backbutton"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:background="@drawable/shape"
+                    android:text="Back"
+                    android:layout_margin="5dp"
+                    android:layout_alignParentTop="true" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="有线模式"
+                    android:padding="10dp"
+                    android:textSize="20dp"
+                    android:textColor="#9E9E9E"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/textView"
+                    android:layout_alignParentTop="true" />
+            </RelativeLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textview"
+                android:text="设置基站ip:"
+                android:textSize="18dp"
+                android:textColor="@color/actionBarColorDark"
+                android:layout_below="@id/listview_fragfour"
+                android:layout_marginStart="50dp" />
+
+            <ListView
+                android:layout_width="match_parent"
+                android:id="@+id/listview_fragfour"
+                android:textSize="20dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/shape_two"
+                android:layout_height="200dp"
+                android:transcriptMode="alwaysScroll"
+                android:layout_below="@id/title1" />
+            <Button
+                android:layout_below="@id/edittext5"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="next"
+                android:layout_margin="5dp"
+                android:background="@drawable/shape"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/nextbutton" />
+            <EditText
+                android:id="@+id/edittext1"
+                android:focusable="true"
+                android:digits="@string/alphabet_and_number"
+                android:inputType="number"
+                android:layout_width="35dp"
+                android:textSize="18dp"
+                android:enabled="true"
+                android:paddingLeft="1dp"
+                android:textColor="@color/actionBarColorDark"
+                android:background="@drawable/shape_three"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview"
+                android:layout_alignStart="@+id/textview" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textview3"
+                android:text="设置服务器ip和端口号:"
+                android:textSize="18dp"
+                android:textColor="@color/actionBarColorDark"
+                android:layout_below="@id/edittext1"
+                android:layout_alignStart="@+id/textview" />
+
+            <EditText
+                android:layout_width="35dp"
+                android:id="@+id/edittext5"
+                android:textSize="18dp"
+                android:focusable="true"
+                android:enabled="true"
+                android:paddingLeft="1dp"
+                android:textColor="@color/actionBarColorDark"
+                android:digits="@string/alphabet_and_number"
+                android:inputType="number"
+                android:background="@drawable/shape_three"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textview3"
+                android:layout_alignStart="@+id/textview3" />
+            <TextView
+                android:layout_width="5dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/pointer4"
+                android:text="."
+                android:textSize="18dp"
+                android:paddingTop="4dp"
+                android:textColor="@color/actionBarColorDark"
+                android:layout_toEndOf="@+id/edittext5"
+                android:layout_below="@+id/textview3"
+                android:layout_alignBottom="@+id/edittext6" />
+            <EditText
+                android:layout_width="35dp"
+                android:id="@+id/edittext6"
+                android:textSize="18dp"
+                android:paddingLeft="1dp"
+                android:focusable="true"
+                android:enabled="true"
+                android:textColor="@color/actionBarColorDark"
+                android:digits="@string/alphabet_and_number"
+                android:inputType="number"
+                android:background="@drawable/shape_three"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textview3"
+                android:layout_toRightOf="@id/pointer4" />
+            <TextView
+                android:layout_width="5dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/pointer5"
+                android:textSize="18dp"
+                android:paddingTop="4dp"
+                android:text="."
+                android:textColor="@color/actionBarColorDark"
+                android:layout_below="@+id/textview3"
+                android:layout_toEndOf="@+id/edittext6"
+                android:layout_alignBottom="@+id/edittext6" />
+            <EditText
+                android:layout_width="35dp"
+                android:id="@+id/edittext7"
+                android:textSize="18dp"
+                android:paddingLeft="1dp"
+                android:focusable="true"
+                android:enabled="true"
+                android:textColor="@color/actionBarColorDark"
+                android:digits="@string/alphabet_and_number"
+                android:inputType="number"
+                android:background="@drawable/shape_three"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textview3"
+                android:layout_toRightOf="@id/pointer5" />
+            <TextView
+                android:layout_width="5dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/pointer6"
+                android:text="."
+                android:textSize="18dp"
+                android:paddingTop="4dp"
+                android:textColor="@color/actionBarColorDark"
+                android:layout_below="@+id/textview3"
+                android:layout_toEndOf="@+id/edittext7"
+                android:layout_alignBottom="@+id/edittext7" />
+
+            <EditText
+                android:id="@+id/edittext8"
+                android:focusable="true"
+                android:digits="@string/alphabet_and_number"
+                android:inputType="number"
+                android:paddingLeft="1dp"
+                android:layout_width="35dp"
+                android:textSize="18dp"
+
+                android:enabled="true"
+                android:textColor="@color/actionBarColorDark"
+                android:background="@drawable/shape_three"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview3"
+                android:layout_toRightOf="@id/pointer6"/>
+            <TextView
+                android:layout_width="5dp"
+                android:paddingTop="2dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/pointe6"
+                android:text=":"
+                android:textColor="@color/actionBarColorDark"
+                android:layout_below="@id/textview3"
+                android:layout_toRightOf="@id/edittext8"
+                android:layout_alignBottom="@+id/edittext8" />
+            <EditText
+                android:id="@+id/edittext9"
+                android:focusable="true"
+                android:paddingLeft="1dp"
+                android:digits="@string/alphabet_and_number"
+                android:inputType="number"
+                android:layout_width="40dp"
+                android:textSize="18dp"
+                android:enabled="true"
+                android:textColor="@color/actionBarColorDark"
+                android:background="@drawable/shape_three"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview3"
+                android:layout_toRightOf="@id/pointe6"/>
+
+
+            <TextView
+                android:layout_width="5dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/pointer1"
+                android:text="."
+                android:paddingTop="4dp"
+                android:textSize="18dp"
+                android:textColor="@color/actionBarColorDark"
+                android:layout_toEndOf="@+id/edittext1"
+                android:layout_above="@+id/textview3"
+                android:layout_below="@+id/textview" />
+            <EditText
+                android:id="@+id/edittext2"
+                android:focusable="true"
+                android:paddingLeft="1dp"
+                android:digits="@string/alphabet_and_number"
+                android:inputType="number"
+                android:layout_width="35dp"
+                android:textSize="18dp"
+                android:enabled="true"
+                android:layout_toRightOf="@id/pointer1"
+                android:textColor="@color/actionBarColorDark"
+                android:background="@drawable/shape_three"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textview" />
+
+
+            <TextView
+                android:layout_width="5dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/pointer3"
+                android:paddingTop="4dp"
+                android:textSize="18dp"
+                android:text="."
+                android:textColor="@color/actionBarColorDark"
+                android:layout_toEndOf="@+id/edittext3"
+                android:layout_above="@+id/textview3"
+                android:layout_alignTop="@+id/edittext3" />
+            <EditText
+                android:id="@+id/edittext4"
+                android:focusable="true"
+                android:paddingLeft="1dp"
+                android:digits="@string/alphabet_and_number"
+                android:inputType="number"
+                android:layout_width="35dp"
+                android:textSize="18dp"
+                android:enabled="true"
+                android:layout_toRightOf="@id/pointer3"
+                android:textColor="@color/actionBarColorDark"
+                android:background="@drawable/shape_three"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textview" />
+
+            <Button
+                android:id="@+id/edittext3button"
+                android:layout_width="wrap_content"
+                android:enabled="true"
+                android:text="发送命令"
+                android:textSize="15dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/shape"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview3"
+                android:layout_toRightOf="@id/edittext9"
+                android:layout_above="@+id/nextbutton" />
+
+            <TextView
+                android:layout_width="5dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/pointer2"
+                android:textSize="18dp"
+                android:paddingTop="5dp"
+                android:text="."
+                android:textColor="@color/actionBarColorDark"
+                android:layout_alignBottom="@+id/edittext3"
+                android:layout_toEndOf="@+id/edittext2"
+                android:layout_below="@+id/textview" />
+            <EditText
+                android:id="@+id/edittext3"
+                android:focusable="true"
+                android:paddingLeft="1dp"
+                android:digits="@string/alphabet_and_number"
+                android:inputType="number"
+                android:layout_width="35dp"
+                android:textSize="18dp"
+                android:enabled="true"
+                android:layout_toRightOf="@id/pointer2"
+                android:textColor="@color/actionBarColorDark"
+                android:background="@drawable/shape_three"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textview" />
+
+            <Button
+                android:id="@+id/edittext1button"
+                android:layout_width="wrap_content"
+                android:enabled="true"
+                android:text="发送命令"
+                android:textSize="15dp"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/shape"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/textview3"
+                android:layout_alignTop="@+id/edittext4"
+                android:layout_toEndOf="@+id/edittext9" />
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

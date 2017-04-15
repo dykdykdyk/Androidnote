@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    >
+    <RelativeLayout
+        android:id="@+id/title1"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true">
+        <Button
+            android:id="@+id/backbutton"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Back"
+            android:layout_margin="5dp"
+            android:background="@drawable/shape"
+            android:layout_alignParentTop="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置完成"
+            android:padding="10dp"
+            android:textSize="20dp"
+            android:textColor="#9E9E9E"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textView"
+            android:layout_alignParentTop="true" />
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/imageview"
+        android:layout_below="@id/title1"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:weightSum="1">
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="301dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/shape"
+            android:layout_weight="0.70" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tv"
+        android:layout_below="@id/imageview"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textSize="20dp"
+        android:textColor="#696969"
+        android:text="将基站按照上图反立，请点击完成，基站将进入运行模式！"/>
+    <Button
+        android:layout_below="@id/tv"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="完成"
+        android:layout_margin="5dp"
+        android:background="@drawable/shape"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/nextbutton" />
+
+</RelativeLayout>

@@ -1,0 +1,62 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    >
+
+
+
+    <RelativeLayout
+        android:id="@+id/title1"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true">
+        <Button
+            android:id="@+id/backbutton"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Back"
+            android:layout_margin="5dp"
+            android:background="@drawable/shape"
+            android:layout_alignParentTop="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="扫描基站"
+            android:padding="10dp"
+            android:textSize="20dp"
+            android:textColor="#9E9E9E"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/textView"
+            android:layout_alignParentTop="true" />
+
+        <!--<Button-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:background="@color/actionBarColorDark"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="扫描"-->
+            <!--android:textSize="18dp"-->
+            <!--android:layout_gravity="right"-->
+            <!--android:id="@+id/scan"-->
+            <!--android:layout_alignParentTop="true"-->
+            <!--android:layout_alignParentEnd="true" />-->
+    </RelativeLayout>
+            <ListView
+                android:id="@+id/list"
+                android:layout_below="@id/title1"
+            android:layout_height="400dp"
+            android:layout_width="match_parent"/>
+    <Button
+        android:id="@+id/nextbutton"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="next"
+        android:visibility="gone"
+        android:layout_margin="5dp"
+        android:background="@drawable/shape"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/list" />
+</RelativeLayout>
