@@ -1,7 +1,7 @@
 package gridviewdemo.dyk.view;
 
-import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -21,7 +21,6 @@ import android.widget.TextView;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 import gridviewdemo.dyk.adapter.ListViewAdapter;
@@ -36,49 +35,33 @@ import gridviewdemo.dyk.manager.Scanner;
  * Created by Administrator on 2017/3/31.
  */
 
-public class FragTwo extends Fragment{
+public class FragTwo extends Fragment implements View.OnClickListener{
     @Nullable
-    Button next,back,scan;
-    ListView listview,lv;
+    private   Button next,back,scan;
+    private  ListView listview,lv;
     private Scanner scanner;
     private ArrayList<BleDevice> mBLEList;//存放扫描到的设备信息的集合
     private ArrayList<String> mBLEListlist;//存放扫描到的设备信息的集合
-    View mview;
-    ProgressBar pbar;
-    TextView tv;
+    private   View mview;
+    private  ProgressBar pbar;
+    private  TextView tv;
     private String dAddress; // 操作当前的设备mac地址
-    LayoutInflater minflater;
-    ListViewAdapter mydater;
+    private  LayoutInflater minflater;
+    private ListViewAdapter mydater;
     private BleDevice dBleDevice; // 当前正在操作的设备
     private boolean scaning = false; // 是否正在扫描
-    Map<String, Integer> rssiMap =new LinkedHashMap<String, Integer>();
-    FragOne.titleSelectInterface  mSelectInterface;
+    private Map<String, Integer> rssiMap =new LinkedHashMap<String, Integer>();
+    private FragOne.titleSelectInterface  mSelectInterface;
     private BleDeviceTransmit mBleDeviceTransmit;
     //打印信息的listview 适配
-    MyAdapter mydaterlist;
-    MyHandler mHandler ;//异步
+    private MyAdapter mydaterlist;
+    private MyHandler mHandler ;//异步
+    private AlertDialog scanDialog;
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-//        return super.onCreateView(inflater, container, savedInstanceState);
         View view =inflater.inflate(R.layout.fragtwo,container,false);
-        listview= (ListView) view.findViewById(R.id.list);
-        next = (Button) view.findViewById(R.id.nextbutton);
-        //调试用
-        next.setVisibility(View.VISIBLE);
-        back   = (Button) view.findViewById(R.id.backbutton);
+        initview(view);
         mHandler = new MyHandler();
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mSelectInterface.onTitleSelect("2next");
-            }
-        });
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mSelectInterface.onTitleSelect("2back");
-            }
-        });
         mview =view;
         minflater =inflater;
         init();
@@ -86,18 +69,39 @@ public class FragTwo extends Fragment{
         mBLEListlist =new ArrayList<>();
         mydaterlist = new MyAdapter(getActivity(), mBLEListlist);
         listview.setAdapter(mydaterlist);
-
         scanDialog.show();;
         scanLeDevice();
         return view;
     }
-    private AlertDialog scanDialog;
+   private void initview(View mview){
+       listview= (ListView) mview.findViewById(R.id.list);
+       next = (Button) mview.findViewById(R.id.nextbutton);
+       back   = (Button) mview.findViewById(R.id.backbutton);
+       back.setOnClickListener(this);
+       next.setOnClickListener(this);
+       next.setVisibility(View.VISIBLE);
+   }
+    /**
+     * Called when a view has been clicked.
+     *
+     * @param v The view that was clicked.
+     */
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.nextbutton:
+                mSelectInterface.onTitleSelect("2next");
+                break;
+            case R.id.backbutton:
+                mSelectInterface.onTitleSelect("2back");
+                break;
+        }
+    }
 
     //Fragment间传递参数方法三
     public interface BleDeviceTransmit {
         public void onTitleSelect(BleDevice title);
     }
-
     private void initScanDialog(){
         AlertDialog.Builder scanbuilder = new AlertDialog.Builder(getActivity());
         mview =minflater.inflate(R.layout.device_list, null);
@@ -112,7 +116,6 @@ public class FragTwo extends Fragment{
         scanbuilder.setView(mview);
         scanbuilder.setPositiveButton("重试",
                 new DialogInterface.OnClickListener() {
-
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         try {
@@ -123,12 +126,9 @@ public class FragTwo extends Fragment{
                             // TODO Auto-generated catch block
                             e.printStackTrace();
                         }
-                        //点击后处理的方法
                         tv.setVisibility(View.GONE);
                         scanLeDevice();
                         pbar.setVisibility(View.VISIBLE);
-                        // TODO Auto-generated method stub
-
                     }
                 });
         scanbuilder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -140,9 +140,7 @@ public class FragTwo extends Fragment{
                             .getDeclaredField("mShowing");
                     field.setAccessible(true);
                     field.set(dialog, true);// true表示要关闭
-
                 } catch (Exception e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
                 stopScan();
@@ -172,13 +170,13 @@ public class FragTwo extends Fragment{
         });
     }
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+    public void onAttach(Context context) {
+        super.onAttach(context);
         try {
-            mSelectInterface = (FragOne.titleSelectInterface) activity;
-            mBleDeviceTransmit =(BleDeviceTransmit)activity;
+            mSelectInterface = (FragOne.titleSelectInterface) context;
+            mBleDeviceTransmit =(BleDeviceTransmit)context;
         } catch (Exception e) {
-            throw new ClassCastException(activity.toString() + "must implement OnArticleSelectedListener");
+            throw new ClassCastException(context.toString() + "must implement OnArticleSelectedListener");
         }
     }
     /***
@@ -196,7 +194,6 @@ public class FragTwo extends Fragment{
         if(scaning)
             stopScan();//先判断是否正在扫描
         mBleDev.connect();
-
         mBLEListlist.add("开始连接:"+mBleDev.getAddress());
         mBleDev.setDeviceMessageListener(new DeviceMessageListener() {
             @Override
@@ -206,10 +203,6 @@ public class FragTwo extends Fragment{
                 Message message=new Message();
                 message.what=1;
                 mHandler.sendMessage(message);
-            }
-            @Override
-            public void onSendHistory(String address, int cmd, List<byte[]> historyData) {
-
             }
         });
         mydaterlist.notifyDataSetChanged();
@@ -222,16 +215,12 @@ public class FragTwo extends Fragment{
             super.handleMessage(msg);
             switch (msg.what) {
                 case 1:
-
                     mydaterlist.notifyDataSetChanged();
                     try {
                         Thread.sleep(500);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-//                    if(mBLEListlist.contains("绑定成功")){
-//                        next.setVisibility(View.VISIBLE);
-//                    }
                     break;
             }
         }
@@ -254,7 +243,6 @@ public class FragTwo extends Fragment{
     private void init() {
        //初始化扫描的监听
         scanner = new Scanner(getActivity());
-
         Log.i("scanner"," "+scanner);
         scanner.setScanner(new InterfaceScanner() {
             @Override

@@ -13,11 +13,12 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.Arrays;
-import java.util.List;
 
 import gridviewdemo.dyk.application.BleDevice;
 import gridviewdemo.dyk.gridviewdemo.R;
 import gridviewdemo.dyk.interfaces.DeviceMessageListener;
+
+import static gridviewdemo.dyk.utils.Utils.bytetoarray;
 
 /**
  * Created by dengyangkang on 2017/3/31.
@@ -56,34 +57,18 @@ public class FragSeven extends Fragment {
         return view;
     }
     public  void strToByte(String str){
-        str =str+"\r\n";
-        if(str.length()<=20){
-            byte[]  arrs =new byte[20];
-            arrs =str.getBytes();
-            write(null, arrs.length, 0x14, arrs);
-            System.out.println("写入命令:"+str.length()+"str:"+str);
-        }else if(str.length()>20){
-            System.out.println("写入命令总长度:"+str.length()+"str:"+str);
-            byte[]  arrtwo =new byte[40];
-            arrtwo=str.getBytes();
-            byte[]  temp =new byte[20];
-            byte[]  temptwo =new byte[20];
-            System.arraycopy(arrtwo, 0, temp, 0, temp.length);
-            System.arraycopy(arrtwo, 20, temptwo, 0, arrtwo.length-temp.length);
-            Log.i("TAG","arrtwo.length:"+arrtwo.length+"arrtwo:"+Arrays.toString(arrtwo));
-            Log.i("TAG","temp.length:"+temp.length+"temp:"+Arrays.toString(temp));
-            Log.i("TAG","temptwo.length:"+temptwo.length+"temptwo:"+Arrays.toString(temptwo));
-            write(null, temp.length, 0, temp);
+        byte[][] arrs=bytetoarray(str);
+        write( arrs[0].length, 0, arrs[0]);
+        if(arrs.length ==2){
             try {
-                //不休眠  连续发两个包 就收不到数据，可能手机底层处理不过来。。。
                 Thread.sleep(500);
-                write(null, temptwo.length, 0, temptwo);
+                write(arrs[1].length,0,arrs[1]);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     }
-    private void write(String address, int length, int cmd, byte[] data) {
+    private void write(int length, int cmd, byte[] data) {
 //        BleDevice bleDevice = mBLEDevice.get(address);
         if(mBleDevice !=null){
             mBleDevice.write(length, cmd, data);
@@ -98,10 +83,6 @@ public class FragSeven extends Fragment {
                 Toast.makeText(getActivity(),"重启返回应答："+address,Toast.LENGTH_LONG).show();
                 Message message=new Message();
                 message.what=1;
-            }
-            @Override
-            public void onSendHistory(String address, int cmd, List<byte[]> historyData) {
-
             }
         });
     }

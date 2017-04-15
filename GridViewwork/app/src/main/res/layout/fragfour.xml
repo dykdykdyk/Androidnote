@@ -75,6 +75,7 @@
                 android:layout_width="35dp"
                 android:textSize="18dp"
                 android:enabled="true"
+                android:paddingLeft="1dp"
                 android:textColor="@color/actionBarColorDark"
                 android:background="@drawable/shape_three"
                 android:layout_height="wrap_content"
@@ -96,6 +97,7 @@
                 android:textSize="18dp"
                 android:focusable="true"
                 android:enabled="true"
+                android:paddingLeft="1dp"
                 android:textColor="@color/actionBarColorDark"
                 android:digits="@string/alphabet_and_number"
                 android:inputType="number"
@@ -118,6 +120,7 @@
                 android:layout_width="35dp"
                 android:id="@+id/edittext6"
                 android:textSize="18dp"
+                android:paddingLeft="1dp"
                 android:focusable="true"
                 android:enabled="true"
                 android:textColor="@color/actionBarColorDark"
@@ -142,6 +145,7 @@
                 android:layout_width="35dp"
                 android:id="@+id/edittext7"
                 android:textSize="18dp"
+                android:paddingLeft="1dp"
                 android:focusable="true"
                 android:enabled="true"
                 android:textColor="@color/actionBarColorDark"
@@ -168,6 +172,7 @@
                 android:focusable="true"
                 android:digits="@string/alphabet_and_number"
                 android:inputType="number"
+                android:paddingLeft="1dp"
                 android:layout_width="35dp"
                 android:textSize="18dp"
 
@@ -190,6 +195,7 @@
             <EditText
                 android:id="@+id/edittext9"
                 android:focusable="true"
+                android:paddingLeft="1dp"
                 android:digits="@string/alphabet_and_number"
                 android:inputType="number"
                 android:layout_width="40dp"
@@ -216,6 +222,7 @@
             <EditText
                 android:id="@+id/edittext2"
                 android:focusable="true"
+                android:paddingLeft="1dp"
                 android:digits="@string/alphabet_and_number"
                 android:inputType="number"
                 android:layout_width="35dp"
@@ -242,6 +249,7 @@
             <EditText
                 android:id="@+id/edittext4"
                 android:focusable="true"
+                android:paddingLeft="1dp"
                 android:digits="@string/alphabet_and_number"
                 android:inputType="number"
                 android:layout_width="35dp"
@@ -280,6 +288,7 @@
             <EditText
                 android:id="@+id/edittext3"
                 android:focusable="true"
+                android:paddingLeft="1dp"
                 android:digits="@string/alphabet_and_number"
                 android:inputType="number"
                 android:layout_width="35dp"

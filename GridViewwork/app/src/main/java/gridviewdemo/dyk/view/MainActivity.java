@@ -1,7 +1,6 @@
 package gridviewdemo.dyk.view;
 
 import android.content.Intent;
-import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -17,7 +16,7 @@ import java.util.HashMap;
 import gridviewdemo.dyk.gridviewdemo.R;
 
 public class MainActivity extends AppCompatActivity  {
-    TextView tv;
+    private TextView tv;
     //定义图标数组
     private int[] imageRes ={
             R.mipmap.ic_template_feature,
@@ -30,9 +29,9 @@ public class MainActivity extends AppCompatActivity  {
             "空中升级",
             "专家模式"
     };
-    GridView  mgirdview ;
-    int length =imageRes.length;
-    SimpleAdapter saImageItems ;
+    private GridView  mgirdview ;
+    private int length;
+    private SimpleAdapter saImageItems ;
     ArrayList<HashMap<String,Object>> lstImageItem =new ArrayList<HashMap<String,Object>>();
 
     @Override
@@ -41,11 +40,11 @@ public class MainActivity extends AppCompatActivity  {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        init();
-        WifiManager wifiManager = (WifiManager) getSystemService(WIFI_SERVICE);
+        initview();
     }
     //初始化
-     public void init(){
+     public void initview(){
+         length =imageRes.length;
          mgirdview =(GridView)findViewById(R.id.gridview);
          for(int i=0;i<length;i++){
              HashMap<String,Object>  map =new HashMap<String,Object>();
@@ -74,12 +73,10 @@ public class MainActivity extends AppCompatActivity  {
                      //空中升级
                      case    1:
                          startActivity(new Intent(MainActivity.this,DFUActivity.class));
-//                         Toast.makeText(MainActivity.this,name[position],Toast.LENGTH_LONG).show();
                          break;
                      //专家模式
                      case    2:
                          startActivity(new Intent(MainActivity.this,UARTactivity.class));
-//                         Toast.makeText(MainActivity.this,name[position],Toast.LENGTH_LONG).show();
                          break;
                  }
              }

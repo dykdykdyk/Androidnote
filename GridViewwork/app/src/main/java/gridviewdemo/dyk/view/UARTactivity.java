@@ -27,7 +27,6 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 import gridviewdemo.dyk.adapter.ListViewAdapter;
@@ -39,7 +38,7 @@ import gridviewdemo.dyk.interfaces.InterfaceScanner;
 import gridviewdemo.dyk.manager.Scanner;
 
 import static gridviewdemo.dyk.gridviewdemo.R.id.edittext;
-import static gridviewdemo.dyk.utils.Utils.strToByteArray;
+import static gridviewdemo.dyk.utils.Utils.bytetoarray;
 
 /**
  * Created by Administrator on 2017/3/24.
@@ -253,11 +252,6 @@ public class UARTactivity extends AppCompatActivity {
                 message.what=1;
                 mHandler.sendMessage(message);
             }
-
-            @Override
-            public void onSendHistory(String address, int cmd, List<byte[]> historyData) {
-
-            }
         });
         mydaterlist.notifyDataSetChanged();
     }
@@ -270,7 +264,6 @@ public class UARTactivity extends AppCompatActivity {
             stopScan();
         scanner.startScan(8); //扫描7秒
     }
-
     /**
      * 停止扫描
      */
@@ -296,27 +289,12 @@ public class UARTactivity extends AppCompatActivity {
        }
    }
     public  void strToByte(String str){
-        str =str+"\r\n";
-        if(str.length()<=20){
-            byte[]  arrs =new byte[20];
-            arrs =str.getBytes();
-            write(null, arrs.length, 0x14, arrs);
-        }else if(str.length()>20){
-            System.out.println("写入命令总长度:"+str.length()+"str:"+str);
-            byte[]  arrtwo =new byte[40];
-            arrtwo=str.getBytes();
-            byte[]  temp =new byte[20];
-            byte[]  temptwo =new byte[20];
-            System.arraycopy(arrtwo, 0, temp, 0, temp.length);
-            System.arraycopy(arrtwo, 20, temptwo, 0, arrtwo.length-temp.length);
-            Log.i("TAG","arrtwo.length:"+arrtwo.length+"arrtwo:"+Arrays.toString(arrtwo));
-            Log.i("TAG","temp.length:"+temp.length+"temp:"+Arrays.toString(temp));
-            Log.i("TAG","temptwo.length:"+temptwo.length+"temptwo:"+Arrays.toString(temptwo));
-            write(null, temp.length, 0, temp);
+        byte[][] arrs=bytetoarray(str);
+        write( arrs[0].length, 0, arrs[0]);
+        if(arrs.length ==2){
             try {
-                //不休眠  连续发两个包 就收不到数据，可能手机底层处理不过来。。。
-                Thread.sleep(200);
-                write(null, temptwo.length, 0, temptwo);
+                Thread.sleep(500);
+                write(arrs[1].length,0,arrs[1]);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -336,67 +314,67 @@ public class UARTactivity extends AppCompatActivity {
                 break;
             case R.id.AT_VER:
                 editText.setText("AT+VER?");
-                Toast.makeText(this, "清除", Toast.LENGTH_LONG).show();
+                editText.setSelection(editText.getText().toString().length());
                 break;
             case R.id.AT_EID:
                 editText.setText("AT+EID?");
-                Toast.makeText(this, "连接", Toast.LENGTH_LONG).show();
+                editText.setSelection(editText.getText().toString().length());
                 break;
             case R.id.AT_MAC:
                 editText.setText("AT+MAC?");
-                Toast.makeText(this, "断开连接", Toast.LENGTH_LONG).show();
+                editText.setSelection(editText.getText().toString().length());
                 break;
             case R.id.AT_IP:
                 editText.setText("AT+IP=");
-                Toast.makeText(this, "信号", Toast.LENGTH_LONG).show();
+                editText.setSelection(editText.getText().toString().length());
                 break;
             case R.id.AT_SUB:
                 editText.setText("AT+SUB?");
-                securityDialog.show();;
+                editText.setSelection(editText.getText().toString().length());
                 break;
             case R.id.AT_GW:
                 editText.setText("AT+GW?");
-                Toast.makeText(this, "清除", Toast.LENGTH_LONG).show();
+                editText.setSelection(editText.getText().toString().length());
                 break;
             case R.id.AT_DNS:
                     editText.setText("AT+DNS?");
-                Toast.makeText(this, "连接", Toast.LENGTH_LONG).show();
+                editText.setSelection(editText.getText().toString().length());
                 break;
             case R.id.AT_NET:
                 editText.setText("AT+NET?");
-                Toast.makeText(this, "断开连接", Toast.LENGTH_LONG).show();
+                editText.setSelection(editText.getText().toString().length());
                 break;
             case R.id.AT_RST:
                 editText.setText("AT+RST");
-                Toast.makeText(this, "信号", Toast.LENGTH_LONG).show();
+                editText.setSelection(editText.getText().toString().length());
                 break;
             case R.id.AT_SRV:
                 editText.setText("AT+SRV=");
-                Toast.makeText(this, "清除", Toast.LENGTH_LONG).show();
+                editText.setSelection(editText.getText().toString().length());
                 break;
             case R.id.AT_UPDATE:
                 editText.setText("AT+UPDATE");
-                Toast.makeText(this, "连接", Toast.LENGTH_LONG).show();
+                editText.setSelection(editText.getText().toString().length());
                 break;
             case R.id.AT_MODE:
                 editText.setText("AT+MODE=");
-                Toast.makeText(this, "断开连接", Toast.LENGTH_LONG).show();
+                editText.setSelection(editText.getText().toString().length());
                 break;
             case R.id.AT_WMODE:
                 editText.setText("AT+WMODE");
-                Toast.makeText(this, "信号", Toast.LENGTH_LONG).show();
+                editText.setSelection(editText.getText().toString().length());
                 break;
             case R.id.AT_WSSID:
                 editText.setText("AT+WSSID=");
-                Toast.makeText(this, "断开连接", Toast.LENGTH_LONG).show();
+                editText.setSelection(editText.getText().toString().length());
                 break;
             case R.id.AT_WPWD:
                 editText.setText("AT+WPWD=");
-                Toast.makeText(this, "信号", Toast.LENGTH_LONG).show();
+                editText.setSelection(editText.getText().toString().length());
                 break;
             case R.id.AT_WSRV:
                 editText.setText("AT+WSRV=");
-                Toast.makeText(this, "清除", Toast.LENGTH_LONG).show();
+                editText.setSelection(editText.getText().toString().length());
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -426,7 +404,7 @@ public class UARTactivity extends AppCompatActivity {
                                 (byte) 0xFE, (byte) 0xDC, (byte) 0xBA, (byte) 0x98,
                                 0x76, 0x54, 0x32, 0x10 };
                         Log.i("超级绑定","超级绑定");
-                        write(dAddress, SUPER_BOUND_DATA.length, 0x24,
+                        write(SUPER_BOUND_DATA.length, 0x24,
                                 SUPER_BOUND_DATA);
                         break;
                     case 2:
@@ -440,15 +418,16 @@ public class UARTactivity extends AppCompatActivity {
                     case 4:
                         Log.i("请求报警","请求报警");
                         String str = "+12345678910";
-                        byte[] st =strToByteArray(str);
-                        write(dAddress,st.length, 0x14, st);
+//                        byte[] st =strToByteArray(str);
+//                        write(dAddress,st.length, 0x14, st);
                 }
             }
         });
         securityDialog =builder.create();
     }
-    private void write(String address, int length, int cmd, byte[] data) {
-//        BleDevice bleDevice = mBLEDevice.get(address);
-        dBleDevice.write(length, cmd, data);
+    private void write(int length, int cmd, byte[] data) {
+        if(dBleDevice !=null){
+            dBleDevice.write(length, cmd, data);
+        }
     }
 }
