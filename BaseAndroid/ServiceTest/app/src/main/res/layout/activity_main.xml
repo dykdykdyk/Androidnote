@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="dyk.servicetest.view.MainActivity">
+
+    <Button
+        android:id="@+id/start_Service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Service" />
+    <Button
+        android:id="@+id/stop_Service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/start_Service"
+        android:text="Stop Service" />
+    <Button
+        android:id="@+id/bind_Service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/stop_Service"
+        android:text="bind Service" />
+    <Button
+        android:id="@+id/unbind_Service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bind_Service"
+        android:text="unbind Service" />
+    <Button
+        android:id="@+id/start_intent_Service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/unbind_Service"
+        android:text="start IntentService" />
+    <Button
+        android:id="@+id/start_longRunning_Service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/start_intent_Service"
+        android:text="start IntentService" />
+</RelativeLayout>
