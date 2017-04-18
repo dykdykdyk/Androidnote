@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="D:\ASinstallSDK\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
+        <dex dex="C:\Users\Administrator\Desktop\dingwork\MyUbondDemoAPI\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0_182db18a26621817eac0269ee56a9004db9cef46.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\Desktop\dingwork\MyUbondDemoAPI\app\libs\hellocharts-library-1.5.8.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="700944cb3a8ce4fe543cfac1a9146a11cbf702dc">
+        <dex dex="C:\Users\Administrator\Desktop\dingwork\MyUbondDemoAPI\app\build\intermediates\pre-dexed\debug\hellocharts-library-1.5.8_be0ea79f58edddb78696accf1ec1be51e872e469.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\ASinstallSDK\extras\android\m2repository\com\android\support\support-v4\19.1.0\support-v4-19.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="85f201b380937e61a9dce6ca90ccf6872abbfb67">
+        <dex dex="C:\Users\Administrator\Desktop\dingwork\MyUbondDemoAPI\app\build\intermediates\pre-dexed\debug\support-v4-19.1.0_182db18a26621817eac0269ee56a9004db9cef46.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\Desktop\dingwork\MyUbondDemoAPI\app\libs\hellocharts-library-1.5.8.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="700944cb3a8ce4fe543cfac1a9146a11cbf702dc">
+        <dex dex="C:\Users\Administrator\Desktop\dingwork\MyUbondDemoAPI\app\build\intermediates\pre-dexed\debug\hellocharts-library-1.5.8_be0ea79f58edddb78696accf1ec1be51e872e469.jar" />
+    </item>
+
+</items>
