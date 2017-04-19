@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Ubond1</string>
+    <string name="launcher_name">@string/app_name</string>
+    <string name="activity_name">@string/launcher_name</string>
+<string name="ubond_disconnet">ubond is disconnected !</string>
+    <string name="ubond_fall">ubond falls !</string>
+</resources>

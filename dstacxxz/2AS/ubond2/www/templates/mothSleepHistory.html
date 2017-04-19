@@ -1,0 +1,82 @@
+<!--<link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">-->
+<ion-view title="{{'mothSleep_history' | translate}}">
+    <ion-nav-bar class="bar-positive2 nav-title-slide-ios7" align-title="center">
+        <ion-nav-buttons side="left">
+            <div class="imgStyleLeft" ng-click="goToMain()"><img src="img/10.png"></div>
+        </ion-nav-buttons>
+        <!--<ion-nav-back-button ng-click="goToMain()">-->
+        <!--</ion-nav-back-button>-->
+        <ion-nav-buttons side="right">
+            <button class="button button-clear" ng-click="onClickRefresh_sleep()">
+                {{'Refresh' | translate}}
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content style="overflow: hidden" scrollbar-y='false' overflow-scroll='false'>
+        <div ng-if="isShow" class="progress" style="height:4px">
+            <div class="progress-bar progress-bar-info" role="progressbar"
+                 aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"
+                 style="width: {{pro_width}}%;">
+            </div>
+        </div>
+        <div class="old_day" ng-click="old_day()"><img src="img/10.png" style="vertical-align: top;width: 100%;height: 100%;"></div>
+        <div class="next_day flipx" ng-click="next_day()"><img src="img/10.png" style="vertical-align: top;width: 100%;height: 100%;"></div>
+        <div class="sport_top" id="mothSleep">
+
+        </div>
+        <div class="sport_botom">
+
+            <ion-list>
+                <ion-item class=" item-icon-left item-icon-right item-compact2">
+                    <div class="imgStyleSmall"><img src="img/s1.png"></div>
+				<span class="item-text">
+                    {{'sleep_month_text3' | translate}}
+				</span>
+                     <span class="item-text2">
+					 {{actionSleep}}
+				</span>
+                </ion-item>
+                <ion-item class=" item-icon-left item-icon-right item-compact2">
+                    <div class="imgStyleSmall"><img src="img/s2.png"></div>
+				<span class="item-text">
+                    {{'sleep_month_text2' | translate}}
+				</span>
+                     <span class="item-text2">
+				 {{lightSleep}}
+				</span>
+                </ion-item>
+                <ion-item class=" item-icon-left item-icon-right item-compact2">
+                    <div class="imgStyleSmall"><img src="img/s3.png"></div>
+				<span class="item-text">
+                    {{'sleep_month_text1' | translate}}
+				</span>
+                <span class="item-text2">
+				 {{deepSleep}}
+				</span>
+                </ion-item>
+            </ion-list>
+            <!--<div class="tabs">-->
+            <!--<a class="tab-item" ng-click="onClickGoToDay()" >-->
+            <!--{{'day_text' | translate}}-->
+            <!--</a>-->
+            <!--<a class="tab-item" >-->
+            <!--{{'month_text' | translate}}-->
+            <!--</a>-->
+            <!--<a class="tab-item"  ng-click="onClickGoToYear()">-->
+            <!--{{'year_text' | translate}}-->
+            <!--</a>-->
+            <!--</div>-->
+
+        </div>
+
+
+    </ion-content>
+    <ion-tabs>
+        <ion-tab title="{{day_text}}" href="#/sleepHistory">
+        </ion-tab>
+        <ion-tab title="{{month_text}}" class="tab_sp" href="#/MothSleepHistory">
+        </ion-tab>
+        <ion-tab title="{{year_text}}" href="#/YearSleepHistory">
+        </ion-tab>
+    </ion-tabs>
+</ion-view>

@@ -1,0 +1,66 @@
+<ion-view title="{{'config_antiLostSet' | translate}}">
+    <ion-nav-bar class="bar-positive2 nav-title-slide-ios7" align-title="center">
+        <ion-nav-buttons side="left"> <div class="imgStyleLeft" ng-click="back()"><img src="img/10.png"></div>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button class="button button-clear" ng-click="onClickFinish()">
+                {{'done' | translate}}
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content overflow-scroll="false"   scrollbar-y='false'>
+            <div class="setting_phone2">
+                <div class="avatarDiv">
+                    <div class="staticImage"  ng-click="onClicktakePhoto()">
+
+                        <img id="avatarImage" class="avatarImage" ng-src="{{cameraimage}}" />
+
+                        <div style=" margin-left: 40px;margin-top: 70px;width: 65px;height: 40px;position: absolute;z-index: 5;" >
+                        <span style="height: 40px; line-height:50px; display:block; color:rgba(255, 255, 255, 0); text-align:center" >
+                            <img style="margin-left: -12px; margin-top: 10px;position: absolute;z-index: 6;height: 20px;width: 20px;" src="./img/action_camera.png "  /></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!--<br>-->
+            <ul class="list">
+<!--昵称-->
+                <ion-item class="item item-icon-left item-icon-right" ng-click="onClickEditName()">
+                    <!--<i class="icon ion-ios-location-outline" style="..."></i>-->
+                    <div class="imgStyleSmall"><img src="img/4.png"></div>
+                    {{'config_modifyName' | translate}}
+                    <span style="text-align:right;float: right; ">
+						 {{userna}}
+					</span>
+
+                    <i class="icon ion-chevron-right icon-accessory"></i>
+                </ion-item>
+<!--性别-->
+                <ion-item class="item item-icon-left item-icon-right" href="#/select_sex">
+                    <div class="imgStyleSmall"><img src="img/14.png"></div>
+                    {{'config_select_sex' | translate}}
+                    <!--性别-->
+                    <span style="text-align:right ;float: right;">
+						 {{sex}}
+					</span>
+                    <i class="icon ion-chevron-right icon-accessory"></i>
+                </ion-item>
+
+                <ion-item class="item item-icon-left item-icon-right" style="padding: 0px">
+                    <time-picker options="yearOption" style="text-align:right"></time-picker>
+                </ion-item>
+
+                <ion-item class="item item-icon-left item-icon-right" style="padding: 0px" >
+                    <time-picker options="heightOption" style="text-align:right"></time-picker>
+                </ion-item>
+
+                <ion-item class="item item-icon-left item-icon-right" style="padding: 0px">
+                    <time-picker options="weightOption" style="text-align:right"></time-picker>
+                </ion-item>
+
+
+            </ul>
+    </ion-content>
+</ion-view>

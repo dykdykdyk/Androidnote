@@ -1,0 +1,121 @@
+-optimizationpasses 5  
+
+-verbose  
+#-injars libs/cordovalib.jar
+-libraryjars libs/android-support-v4.jar
+-libraryjars libs/MobCommons-2016.0707.1708.jar
+-libraryjars libs/MobTools-2016.0707.1708.jar
+-libraryjars libs/ShareSDK-Core-2.7.4.jar
+-libraryjars libs/ShareSDK-QQ-2.7.4.jar
+-libraryjars libs/ShareSDK-QZone-2.7.4.jar
+-libraryjars libs/ShareSDK-SinaWeibo-2.7.4.jar
+-libraryjars libs/ShareSDK-Wechat-2.7.4.jar
+-libraryjars libs/ShareSDK-Wechat-Core-2.7.4.jar
+-libraryjars libs/ShareSDK-Wechat-Moments-2.7.4.jar
+
+-repackageclasses '' 
+-allowaccessmodification 
+-optimizations !code/simplification/arithmetic -keepattributes *Annotation*
+-repackageclasses '' -allowaccessmodification -optimizations !code/simplification/arithmetic -keepattributes *Annotation*
+-dontwarn org.apache.cordova.**
+-dontwarn org.apache.cordova.engine.**
+-dontwarn org.mockito.**
+-dontwarn sun.reflect.**
+-dontwarn android.test.**
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses
+-verbose
+-ignorewarnings
+  
+-keep public class * extends android.app.Activity  
+-keep public class * extends android.app.Application  
+-keep public class * extends org.apache.cordova.CordovaActivity
+-keep public class * extends android.app.Service  
+-keep class * extends android.content.BroadcastReceiver  
+-keep public class * extends android.content.ContentProvider  
+-keep public class * extends android.app.backup.BackupAgentHelper  
+-keep public class * extends android.preference.Preference  
+-keep public class com.android.vending.licensing.ILicensingService  
+-keep public class * extends org.apache.cordova.CordovaPlugin
+-keep public class * extends android.support.v4.**
+-keep class android.os.**{*;}  
+-keep class **.R$* {*;}
+-keep class org.apache.cordova.**{*;}
+-keep class cn.sharesdk.demo.wxapi.**{*;}
+-keep class cn.sharesdk.onekeyshare.**{*;}
+
+
+
+-keep class cn.sharesdk.**{*;}
+-keep class com.sina.**{*;}
+-keep class **.R$* {*;}
+-keep class **.R{*;}
+-dontwarn cn.sharesdk.**
+-dontwarn **.R$*
+
+
+-keepattributes SourceFile,LineNumberTable
+  
+-keepclasseswithmembernames class * {  
+    native <methods>;  
+}  
+  
+-keepclasseswithmembernames class * {  
+    public <init>(android.content.Context, android.util.AttributeSet);  
+} 
+
+  
+-keepclasseswithmembernames class * {  
+    public <init>(android.content.Context, android.util.AttributeSet, int);  
+}  
+
+-keepclasseswithmembernames class * { 
+	native <methods>; 
+}
+  
+-keepclassmembers enum * {  
+    public static **[] values();  
+    public static ** valueOf(java.lang.String);  
+}  
+  
+-keep class * implements android.os.Parcelable {  
+  public static final android.os.Parcelable$Creator *;  
+}  
+
+-keepclassmembers class * extends android.app.Activity {
+	public void *(android.view.View);
+}
+
+-keepclassmembers class * extends org.apache.cordova.CordovaPlugin {
+	public boolean execute(java.lang.String, org.apache.cordova.CordovaArgs, org.apache.cordova.CallbackContext);
+	
+	public boolean execute(java.lang.String, org.json.JSONArray, org.apache.cordova.CallbackContext);
+	
+	public boolean execute(java.lang.String, java.lang.String, org.apache.cordova.CallbackContext);
+}
+
+-keepclassmembers class * extends org.apache.cordova.CordovaActivity {
+	public void loadUrl(java.lang.String);
+	
+	protected void init();
+	
+	protected org.apache.cordova.CordovaWebView makeWebView();
+	
+	protected org.apache.cordova.CordovaWebViewEngine makeWebViewEngine();
+}
+
+-keepclassmembers class * {
+    @android.webkit.JavascriptInterface <methods>;
+}
+
+-keep public class * extends android.view.View {
+    public <init>(android.content.Context);
+    public <init>(android.content.Context, android.util.AttributeSet);
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+    public void set*(...);
+}
+
+-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+   public *;
+}
+

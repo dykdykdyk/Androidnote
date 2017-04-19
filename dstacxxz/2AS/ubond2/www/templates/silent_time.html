@@ -1,0 +1,184 @@
+<!--闹钟设置-->
+<ion-view title="{{'silent_time_title' | translate}}">
+    <ion-nav-bar class="bar-positive2 nav-title-slide-ios7" align-title="center">
+        <ion-nav-buttons side="left">
+            <div class="imgStyleLeft" ng-click="back()"><img src="img/10.png"></div>
+        </ion-nav-buttons>
+        <!--<ion-nav-back-button>-->
+        <!--</ion-nav-back-button>-->
+    </ion-nav-bar>
+    <ion-content overflow-scroll="true" style="overflow: hidden">
+        <div class="alarm_connect" ng-show="{{isShow}}" ng-click="onConnect()"></div>
+        <ion-item class="item item-icon-left item-compact" ng-show="{{isShow}}">
+            <i class="icon ion-alert" style="font-size:20px;color:red;"></i>
+               <span class="item-text">
+				 {{'alarm_alert' | translate}}
+			   </span>
+        </ion-item>
+        <ion-item class="item item-icon-right item-compact"  style="height: 70px;">
+            <div class="alarm_text" ng-click="onGoToAlarm(1)">
+                <p style="font-size:24px ">{{date.timeText1}}</p>
+                <p style="line-height: 14px;font-size: 12px ">{{date.weekText1}}</p>
+            </div>
+            <label class="toggle" style=" float: right; margin-top: -54px;margin-right: -16px;">
+                <input type="checkbox"  ng-model="date.alarm1" ng-change="onClickAlarm(1)">
+                <div class="track">
+                    <div class="handle"></div>
+                </div>
+            </label>
+        </ion-item>
+        <ion-item class="item item-icon-right item-compact"  style="height: 70px;">
+            <div class="alarm_text" ng-click="onGoToAlarm(2)">
+                <p style="font-size:24px ">{{date.timeText2}}</p>
+                <p style="line-height: 14px ">{{date.weekText2}}</p>
+            </div>
+            <label class="toggle" style=" float: right; margin-top: -54px;margin-right: -16px;">
+                <input type="checkbox"  ng-model="date.alarm2" ng-change="onClickAlarm(2)">
+                <div class="track">
+                    <div class="handle"></div>
+                </div>
+            </label>
+        </ion-item>
+        <ion-item class="item item-icon-right item-compact"  style="height: 70px;">
+            <div class="alarm_text" ng-click="onGoToAlarm(3)">
+                <p style="font-size:24px ">{{date.timeText3}}</p>
+                <p style="line-height: 14px ">{{date.weekText3}} </p>
+            </div>
+            <label class="toggle" style=" float: right; margin-top: -54px;margin-right: -16px;">
+                <input type="checkbox" ng-model="date.alarm3" ng-change="onClickAlarm(3)">
+                <div class="track">
+                    <div class="handle"></div>
+                </div>
+            </label>
+        </ion-item>
+
+
+        <!--<ion-item class="item" style="padding-top: 0px;padding-bottom: 0px;height: 70px;padding-left: 0px;">-->
+            <!--<div style=" width: 70%;height: 69px;padding-left: 16px;padding-top: 16px; background-color: red"  ng-click="onGoToAlarm()">-->
+                <!--&lt;!&ndash;<span class="item-text" style="width: 160px; margin-left: 10px;">&ndash;&gt;-->
+                    <!--&lt;!&ndash;{{'alarm_text1' | translate}}&ndash;&gt;-->
+                    <!--<p style="font-size:24px ">22:59</p>-->
+                     <!--&lt;!&ndash;<br>&ndash;&gt;-->
+				     <!--<p style="line-height: 14px ">11111111111111111111 </p>-->
+				<!--&lt;!&ndash;</span>&ndash;&gt;-->
+
+            <!--</div>-->
+            <!--<div style="height: 70px;float: right; width: 70px;margin-right: 1px;margin-top: 9px; ">-->
+                <!--<label class="toggle" style="    margin-top: 5px;">-->
+                    <!--<input type="checkbox" ng-model="data.alarm1" ng-change="onClickAlarm()">-->
+
+                    <!--<div class="track">-->
+                        <!--<div class="handle"></div>-->
+                    <!--</div>-->
+                <!--</label>-->
+
+            <!--</div>-->
+
+        <!--</ion-item>-->
+
+
+        <!--<ion-list>-->
+            <!--<li class="item item-toggle " href="#/alarm_setting1">-->
+                <!--&lt;!&ndash;<div class="imgStyleSmall2"><img src="img/action_send_msg.png"></div>&ndash;&gt;-->
+                <!--&lt;!&ndash;<i class="icon ion-ios-alarm-outline" style="font-size:40px;color:#049DD6; "></i>&ndash;&gt;-->
+				<!--<span class="item-text" style="width: 160px; margin-left: 10px;">-->
+                    <!--&lt;!&ndash;{{'alarm_text1' | translate}}&ndash;&gt;-->
+                    <!--<p style="font-size:24px ">22:59</p>-->
+                     <!--&lt;!&ndash;<br>&ndash;&gt;-->
+				<!--<p style="line-height: 14px ">11111111111111111111 </p>-->
+				<!--</span>-->
+                <!--<label class="toggle" style="    margin-top: 5px;">-->
+                    <!--<input type="checkbox" ng-model="data.alarm1" ng-change="onClickAlarm(1)">-->
+
+                    <!--<div class="track">-->
+                        <!--<div class="handle"></div>-->
+                    <!--</div>-->
+                <!--</label>-->
+            <!--</li>-->
+            <!--<li class="item item-toggle ">-->
+                <!--&lt;!&ndash;<div class="imgStyleSmall2"><img src="img/action_send_msg.png"></div>&ndash;&gt;-->
+                <!--&lt;!&ndash;<i class="icon ion-ios-alarm-outline" style="font-size:40px;color:#049DD6; "></i>&ndash;&gt;-->
+				<!--<span class="item-text" style="width: 160px; margin-left: 10px;">-->
+                    <!--&lt;!&ndash;{{'alarm_text1' | translate}}&ndash;&gt;-->
+                    <!--<p style="font-size:24px ">22:59</p>-->
+                     <!--&lt;!&ndash;<br>&ndash;&gt;-->
+				<!--<p style="line-height: 14px ">11111111111111111111 </p>-->
+				<!--</span>-->
+                <!--<label class="toggle" style="    margin-top: 5px;">-->
+                    <!--<input type="checkbox" ng-model="data.alarm2" ng-change="onClickAlarm(2)">-->
+
+                    <!--<div class="track">-->
+                        <!--<div class="handle"></div>-->
+                    <!--</div>-->
+                <!--</label>-->
+            <!--</li>-->
+            <!--<li class="item item-toggle ">-->
+                <!--&lt;!&ndash;<div class="imgStyleSmall2"><img src="img/action_send_msg.png"></div>&ndash;&gt;-->
+                <!--&lt;!&ndash;<i class="icon ion-ios-alarm-outline" style="font-size:40px;color:#049DD6; "></i>&ndash;&gt;-->
+				<!--<span class="item-text" style="width: 160px; margin-left: 10px;">-->
+                    <!--&lt;!&ndash;{{'alarm_text1' | translate}}&ndash;&gt;-->
+                    <!--<p style="font-size:24px ">22:59</p>-->
+                     <!--&lt;!&ndash;<br>&ndash;&gt;-->
+				<!--<p style="line-height: 14px ">11111111111111111111 </p>-->
+				<!--</span>-->
+                <!--<label class="toggle" style="    margin-top: 5px;">-->
+                    <!--<input type="checkbox" ng-model="data.alarm3" ng-change="onClickAlarm(3)">-->
+
+                    <!--<div class="track">-->
+                        <!--<div class="handle"></div>-->
+                    <!--</div>-->
+                <!--</label>-->
+            <!--</li>-->
+
+
+            <!--<ion-item class="item item-icon-left item-icon-right" style="padding: 0px">-->
+            <!--<alarm-picker1 title="{{'alarm_setting' | translate}}" hidetime="true" yearstart="1" yearend="24"-->
+            <!--time-picker-result="result" style="text-align:right"></alarm-picker1>-->
+            <!--</ion-item>-->
+            <!--<weekpicker input-obj="weekPickerObject1">-->
+            <!--<ion-item class="item item-icon-left item-icon-right item-compact">-->
+            <!--<i class="icon ion-calendar" style="font-size:20px;color:darkgray;"></i>-->
+            <!--<span class="item-text">-->
+            <!--{{'silent_time_text4' | translate}}-->
+            <!--</span>-->
+            <!--<span class="item-desc">-->
+            <!--{{weekDay1}}-->
+            <!--</span>-->
+            <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
+            <!--</ion-item>-->
+            <!--</weekpicker>-->
+            <!--<ion-item class="item item-icon-left item-icon-right" style="padding: 0px">-->
+            <!--<alarm-picker2 title="{{'alarm_setting' | translate}}" hidetime="true" yearstart="1" yearend="24"-->
+            <!--time-picker-result="result" style="text-align:right"></alarm-picker2>-->
+            <!--</ion-item>-->
+            <!--<weekpicker input-obj="weekPickerObject2">-->
+            <!--<ion-item class="item item-icon-left item-icon-right item-compact">-->
+            <!--<i class="icon ion-calendar" style="font-size:20px;color:darkgray;"></i>-->
+            <!--<span class="item-text">-->
+            <!--{{'silent_time_text4' | translate}}-->
+            <!--</span>-->
+            <!--<span class="item-desc">-->
+            <!--{{weekDay2}}-->
+            <!--</span>-->
+            <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
+            <!--</ion-item>-->
+            <!--</weekpicker>-->
+            <!--<ion-item class="item item-icon-left item-icon-right" style="padding: 0px">-->
+            <!--<alarm-picker3 title="{{'alarm_setting' | translate}}" hidetime="true" yearstart="1" yearend="24"-->
+            <!--time-picker-result="result" style="text-align:right"></alarm-picker3>-->
+            <!--</ion-item>-->
+            <!--<weekpicker input-obj="weekPickerObject3">-->
+            <!--<ion-item class="item item-icon-left item-icon-right item-compact">-->
+            <!--<i class="icon ion-calendar" style="font-size:20px;color:darkgray;"></i>-->
+            <!--<span class="item-text">-->
+            <!--{{'silent_time_text4' | translate}}-->
+            <!--</span>-->
+            <!--<span class="item-desc">-->
+            <!--{{weekDay3}}-->
+            <!--</span>-->
+            <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
+            <!--</ion-item>-->
+            <!--</weekpicker>-->
+        <!--</ion-list>-->
+    </ion-content>
+</ion-view>

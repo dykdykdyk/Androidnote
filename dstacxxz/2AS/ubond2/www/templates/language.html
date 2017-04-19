@@ -1,0 +1,23 @@
+<!--语言-->
+<ion-view title="{{'language_title' | translate}}">
+    <ion-nav-bar class="bar-positive2 nav-title-slide-ios7" align-title="center">
+        <ion-nav-buttons side="left"> <div class="imgStyleLeft" ng-click="back()"><img src="img/10.png"></div>
+        </ion-nav-buttons>
+        <!--<ion-nav-back-button>-->
+        <!--</ion-nav-back-button>-->
+    </ion-nav-bar>
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ng-click="onClickFinishLanguage()">
+            {{'done' | translate}}
+        </button>
+    </ion-nav-buttons>
+
+    <ion-content overflow-scroll="true" style="overflow: hidden">
+        <ion-list>
+            <ion-radio ng-repeat="lang in langs" ng-model="data.choice" ng-value="lang.value">{{lang.text}}</ion-radio>
+        </ion-list>
+        <!--<ion-item class="item item-divider" style="font-size:10px;color:darkgray;">-->
+            <!--{{'language_text1' | translate}}-->
+        <!--</ion-item>-->
+    </ion-content>
+</ion-view>

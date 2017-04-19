@@ -1,0 +1,54 @@
+<!--闹钟设置-->
+<ion-view title="{{'alarm_set' | translate}}">
+    <ion-nav-bar class="bar-positive2 nav-title-slide-ios7" align-title="center">
+        <ion-nav-buttons side="left"> <div class="imgStyleLeft" ng-click="back()"><img src="img/10.png"></div>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button class="button button-clear" ng-click="onClickFinish()">
+                {{'done' | translate}}
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content  style="overflow: hidden">
+        <div class="shang1">
+            <item-picker-alarm option="alarm_setting1"></item-picker-alarm>
+        </div>
+
+        <ion-list>
+            <ion-item class="item  item-icon-right " ng-click="onFlagsDay()">
+				<span class="item-text">
+					{{'repeat_alarm' | translate}}
+				</span>
+                <span class="item-desc">
+						{{weekDay3}}
+			    </span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+            <!--<ion-item class="item  item-icon-right " style="height: 54px">-->
+				<!--<span class="item-text">-->
+					<!--备注:-->
+				<!--</span>-->
+                <!--<label>-->
+                    <!--<input type="text" class="alarm_input">-->
+                <!--</label>-->
+            <!--</ion-item>-->
+
+
+
+            <!--<weekpicker input-obj="weekPickerObject3">-->
+                <!--<ion-item class="item item-icon-left item-icon-right item-compact">-->
+                    <!--<i class="icon ion-calendar" style="font-size:20px;color:darkgray;"></i>-->
+					<!--<span class="item-text">-->
+						<!--{{'silent_time_text4' | translate}}-->
+					<!--</span>-->
+					<!--<span class="item-desc">-->
+						<!--{{weekDay3}}-->
+					<!--</span>-->
+                    <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
+                <!--</ion-item>-->
+            <!--</weekpicker>-->
+
+        </ion-list>
+
+    </ion-content>
+</ion-view>

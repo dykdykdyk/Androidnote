@@ -1,0 +1,81 @@
+<ion-view title="{{'main_setting_title' | translate}}">
+	<ion-nav-bar class="bar-positive2 nav-title-slide-ios7" align-title="center">
+		<ion-nav-buttons side="left"> <div class="imgStyleLeft" ng-click="back()"><img src="img/10.png"></div>
+		</ion-nav-buttons>
+	</ion-nav-bar>
+    <ion-content overflow-scroll="false"   scrollbar-y='false'>
+        <div class="setting_phone2">
+            <div class="avatarDiv" ng-controller="main_settingCtrl">
+                <div class="staticImage">
+                </div>
+                <img class="avatarImage" ng-src="{{cameraimage}}" />
+            </div>
+        </div>
+
+		<ion-list>
+			<ion-item class="item item-icon-left item-icon-right item-compact" href="#/userdata" style="height: 49px">
+				<!--<i class="icon ion-chevron-left ion-ios-cart-outline" style="font-size:20px;color:darkgray;"></i>-->
+                <div class="imgStyleSmall"><img src="img/4.png"></div>
+				<span class="item-text">
+					{{'personal_date' | translate}}
+				</span>
+				<i class="icon ion-chevron-right icon-accessory"></i>
+			</ion-item>
+            <ion-item class="item item-icon-left item-icon-right item-compact" href="#/sports" style="height: 49px">
+                <!--<i class="icon ion-chevron-left ion-ios-location-outline" style="font-size:20px;color:darkgray;"></i>-->
+                <div class="imgStyleSmall"><img src="img/16.png"></div>
+				<span class="item-text">
+					{{'sports_end' | translate}}
+				</span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+            <!-- 运动成绩-->
+            <ion-item class="item item-icon-left item-icon-right item-compact" href="#/sports_grades" style="height: 49px">
+                <!--<i class="icon ion-chevron-left ion-ios-location-outline" style="font-size:20px;color:darkgray;"></i>-->
+                <i class="icon ion-chevron-left  ion-trophy" style="font-size: 25px;color: #06add6;"></i>
+
+				<span class="item-text">
+					{{'sports_grades' | translate}}
+				</span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+            <!-- 高级设置-->
+            <ion-item class="item item-icon-left item-icon-right item-compact" href="#/setting" style="height: 49px">
+                <!--<i class="icon ion-chevron-left ion-ios-moon-outline" style="color:darkgray;"></i>-->
+                <div class="imgStyleSmall"><img src="img/7.png"></div>
+				<span class="item-text">
+					{{'setting_menu' | translate}}
+				</span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+            <!--扫描-->
+            <ion-item class="item item-icon-left item-icon-right" ng-click="onGoLogin()" style="height: 49px">
+                <!--<i class="icon ion-chevron-left ion-ios-help-outline" style="font-size:20px;color:darkgray;"></i>-->
+                <div class="imgStyleSmall"><img src="img/a4.png"></div>
+				<span class="item-text">
+					 {{'search_title' | translate}}
+				</span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+            <!--解除绑定-->
+            <ion-item class="item item-icon-left item-icon-right" ng-click="onDelBound()" style="height: 49px">
+                <!--<i class="icon ion-chevron-left ion-ios-help-outline" style="font-size:20px;color:darkgray;"></i>-->
+                <div class="imgStyleSmall"><img src="img/a2.png"></div>
+				<span class="item-text">
+					{{'config_unbind' | translate}}
+				</span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+            <!--关于我们-->
+            <ion-item class="item item-icon-left item-icon-right item-compact" href="#/about" style="height: 49px">
+                <!--<i class="icon ion-chevron-left ion-person-stalker" style="font-size:20px;color:darkgray;"></i>-->
+                <div class="imgStyleSmall"><img src="img/a1.png"></div>
+				<span class="item-text">
+					{{'setting_text5' | translate}}
+				</span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+        </ion-list>
+
+	</ion-content>
+</ion-view>

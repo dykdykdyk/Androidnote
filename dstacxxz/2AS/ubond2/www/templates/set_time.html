@@ -1,0 +1,43 @@
+<!--来电提醒-->
+<ion-view title="{{'silent_area_title' | translate}}">
+    <ion-nav-bar class="bar-positive2 nav-title-slide-ios7" align-title="center">
+        <ion-nav-buttons side="left"> <div class="imgStyleLeft"ng-click="back()"><img src="img/10.png"></div>
+        </ion-nav-buttons>
+        <!--<ion-nav-back-button>-->
+        <!--</ion-nav-back-button>-->
+    </ion-nav-bar>
+
+    <ion-content overflow-scroll="true" style="overflow: hidden">
+        <ion-item class="item item-divider" style="font-size:10px;color:darkgray;">
+            {{'time_text2' | translate}}
+            <p style="font-size:10px;color:darkgray;">{{'time_text3' | translate}}</p>
+        </ion-item>
+
+        <!--</ion-item>-->
+        <ion-list>
+            <ion-item class="item item-divider" style="font-size:10px;color:darkgray;">
+                <!--&lt;!&ndash;{{'time_text2' | translate}}&ndash;&gt;同步手机的时间到手环上-->
+                {{'set_time1' | translate}}
+            </ion-item>
+            <ion-item class="item item-icon-left item-icon-right item-compact" ng-click="setTime()">
+                <i class="icon ion-chevron-left ion-clock" style="font-size:20px;color:darkgray;"></i>
+				<span class="item-text">
+					{{'time_text1' | translate}}
+				</span>
+                <br>
+				<p>{{date.time}}</p>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+
+            <!--<ion-item class="item item-divider" style="font-size:10px;color:darkgray;">-->
+                <!--&lt;!&ndash;{{'time_text2' | translate}}&ndash;&gt;-->
+                <!--&lt;!&ndash;同步其他时间到手环上&ndash;&gt;-->
+                <!--{{'set_time2' | translate}}-->
+            <!--</ion-item>-->
+            <!--<ion-item class="item item-icon-left item-icon-right item-compact" style="padding: 0px">-->
+                <!--<day-picker title="{{'set_time3' | translate}}" format="yyyy-MM-dd hh:mm" time-picker-result="date2" style="text-align:left">选择</day-picker>-->
+            <!--</ion-item>-->
+        </ion-list>
+
+    </ion-content>
+</ion-view>

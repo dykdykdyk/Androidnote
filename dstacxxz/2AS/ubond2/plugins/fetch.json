@@ -1,0 +1,99 @@
+{
+    "cordova-plugin-device": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-device"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-console": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-console"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-whitelist": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-whitelist"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-splashscreen": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-splashscreen"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-statusbar": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-statusbar"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "ionic-plugin-keyboard": {
+        "source": {
+            "type": "registry",
+            "id": "ionic-plugin-keyboard"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-ble-central": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-ble-central"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-camera": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-camera"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-geolocation": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/apache/cordova-plugin-geolocation.git",
+            "subdir": "."
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-image-picker": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-image-picker"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "ustone-plugin-update": {
+        "source": {
+            "type": "local",
+            "path": "..\\plugins\\ustone-plugin-update"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "ustone-plugin-wifi": {
+        "source": {
+            "type": "local",
+            "path": "..\\plugins\\ustone-plugin-wifi"
+        },
+        "is_top_level": true,
+        "variables": {}
+    }
+}

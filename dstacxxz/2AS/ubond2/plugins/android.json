@@ -1,0 +1,45 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-ble-central": {
+            "PACKAGE_NAME": "com.ionicframework.ufind1210015"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.ionicframework.ufind1210015"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.ionicframework.ufind1210015"
+        },
+        "cordova-plugin-datepicker": {
+            "PACKAGE_NAME": "com.ionicframework.ufind1210015"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.ionicframework.ufind1210015"
+        },
+        "cordova-plugin-image-picker": {
+            "PACKAGE_NAME": "com.ionicframework.ufind1210015"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.ionicframework.ufind1210015"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.ionicframework.ufind1210015"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ionicframework.ufind1210015"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.ionicframework.ufind1210015"
+        },
+        "ustone-plugin-wifi": {
+            "PACKAGE_NAME": "com.ionicframework.ufind1210015"
+        }
+    },
+    "dependent_plugins": {}
+}

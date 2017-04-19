@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">小U智生活B2</string>
+    <string name="launcher_name">@string/app_name</string>
+    <string name="activity_name">@string/launcher_name</string>
+    <string name="ubond_disconnet">手環斷開連接了！</string>
+    <string name="ubond_fall">手環跌倒了！</string>
+</resources>

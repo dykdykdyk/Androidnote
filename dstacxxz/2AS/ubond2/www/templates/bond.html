@@ -1,0 +1,32 @@
+<!--绑定设备-->
+<ion-view view-title="{{'bond_binding' | translate}}">
+    <ion-nav-bar class="bar-positive2 nav-title-slide-ios7" align-title="center">
+        <ion-nav-buttons side="left"> <div class="imgStyleLeft"ng-click="back()"><img src="img/10.png"></div>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content overflow-scroll="true" style="overflow: hidden;background-color: #049dd6">
+        <div class="fristkuang">
+            <div class="shang" style="margin-top: {{top}}%">
+                <div class="avatarDiv" style="margin-top: 15%;">
+                    <div class="staticImage" ng-click="onClicktakePhoto()" >
+
+                    <img id="avatarImage" class="avatarImage" ng-src="{{cameraimage}}" />
+                    <div style=" margin-left: 40px;margin-top: 70px;width: 65px;height: 40px;position: absolute;z-index: 5;" >
+                        <span style="height: 40px; line-height:50px; display:block; color:rgba(255, 255, 255, 0); text-align:center" >
+                            <img style="margin-left: -12px; margin-top: 10px;position: absolute;z-index: 6;height: 20px;width: 20px;" src="./img/action_camera.png "  /></span>
+                    </div>
+                    </div>
+                </div>
+                <div class="bond_input_text">
+                    <input type="text" ng-focus="focus()" ng-blur="blur()" ng-keyup="WidthCheck(16)" placeholder="{{'like_name' | translate}}" ng-model="item_name.name" class=""
+                  style="background:transparent;font-size: 19px;color: #ffffff;height: 40px;padding-top: 1px;  margin-top: 2px;line-height: 40px;"/>
+                </div>
+            </div>
+            <div style="text-align:center;margin:0 auto">
+                <div class="yuanjiao" ng-click="onClickFinishBond()">
+                    {{'done' | translate}}
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

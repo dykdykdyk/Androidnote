@@ -1,0 +1,16 @@
+# view AndroidManifest.xml #generated:25
+-keep class com.bde.ancs.lib.NotificationService { <init>(...); }
+
+# view AndroidManifest.xml #generated:5
+-keep class com.ionicframework.uband22016.MainActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:24
+-keep class com.ionicframework.uband22016.wxapi.WXEntryActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:12
+-keep class com.mob.tools.MobUIShell { <init>(...); }
+
+# view AndroidManifest.xml #generated:11
+# view AndroidManifest.xml #generated:30
+-keep class com.synconset.MultiImageChooserActivity { <init>(...); }
+

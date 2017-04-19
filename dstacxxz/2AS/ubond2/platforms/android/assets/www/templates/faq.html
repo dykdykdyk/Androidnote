@@ -1,0 +1,22 @@
+<!--常见问题解答-->
+<ion-view view-title="{{'faq_commonProblem' | translate}}">
+	<ion-nav-bar class="bar-positive2 nav-title-slide-ios7" align-title="center">
+        <ion-nav-buttons side="left"> <div class="imgStyleLeft"><a href="#/setting"><img src="img/10.png"></a></div>
+        </ion-nav-buttons>
+			<!--<ion-nav-back-button>-->
+				<!---->
+			<!--</ion-nav-back-button>-->
+		</ion-nav-bar>
+    <ion-content>
+    <ion-list>
+
+      <ion-item class="item-icon-right" ng-repeat="faq in faqs" type="item-text-wrap" href="#/faq/{{faq.id}}">
+
+          	<span class="item-text">
+					{{faq.name}}
+				</span>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

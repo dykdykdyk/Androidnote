@@ -1,0 +1,44 @@
+<ion-view view-title="{{'sports_grades' | translate}}">
+    <ion-nav-bar class="bar-positive2 nav-title-slide-ios7" align-title="center">
+        <ion-nav-buttons side="left"> <div class="imgStyleLeft" ><a href="#/main_setting"><img src="img/10.png"></a></div>
+        </ion-nav-buttons>
+        <!--<ion-nav-back-button>-->
+
+        <!--</ion-nav-back-button>-->
+    </ion-nav-bar>
+    <!--background-color: #049dd6-->
+    <ion-content  overflow-scroll="true" style="overflow: hidden;background-color: #049dd6" >
+    <!-- 卡路里部位 -->
+    <div class="ka">
+      <div class="ka_li">
+          {{cal}}
+      </div>
+    </div>
+    <!-- 步数-->
+    <div class="step_class">
+
+        <div class="step1">
+            <div class="step2">
+                <div class="step3">
+                   <div class="today_text">{{'today_step' | translate}}</div>
+                   <div class="today_data">{{step_data}} </div>
+                   <div class="today_status">{{today_target}}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- 底部-->
+    <div class="sports_bm">
+        <ul>
+            <li class="text_style">{{bmiData}}</li>
+            <li class="text_style2">{{'shape'| translate}}</li>
+            <li class="text_style">{{shape_type}}</li>
+            <li class="text_style2">{{'daily_exercise'| translate}}</li>
+            <li class="text_style">{{recommended_step}}</li>
+        </ul>
+
+    </div>
+    </ion-content>
+
+</ion-view>

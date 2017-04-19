@@ -1,0 +1,68 @@
+<ion-view title="{{'sedentary' | translate}}">
+    <ion-nav-bar class="bar-positive2 nav-title-slide-ios7" align-title="center">
+        <ion-nav-buttons side="left"> <div class="imgStyleLeft" ng-click="back()"><img src="img/10.png"></div>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button class="button button-clear" ng-click="onClickFinish()">
+                {{'done' | translate}}
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content overflow-scroll="true" style="overflow: hidden">
+        <div class="sedentary_connect" ng-show="isShow" ng-click="onConnect()"></div>
+        <ion-item class="item item-icon-left item-compact" ng-show="isShow">
+            <i class="icon ion-alert" style="font-size:20px;color:red;"></i>
+               <span class="item-text">
+				 {{'notification_screen' | translate}}
+			   </span>
+        </ion-item>
+        <ion-item class="item item-divider" style="font-size:10px;color:darkgray;">
+            {{'sedentary_text1' | translate}}
+        </ion-item>
+        <ion-list>
+            <li class="item item-toggle">
+                <div class="imgStyleSmall2"><i class="icon ion-chevron-left  ion-ios-alarm" style="font-size: 25px;color: #06add6;"></i></div>
+				<span class="item-text" style="    width: 160px;">
+                    {{'sedentary_text2' | translate}}
+				</span>
+                <label class="toggle">
+                    <input type="checkbox" ng-model="data.sedentary" ng-change="onSedentarySetting()">
+
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+
+            <div class="item item-divider " >
+                <span class="item-text" style="font-size:10px;color:darkgray;">
+                      {{'sedentary_text3' | translate}}
+				</span>
+                <span class="item-text" style="float: right; font-size:10px;color:darkgray; ">
+                      {{'setting_time'| translate}} {{set.time}}   {{'setting_min'| translate}}
+				</span>
+
+            </div>
+            <div class="item range range-royal">
+                <i class="icon ion-ios-clock-outline"></i>
+                <input type="range" name="volume" min="1" max="120" ng-model="data.time" ng-change="onSettingTime()">
+                <i class="icon ion-ios-clock"></i>
+            </div>
+            <div class="item item-divider " >
+                <span class="item-text" style="font-size:10px;color:darkgray;">
+                      {{'sedentary_text4' | translate}}
+				</span>
+                <span class="item-text" style="float: right; font-size:10px;color:darkgray; ">
+                      {{'setting_time'| translate}} {{data.interval}} {{'setting_min'| translate}}
+				</span>
+
+            </div>
+            <div class="item range range-royal">
+                <i class="icon ion-ios-time-outline"></i>
+                <input type="range" name="volume" min="0" max="{{data.max}}"  ng-model="data.interval">
+                <i class="icon ion-ios-time"></i>
+            </div>
+
+        </ion-list>
+    </ion-content>
+</ion-view>

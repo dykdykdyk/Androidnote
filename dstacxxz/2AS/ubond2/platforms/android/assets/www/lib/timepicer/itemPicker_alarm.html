@@ -1,0 +1,25 @@
+﻿<div class='pickerContainer5'>
+    <div class='main5'>
+        <div class='body5'>
+            <div class='row row-no-padding'>
+                <div class='col'   >
+                    <ion-scroll  on-scroll='scrollingEvent1(year)' delegate-handle='yearScroll_3' scrollbar-y='false' class='yearContent5'>
+                        <ul>
+                            <li ng-style="item.selected ? { color: '#FFFFFF',fontWeight: 'bold', fontSize: '1.2em'}:{}" class='selected' ng-click='selectEvent1( $index)' ng-repeat='item in itemList'>{{item.text}}</li>
+                        </ul>
+                    </ion-scroll>
+                </div>
+                <div class='col'   >
+                    <ion-scroll   on-scroll='scrollingEvent2(month)' delegate-handle='yearScroll_4' scrollbar-y='false' class='monthContent5'>
+                        <ul>
+                            <!--<li ng-style="item.selected ? { color: '#FFFFFF',fontWeight: 'bold', fontSize: '1.2em'}:{}" class='selected' ng-click='selectEvent2( $index)' ng-repeat='month in monthList'>{{month.text}}</li>-->
+                            <li ng-style="month.selected ? { color: '#FFFFFF',fontWeight: 'bold', fontSize: '1.2em'}:{}" class='selected' ng-click='selectEvent2( $index)' ng-repeat='month in monthList'>{{month.text}}</li>
+                        </ul>
+                    </ion-scroll>
+                </div>
+            </div>
+            <!--<div class='body_center_highlight3'></div>-->
+            <div class='body_center_highlight5'><div class="d_left5">{{dan_wei}}</div><div class="d_right5">{{dan_wei2}}</div> </div>
+        </div>
+    </div>
+</div>

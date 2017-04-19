@@ -1,0 +1,132 @@
+<!--设置界面-->
+<ion-view title="{{'setting_title' | translate}}">
+	<ion-nav-bar class="bar-positive2 nav-title-slide-ios7" align-title="center">
+        <ion-nav-buttons side="left" ng-click="back()"> <div class="imgStyleLeft" ng-click="back()"><img src="img/10.png"></div>
+        </ion-nav-buttons>
+		<!--<ion-nav-back-button>-->
+		<!--</ion-nav-back-button>-->
+	</ion-nav-bar>
+
+    <ion-content overflow-scroll="false"   scrollbar-y='false'>
+		<ion-list>
+			<!--<ion-item class="item item-icon-left item-icon-right item-compact" href="https://shop35240171.taobao.com/">-->
+				<!--<i class="icon ion-chevron-left ion-ios-cart-outline" style="font-size:20px;color:darkgray;"></i>-->
+				<!--<span class="item-text">-->
+					<!--{{'setting_text1' | translate}}-->
+				<!--</span>-->
+				<!--<i class="icon ion-chevron-right icon-accessory"></i>-->
+			<!--</ion-item>-->
+            <ion-item class="item item-icon-left item-icon-right item-compact" href="#/set_time" style="height: 50px">
+                <i class="icon ion-chevron-left ion-ios-time" style="font-size: 25px;color: #06add6;"></i>
+				<span class="item-text">
+					{{'setting_text2' | translate}}
+				</span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+            <ion-item class="item item-icon-left item-icon-right item-compact" href="#/silent_time">
+                <div class="imgStyleSmall"><img src="img/6.png"></div>
+                <span class="item-text">
+					{{'setting_text3' | translate}}
+				</span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+            <ion-item class="item item-icon-left item-icon-right item-compact "  href="#/sms_reminder" >
+                <div class="imgStyleSmall"><img src="img/2.png"></div>
+                {{'sms_text3' | translate}}
+                <!--<span style="color: #cccccc"> ({{'coming_soon' | translate}})</span>-->
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+            <!--防丢设置-->
+            <ion-item class="item item-icon-left item-icon-right item-compact "  href="#/lost_setting" >
+                <i class="icon ion-chevron-left  ion-gear-b" style="font-size: 25px;color: #06add6;"></i>
+				<span class="item-text">
+					{{'lost_setting3' | translate}}
+				</span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+            <!--久坐提醒-->
+            <ion-item class="item item-icon-left item-icon-right item-compact "  href="#/sedentary_setting" >
+                <i class="icon ion-chevron-left  ion-ios-alarm" style="font-size: 25px;color: #06add6;"></i>
+				<span class="item-text">
+					{{'sedentary' | translate}}
+				</span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+            <!-- 抬手亮屏设置-->
+            <ion-item class="item item-icon-left item-icon-right item-compact "  href="#/bright_screen" >
+                <i class="icon ion-chevron-left  ion-contrast" style="font-size: 25px;color: #06add6;"></i>
+				<span class="item-text">
+					{{'bright_screen' | translate}}
+				</span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+            <ion-item class="item item-icon-left item-icon-right item-compact "  href="#/fall_alarm" >
+                <i class="icon ion-chevron-left  ion-ios-information-outline" style="font-size: 25px;color: #06add6;"></i>
+				<span class="item-text">
+                    {{'fall_alarm' | translate}}
+				</span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+            <ion-item class="item item-icon-left item-icon-right item-compact "  href="#/timer_heart" >
+                <i class="icon ion-chevron-left  ion-ios-stopwatch-outline" style="font-size: 25px;color: #06add6;"></i>
+				<span class="item-text">
+                    {{'timer_heart' | translate}}
+				</span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+
+            <!--<ion-item class="item item-icon-left item-icon-right "  href="#/alarm_setting1" >-->
+                <!--&lt;!&ndash;<i class="icon ion-chevron-left ion-ios-help-outline" style="font-size:20px;color:darkgray;"   href="#/sms_reminder"></i>&ndash;&gt;-->
+                <!--<div class="imgStyleSmall"><img src="img/2.png"></div>-->
+                <!--<span style="color: #cccccc"> {{'sms_text3' | translate}}({{'coming_soon' | translate}})</span>-->
+                <!--&lt;!&ndash;<span class="item-text">&ndash;&gt;-->
+					<!--&lt;!&ndash;{{'sms_text3' | translate}}&ndash;&gt;-->
+				<!--&lt;!&ndash;</span>&ndash;&gt;-->
+                <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
+            <!--</ion-item>-->
+            <!--<ion-item class="item item-icon-left item-icon-right " >-->
+                <!--<!--<i class="icon ion-chevron-left ion-ios-information-outline" style="font-size:20px;color:darkgray;"></i>-->
+                <!--<div class="imgStyleSmall"><img src="img/11.png"></div>-->
+                <!--<span style="color: #cccccc"> {{'weixin_text' | translate}}({{'coming_soon' | translate}})</span>-->
+				<!--<!--<span class="item-text">-->
+					<!--<!--{{'weixin_text' | translate}}-->
+				<!--<!--</span>-->
+                <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
+            <!--</ion-item>-->
+            <!--<ion-item class="item item-icon-left item-icon-right ">-->
+                <!--<!--<i class="icon ion-chevron-left ion-ios-world-outline" style="font-size:20px;color:darkgray;"></i>-->
+                <!--<div class="imgStyleSmall"><img src="img/q.png"></div>-->
+                <!--<span style="color: #cccccc"> {{'qq_text' | translate}}({{'coming_soon' | translate}})</span>-->
+				<!--<!--<span class="item-text">-->
+					<!--<!--{{'qq_text' | translate}}-->
+				<!--<!--</span>-->
+                <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
+            <!--</ion-item>-->
+            <!--<ion-item class="item item-icon-left item-icon-right " >-->
+                <!--<!--<i class="icon ion-chevron-left ion-ios-world-outline" style="font-size:20px;color:darkgray;"></i>-->
+                <!--<div class="imgStyleSmall"><img src="img/13.png"></div>-->
+                <!--<span style="color: #cccccc"> {{'weibo_text' | translate}}({{'coming_soon' | translate}})</span>-->
+
+                <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
+            <!--</ion-item>-->
+            <!--<ion-item class="item item-icon-left item-icon-right item-compact" href="#/alarm_setting1">-->
+            <ion-item class="item item-icon-left item-icon-right item-compact" href="#/faq">
+                <div class="imgStyleSmall"><img src="img/12.png"></div>
+				<span class="item-text">
+					{{'setting_text4' | translate}}
+				</span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+
+            <ion-item class="item item-icon-left item-icon-right item-compact" href="#/language">
+                <!--<i class="icon ion-chevron-left ion-ios-world-outline" style="font-size:20px;color:darkgray;"></i>-->
+                <div class="imgStyleSmall"><img src="img/15.png"></div>
+				<span class="item-text">
+					{{'setting_language' | translate}}
+				</span>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+		</ion-list>
+
+	</ion-content>
+</ion-view>

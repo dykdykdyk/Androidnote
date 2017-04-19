@@ -1,0 +1,29 @@
+<ion-view view-title="{{'search_title' | translate}}">
+	<ion-nav-bar class="bar-positive2 nav-title-slide-ios7" align-title="center">
+        <ion-nav-buttons side="left"> <div class="imgStyleLeft" ng-click="back()"><img src="img/10.png"></div>
+        </ion-nav-buttons>
+			<!--<ion-nav-back-button>-->
+			<!--</ion-nav-back-button>-->
+		</ion-nav-bar>
+	<!--<ion-content style="overflow: hidden" scrollbar-y='false'>-->
+	<ion-content style="overflow:auto;" scrollbar-y='false'>
+		<ion-refresher on-refresh="doRefresh()" spinner="spiral">
+		</ion-refresher>
+		<p style="text-align:center;color:lightgray">{{'search_text1' | translate}}</p>
+		<h4 style="text-align:center">{{'search_text2' | translate}}</h4>
+		<p style="text-align:center">{{'search_text3' | translate}}</p>
+		<ion-list>
+			<ion-item ng-repeat="item in items" ng-click="onClickedConnect(item)">
+				{{item.rawName}}@{{item.id}}<br>
+				<p style="text-align:left;color:lightgray">
+					{{'search_text4' | translate}} &nbsp&nbsp&nbsp{{item.rssi}} dbm
+				</p>
+				<p style="text-align:right;color:{{item.color}}">
+
+				</p>
+			</ion-item>
+		</ion-list>
+        <!--<ion-infinite-scroll  >-->
+        <!--</ion-infinite-scroll>-->
+	</ion-content>
+</ion-view>

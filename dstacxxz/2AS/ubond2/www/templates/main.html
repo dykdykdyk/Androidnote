@@ -1,0 +1,168 @@
+<ion-view title="{{title}}">
+    <ion-nav-bar class="bar-positive2 nav-title-slide-ios7" align-title="center">
+        <ion-nav-buttons side="left">
+            <button class="button button-icon icon ion-navicon light" ng-click="onClickSetting()">
+            </button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button class="button button-icon icon ion-android-share-alt light" ng-click="onClickShare()">
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+
+    <ion-content overflow-scroll="false"   scrollbar-y='false'>
+        <div class="container">
+            <div class="mini-charts">
+                <div class="col-sm-6 col-md-3">
+                    <div class="mini-charts-item bgm-cyan">
+                        <div class="clearfix" style="height: 76px">
+                            <div class="chart stats-bar" ng-click="onClickSports()"><img src="./img/s-1.png"/></div>
+                            <div class="count" ng-click="onClickSports()">
+                                <small>{{'step_date' | translate}}</small>
+                                <h2> {{step}}</h2>
+                            </div>
+                            <div class="aa" ng-click="onClickSportsed()"><i class="icon ion-android-more-vertical light"
+                                                                            style="font-size: 30px"></i>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3">
+                    <div class="mini-charts-item bgm-lightgreen">
+                        <div class="clearfix" style="height: 76px">
+                            <div class="chart stats-bar-2" ng-click="onClickSleep()"><img src="./img/s-2.png"/></div>
+                            <div class="count" ng-click="onClickSleep()">
+                                <small>{{'sleep_date' | translate}}</small>
+                                <h2> {{sleep}}</h2>
+                            </div>
+                            <div class="aa" ng-click="onClickSleepEd()"><i class="icon ion-android-more-vertical light"
+                                                                           style="font-size: 30px"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3">
+                    <div class="mini-charts-item bgm-orange">
+                        <div class="clearfix" style="height: 76px">
+                            <div class="chart stats-line"><img src="./img/s-3.png"/></div>
+                            <div class="count " ng-click="onClickHeart()">
+                                <!--<div class="count " >-->
+                                <small>{{'heart_date' | translate}}</small>
+                                <h2> {{heartdata}}</h2>
+                            </div>
+                            <div class="aa" ng-click="onClickHearted()"><i class="icon ion-android-more-vertical light"
+                                                                           style="font-size: 30px"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <!--体温-->
+                <div class="col-sm-6 col-md-3" ng-show="device_temp">
+                    <div class="mini-charts-item bgm-bluegray">
+                        <div class="clearfix" style="height: 76px">
+                            <div class="chart stats-line-2"><img src="./img/s-4.png"/></div>
+                            <div class="count" ng-click="onClickT()">
+                                <small>{{'temp_text1' | translate}}</small>
+                                <h2> {{temperaturedata}}</h2>
+                            </div>
+                            <div class="aa" ng-click="onClickTde()"><i class="icon ion-android-more-vertical light"
+                                                                       style="font-size: 30px"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <!--环境温度-->
+                <div class="col-sm-6 col-md-3" ng-show="device_temp">
+                    <div class="mini-charts-item bgm-bluegray">
+                        <div class="clearfix" style="height: 76px">
+                            <div class="chart stats-line-2"><img src="./img/s-4.png"/></div>
+                            <div class="count" >
+                                <small>{{'temp_date' | translate}}</small>
+                                <h2> {{ambientTemp}}</h2>
+                            </div>
+                            <div class="aa" ng-click="onClickAtmosphericEd()"><i class="icon ion-android-more-vertical light"
+                                                                       style="font-size: 30px"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <!--气压 -->
+
+                <div class="col-sm-6 col-md-3">
+                    <div class="mini-charts-item bgm-orange">
+                        <div class="clearfix" style="height: 76px">
+                            <div class="chart stats-line"><img src="./img/s-3.png"/></div>
+                            <div class="count " ng-click="onClickAtmospheric()">
+                                <!--<div class="count " >-->
+                                <small>{{'atmospheric_date' | translate}}</small>
+                                <h2> {{atmospheric}}</h2>
+                            </div>
+                            <div class="aa" ><i class="icon ion-android-more-vertical light"
+                                                                           style="font-size: 30px"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3">
+                    <div class="mini-charts-item bgm-bluegray">
+                        <div class="clearfix" style="height: 76px">
+                            <div class="chart stats-line-2"><img src="./img/s-4.png"/></div>
+                            <div class="count" ng-click="onClickAtmospheric()">
+                                <small>{{'altitude_date' | translate}}</small>
+                                <h2> {{altitude}}</h2>
+                            </div>
+                            <div class="aa" ng-click="onClickAtmospheric()"><i class="icon ion-android-more-vertical light"
+                                                                       style="font-size: 30px"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 血压-->
+                <div class="col-sm-6 col-md-3">
+                    <div class="mini-charts-item bgm-orange">
+                        <div class="clearfix" style="height: 76px">
+                            <div class="chart stats-line"><img src="./img/s-3.png"/></div>
+                            <div class="count " ng-click="onClickBP()">
+                                <small>{{'blood_pressure' | translate}}</small>
+                                <h2> {{blood_pressure}}</h2>
+                            </div>
+                            <div class="aa" ng-click="onClickBPed()"><i class="icon ion-android-more-vertical light"
+                                                                           style="font-size: 30px"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 血养-->
+                <div class="col-sm-6 col-md-3">
+                    <div class="mini-charts-item bgm-bluegray">
+                        <div class="clearfix" style="height: 76px">
+                            <div class="chart stats-line"><img src="./img/s-4.png"/></div>
+                            <div class="count " ng-click="onClickOxygen()">
+                                <small>{{'blood_oxygen' | translate}}</small>
+                                <h2> {{blood_oxygen}}</h2>
+                            </div>
+                            <div class="aa" ng-click=""><i class="icon ion-android-more-vertical light"
+                                                                           style="font-size: 30px"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 呼吸-->
+                <div class="col-sm-6 col-md-3">
+                    <div class="mini-charts-item bgm-orange">
+                        <div class="clearfix" style="height: 76px">
+                            <div class="chart stats-line"><img src="./img/s-3.png"/></div>
+                            <div class="count " ng-click="onClickBreathe()">
+                                <small>{{'breathe' | translate}}</small>
+                                <h2> {{breathe}}</h2>
+                            </div>
+                            <div class="aa" ng-click=" "><i class="icon ion-android-more-vertical light"
+                                                                           style="font-size: 30px"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </ion-content>
+
+</ion-view>

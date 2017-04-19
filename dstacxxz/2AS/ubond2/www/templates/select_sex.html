@@ -1,0 +1,24 @@
+<ion-view title="{{'select_sex_title' | translate}}">
+    <ion-nav-bar class="bar-positive2 nav-title-slide-ios7" align-title="center">
+        <ion-nav-buttons side="left"> <div class="imgStyleLeft" ng-click="back()"><img src="img/10.png"></div>
+        </ion-nav-buttons>
+        <!--<ion-nav-back-button>-->
+        <!--</ion-nav-back-button>-->
+    </ion-nav-bar>
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ng-click="onClickFinishSex()">
+            {{'done' | translate}}
+        </button>
+    </ion-nav-buttons>
+
+    <ion-content overflow-scroll="true" style="overflow: hidden">
+        <ion-list>
+            <ion-radio ng-repeat="item in clientSideList"
+                       ng-value="item.value"
+                       ng-model="data.clientSide">
+                {{ item.text }}
+            </ion-radio>
+        </ion-list>
+
+    </ion-content>
+</ion-view>

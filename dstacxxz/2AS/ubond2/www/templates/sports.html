@@ -1,0 +1,24 @@
+<ion-view view-title="{{'sports' | translate}}">
+    <ion-nav-bar class="bar-positive2 nav-title-slide-ios7" align-title="center">
+        <ion-nav-buttons side="left"> <div class="imgStyleLeft" ><a href="#/main_setting"><img src="img/10.png"></a></div>
+        </ion-nav-buttons>
+        <!--<ion-nav-back-button>-->
+
+        <!--</ion-nav-back-button>-->
+    </ion-nav-bar>
+
+        <ion-content  overflow-scroll="true" style="overflow: hidden;background-color: #049dd6" >
+            <div class="fristkuang" >
+                <div class="shang">
+                    <item-picker option="heightOption"></item-picker>
+                </div>
+                <div style="text-align:center;margin:0 auto">
+                    <div class="yuanjiao"  ng-click="onClickSave()">
+                        {{'ok' | translate}}
+                    </div>
+                </div>
+
+            </div>
+        </ion-content>
+
+</ion-view>

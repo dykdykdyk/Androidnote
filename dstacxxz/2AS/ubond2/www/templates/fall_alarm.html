@@ -1,0 +1,52 @@
+<ion-view title="{{'fall_alarm' | translate}}">
+    <ion-nav-bar class="bar-positive2 nav-title-slide-ios7" align-title="center">
+        <ion-nav-buttons side="left"> <div class="imgStyleLeft" ng-click="back()"><img src="img/10.png"></div>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button class="button button-clear" ng-click="onClickFinish()">
+                {{'done' | translate}}
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content overflow-scroll="true" style="overflow: hidden">
+        <div class="alarm_connect2" ng-show="isShow" ng-click="onConnect()"></div>
+        <ion-item class="item item-icon-left item-compact" ng-show="isShow">
+            <i class="icon ion-alert" style="font-size:20px;color:red;"></i>
+               <span class="item-text">
+				 {{'notification_screen' | translate}}
+			   </span>
+        </ion-item>
+        <ion-item class="item item-divider" style="font-size:10px;color:darkgray;">
+            {{'fall_setting1' | translate}}
+        </ion-item>
+        <ion-list>
+            <li class="item item-toggle">
+                <div class="imgStyleSmall2"><i class="icon ion-chevron-left  ion-contrast" style="font-size: 25px;color: #06add6;"></i></div>
+				<span class="item-text" style="    width: 160px;">
+                    {{'fall_setting2' | translate}}
+				</span>
+                <label class="toggle">
+                    <input type="checkbox" ng-model="data.fall" ng-change="onFallSetting()">
+
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+        </ion-list>
+        <ion-item class="item item-divider" style="font-size:10px;color:darkgray;">
+            {{'input_number' | translate}}
+        </ion-item>
+        <label class="item item-input">
+            <i class="icon ion-android-person placeholder-icon"></i>
+            <input type="text" placeholder="{{'number' | translate}}" ng-model="data.number">
+        </label>
+        <ion-item class="item item-divider" style="font-size:10px;color:darkgray;">
+            {{'input_message' | translate}}
+        </ion-item>
+        <label class="item item-input">
+            <i class="icon ion-android-mail placeholder-icon"></i>
+            <input type="text" placeholder="{{'message' | translate}}" ng-model="data.message">
+        </label>
+    </ion-content>
+</ion-view>
