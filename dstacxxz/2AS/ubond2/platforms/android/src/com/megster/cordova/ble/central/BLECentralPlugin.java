@@ -6,12 +6,9 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothManager;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.graphics.Rect;
@@ -20,10 +17,11 @@ import android.os.Handler;
 import android.provider.Settings;
 import android.telephony.SmsMessage;
 import android.telephony.TelephonyManager;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
+
+import com.bde.ancs.lib.AndroidANCSService;
+import com.ble.message.Util;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaArgs;
@@ -36,17 +34,23 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import cn.sharesdk.framework.ShareSDK;
-import cn.sharesdk.onekeyshare.OnekeyShare;
-
-import com.bde.ancs.lib.AndroidANCSService;
-import com.ble.message.Util;
-import com.common.utils.L;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.UUID;
+
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
 
 public class BLECentralPlugin extends CordovaPlugin implements
 		BluetoothAdapter.LeScanCallback {
@@ -176,7 +180,7 @@ public class BLECentralPlugin extends CordovaPlugin implements
 	private boolean isFristLogin = true;
 	private int isFristBond = 0;
 	private boolean isDel_bond = false;
-	
+
 	private int isFallAlarm = 0;
 	String mNumber,mMessage;
 
@@ -397,7 +401,7 @@ public class BLECentralPlugin extends CordovaPlugin implements
 		initBroadcast();
 		mService = AndroidANCSService.getInstance(activity);
 	}
-    
+
 	@Override
 	public void onStart() {
 		// TODO Auto-generated method stub
@@ -407,7 +411,7 @@ public class BLECentralPlugin extends CordovaPlugin implements
 
 
 
-	
+
 	@Override
 	public void onResume(boolean multitasking) {
 		// TODO Auto-generated method stub
@@ -737,10 +741,14 @@ public class BLECentralPlugin extends CordovaPlugin implements
 			} else if ("cmdHeartEd".equals(optType)) {
 				Log.i("main", "----cmdHeartEd----");
 				peripheral2.setHeartEd(mCallbackContext);
-			} else if ("cmdTemperatureEd".equals(optType)) {
-				Log.i("main", "----cmdTemperatureEd----");
-				peripheral2.setTemperatureEd(mCallbackContext);
-			} else if ("cmdShare".equals(optType)) {
+			} else if ("cmdOxygen".equals(optType)) {
+				Log.i("main", "----cmdOxygen----");
+				peripheral2.realTimeRequest(callbackContext, optType);
+			}else if ("cmdTemperatureEd".equals(optType)) {
+        Log.i("main", "----cmdTemperatureEd----");
+        peripheral2.setTemperatureEd(mCallbackContext);
+      }
+      else if ("cmdShare".equals(optType)) {
 				final String st = "ok";
 				shareImge();
 				new Thread() {
@@ -1063,7 +1071,7 @@ public class BLECentralPlugin extends CordovaPlugin implements
 				result.setKeepCallback(true);
 				byte [] a = {(byte) screenSetting};
 				peripheral.writeCmd(1, 0x0f,a);
-				
+
 			}else if("cmdTimerHeart".equals(optType)){ //定时心率检测
 				int timeHeart = Integer.parseInt(optValue);
 				Log.i("main", "----cmdTimerHeart----" + timeHeart);
@@ -1077,7 +1085,7 @@ public class BLECentralPlugin extends CordovaPlugin implements
 				String number = null;
 				String message = null;
 				Log.i(TAG, "cmdFallAlarm1 ----》 " + optValue.toString());
-				
+
 				JSONObject jsonObject;
 					try {
 						jsonObject = new JSONObject(optValue);
@@ -1088,7 +1096,7 @@ public class BLECentralPlugin extends CordovaPlugin implements
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-				
+
 				isFallAlarm = fall;
 				mNumber = number;
 				mMessage = message;
@@ -1111,9 +1119,9 @@ public class BLECentralPlugin extends CordovaPlugin implements
 				Log.i(TAG, "----来电提醒设置----" + call);
 
 			} else if("cmdFallAlarm".equals(optType)){
-				
+
 				Log.i(TAG, "cmdFallAlarm2 ----》 " + optValue.toString());
-				
+
 				int fall = 0 ;
 				String number = null;
 				String message = null;
@@ -1127,7 +1135,7 @@ public class BLECentralPlugin extends CordovaPlugin implements
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-				
+
 				isFallAlarm = fall;
 				mNumber = number;
 				mMessage = message;
@@ -1199,7 +1207,7 @@ public class BLECentralPlugin extends CordovaPlugin implements
 				peripheral.isFallAlarm = isFallAlarm;
 				peripheral.number = mNumber;
 				peripheral.message = mMessage;
-			}else{ 
+			}else{
 				BluetoothDevice device = bluetoothAdapter
 						.getRemoteDevice(macAddress);
 				Peripheral boundPeripheral = new Peripheral(device, 0,
@@ -1210,7 +1218,7 @@ public class BLECentralPlugin extends CordovaPlugin implements
 					boundPeripheral.connect(callbackContext, cordova.getActivity());
 				else
 					boundPeripheral.m_connectCallback = callbackContext;
-				
+
 				boundPeripheral.isFallAlarm = isFallAlarm;
 				boundPeripheral.number = mNumber;
 				boundPeripheral.message = mMessage;
@@ -1226,7 +1234,7 @@ public class BLECentralPlugin extends CordovaPlugin implements
 				boundPeripheral.connect(callbackContext, cordova.getActivity());
 			else
 				boundPeripheral.m_connectCallback = callbackContext;
-			
+
 			boundPeripheral.isFallAlarm = isFallAlarm;
 			boundPeripheral.number = mNumber;
 			boundPeripheral.message = mMessage;

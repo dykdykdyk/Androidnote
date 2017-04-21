@@ -87,7 +87,7 @@ angular.module('ufind1.services.user_setting', [])
              atmospheric:0,
              altitude:0,
           /*血压*/
-            blood_pressure:'0/0',
+            blood_pressure:'0',
           /**血氧*/
           blood_oxygen:0,
           /*呼吸*/

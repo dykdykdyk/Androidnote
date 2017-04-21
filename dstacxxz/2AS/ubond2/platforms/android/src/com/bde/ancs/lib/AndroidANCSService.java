@@ -1,17 +1,4 @@
 package com.bde.ancs.lib;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Set;
-import java.util.UUID;
-
-import org.apache.http.entity.ByteArrayEntity;
-import org.apache.http.util.ByteArrayBuffer;
-import org.xmlpull.v1.XmlPullParserException;
-
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
@@ -39,9 +26,23 @@ import android.telephony.SmsMessage;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
-//import android.service.notification.StatusBarNotification;
 import com.common.utils.L;
 import com.ionicframework.uband22016.R;
+
+import org.apache.http.entity.ByteArrayEntity;
+import org.apache.http.util.ByteArrayBuffer;
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Set;
+import java.util.UUID;
+
+//import android.service.notification.StatusBarNotification;
 
 public class AndroidANCSService/* extends Service */{
 
@@ -79,7 +80,7 @@ public class AndroidANCSService/* extends Service */{
 	/**
 	 * 发送本地特性已更新的通知或指示。 向远程设备发送通知或指示以用信号通知特性已经被更新。
 	 * 应通过写入给定特性的“客户端配置”描述符来为请求通知/指示的每个客户端调用此函数。
-	 * 
+	 *
 	 * @param device
 	 *            * device远程设备接收通知/指示
 	 * @param characteristic
@@ -197,6 +198,7 @@ public class AndroidANCSService/* extends Service */{
 			return desc;
 		}
 
+
 		@Override
 		public void onCharacteristicReadRequest(BluetoothDevice device,
 				int requestId, int offset,
@@ -218,7 +220,7 @@ public class AndroidANCSService/* extends Service */{
 			mGattServer.sendResponse(device, requestId, statusOk, offset,
 					charac.getValue());
 		}
-
+    //收到手环返回的数据
 		@Override
 		public void onCharacteristicWriteRequest(BluetoothDevice device,
 				int requestId, BluetoothGattCharacteristic characteristic,
@@ -314,7 +316,7 @@ public class AndroidANCSService/* extends Service */{
 			System.out.println("onDescriptorWriteRequest....." + "offset ="
 					+ offset + ",value =" + Arrays.toString(value));
 			BluetoothGattDescriptor desc = getGattServerDescriptorFromDescriptor(descriptor);
-			
+
 			int status = statusOk;
 			if (desc == null || offset != 0) {
 				System.out.println("descriptor is null");
@@ -629,7 +631,7 @@ public class AndroidANCSService/* extends Service */{
      *  返回通知是否打开
      * @param serviceUuid
      * @param characteristicUuid
-     * @return 
+     * @return
      */
 	private boolean isEnableNotification(UUID serviceUuid,
 			UUID characteristicUuid) {
@@ -707,10 +709,10 @@ public class AndroidANCSService/* extends Service */{
 
 	/**
 	 * App收到信息后发送通知包
-	 * 
+	 *
 	 * EventID：消息类型，添加(0)、修改(1)、删除(2)； EventFlags：消息优先级，静默(1)、重要(2)；
 	 * CategoryID：消息类型； CategoryCount：消息计数； NotificationUID：通知 ID，可以通过此 ID 获取详情；
-	 * 
+	 *
 	 * @return
 	 */
 	public byte[] generateNotificaitonSource(
@@ -899,7 +901,7 @@ public class AndroidANCSService/* extends Service */{
 					byte[] attributeValue = null; //属性内容
 					int lenth =0;
 					//请求属性id
-					if((i-5)%3 == 0){ 
+					if((i-5)%3 == 0){
 						attribute.setAttributeID(value[i]);
 						System.out.println("i="+i+",AttributeID="+attribute.getmAttributeID());
 						ret.append(value[i]);
@@ -926,11 +928,11 @@ public class AndroidANCSService/* extends Service */{
 						len[1] = (byte) ((lenth &0xff00)>>8);
 						ret.append(len,0,len.length);
 						ret.append(attributeValue, 0, lenth);
-						
+
 						try {
 							System.out.println( "属性的数据 byte[] ="+Arrays.toString(attributeValue));
 							L.i(TAG, "该属性的数据 ="+new String(attributeValue,"utf-8")+", length ="+attributeValue.length);
-							
+
 							L.i(TAG, "发送数据 ="+new String(send,"utf-8")+",发送的length ="+send.length+" / "+lenth);
 						} catch (UnsupportedEncodingException e) {
 							// TODO Auto-generated catch block
@@ -973,7 +975,7 @@ public class AndroidANCSService/* extends Service */{
 
 	/**
 	 * 发送电池更新通知
-	 * 
+	 *
 	 * @param percentage
 	 */
 	public void sendBatteryNotification(int percentage) {

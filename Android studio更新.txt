@@ -1,0 +1,31 @@
+把连接一个的所有的数据 全部都保存,处理完成。
+
+
+
+更新www.
+1.修改Android项目的两个jdk都改1.7
+2.打开AndroidManifest.xml文件，删除下面的 《application》。
+3.移除LibMarsdaemon库，重新导入，然后添加到Android的依赖库。
+4.在配置文件 重新添加混淆
+buildTypes {
+    release {
+      minifyEnabled true
+      // 混淆文件的位置
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+}
+
+
+          peripheral.m_cmdItemAlert = 0;
+              if (peripheraltemp.isConnected()) {
+//                peripheral.disConnectDeviceAlert(1, 1);
+//                peripheral.closeConnection();
+
+android.os.Build.MODEL 系统型号 ATH-AL00
+android.os.Build.VERSION.SDK  api版本号 22
+android.os.Build.VERSION.RELEASE   系统版本号 6.0
+android.os.Build.MANUFACTURER   360
+
+ android{
+    useLibrary 'org.apache.http.legacy'
+  }

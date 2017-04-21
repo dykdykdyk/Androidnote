@@ -1,12 +1,5 @@
 package com.bde.ancs.lib;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-
 import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.content.Intent;
@@ -18,9 +11,13 @@ import android.os.Parcelable;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
 import android.text.TextUtils;
-
 import android.widget.RemoteViews;
 import android.widget.Toast;
+
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 @SuppressLint("NewApi") public class NotificationService extends NotificationListenerService {
 	//AndroidANCSService mANCS;
@@ -29,13 +26,13 @@ import android.widget.Toast;
 	private final static String WEIXIN = "com.tencent.mm";
 	private final static String posted_action = "ANCSAddNotification";
 	private final static String remove_action = "ANCSRemoveNotification";
-	
+
 	@Override
 	public void onNotificationPosted(StatusBarNotification sbn) {
 		// TODO Auto-generated method stub
-		if (sbn.getPackageName().equals("com.android.phone") /*&& sbn.getNotification().tickerText != null·ÀÖ¹ÈıĞÇµÄÀ´µçÍ¨Öª½øÈë*/) {
+		if (sbn.getPackageName().equals("com.android.phone") /*&& sbn.getNotification().tickerText != nullé˜²æ­¢ä¸‰æ˜Ÿçš„æ¥ç”µé€šçŸ¥è¿›å…¥*/) {
 		}else if (sbn.getPackageName().equals("com.google.android.dialer")) {
-			// À´µçÍ¨Öª²»ÔÚÕâÀï²úÉúÁË
+			// æ¥ç”µé€šçŸ¥ä¸åœ¨è¿™é‡Œäº§ç”Ÿäº†
 		}else if(sbn.getPackageName().equals(QQ)){
 			if(sbn.getNotification().tickerText !=null){
 				sendNotifications(posted_action,sbn);
@@ -62,7 +59,7 @@ import android.widget.Toast;
 			}
 		}
 	}
-	
+
 	/*@Override
 	public StatusBarNotification[] getActiveNotifications() {
 		// TODO Auto-generated method stub
@@ -70,9 +67,9 @@ import android.widget.Toast;
 		Toast.makeText(this, "getActiveNotifications", Toast.LENGTH_SHORT).show();
 		return super.getActiveNotifications();
 	}*/
-	
+
 	private void sendNotifications(String action, StatusBarNotification sbn){
-         System.out.println(action+"......................................");		
+         System.out.println(action+"......................................");
 		 Notification notification = sbn.getNotification();
 	        if (notification == null) {
 	            return;
@@ -81,20 +78,20 @@ import android.widget.Toast;
 	    	Bundle data = new Bundle();
 	        String title=null;
 	        String content=null;
-	        // µ± API > 18 Ê±£¬Ê¹ÓÃ extras »ñÈ¡Í¨ÖªµÄÏêÏ¸ĞÅÏ¢
+	        // å½“ API > 18 æ—¶ï¼Œä½¿ç”¨ extras è·å–é€šçŸ¥çš„è¯¦ç»†ä¿¡æ¯
 	        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
 	            Bundle extras = notification.extras;
 	            if (extras != null) {
-	                // »ñÈ¡Í¨Öª±êÌâ
+	                // è·å–é€šçŸ¥æ ‡é¢˜
 	                title = extras.getString(Notification.EXTRA_TITLE, "");
 	                System.out.println(Build.VERSION.SDK_INT+", title="+title);
-	                // »ñÈ¡Í¨ÖªÄÚÈİ
+	                // è·å–é€šçŸ¥å†…å®¹
 	                content = extras.getString(Notification.EXTRA_TEXT, "");
 	                System.out.println(Build.VERSION.SDK_INT+", content="+content);
-	                
+
 	            }
 	        } else {
-	            // µ± API = 18 Ê±£¬ÀûÓÃ·´Éä»ñÈ¡ÄÚÈİ×Ö¶Î
+	            // å½“ API = 18 æ—¶ï¼Œåˆ©ç”¨åå°„è·å–å†…å®¹å­—æ®µ
 	            List<String> textList = getText(notification);
 	            if (textList != null && !textList.isEmpty()) {
 	                for (String text : textList) {
@@ -182,7 +179,7 @@ import android.widget.Toast;
 		//unbindService(conn);
 		System.out.println("NotificationService Destroy...");
 	}
-	
+
 	private boolean isZh() {
         Locale locale = getResources().getConfiguration().locale;
         String language = locale.getLanguage();

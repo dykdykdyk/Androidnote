@@ -232,10 +232,12 @@ angular.module('ufind1.controllers')
                        user_data.sleep = $scope.sleep;
 //                    }
                     if($scope.isSpendS == 1 && $scope.isSendCmd){
-
+                        $scope.onClickOxygen();
                         $scope.isSpendS =0;
+
                     }
                 });
+
             }
 
         };
@@ -318,13 +320,8 @@ angular.module('ufind1.controllers')
         };
 //      血压
         $scope.onClickBP = function(){
-            if (connectedService.is_connected) {
-                bleService.dataRefresh($scope.deviceId, "cmdBP").then(function (result) {
-                }, function (result) {
-                }, function (result) {
-
-                });
-            }
+            console.log("实时呼吸");
+            $scope.onClickOxygen();
         }
 
         $scope.onClickBPed = function(){
@@ -342,22 +339,25 @@ angular.module('ufind1.controllers')
             console.log("实时血氧");
             if (connectedService.is_connected) {
                 bleService.dataRefresh($scope.deviceId, "cmdOxygen").then(function (result) {
+                    console.log("onClickSleep = "+ JSON.stringify(result))
+                    console.log("血氧 111 ="+JSON.stringify(result));
                 }, function (result) {
+                    console.log("血氧 222 ="+JSON.stringify(result));
                 }, function (result) {
-
+                    $scope.blood_oxygen =result.blood_oxygen ;
+                    $scope.breathe=result.breathe;
+                    $scope.blood_pressure=result.blood_pressure;
+                    console.log("$scope.blood_oxygen ="+ $scope.blood_oxygen);
+                    console.log(" $scope.breathe ="+  $scope.breathe);
+                    console.log("$scope.blood_pressure ="+ $scope.blood_pressure);
+                    console.log("血氧 333 ="+JSON.stringify(result));
                 });
             }
         }
         /*呼吸*/
         $scope.onClickBreathe = function(){
+            $scope.onClickOxygen();
             console.log("实时呼吸");
-            if (connectedService.is_connected) {
-                bleService.dataRefresh($scope.deviceId, "cmdBreathe").then(function (result) {
-                }, function (result) {
-                }, function (result) {
-
-                });
-            }
         }
 
 
@@ -373,6 +373,7 @@ angular.module('ufind1.controllers')
                 $timeout(function() {
                     $scope.onClickHeart();
                 }, 2 * 100);
+                $scope.onClickOxygen();
             }
             user_data.isSendOut = false
         }

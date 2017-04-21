@@ -14,29 +14,6 @@
 
 package com.megster.cordova.ble.central;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.UUID;
-
-import org.apache.cordova.CallbackContext;
-import org.apache.cordova.LOG;
-import org.apache.cordova.PluginResult;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.ble.message.HealthMessageHandler;
-import com.ble.message.MessageManager;
-import com.ble.message.PhoneMessageHandler;
-import com.ble.message.SecurityMessageHandler;
-import com.ble.message.SettingMessage;
-import com.ble.message.SportsMessageHandler;
-import com.ionicframework.uband22016.MainActivity;
-import com.ionicframework.uband22016.R;
-
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -57,6 +34,30 @@ import android.os.Build;
 import android.os.Vibrator;
 import android.util.Base64;
 import android.util.Log;
+
+import com.ble.message.BreatheMessageHandler;
+import com.ble.message.HealthMessageHandler;
+import com.ble.message.MessageManager;
+import com.ble.message.PhoneMessageHandler;
+import com.ble.message.SecurityMessageHandler;
+import com.ble.message.SettingMessage;
+import com.ble.message.SportsMessageHandler;
+import com.ionicframework.uband22016.MainActivity;
+import com.ionicframework.uband22016.R;
+
+import org.apache.cordova.CallbackContext;
+import org.apache.cordova.LOG;
+import org.apache.cordova.PluginResult;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.UUID;
 
 /**
  * Peripheral wraps the BluetoothDevice and provides methods to convert to JSON.
@@ -131,9 +132,9 @@ public class Peripheral extends BluetoothGattCallback {
 	public boolean del_bond = false;
 	public JSONObject jsonGN; // 设备特性json数据
 	public CallbackContext gn_CallbackContext;
-	
+
 	int minScends =40;
-	
+
 	int isFallAlarm = 0;
 	String number=null,message;
 
@@ -147,7 +148,7 @@ public class Peripheral extends BluetoothGattCallback {
 		mSportsMessageHandler = new SportsMessageHandler(this);
 		mHealthMessageHandler = new HealthMessageHandler(this);
 		mHealthMessageHandler = new HealthMessageHandler(this);
-
+    mBreatheMessageHandler =new BreatheMessageHandler(this);
 		stepArrayList = new ArrayList();
 		timeArrayList = new ArrayList();
 
@@ -258,9 +259,9 @@ public class Peripheral extends BluetoothGattCallback {
 		if(isFallAlarm == 1){
 		   reConnectAlert(1);
 		   setNotificationVibrate(2);
-		   
+
 		   if(!"".equals(number) && number !=null){
-			   System.out.println("sendSMS。。。。。。|" + number);			   
+			   System.out.println("sendSMS。。。。。。|" + number);
 			   sendSMS(number,message);
 		   }
 		}
@@ -270,28 +271,28 @@ public class Peripheral extends BluetoothGattCallback {
      * @param phoneNumber
      * @param message
      */
-	public void sendSMS(String phoneNumber,String message){  
-		 //获取短信管理器   
-        android.telephony.SmsManager smsManager = android.telephony.SmsManager.getDefault();  
-        
-        //如果短信内容长度超过70则分为若干条发  
-        if (message.length() > 70) {  
-        	//拆分短信内容（手机短信长度限制）    
-            ArrayList<String> msgs = smsManager.divideMessage(message);  
-            for (String msg : msgs) {  
-                smsManager.sendTextMessage(phoneNumber, null, msg, null, null);  
-            }  
-        } else {  
-            smsManager.sendTextMessage(phoneNumber, null, message, null, null);  
-        }  
+	public void sendSMS(String phoneNumber,String message){
+		 //获取短信管理器
+        android.telephony.SmsManager smsManager = android.telephony.SmsManager.getDefault();
+
+        //如果短信内容长度超过70则分为若干条发
+        if (message.length() > 70) {
+        	//拆分短信内容（手机短信长度限制）
+            ArrayList<String> msgs = smsManager.divideMessage(message);
+            for (String msg : msgs) {
+                smsManager.sendTextMessage(phoneNumber, null, msg, null, null);
+            }
+        } else {
+            smsManager.sendTextMessage(phoneNumber, null, message, null, null);
+        }
 	}
-	
+
 	/**
 	 * 设置通知和振动
 	 */
 	@SuppressWarnings("deprecation")
 	public void setNotificationVibrate(int type) {
-		
+
 			NotificationManager notifyManager = (NotificationManager) mActivity
 					.getSystemService(Context.NOTIFICATION_SERVICE);
 			int icon = R.drawable.icon;
@@ -314,20 +315,23 @@ public class Peripheral extends BluetoothGattCallback {
 				tickerText = mActivity.getResources()
 						.getString(R.string.ubond_fall);
 			}
-			Notification notification = new Notification(icon, tickerText, when);
+    Intent notificationIntent = new Intent(mActivity, MainActivity.class);
+    PendingIntent contentIntent = PendingIntent.getActivity(mActivity, 0,
+      notificationIntent, 0);
+			Notification notification = new Notification.Builder(mActivity)
+        .setContentTitle(tickerText)
+        .setContentText("")
+        .setContentIntent(contentIntent)
+        .setWhen(System.currentTimeMillis())
+        .build();
 			// 添加声音效果
 			// notification.defaults |= Notification.DEFAULT_SOUND;
 			// 添加震动,后来得知需要添加震动权限 : Virbate Permission
 			// notification.defaults |= Notification.DEFAULT_VIBRATE ;
 			notification.flags |= Notification.FLAG_AUTO_CANCEL;
 			// 获取PendingIntent
-			Intent notificationIntent = new Intent(mActivity, MainActivity.class);
-			PendingIntent contentIntent = PendingIntent.getActivity(mActivity, 0,
-					notificationIntent, 0);
-			notification.setLatestEventInfo(mActivity, "B2手环", tickerText,
-					contentIntent);
 			notifyManager.notify(type, notification);
-		
+
 	}
 
 	private void removeNotification(int type) {
@@ -339,7 +343,7 @@ public class Peripheral extends BluetoothGattCallback {
 
 	/**
 	 * 删除手机配对并在成功删除时断开连接
-	 * 
+	 *
 	 */
 	public void disconnectBound(final CallbackContext callbackContext) {
 		m_disconnCallback = callbackContext;
@@ -392,7 +396,7 @@ public class Peripheral extends BluetoothGattCallback {
 
 	/**
 	 * 处理绑定
-	 * 
+	 *
 	 * @param isBound
 	 *            是否绑定成功
 	 */
@@ -616,7 +620,7 @@ public class Peripheral extends BluetoothGattCallback {
 		}
 		if (status == BluetoothGatt.GATT_SUCCESS) {
 			Log.i(TAG, "发现蓝牙服务onServicesDiscovered GATT_SUCCESS");
-//			enableNotify();
+			enableNotify();
 		} else {
 //			m_connectCallback.error(this.asJSONObject());
 //			disconnect();
@@ -753,7 +757,7 @@ public class Peripheral extends BluetoothGattCallback {
 		if (status == BluetoothGatt.GATT_SUCCESS) {
 			updateRssi(rssi);
 		} else {
-			
+
 		}
 
 		mCommandQueue.commandCompleted();
@@ -979,7 +983,7 @@ public class Peripheral extends BluetoothGattCallback {
 				temperatureCallbackContext = callbackContext;
 				mMessageManager.queueWrite(HealthMessageHandler.TYPE,
 						HealthMessageHandler.STATE_PHONE_TEMP);
-				
+
 				break;
 			case "cmdSleep":
 				sleepCallbackContext = callbackContext;
@@ -990,7 +994,11 @@ public class Peripheral extends BluetoothGattCallback {
 				atCallbackContext = callbackContext;
 				pressure_endCmd(0x01);
 				break;
-				
+      case "cmdOxygen":
+        mMessageManager.queueWrite(BreatheMessageHandler.TYPE,
+          BreatheMessageHandler.STATE_PHONE_ALERT);
+        break;
+
 			default:
 				break;
 			}
@@ -1036,6 +1044,7 @@ public class Peripheral extends BluetoothGattCallback {
 	 * */
 	CallbackContext heartCallbackContext;
 	HealthMessageHandler mHealthMessageHandler;
+  BreatheMessageHandler mBreatheMessageHandler;
 
 	public void heartData(JSONObject json) {
 		// Log.i(TAG, "实时心率1------->");
@@ -1064,7 +1073,7 @@ public class Peripheral extends BluetoothGattCallback {
 	}
     /**
      * 实时气压
-     * */ 
+     * */
 	public void aTData(JSONObject json) {
 		Log.i(TAG, "实时气压1------->");
 		if (atCallbackContext != null) {
@@ -1264,6 +1273,18 @@ public class Peripheral extends BluetoothGattCallback {
 		}
 	}
 
+  public JSONObject getJson(int oxygen,int breath,String bloodpress){
+    JSONObject  jsonObject = new JSONObject();
+    try {
+      jsonObject.put("blood_oxygen", oxygen);
+      jsonObject.put("breathe", breath);
+      jsonObject.put("blood_pressure", bloodpress);
+    } catch (JSONException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+    return jsonObject;
+  }
 	/** 发送历史数据请求定时器 */
 	public CallbackContext his_heart_callback;
 	public CallbackContext his_temperature_callback;
@@ -1311,6 +1332,9 @@ public class Peripheral extends BluetoothGattCallback {
 					case 4:
 						sleepEdData(i, b, false);
 						break;
+          case 5:
+            sleepEdData(i, b, false);
+            break;
 					}
 					is_send = false;
 					isStepSends = false;
@@ -1350,7 +1374,7 @@ public class Peripheral extends BluetoothGattCallback {
 	 * 发送结束实时数据
 	 */
 	public void step_endCmd() {
-		
+
 		final byte[] step_endCmd = { 0x20, 0x31, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 				0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 				0x00 };
@@ -1369,9 +1393,9 @@ public class Peripheral extends BluetoothGattCallback {
 				// TODO Auto-generated method stub
 				try {
 //					if(Build.VERSION.SDK_INT < 24){
-//						
+//
 //					}else {
-//						
+//
 //					}
 					Thread.sleep(2000);
 					queueWrite(NOTIFY_SERVICE_UUID, NOTIFY_CHARACTERISTIC_UUID, step_endCmd,
@@ -1391,7 +1415,7 @@ public class Peripheral extends BluetoothGattCallback {
 				}
 			}
 		}).start();
-		
+
 	}
 
 	/**
@@ -1436,7 +1460,7 @@ public class Peripheral extends BluetoothGattCallback {
 		queueWrite(NOTIFY_SERVICE_UUID, NOTIFY_CHARACTERISTIC_UUID, value,
 				BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT);
 	}
-	
+
 	public void sen_step(boolean isSend) {
 		if (is_send) {
 			if (isConnected()) {
@@ -1575,6 +1599,7 @@ public class Peripheral extends BluetoothGattCallback {
 				}
 			}
 		}.start();
+
 	}
 
 	public void setTemperatureEd(CallbackContext callbackContext) {
@@ -1595,6 +1620,29 @@ public class Peripheral extends BluetoothGattCallback {
 			}
 		}.start();
 	}
+
+  public void setOxygen(CallbackContext callbackContext) {
+//    isTemperatureSends = true;
+//    is_send = true;
+//    step_count = 0;
+//    his_temperature_callback = callbackContext;
+//
+//    send_dis(callbackContext, 5);
+//    step_endCmd();
+//    new Thread() {
+//      public void run() {
+//        try {
+//          Thread.sleep(10000);
+//          sen_temp(true);
+//        } catch (InterruptedException e) {
+//        }
+//      }
+//    }.start();
+    Log.i("DYK","callbackContext:"+callbackContext);
+    PluginResult result = new PluginResult(PluginResult.Status.OK, getJson(66,89,"79/54"));
+    result.setKeepCallback(true);
+    callbackContext.sendPluginResult(result);
+  }
 
 	public void setSleepEd(CallbackContext callbackContext) {
 		isSleepSends1 = true;
@@ -1731,11 +1779,11 @@ public class Peripheral extends BluetoothGattCallback {
 
 	/**
 	 * 防丢设置
-	 * 
+	 *
 	 * @param lost
 	 */
 	public void setLost(int lost) {
-//		振动次数  报警等级 
+//		振动次数  报警等级
 		int index = 4;
 		int data = (index<<2)|lost;
 		System.out.println(" 防丢设置:"+data);

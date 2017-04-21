@@ -15,43 +15,48 @@
    specific language governing permissions and limitations
    under the License.
 */
+
+
+
 buildscript {
-  repositories {
-    mavenCentral()
-  }
-
-  dependencies {
-    classpath 'com.android.tools.build:gradle:1.5.0'
-  }
-
-}
-apply plugin: 'android-library'
-ext {
-  apply from: 'cordova.gradle'
-  cdvCompileSdkVersion = privateHelpers.getProjectTarget()
-  cdvBuildToolsVersion = privateHelpers.findLatestInstalledBuildTools()
-}
-android {
-  compileSdkVersion cdvCompileSdkVersion
-  buildToolsVersion cdvBuildToolsVersion
-  publishNonDefault true
-
-  compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_7
-    targetCompatibility JavaVersion.VERSION_1_7
-  }
-
-  sourceSets {
-    main {
-      manifest.srcFile 'AndroidManifest.xml'
-      java.srcDirs = ['src']
-      resources.srcDirs = ['src']
-      aidl.srcDirs = ['src']
-      renderscript.srcDirs = ['src']
-      res.srcDirs = ['res']
-      assets.srcDirs = ['assets']
+    repositories {
+        mavenCentral()
+        jcenter();
     }
-  }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.2.1'
+    }
+
 }
-dependencies {
+
+apply plugin: 'com.android.library'
+
+ext {
+    apply from: 'cordova.gradle'
+    cdvCompileSdkVersion = privateHelpers.getProjectTarget()
+    cdvBuildToolsVersion = privateHelpers.findLatestInstalledBuildTools()
+}
+
+android {
+    compileSdkVersion cdvCompileSdkVersion
+    buildToolsVersion cdvBuildToolsVersion
+    publishNonDefault true
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_6
+        targetCompatibility JavaVersion.VERSION_1_6
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+    }
 }
