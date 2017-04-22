@@ -162,7 +162,9 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
-
+  android{
+    useLibrary 'org.apache.http.legacy'
+  }
     defaultConfig {
         versionCode cdvVersionCode ?: new BigInteger("" + privateHelpers.extractIntFromManifest("versionCode"))
         applicationId privateHelpers.extractStringFromManifest("package")
@@ -218,8 +220,8 @@ android {
     */
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_6
-        targetCompatibility JavaVersion.VERSION_1_6
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
     }
 
     if (cdvReleaseSigningPropertiesFile) {
@@ -245,11 +247,11 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: '*.jar')
-    // SUB-PROJECT DEPENDENCIES START
-    debugCompile(project(path: "CordovaLib", configuration: "debug"))
-    releaseCompile(project(path: "CordovaLib", configuration: "release"))
-    // SUB-PROJECT DEPENDENCIES END
+  compile fileTree(include: '*.jar', dir: 'libs')
+  // SUB-PROJECT DEPENDENCIES START
+  debugCompile project(path: 'CordovaLib', configuration: 'debug')
+  releaseCompile project(path: 'CordovaLib', configuration: 'release')
+  // SUB-PROJECT DEPENDENCIES END
 }
 
 def promptForReleaseKeyPassword() {

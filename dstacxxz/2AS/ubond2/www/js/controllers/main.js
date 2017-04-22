@@ -232,12 +232,10 @@ angular.module('ufind1.controllers')
                        user_data.sleep = $scope.sleep;
 //                    }
                     if($scope.isSpendS == 1 && $scope.isSendCmd){
-                        $scope.onClickOxygen();
-                        $scope.isSpendS =0;
 
+                        $scope.isSpendS =0;
                     }
                 });
-
             }
 
         };
@@ -277,7 +275,7 @@ angular.module('ufind1.controllers')
                 }, function (result) {
                 }, function (result) {
 //                    if(result.temperature){
-                        $scope.temperaturedata = result.temperature ;
+                        $scope.temperaturedata = (result.temperature/10).toFixed(1) ;
                         user_data.temp = $scope.temperaturedata
 //                    }
                     if($scope.is_spendSleep == 1 && $scope.isSendCmd){
@@ -339,10 +337,7 @@ angular.module('ufind1.controllers')
             console.log("实时血氧");
             if (connectedService.is_connected) {
                 bleService.dataRefresh($scope.deviceId, "cmdOxygen").then(function (result) {
-                    console.log("onClickSleep = "+ JSON.stringify(result))
-                    console.log("血氧 111 ="+JSON.stringify(result));
                 }, function (result) {
-                    console.log("血氧 222 ="+JSON.stringify(result));
                 }, function (result) {
                     $scope.blood_oxygen =result.blood_oxygen ;
                     $scope.breathe=result.breathe;
@@ -373,7 +368,6 @@ angular.module('ufind1.controllers')
                 $timeout(function() {
                     $scope.onClickHeart();
                 }, 2 * 100);
-                $scope.onClickOxygen();
             }
             user_data.isSendOut = false
         }

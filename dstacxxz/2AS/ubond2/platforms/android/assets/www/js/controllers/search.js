@@ -32,7 +32,7 @@ angular.module('ufind1.controllers')
                     $scope.$broadcast('scroll.refreshComplete');
                 }, function (peripheral) {
 //                    if (peripheral.name == "ubond0"|| peripheral.advertising["kCBAdvDataLocalName"] == "ubond0" || peripheral.name == "ubond1"|| peripheral.advertising["kCBAdvDataLocalName"] == "ubond1") {
-//                    if (peripheral.name == "B2") {
+                    if (peripheral.name == "B2") {
                             var device = {};
                             device.id = peripheral.id;
                             device.rawName = peripheral.name;
@@ -46,7 +46,7 @@ angular.module('ufind1.controllers')
                             device.alertRange = "3";
                             $scope.items = $scope.items.concat(device);
 
-//                    }
+                    }
                 });
             }
         };

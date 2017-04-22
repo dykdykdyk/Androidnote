@@ -1,22 +1,21 @@
 package com.ble.message;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.util.Log;
 
 import com.megster.cordova.ble.central.Peripheral;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * 处理健康相关的信息
- * 
+ *
  * @author Administrator
- * 
+ *
  */
 public class HealthMessageHandler extends MessageHandler {
 
@@ -51,16 +50,22 @@ public class HealthMessageHandler extends MessageHandler {
 
 	/** 实时体温数据返回(*) */
 	public static final byte STATE_DEVICE_NOW_TEMPERATURE = 0x08;
-	
+
 	/** 请求挪动历史心率数据指针 */
 	public static final byte STATE_DEVICE_HEART_RECORD = 0x09;
-	
+
 	/** 请求挪动历史体温数据指针 */
 	public static final byte STATE_DEVICE_TEMP_RECORD = 0x0A;
-	
+
+  /** 请求挪动历史体温数据指针 */
+  public static final byte STATE_ALL_HEALTH_DATA = 0x0B;
+
+  /** 请求挪动历史体温数据指针 */
+  public static final byte STATE_ALL_HEALTH_DATA_BACK = 0x0C;
+
 	/***
 	 * 判断历史数据是否全部已经发送 false 发送完毕
-	 * 
+	 *
 	 * */
 	public boolean isSend = true;
 	public boolean isSend2 = true;
@@ -106,7 +111,7 @@ public class HealthMessageHandler extends MessageHandler {
 			System.arraycopy(records, 0, result, 4, records.length);
 			break;
 		case STATE_DEVICE_TEMP_SYNC:
-			Log.i(TAG, "请求历史温度数据");
+      Log.i(TAG, "请求历史温度数据");
 			result[0] = getDataHeader(0);
 			/**
 			 * 请求历史体温数据。Value 的长度为 1byte。 0x00 是
@@ -117,6 +122,11 @@ public class HealthMessageHandler extends MessageHandler {
 			 * */
 			result[4] = 0x01;
 			break;
+      case  STATE_ALL_HEALTH_DATA:
+        result[4]=0x00;
+        result[0]= getDataHeader(0);
+        Log.i(TAG, "请求健康所有数据");
+        break;
 
 		}
 	}
@@ -147,12 +157,12 @@ public class HealthMessageHandler extends MessageHandler {
 			// float a = bb / 10.0f;
 			int xx = (data[5] & 0b11111111) << 8 | data[4] & 0b11111111;
 
-			Log.i(TAG, "实时体温: " + xx);
+			Log.i(TAG, "实时体温: " + xx/10);
 			setTemperature(xx);
 			mPeripheral.temperatureData(getTemperatureJOSNObject());
 			break;
 		case STATE_PHONE_SYNC:
-		
+
 			int[] st = new int[4];
 			long[] y = new long[4];
 			Log.i(TAG, "返回请求历史心率数据----->");
@@ -198,7 +208,7 @@ public class HealthMessageHandler extends MessageHandler {
 			break;
 		//
 		case STATE_DEVICE_TEMP_SYNC:
-			
+
 			// int d = data[4];
 			int[] st2 = new int[4];
 			long[] y2 = new long[4];
@@ -252,6 +262,15 @@ public class HealthMessageHandler extends MessageHandler {
 			Log.i(TAG, "历史体温数据返回");
 			break;
 		}
+      case STATE_ALL_HEALTH_DATA_BACK :
+        String health ="健康数据返回："+"心率:"+(data[4] & 0xFF)+",低血压: "+(data[5] & 0xFF)+
+          ",高血压: "+(data[6] & 0xFF)+",血氧浓度:"+(data[7] & 0xFF)+
+          ",呼吸频率:"+(data[8] & 0xFF);
+        String press =(String.valueOf(data[5] & 0xFF))+"/"+(String.valueOf(data[6] & 0xFF));
+
+        Log.i(TAG, health);
+       mPeripheral.setdata((data[7] & 0xFF),(data[8] & 0xFF),press);
+        break;
 		}
 
 	}

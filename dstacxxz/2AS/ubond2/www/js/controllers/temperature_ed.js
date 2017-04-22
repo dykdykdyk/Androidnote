@@ -270,7 +270,7 @@ angular.module('ufind1.controllers')
                         var tempArray = result.temperatureArray;
                         var tempTimeArray = result.temperatureTimeArray;
                         var jj = temperature_time;
-                        if (tempTimeArray && tempTimeArray.length > 0) {
+                        if (tempTimeArray.length > 0) {
                             var a = [];
                             var b = [];
                             if(temperature_time.length>0){

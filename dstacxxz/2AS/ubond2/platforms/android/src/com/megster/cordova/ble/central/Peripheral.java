@@ -199,30 +199,30 @@ public class Peripheral extends BluetoothGattCallback {
 		if (connectOutTimer != null)
 			connectOutTimer.cancel();
 		connectOutTimer = new Timer();
-//		if (isFirstConnect) {
-//			connectOutTimer.schedule(new TimerTask() {
-//				@Override
-//				public void run() {
-//					Log.i(TAG, "----->>>>连接超时1");
-//					PluginResult result = new PluginResult(
-//							PluginResult.Status.ERROR, "timeout_connection");
-//					result.setKeepCallback(true);
-//					m_connectCallback.sendPluginResult(result);
-//					delBound();
-//				}
-//			}, 24 * 1000);
-//		} else {
-//			connectOutTimer.schedule(new TimerTask() {
-//				@Override
-//				public void run() {
-//					if (disConnectOutTimer == null)
-//						Log.i(TAG, "----->>>>连接超时2");
-//					disconnect();
-//					mGatt = device.connectGatt(mActivity, false,
-//							Peripheral.this);
-//				}
-//			}, 24 * 1000);
-//		}
+		if (isFirstConnect) {
+			connectOutTimer.schedule(new TimerTask() {
+				@Override
+				public void run() {
+					Log.i(TAG, "----->>>>连接超时1");
+					PluginResult result = new PluginResult(
+							PluginResult.Status.ERROR, "timeout_connection");
+					result.setKeepCallback(true);
+					m_connectCallback.sendPluginResult(result);
+					delBound();
+				}
+			}, 24 * 1000);
+		} else {
+			connectOutTimer.schedule(new TimerTask() {
+				@Override
+				public void run() {
+					if (disConnectOutTimer == null)
+						Log.i(TAG, "----->>>>连接超时2");
+					disconnect();
+					mGatt = device.connectGatt(mActivity, false,
+							Peripheral.this);
+				}
+			}, 24 * 1000);
+		}
 
 		// initAlert();
 		Log.i("main", "-------connect");
@@ -622,8 +622,8 @@ public class Peripheral extends BluetoothGattCallback {
 			Log.i(TAG, "发现蓝牙服务onServicesDiscovered GATT_SUCCESS");
 			enableNotify();
 		} else {
-//			m_connectCallback.error(this.asJSONObject());
-//			disconnect();
+			m_connectCallback.error(this.asJSONObject());
+			disconnect();
 			// disconnect();
 		}
 	}
@@ -995,8 +995,13 @@ public class Peripheral extends BluetoothGattCallback {
 				pressure_endCmd(0x01);
 				break;
       case "cmdOxygen":
-        mMessageManager.queueWrite(BreatheMessageHandler.TYPE,
-          BreatheMessageHandler.STATE_PHONE_ALERT);
+//        mMessageManager.queueWrite(BreatheMessageHandler.TYPEED,
+//          BreatheMessageHandler.RAW_RAT);
+        mcallbackContexttest =callbackContext;
+        mMessageManager.queueWrite(HealthMessageHandler.TYPE,
+          HealthMessageHandler.STATE_ALL_HEALTH_DATA);
+
+
         break;
 
 			default:
@@ -1007,7 +1012,23 @@ public class Peripheral extends BluetoothGattCallback {
 		}
 
 	}
-
+  CallbackContext mcallbackContexttest;
+  public void setOxygen(CallbackContext callbackContext) {
+    Log.i("DYK","callbackContext:"+callbackContext);
+    PluginResult result = new PluginResult(PluginResult.Status.OK, getJson(moxygen,mbreathe,mblood_presses));
+    result.setKeepCallback(true);
+    callbackContext.sendPluginResult(result);
+  }
+  int moxygen;int mbreathe;String mblood_presses;
+  //血氧 数据保存
+  public void setdata(int oxygen,int breathe, String  blood_presses){
+    moxygen =oxygen;
+    mbreathe =breathe;
+    mblood_presses =blood_presses;
+    if(mcallbackContexttest !=null){
+      setOxygen(mcallbackContexttest);
+  }
+  }
 	/**
 	 * 实时步数
 	 * */
@@ -1621,28 +1642,6 @@ public class Peripheral extends BluetoothGattCallback {
 		}.start();
 	}
 
-  public void setOxygen(CallbackContext callbackContext) {
-//    isTemperatureSends = true;
-//    is_send = true;
-//    step_count = 0;
-//    his_temperature_callback = callbackContext;
-//
-//    send_dis(callbackContext, 5);
-//    step_endCmd();
-//    new Thread() {
-//      public void run() {
-//        try {
-//          Thread.sleep(10000);
-//          sen_temp(true);
-//        } catch (InterruptedException e) {
-//        }
-//      }
-//    }.start();
-    Log.i("DYK","callbackContext:"+callbackContext);
-    PluginResult result = new PluginResult(PluginResult.Status.OK, getJson(66,89,"79/54"));
-    result.setKeepCallback(true);
-    callbackContext.sendPluginResult(result);
-  }
 
 	public void setSleepEd(CallbackContext callbackContext) {
 		isSleepSends1 = true;

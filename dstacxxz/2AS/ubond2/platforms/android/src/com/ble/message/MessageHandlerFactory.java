@@ -15,7 +15,7 @@ public class MessageHandlerFactory {
 		mMessageHandlers.put(SportsMessageHandler.TYPE, new SportsMessageHandler(peripheral));
 		mMessageHandlers.put(SecurityMessageHandler.TYPE, new SecurityMessageHandler(peripheral));
 		mMessageHandlers.put(SettingMessage.TYPE, new SettingMessage(peripheral));
-		mMessageHandlers.put(BreatheMessageHandler.TYPE, new BreatheMessageHandler(peripheral));
+		mMessageHandlers.put(BreatheMessageHandler.TYPEED, new BreatheMessageHandler(peripheral));
 		mMessageHandlers.put(PhoneMessageHandler.TYPE,new PhoneMessageHandler(peripheral) );
 	}
 
