@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ViewPagerDemo</string>
+    <string name="title_activity_guide_view">GuideView</string>
+    <string name="title_activity_main">Main</string>
+</resources>
