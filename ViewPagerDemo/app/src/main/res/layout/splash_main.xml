@@ -6,4 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".SplashActivity">
+    <!--<ImageView-->
+        <!--android:id="@+id/imageview"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:scaleType="centerCrop"-->
+        <!--android:src="@mipmap/guide_1"/>-->
 </LinearLayout>

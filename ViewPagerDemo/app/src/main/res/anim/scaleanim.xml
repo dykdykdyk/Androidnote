@@ -4,11 +4,12 @@
     android:toXScale="1.0"
     android:fromYScale="0.0"
     android:toYScale="1.0"
-    android:pivotX="50%"
-    android:pivotY="50%"
+    android:pivotX="100%"
+    android:pivotY="100%"
     android:duration="1000"
-    android:fillBefore="true"
-/>
+    android:fillAfter="true"
+    />
+
 <!-- 
 android:repeatMode
 int. How an animation behaves when it reaches the end of the animation. 

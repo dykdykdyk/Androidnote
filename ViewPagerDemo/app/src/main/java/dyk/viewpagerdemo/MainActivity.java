@@ -28,7 +28,7 @@ public class MainActivity extends Activity implements OnClickListener,OnPageChan
 	private ArrayList<View> views;
 
 	//引导图片资源
-	private static final int[] pics = {R.drawable.guide1,R.drawable.guide2,R.drawable.guide3};
+	private static final int[] pics = {R.mipmap.guider_1,R.mipmap.guider_2,R.mipmap.guider_3};
 
 	//底部小点的图片
 	private ImageView[] points;
@@ -66,14 +66,15 @@ public class MainActivity extends Activity implements OnClickListener,OnPageChan
 	 */
 	private void initData(){
 		//定义一个布局并设置参数
-		LinearLayout.LayoutParams mParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT,
-				LinearLayout.LayoutParams.FILL_PARENT);
+		LinearLayout.LayoutParams mParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+				LinearLayout.LayoutParams.MATCH_PARENT);
 
 		//初始化引导图片列表
 		for(int i=0; i<pics.length; i++) {
 			ImageView iv = new ImageView(this);
 			iv.setLayoutParams(mParams);
 			iv.setImageResource(pics[i]);
+			iv.setScaleType(ImageView.ScaleType. CENTER_CROP);
 			views.add(iv);
 		}
 
