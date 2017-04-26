@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="dyk.viewpagerdemo.MainActivity"
+            android:name="dyk.viewpagerdemo.Guider_Fragment"
             android:label="@string/app_name" >
         </activity>
         <activity android:name=".SplashActivity"

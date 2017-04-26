@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     >
      <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
@@ -15,37 +15,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="120.0dip" />
-    <LinearLayout
-        android:id="@+id/ll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:layout_marginBottom="24.0dip"
-        android:orientation="horizontal"
-        >
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:clickable="true"
-            android:padding="1.0dip"
-            android:src="@drawable/point"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:clickable="true"
-            android:padding="1.0dip"
-            android:src="@drawable/point"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:clickable="true"
-            android:padding="1.0dip"
-            android:src="@drawable/point"/>
-    </LinearLayout>
+
     <TextView
         android:textSize="@dimen/textSize14"
         android:textColor="@color/white"
@@ -55,7 +25,8 @@
         android:layout_height="@dimen/common_btn_height"
         android:text="@string/direct_enter"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginBottom="20.0dip"
+        />
     <TextView
         android:textSize="@dimen/textSize16"
         android:textColor="@color/white"
@@ -66,6 +37,38 @@
         android:layout_height="@dimen/common_btn_height"
         android:text="@string/link_bracelet"
         android:layout_above="@id/guider_tv_enter" />
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+       android:layout_above="@id/guider_buied"
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:clickable="true"
+            android:padding="1.0dip"
+            android:background="@drawable/point"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:clickable="true"
+            android:padding="1.0dip"
+            android:background="@drawable/point"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:clickable="true"
+            android:padding="1.0dip"
+            android:background="@drawable/point"/>
+    </LinearLayout>
+
 
 
 
