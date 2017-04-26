@@ -5,13 +5,10 @@ import android.bluetooth.BluetoothManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,7 +24,7 @@ import gridviewdemo.dyk.gridviewdemo.R;
  * 设置向导界面
  */
 
-public class Wizardactivity extends AppCompatActivity implements View.OnClickListener,FragOne.titleSelectInterface
+public class Wizardactivity extends FragmentActivity implements View.OnClickListener,FragOne.titleSelectInterface
         ,FragTwo.BleDeviceTransmit{
     Button backbutton;
     FragmentManager manager;
@@ -48,8 +45,6 @@ public class Wizardactivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.wizard);
         backbutton =(Button)findViewById(R.id.backbutton);
         backbutton.setOnClickListener(this);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_wizard);
-        setSupportActionBar(toolbar);
         /**动态添加Fragment主要分为4步
          * 1.获取到FragmentManager，在V4包中通过getSupportFragmentManager，在系统中原生的Fragment是通过getFragmentManager获得的。
          2.开启一个事务，通过调用beginTransaction方法开启。

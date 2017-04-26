@@ -260,8 +260,19 @@ public class FragTwo extends Fragment implements View.OnClickListener{
                                     + bleDevice.getName() + " Rssi : "
                                     + rssi + "" + "Address : "
                                     + bleDevice.getAddress());
-                            if (!mBLEList.contains(bleDevice)) {
-                                mBLEList.add(bleDevice);
+                            for(int i=0;i<mBLEList.size();i++){
+                                if((mBLEList.get(i).getAddress()).equals(bleDevice.getAddress())){
+                                    break;
+                                }else if(i == mBLEList.size() -1){
+                                    if( !(mBLEList.get(i).getAddress()).equals(bleDevice.getAddress())){
+                                        if(bleDevice.getName().equals("S1"))
+                                            mBLEList.add(bleDevice);
+                                    }
+                                }
+                            }
+                            if(mBLEList.size() ==0 ){
+                                if(bleDevice.getName().equals("S1"))
+                                    mBLEList.add(bleDevice);
                             }
                             if (!rssiMap.containsKey(rssi)) {
                                 rssiMap.put(bleDevice.getAddress(), rssi);

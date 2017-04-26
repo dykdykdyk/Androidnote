@@ -2,7 +2,6 @@ package gridviewdemo.dyk.view;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -10,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import java.util.Arrays;
 
@@ -80,9 +78,9 @@ public class FragSeven extends Fragment {
             @Override
             public void onSendResult(String address, int cmd, byte[] data) {
                 Log.i("收到", " :"+ Arrays.toString(data));
-                Toast.makeText(getActivity(),"重启返回应答："+address,Toast.LENGTH_LONG).show();
-                Message message=new Message();
-                message.what=1;
+//                Toast.makeText(getActivity(),"重启返回应答："+address,Toast.LENGTH_LONG).show();
+//                Message message=new Message();
+//                message.what=1;
             }
         });
     }

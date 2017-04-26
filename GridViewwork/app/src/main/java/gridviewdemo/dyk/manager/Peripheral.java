@@ -68,7 +68,7 @@ public class Peripheral extends BluetoothGattCallback{
                 @Override
                 public void run() {
                     try {
-                        Thread.sleep(25);
+                        Thread.sleep(40);
                         queueWrite(NOTIFY_SERVICE_UUID,
                                 NOTIFY_CHARACTERISTIC_UUID, value,
                                 BluetoothGattCharacteristic.WRITE_TYPE_DEFAULT);

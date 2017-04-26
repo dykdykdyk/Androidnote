@@ -3,13 +3,6 @@
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
     >
-    <ScrollView
-        android:id="@+id/scrollview"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
             <RelativeLayout
                 android:id="@+id/title1"
                 android:layout_height="wrap_content"
@@ -44,7 +37,7 @@
                 android:layout_margin="5dp"
                 android:transcriptMode="alwaysScroll"
                 android:background="@drawable/shape_two"
-                android:layout_height="200dp"
+                android:layout_height="100dp"
                 android:layout_below="@+id/title1" />
             <TextView
                 android:layout_width="wrap_content"
@@ -62,7 +55,6 @@
                 android:layout_width="wrap_content"
                 android:id="@+id/listview_wififour"
                 android:textSize="18dp"
-                android:transcriptMode="alwaysScroll"
                 android:background="@drawable/shape_two"
                 android:layout_height="100dp"
                 android:layout_below="@+id/text"
@@ -272,9 +264,5 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textview3"
                 android:layout_alignStart="@+id/textview3" />
-
-
-        </RelativeLayout>
-    </ScrollView>
 
 </RelativeLayout>

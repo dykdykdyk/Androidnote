@@ -28,6 +28,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import gridviewdemo.dyk.adapter.ListViewAdapter;
 import gridviewdemo.dyk.adapter.MyAdapter;
@@ -52,6 +54,7 @@ public class UARTactivity extends AppCompatActivity {
     private String dAddress; // 操作当前的设备mac地址
     ListView listview,lv;
     ProgressBar pbar;
+    Timer timer5;
     private ArrayList<String> mBLEListlist;//存放扫描到的设备信息的集合
     private Scanner scanner;
     private static final int REQUEST_ENABLE_BLUETOOTH = 1001;
@@ -60,6 +63,7 @@ public class UARTactivity extends AppCompatActivity {
     private ArrayList<BleDevice> mBLEList;//存放扫描到的设备信息的集合
     Map<String, Integer> rssiMap =new LinkedHashMap<String, Integer>();
     private MenuItem itemScan;
+    boolean testname =false;
     private BleDevice dBleDevice; // 当前正在操作的设备
     private boolean scaning = false; // 是否正在扫描
     ListViewAdapter mydater;
@@ -67,6 +71,7 @@ public class UARTactivity extends AppCompatActivity {
     MyAdapter mydaterlist;
     EditText editText;
     Button button;
+    public int currentapiVersion=android.os.Build.VERSION.SDK_INT;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,7 +97,17 @@ public class UARTactivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                buttonTiuchEvent();
+                if(editText.getText().toString().equals("")){
+                    Toast.makeText(getApplicationContext(), "请在输入框中输入命令后重试", Toast.LENGTH_LONG).show();
+                    return ;
+                }else{
+                    String setIp =editText.getText().toString().trim();
+                    Log.i("FragFour","edit1:"+setIp);
+                    mBLEListlist.add("发送命令:"+setIp);
+                    mydaterlist.notifyDataSetChanged();
+                    strToByte(setIp);
+                    setButtonsFalse();
+                }
             }
         });
         //初始化扫描的监听
@@ -110,9 +125,25 @@ public class UARTactivity extends AppCompatActivity {
                                     + bleDevice.getName() + " Rssi : "
                                     + rssi + "" + "Address : "
                                     + bleDevice.getAddress());
-                          if(!mBLEList.contains(bleDevice)){
-                              mBLEList.add(bleDevice);
-                          } if(!rssiMap.containsKey(rssi)){
+                            for(int i=0;i<mBLEList.size();i++){
+                                if((mBLEList.get(i).getAddress()).equals(bleDevice.getAddress())){
+                                    break;
+                                }else if(i == mBLEList.size() -1){
+                                    if( !(mBLEList.get(i).getAddress()).equals(bleDevice.getAddress())){
+                                        if(bleDevice.getName().equals("S1"))
+                                        mBLEList.add(bleDevice);
+                                    }
+                                }
+                            }
+                            if(mBLEList.size() ==0 ){
+                                if(bleDevice.getName().equals("S1"))
+                                mBLEList.add(bleDevice);
+                            }
+
+//                          if(!mBLEList.contains(bleDevice)){
+//                              mBLEList.add(bleDevice);
+//                          }
+                            if(!rssiMap.containsKey(rssi)){
                                 rssiMap.put(bleDevice.getAddress(),rssi);
                             }
                             lv.setVisibility(View.VISIBLE);
@@ -134,6 +165,18 @@ public class UARTactivity extends AppCompatActivity {
             }
         });
 
+    }
+    //设置客户3秒钟之内只能发送一条命令
+    public void setButtonsFalse(){
+        button.setClickable(false);
+        timer5=new Timer();
+        TimerTask task = new TimerTask(){
+            @Override
+            public void run() {
+                button.setClickable(true);
+            }
+        };
+        timer5.schedule(task, 3000);
     }
     class MyHandler3 extends Handler {
         @Override
@@ -276,24 +319,17 @@ public class UARTactivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-   private void  buttonTiuchEvent(){
-       if(editText.getText().toString().equals("")){
-           Toast.makeText(this, "请在输入框中输入命令后重试", Toast.LENGTH_LONG).show();
-           return ;
-       }else{
-           String setIp =editText.getText().toString().trim();
-           Log.i("FragFour","edit1:"+setIp);
-           mBLEListlist.add("发送命令:"+setIp);
-           mydaterlist.notifyDataSetChanged();
-           strToByte(setIp);
-       }
-   }
+
     public  void strToByte(String str){
         byte[][] arrs=bytetoarray(str);
         write( arrs[0].length, 0, arrs[0]);
         if(arrs.length ==2){
             try {
-                Thread.sleep(500);
+                if(currentapiVersion >23){
+                    Thread.sleep(2000);
+                }else if(currentapiVersion <24){
+                    Thread.sleep(800);
+                }
                 write(arrs[1].length,0,arrs[1]);
             } catch (InterruptedException e) {
                 e.printStackTrace();

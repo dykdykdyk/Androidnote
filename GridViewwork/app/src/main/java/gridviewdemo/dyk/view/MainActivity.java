@@ -1,9 +1,8 @@
 package gridviewdemo.dyk.view;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -15,7 +14,7 @@ import java.util.HashMap;
 
 import gridviewdemo.dyk.gridviewdemo.R;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends Activity {
     private TextView tv;
     //定义图标数组
     private int[] imageRes ={
@@ -38,8 +37,6 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         initview();
     }
     //初始化

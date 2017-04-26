@@ -8,7 +8,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -21,6 +20,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import gridviewdemo.dyk.adapter.MyAdapter;
 import gridviewdemo.dyk.application.BleDevice;
@@ -43,6 +44,7 @@ public class FragFive extends Fragment{
     MyAdapter mydaterlist;
     ListView listView,listview_wififour;
     ScrollView scrollView;
+    Timer timer5;
     List<String>  wifidata =new ArrayList<String>();
     MyHandler5 mHandler ;//异步
     ArrayAdapter<String> wifiadapter;
@@ -54,13 +56,12 @@ public class FragFive extends Fragment{
         View view =inflater.inflate(R.layout.fragfive,container,false);
         back   = (Button) view.findViewById(R.id.backbutton);
         next = (Button) view.findViewById(R.id.nextbutton);
-        scrollView = (ScrollView) view.findViewById(R.id.scrollview);
+//        scrollView = (ScrollView) view.findViewById(R.id.scrollview);
         mHandler =new MyHandler5();
         wifiinfo=new WifiInfoUtils(getActivity());
         wifidata =wifiinfo.getStringdata();
         Log.i("FIVE","wifidata: "+wifidata.get(2)+"wifidata:"+wifidata.size());
         wifiadapter =new ArrayAdapter<String>(getActivity(), R.layout.device_text_wifi, wifidata);
-
         edittext1button =(Button) view.findViewById(R.id.edittext1button);
         edittext3button =(Button) view.findViewById(R.id.edittext3button);
         edittext2button =(Button) view.findViewById(R.id.edittext2button);
@@ -77,7 +78,7 @@ public class FragFive extends Fragment{
         listview_wififour= (ListView)view.findViewById(R.id.listview_wififour);
         listView.setAdapter(mydaterlist);
         listview_wififour.setAdapter(wifiadapter);
-        wifiadapter.notifyDataSetChanged();
+//        wifiadapter.notifyDataSetChanged();
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,18 +98,19 @@ public class FragFive extends Fragment{
                 strToByte(setIp);
                 mBLEListlist.add("发送命令:"+setIp);
                 mydaterlist.notifyDataSetChanged();
+                setButtonsFalse();
             }
         });
         //解决 scrollview的滑动时间冲突，如果手指的触摸在listview,屏蔽掉父控件的触摸事件
-        listview_wififour.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == MotionEvent.ACTION_MOVE){
-                    scrollView.requestDisallowInterceptTouchEvent(true);
-                }
-                return false;
-            }
-        });
+//        listview_wififour.setOnTouchListener(new View.OnTouchListener() {
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//                if(event.getAction() == MotionEvent.ACTION_MOVE){
+//                    scrollView.requestDisallowInterceptTouchEvent(true);
+//                }
+//                return false;
+//            }
+//        });
         //wifi密码
         edittext3button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,6 +124,7 @@ public class FragFive extends Fragment{
                 strToByte(setSRV);
                 mBLEListlist.add("发送命令:"+setSRV);
                 mydaterlist.notifyDataSetChanged();
+                setButtonsFalse();
             }
         });
         //服务器ip和端口号
@@ -137,7 +140,7 @@ public class FragFive extends Fragment{
                     strToByte(setSRV);
                     mBLEListlist.add("发送命令:"+setSRV);
                     mydaterlist.notifyDataSetChanged();
-
+                    setButtonsFalse();
                 }else
                 {
                     Toast.makeText(getActivity(),"请确认是否设置正确~",Toast.LENGTH_LONG).show();
@@ -154,6 +157,22 @@ public class FragFive extends Fragment{
         });
         initListener();
         return view;
+    }
+    //设置客户3秒钟之内只能发送一条命令
+    public void setButtonsFalse(){
+        edittext1button.setClickable(false);
+        edittext2button.setClickable(false);
+        edittext3button.setClickable(false);
+        timer5=new Timer();
+        TimerTask task = new TimerTask(){
+            @Override
+            public void run() {
+                edittext1button.setClickable(true);
+                edittext3button.setClickable(true);
+                edittext2button.setClickable(true);
+            }
+        };
+        timer5.schedule(task, 3000);
     }
     class MyHandler5 extends Handler {
         @Override

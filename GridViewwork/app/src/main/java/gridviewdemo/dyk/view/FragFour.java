@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import gridviewdemo.dyk.adapter.MyAdapter;
 import gridviewdemo.dyk.application.BleDevice;
@@ -34,11 +36,13 @@ public class FragFour extends Fragment{
     @Nullable
     Button back,next,edittext1button,edittext3button;
     BleDevice mBleDevice;
+    Timer timer5;
     EditText editText1,editText2,editText3,editText4, editText5,editText6, editText7,editText8,editText9;
     private FragOne.titleSelectInterface mSelectInterface;
     private ArrayList<String> mBLEListlist;//存放扫描到的设备信息的集合
     MyAdapter mydaterlist;
     ListView listView;
+    public int currentapiVersion=android.os.Build.VERSION.SDK_INT;
     MyHandler4  mHandler ;//异步
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -69,12 +73,14 @@ public class FragFour extends Fragment{
             public void onClick(View v) {
                 if(!editText1.getText().toString().isEmpty()  &&  !editText2.getText().toString().isEmpty()
                 && !editText3.getText().toString().isEmpty() && !editText4.getText().toString().isEmpty()){
+
                     String setIp ="AT+IP="+editText1.getText().toString()+"."+editText2.getText().toString()
                             +"."+editText3.getText().toString()+"."+editText4.getText().toString();
                     Log.i("FragFour","edit1:"+setIp);
                     strToByte(setIp);
                     mBLEListlist.add("发送命令:"+setIp);
                     mydaterlist.notifyDataSetChanged();
+                    setButtonsFalse();
                 }else{
                     Toast.makeText(getActivity(),"请确认ip地址是否设置正确~",Toast.LENGTH_LONG).show();
                 }
@@ -93,6 +99,7 @@ public class FragFour extends Fragment{
                     strToByte(setSRV);
                     mBLEListlist.add("发送命令:"+setSRV);
                     mydaterlist.notifyDataSetChanged();
+                    setButtonsFalse();
                 }else{
                     Toast.makeText(getActivity(),"请确认服务器ip地址和端口号是否设置正确~",Toast.LENGTH_LONG).show();
                 }
@@ -132,10 +139,14 @@ public class FragFour extends Fragment{
     }
     public  void strToByte(String str){
         byte[][] arrs=bytetoarray(str);
-            write( arrs[0].length, 0, arrs[0]);
+        write( arrs[0].length, 0, arrs[0]);
         if(arrs.length ==2){
             try {
-                Thread.sleep(500);
+                if(currentapiVersion >23){
+                    Thread.sleep(2000);
+                }else if(currentapiVersion <24){
+                    Thread.sleep(800);
+                }
                 write(arrs[1].length,0,arrs[1]);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -164,6 +175,20 @@ public class FragFour extends Fragment{
         } catch (Exception e) {
             throw new ClassCastException(activity.toString() + "must implement OnArticleSelectedListener");
         }
+    }
+    //设置客户3秒钟之内只能发送一条命令
+    public void setButtonsFalse(){
+        edittext1button.setClickable(false);
+        edittext3button.setClickable(false);
+        timer5=new Timer();
+        TimerTask task = new TimerTask(){
+            @Override
+            public void run() {
+                edittext1button.setClickable(true);
+                edittext3button.setClickable(true);
+            }
+        };
+        timer5.schedule(task, 3000);
     }
     public void setText(BleDevice text){
         mBleDevice=text;
