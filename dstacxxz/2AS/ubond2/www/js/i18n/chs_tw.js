@@ -128,6 +128,8 @@ var translations_chs_tw = {
     weixin_text:'微信接入',
     sms_r:'開啓短信提醒',
     call_r:'開啓來電提醒',
+     weixin_r:'微信消息推送',
+     qq_r:'QQ消息推送',
     notification_alert:'連接上手環後，即可設置提醒',
 
     notification_lost:'連接上手環後，即可設置防丟功能',

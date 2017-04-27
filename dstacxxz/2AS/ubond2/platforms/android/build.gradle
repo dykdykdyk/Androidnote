@@ -162,6 +162,7 @@ android {
             jniLibs.srcDirs = ['libs']
         }
     }
+
   android{
     useLibrary 'org.apache.http.legacy'
   }

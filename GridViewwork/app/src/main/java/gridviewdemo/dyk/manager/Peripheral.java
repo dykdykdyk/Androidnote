@@ -1,4 +1,4 @@
-package gridviewdemo.dyk.manager;
+﻿package gridviewdemo.dyk.manager;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothDevice;
@@ -86,8 +86,8 @@ public class Peripheral extends BluetoothGattCallback{
         characteristic =service.getCharacteristic(characteristicUUID);
         characteristic.setValue(data[0],BluetoothGattCharacteristic.FORMAT_UINT8, 0);
         characteristic.setValue(data);
-        mGatt.writeCharacteristic(characteristic);
-        Log.i("Peripheral"," mGatt.writeCharacteristic 写入： "+mGatt.writeCharacteristic(characteristic));
+        boolean a= mGatt.writeCharacteristic(characteristic);
+        Log.i("Peripheral"," mGatt.writeCharacteristic 写入： "+a);
     }
     public String getAddress() {
         return this.mDevice.getAddress();

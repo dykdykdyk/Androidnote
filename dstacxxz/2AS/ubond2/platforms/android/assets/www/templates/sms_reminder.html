@@ -3,8 +3,6 @@
     <ion-nav-bar class="bar-positive2 nav-title-slide-ios7" align-title="center">
         <ion-nav-buttons side="left"> <div class="imgStyleLeft" ng-click="back()"><img src="img/10.png"></div>
         </ion-nav-buttons>
-        <!--<ion-nav-back-button>-->
-        <!--</ion-nav-back-button>-->
     </ion-nav-bar>
     <ion-content overflow-scroll="true" style="overflow: hidden">
         <div class="alarm_connect" ng-show="isShow" ng-click="onConnect()"></div>
@@ -14,41 +12,22 @@
 				 {{'notification_alert' | translate}}
 			   </span>
         </ion-item>
-
         <ion-item class="item item-divider" style="font-size:10px;color:darkgray;">
             {{'sms_text2' | translate}}
         </ion-item>
         <ion-list>
-
             <li class="item item-toggle">
-
-
-
                 <div class="imgStyleSmall2"><img src="img/action_send_msg.png"></div>
 				<span class="item-text" style="    width: 160px;">
                     {{'sms_r' | translate}}
 				</span>
                 <label class="toggle">
                     <input type="checkbox" ng-model="data.sms" ng-change="onSmsReminder()">
-
                     <div class="track">
                         <div class="handle"></div>
                     </div>
                 </label>
             </li>
-
-            <!--<li class="item item-toggle">-->
-				<!--<span class="item-text">-->
-					<!--陌生号码不提醒-->
-				<!--</span>-->
-                <!--<label class="toggle">-->
-                    <!--<input type="checkbox" ng-model="data.silentTime" ng-change="onToggleSilentArea()">-->
-
-                    <!--<div class="track">-->
-                        <!--<div class="handle"></div>-->
-                    <!--</div>-->
-                <!--</label>-->
-            <!--</li>-->
         </ion-list>
         <ion-item class="item item-divider" style="font-size:10px;color:darkgray;">
             {{'sms_text2' | translate}}
@@ -61,53 +40,45 @@
 				</span>
                 <label class="toggle">
                     <input type="checkbox" ng-model="data.call" ng-change="onCallReminder()">
-
                     <div class="track">
                         <div class="handle"></div>
                     </div>
                 </label>
             </li>
-
-
         </ion-list>
-
-
-
-        <!---->
-        <!--<ion-item class="item item-divider item-text-wrap" style="font-size:10px;color:darkgray;">-->
-            <!--{{'silent_area_text2' | translate}}-->
-        <!--</ion-item>-->
-        <!--<ion-list>-->
-            <!--<ion-item class="item item-icon-left item-icon-right item-compact" ng-click="onClickedSilentArea(0)">-->
-                <!--<i class="icon ion-chevron-left ion-ios-home-outline" style="font-size:20px;color:darkgray;"></i>-->
-				<!--<span class="item-text">-->
-					<!--{{'silent_area_text3' | translate}}-->
-				<!--</span>-->
-				<!--<span class="item-desc">-->
-					<!--{{silentWifi1.length ? silentWifi1 : 'silent_area_text4' | translate}}-->
-				<!--</span>-->
-                <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
-            <!--</ion-item>-->
-            <!--<ion-item class="item item-icon-left item-icon-right item-compact" ng-click="onClickedSilentArea(1)">-->
-                <!--<i class="icon ion-chevron-left ion-ios-printer-outline" style="font-size:20px;color:darkgray;"></i>-->
-				<!--<span class="item-text">-->
-					<!--{{'silent_area_text5' | translate}}-->
-				<!--</span>-->
-				<!--<span class="item-desc">-->
-					<!--{{silentWifi2.length ? silentWifi2 : 'silent_area_text4' | translate}}-->
-				<!--</span>-->
-                <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
-            <!--</ion-item>-->
-            <!--<ion-item class="item item-icon-left item-icon-right item-compact" ng-click="onClickedSilentArea(2)">-->
-                <!--<i class="icon ion-chevron-left ion-ios-world-outline" style="font-size:20px;color:darkgray;"></i>-->
-				<!--<span class="item-text">-->
-					<!--{{'silent_area_text6' | translate}}-->
-				<!--</span>-->
-				<!--<span class="item-desc">-->
-					<!--{{silentWifi3.length ? silentWifi3 : 'silent_area_text4' | translate}}-->
-				<!--</span>-->
-                <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
-            <!--</ion-item>-->
+        <ion-item class="item item-divider" style="font-size:10px;color:darkgray;">
+            {{'sms_text2' | translate}}
+        </ion-item>
+        <ion-list>
+            <li class="item item-toggle">
+                <div class="imgStyleSmall2"><img src="img/action_simu_chat.png"></div>
+				<span class="item-text" style="    width: 160px;">
+                    {{'weixin_r' | translate}}
+				</span>
+                <label class="toggle">
+                    <input type="checkbox" ng-model="data.chat" ng-change="onChatReminder()">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
+        </ion-list>
+        <ion-item class="item item-divider" style="font-size:10px;color:darkgray;">
+            {{'sms_text2' | translate}}
+        </ion-item>
+        <ion-list>
+            <li class="item item-toggle">
+                <div class="imgStyleSmall2"><img src="img/action_simu_qq.png"></div>
+				<span class="item-text" style="    width: 160px;">
+                    {{'qq_r' | translate}}
+				</span>
+                <label class="toggle">
+                    <input type="checkbox" ng-model="data.qq" ng-change="onQQReminder()">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </li>
         </ion-list>
     </ion-content>
 </ion-view>

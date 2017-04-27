@@ -230,11 +230,13 @@
                     }, function (result) {
                     }, function (result) {
                         if (result.status == "connected") {
+                            console.log("$broadcast maindyk 已连接....")
                             $rootScope.$broadcast('dec.connected', 'b');
                             connectedService.is_connected = true;
                             saveDeviceInfo(device);
                             $ionicLoading.hide();
                         } else if (result.status == "disconnected") {
+                            console.log("$broadcast maindyk 断开连接....")
                             connectedService.is_connected = false;
                             $rootScope.$broadcast('dec.disconnected', 'b');
                         }

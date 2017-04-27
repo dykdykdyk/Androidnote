@@ -186,7 +186,8 @@ public class BLECentralPlugin extends CordovaPlugin implements
 
 	public int call = 0;
 	public int sms = 0;
-
+  public int qqpush = 1;
+  public int chat = 1;
 	public String ble_trun = "no";
 	private Map<String, Map<String, Integer>> cacheOptions = new HashMap<String, Map<String, Integer>>();
 
@@ -744,7 +745,10 @@ public class BLECentralPlugin extends CordovaPlugin implements
 			} else if ("cmdOxygen".equals(optType)) {
 				Log.i("main", "----cmdOxygen----");
 				peripheral2.realTimeRequest(callbackContext, optType);
-			}else if ("cmdTemperatureEd".equals(optType)) {
+			} else if ("connectStatusdyk".equals(optType)) {
+        Log.i("main", "----connectStatusdyk----");
+        peripheral2.realTimeRequest(callbackContext, optType);
+      }else if ("cmdTemperatureEd".equals(optType)) {
         Log.i("main", "----cmdTemperatureEd----");
         peripheral2.setTemperatureEd(mCallbackContext);
       }
@@ -907,7 +911,7 @@ public class BLECentralPlugin extends CordovaPlugin implements
 				call = Integer.parseInt(optValue);
 				Log.i(TAG, "----来电提醒设置----" + call);
 
-			} else if ("cmdSilentWeekDay1".equals(optType)) {
+			}else if ("cmdSilentWeekDay1".equals(optType)) {
 				PluginResult result = new PluginResult(PluginResult.Status.OK,
 						peripheral.asJSONObject());
 				result.setKeepCallback(true);
@@ -1118,7 +1122,19 @@ public class BLECentralPlugin extends CordovaPlugin implements
 				call = Integer.parseInt(optValue);
 				Log.i(TAG, "----来电提醒设置----" + call);
 
-			} else if("cmdFallAlarm".equals(optType)){
+			} else if ("cmdChat".equals(optType)) { // 微信提醒
+        PluginResult result = new PluginResult(PluginResult.Status.OK);
+        result.setKeepCallback(true);
+        chat = Integer.parseInt(optValue);
+        Log.i(TAG, "----微信提醒设置----" + chat);
+        mService.setchat(chat);
+      }else if ("cmdQQ".equals(optType)) { // QQ提醒
+        PluginResult result = new PluginResult(PluginResult.Status.OK);
+        result.setKeepCallback(true);
+        qqpush = Integer.parseInt(optValue);
+        Log.i(TAG, "----QQ提醒设置----" + qqpush);
+        mService.setqqpush(qqpush);
+      } else if("cmdFallAlarm".equals(optType)){
 
 				Log.i(TAG, "cmdFallAlarm2 ----》 " + optValue.toString());
 

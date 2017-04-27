@@ -5,7 +5,9 @@ angular.module('ufind1.controllers')
         var currentPlatform = ionic.Platform.platform();
         var sy = userService.all();
         $scope.data = {sms: sy.isSms,
-                        call: sy.isCall
+                        call: sy.isCall,
+                       chat:sy.isChat,
+                       qq:sy.isQq
         };
         $scope.back = function(){
             console.log("返回上一页");
@@ -57,7 +59,34 @@ angular.module('ufind1.controllers')
             userService.serialize();
             console.log("cmdSms: " +   sy.isCall);
         };
-
+        $scope.onChatReminder = function () {
+            console.log("cmdchat: " + $scope.data.chat);
+            if($scope.data.chat == true){
+                $scope.showMessage($scope.turn_on);
+            }else{
+                $scope.showMessage($scope.turn_off);
+            }
+            if (currentPlatform == 'ios' || currentPlatform == 'android') {
+                bleService.setOption("", "cmdChat", $scope.data.chat ? "1" : "0")
+            }
+            sy.isChat =  $scope.data.chat;
+            userService.serialize();
+            console.log("cmdchat: " +   sy.isChat);
+        };
+        $scope.onQQReminder = function () {
+            console.log("cmdqq: " + $scope.data.qq);
+            if($scope.data.qq == true){
+                $scope.showMessage($scope.turn_on);
+            }else{
+                $scope.showMessage($scope.turn_off);
+            }
+            if (currentPlatform == 'ios' || currentPlatform == 'android') {
+                bleService.setOption("", "cmdQQ", $scope.data.qq ? "1" : "0")
+            }
+            sy.isQq =  $scope.data.qq;
+            userService.serialize();
+            console.log("cmdqq: " +   sy.isQq);
+        };
         $scope.showMessage= function (title) {
             dialogsManager.showMessage(title);
         }

@@ -52,6 +52,8 @@ angular.module('ufind1.services.user_setting', [])
             silentWeekDay3: 127,
 //短信提醒
             isSms: true,
+            isChat: true,
+            isQq: true,
           /** 实时运动数据*/
              totalSteps:0,
              totalDistance:0,

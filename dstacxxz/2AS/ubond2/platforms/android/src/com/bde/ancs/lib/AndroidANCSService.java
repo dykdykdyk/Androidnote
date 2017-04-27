@@ -76,7 +76,17 @@ public class AndroidANCSService/* extends Service */{
 	private BluetoothDevice mDevice;
 	private BroadcastReceiver mReceiver ;
 	private BroadcastReceiver mPhoneStateReceiver; // 电话状态接收器
+  private int qqpush =1;
+  private int chat =1;
 
+  public void setqqpush(int qq){
+    qqpush =qq;
+    Log.i(TAG,"qqpush: "+qqpush);
+  }
+  public void setchat(int qq){
+    chat =qq;
+    Log.i(TAG,"chat: "+chat);
+  }
 	/**
 	 * 发送本地特性已更新的通知或指示。 向远程设备发送通知或指示以用信号通知特性已经被更新。
 	 * 应通过写入给定特性的“客户端配置”描述符来为请求通知/指示的每个客户端调用此函数。
@@ -220,7 +230,7 @@ public class AndroidANCSService/* extends Service */{
 			mGattServer.sendResponse(device, requestId, statusOk, offset,
 					charac.getValue());
 		}
-    //收到手环返回的数据
+    //手环返回数据 他是否需要通知,当前版本默认我们都是确定手环是需要这个通知的
 		@Override
 		public void onCharacteristicWriteRequest(BluetoothDevice device,
 				int requestId, BluetoothGattCharacteristic characteristic,
@@ -371,6 +381,8 @@ public class AndroidANCSService/* extends Service */{
 	/** 联系人HashMap */
 	private HashMap<String, ArrayList<String>> contacts = new HashMap<String, ArrayList<String>>();
 
+
+
 	private AndroidANCSService(Context context) {
 		mContext = context;
 		registerBoradcastReceiver();
@@ -420,6 +432,7 @@ public class AndroidANCSService/* extends Service */{
 		@Override
 		public void handleMessage(Message msg) {
 			switch (msg.what) {
+        //把手环发的数据解析出来,根本、据请求发送数据给手环
 			case EVENT_CONTROL_POINT: // 控制特性
 				System.out.println("Get command from control point...");
 				if (mGattServer == null) {
@@ -427,7 +440,7 @@ public class AndroidANCSService/* extends Service */{
 				}
 				byte[] value;
 				try {
-					value = doCommand((byte[]) msg.obj);
+					value = doCommand((byte[]) msg.obj);//解析
 					BluetoothGattCharacteristic charac = mGattServer
 							.getService(ANCS_SERVICE).getCharacteristic(
 									ANCS_DATA_SOURCE);
@@ -686,6 +699,23 @@ public class AndroidANCSService/* extends Service */{
 		if (mGattServer == null) {
 			return;
 		}
+
+    //判断QQ消息 微信消息 用户是否需要推送
+    Log.i(TAG,"sbn.getPackageName():"+sbn.getPackageName());
+    if(sbn.getPackageName().equals("com.tencent.mm")){
+      Log.i(TAG,"sbn equals com.tencent.mm");
+      if(chat == 0){
+        Log.i(TAG,"用户取消微信消息 推送");
+        return ;
+      }
+    }
+    if(sbn.getPackageName().equals("com.tencent.mobileqq")){
+      Log.i(TAG,"sbn equals com.tencent.mobileqq");
+      if(qqpush == 0){
+        Log.i(TAG,"用户取消QQ消息 推送");
+        return ;
+      }
+    }
 		byte[] notification = generateNotificaitonSource(sbn, 2, 1 << 1);
 		BluetoothGattCharacteristic notificationSource = mGattServer
 				.getService(ANCS_SERVICE).getCharacteristic(

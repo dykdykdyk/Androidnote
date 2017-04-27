@@ -627,13 +627,24 @@ public class Peripheral extends BluetoothGattCallback {
 			// disconnect();
 		}
 	}
-
+  int  dykstatus =0;
+  public JSONObject getconnectJson(String bloodpress){
+    JSONObject  jsonObject = new JSONObject();
+    try {
+      jsonObject.put("status", bloodpress);
+    } catch (JSONException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+    return jsonObject;
+  }
 	@Override
 	public void onConnectionStateChange(BluetoothGatt gatt, int status,
 			int newState) {
 		this.mGatt = gatt;
 		Log.i(TAG, "连接状态改变onConnectionStateChange status:" + status
 				+ "===> newSatet:" + newState);
+    dykstatus++;
 		if (newState == BluetoothGatt.STATE_CONNECTED) { // 设备连接
 			// reConnectAlert();
 			// connected = true;
@@ -641,6 +652,7 @@ public class Peripheral extends BluetoothGattCallback {
 				disConnectOutTimer.cancel();
 			int a = 1;
 			setBle(a);
+
 			music = true;
 			if (gatt.getServices().size() == 0)
 				gatt.discoverServices();
@@ -648,6 +660,9 @@ public class Peripheral extends BluetoothGattCallback {
 				enableNotify();
 			removeNotification(1);
 		} else { // 设备断开
+      if (isFirstConnect){
+        return ;
+      }
 			if (music) {
 				reConnectAlert(0);
 				setNotificationVibrate(1);
@@ -663,11 +678,11 @@ public class Peripheral extends BluetoothGattCallback {
 
 			// 发送断开的回调信息
 			PluginResult result = new PluginResult(PluginResult.Status.ERROR,
-					"disconnected");
+        getconnectJson("disconnected"));
 			result.setKeepCallback(true);
 			m_connectCallback.sendPluginResult(result);
-
-			Log.i(TAG, "蓝牙断开...." + getBle());
+      Log.i(TAG, "蓝牙断开....dyk1" + m_connectCallback);
+			Log.i(TAG, "蓝牙断开....dyk2" + getBle());
 			// gatt.connect();
 			if (getBle() == 1) {
 				disconnect();
@@ -1003,6 +1018,12 @@ public class Peripheral extends BluetoothGattCallback {
 
 
         break;
+        case "connectStatusdyk":
+          mcallbackContexttest =callbackContext;
+          if(!connected){
+
+          }
+          break;
 
 			default:
 				break;

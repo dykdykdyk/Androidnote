@@ -125,7 +125,8 @@ var translations_en = {
     sms_r:'Open the SMS alerts',
 //    sms_r:'Turn on notifications for incoming SMS',
     call_r:'Open the calls alerts',
-        
+    weixin_r  :'Open WeChat message push',
+    qq_r:'QQ message push',
     time_text1:'Tap to synchronize time',
     time_text2:'Time synchronization will empty the history data',
     time_text3:'This setting will cost one minute to take effect',

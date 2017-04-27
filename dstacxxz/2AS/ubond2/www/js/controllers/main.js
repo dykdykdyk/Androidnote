@@ -83,12 +83,15 @@ angular.module('ufind1.controllers')
                                     send();
                                     $rootScope.$broadcast('dec.connected','m');
                                 } else if (result2.status == "disconnected") {
+                                    console.log(" dyk....收到断开连接的回调1" + success);
                                     connectedService.is_connected = false;
                                     $rootScope.$broadcast('dec.disconnected','m');
                                     $scope.title = $translate.instant('status2')
                                 }else{
+                                    console.log(" dyk....收到断开连接的回调2" + success);
                                     connectedService.is_connected = false;
                                     $rootScope.$broadcast('dec.disconnected','m');
+                                    $scope.title = null;
                                     $scope.title = $translate.instant('status2')
                                 }
                             });
@@ -99,6 +102,17 @@ angular.module('ufind1.controllers')
                         });
                     }
                 });
+                    bleService.dataRefresh($scope.deviceId, "connectStatusdyk").then(function (result) {
+                    }, function (result) {
+                    }, function (result) {
+                        $scope.blood_oxygen =result.blood_oxygen ;
+                        $scope.breathe=result.breathe;
+                        $scope.blood_pressure=result.blood_pressure;
+                        console.log("$scope.blood_oxygen ="+ $scope.blood_oxygen);
+                        console.log(" $scope.breathe ="+  $scope.breathe);
+                        console.log("$scope.blood_pressure ="+ $scope.blood_pressure);
+                        console.log("血氧 333 ="+JSON.stringify(result));
+                    });
             }else if(currentPlatform == "ios"){
                 bleService.connect(dev.id).promise.then(function (result2) {
                 }, function (result2) {
@@ -300,7 +314,7 @@ angular.module('ufind1.controllers')
                 }, function (result) {
 //                    if(result.atmospheric){
                         $scope.atmospheric = result.atmospheric.toFixed(2);
-                        $scope.ambientTemp = result.ambientTemp ;
+                        $scope.ambientTemp = result.ambientTemp.toFixed(1) ;
                         $scope.altitude = result.altitude.toFixed(1);
                         user_data.altitude =  $scope.altitude;
                         user_data.atmospheric = $scope.atmospheric
@@ -314,7 +328,7 @@ angular.module('ufind1.controllers')
             }
         }
         $scope.onClickAtmosphericEd = function () {
-            $scope.showMessage($scope.hideTde);
+//            $scope.showMessage($scope.hideTde);
         };
 //      血压
         $scope.onClickBP = function(){

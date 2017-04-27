@@ -1,24 +1,22 @@
 package com.ble.message;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
+import android.util.Log;
+
+import com.megster.cordova.ble.central.Peripheral;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.util.Log;
-
-import com.megster.cordova.ble.central.Peripheral;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * 处理与运动相关的信息
- * 
+ *
  * @author Administrator
- * 
+ *
  */
 public class SportsMessageHandler extends MessageHandler {
 
@@ -44,10 +42,10 @@ public class SportsMessageHandler extends MessageHandler {
 
 	/** 返回当天运动数据 */
 	public static final byte STATE_SPORTS_BACK = 0x06;
-	
+
 	/**返回实时气压海拔环境温度 Barometric altitude*/
 	public static final byte STATE_BAROMETRIC_ALTITUDE = 0x08;
-	
+
 	/** 请求挪动历史睡眠数据指针 */
 	public static final byte STATE_DEVICE_SLEEP_RECORD = 0x09;
 	// 历史步数
@@ -57,7 +55,7 @@ public class SportsMessageHandler extends MessageHandler {
 
 	/***
 	 * 判断历史数据是否全部已经发送 false 发送完毕
-	 * 
+	 *
 	 * */
 	public boolean isSend = true;
     public int getCount = 0;
@@ -71,7 +69,7 @@ public class SportsMessageHandler extends MessageHandler {
 		stepArray = new JSONArray();
 		int state = data[1] & FITER_TO_STATE;
 		switch (state) {
-		case STATE_DEVICE_RUN_RECORD: 
+		case STATE_DEVICE_RUN_RECORD:
 //			Log.i(TAG, "设备运动记录请求进度返回"+Arrays.toString(data));
 			break;
 		case STATE_DEVICE_SLEEP_SETTING:
@@ -107,7 +105,7 @@ public class SportsMessageHandler extends MessageHandler {
 				}
 			}
 			mPeripheral.sleepEdData(sleep_status,sleep_time, isSend);
-			mPeripheral.sen_sleep(isSend);			
+			mPeripheral.sen_sleep(isSend);
 			break;
 		case STATE_DEVICE_SLEEP_DATA:
 			int[] startTime = new int[5]; // 开始时间
@@ -134,7 +132,7 @@ public class SportsMessageHandler extends MessageHandler {
 					"\n 睡眠时间："+ hours+":"+min;
 			Log.i(TAG, ss);
 			mPeripheral.sleepData(getSleepJOSNObject(startTime,stopTime,hours,min));
-			break;	
+			break;
 		case STATE_SPORTS_BACK:
 			Log.i(TAG, "返回当天运动数据,设备每隔几秒定时返回总步数，总里程，总卡路里");
 			byte[] a = new byte[5];
@@ -198,22 +196,24 @@ public class SportsMessageHandler extends MessageHandler {
 					isSend = true;
 				}
 			}
-			
+
 			mPeripheral.stepEdData(st, y, isSend);
 			mPeripheral.sen_step(isSend);
 			break;
 		case STATE_BAROMETRIC_ALTITUDE:
 			byte[] at = { data[4], data[5], data[6], data[7] };
 			byte[] al = { data[8], data[9], data[10], data[11] };
+      byte [] alTemperature = {data[12],data[13]};
 			float atmospheric = Util.bytesToInt2(at, 0) / 1000f / 100f;
-			float altitude = (Util.bytesToInt2(al, 0) - 500) / 100f;
-			float ambientTemperature = ((float)(data[12] & 0xFF)) - 40f;
+			float altitude = (Util.bytesToInt2(al, 0)) / 100f;
+      float ambient = (Util.dykbytesToInt2(alTemperature, 0))/10f;
+      float ambientTemperature = ambient;
 			float atf = (float) (Math.round(atmospheric * 100)) / 100;
 			float alf = (float) (Math.round(altitude * 100)) / 100;
-//			Log.i(TAG, "返回实时气压海拔环境温度 --->" +atf+"  " + alf+"  "+ ambientTemperature);
+			Log.i(TAG, "返回实时气压海拔环境温度 --->" +atf+" , " + alf+" , "+ ambientTemperature);
 
 			mPeripheral.aTData(getTemperatureJOSNObject(atf,ambientTemperature,alf));
-			
+
 			break;
 		}
 	}
@@ -284,12 +284,12 @@ public class SportsMessageHandler extends MessageHandler {
 		case STATE_DEVICE_SLEEP_DATA:
 			result[0] = getDataHeader(0);
 			result[4] = 0x01;
-			
+
 			break;
 		case STATE_DEVICE_SLEEP_SETTING:
 			result[0] = getDataHeader(0);
 			result[4] = 0x01;
-			
+
 			break;
 		case STATE_DEVICE_SLEEP_RECORD:
 			result[0] = getDataHeader(3);
@@ -297,8 +297,8 @@ public class SportsMessageHandler extends MessageHandler {
 			System.arraycopy(records, 0, result, 4, records.length);
 			break;
 		}
-		
-		
+
+
 	}
 	public JSONObject getTemperatureJOSNObject(float at, float tem, float al) {
 		JSONObject jsonTemperature = new JSONObject();
