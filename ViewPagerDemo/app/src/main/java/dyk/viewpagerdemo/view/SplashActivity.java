@@ -1,4 +1,4 @@
-package dyk.viewpagerdemo;
+package dyk.viewpagerdemo.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,8 @@ import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import dyk.viewpagerdemo.R;
 
 /**启动 动画
  * Created by dengyangkang on 2017/4/24.

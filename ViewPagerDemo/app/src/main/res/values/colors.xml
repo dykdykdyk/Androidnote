@@ -12,6 +12,7 @@
     <color name="asr_state_error">#ffed5d5d</color>
     <color name="asr_state_none">#33ffffff</color>
     <color name="asr_state_start">#ff43a1f0</color>
+    <color name="guide_cricle_shape">#f00</color>
     <color name="background_floating_material_dark">@color/material_grey_800</color>
     <color name="background_floating_material_light">@android:color/white</color>
     <color name="background_material_dark">@color/material_grey_850</color>

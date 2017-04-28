@@ -37,38 +37,28 @@
         android:layout_height="@dimen/common_btn_height"
         android:text="@string/link_bracelet"
         android:layout_above="@id/guider_tv_enter" />
-    <LinearLayout
-        android:id="@+id/ll"
+
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-       android:layout_above="@id/guider_buied"
-        android:gravity="center"
-        android:orientation="horizontal"
+        android:layout_above="@id/guider_buied"
+        android:layout_marginBottom="5dp"
         >
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:clickable="true"
-            android:padding="1.0dip"
-            android:background="@drawable/point"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:clickable="true"
-            android:padding="1.0dip"
-            android:background="@drawable/point"/>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:clickable="true"
-            android:padding="1.0dip"
-            android:background="@drawable/point"/>
+    <LinearLayout
+        android:id="@+id/llContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="horizontal">
     </LinearLayout>
-
+        <ImageView
+            android:id="@+id/guide_red_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/guide_circle_shape"/>
+</RelativeLayout>
 
 
 
