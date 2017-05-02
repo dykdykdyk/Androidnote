@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@color/sleep_bg" android:layout_width="fill_parent" android:layout_height="270.0dip">
+        <com.wakeup.smartband.ui.widget.view.TimelineView android:id="@id/timeline_two" android:background="@color/sleep_bg" android:layout_width="fill_parent" android:layout_height="30.0dip" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/tv_time_duration" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <com.github.mikephil.charting.charts.BarChart android:id="@id/bar_chat" android:background="@color/sleep_bg" android:paddingTop="@dimen/dimens10" android:paddingBottom="@dimen/dimens10" android:layout_width="fill_parent" android:layout_height="220.0dip" />
+    </LinearLayout>
+    <View android:background="#ffbfbfbf" android:layout_width="fill_parent" android:layout_height="1.0px" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:background="@drawable/grid_bg_selector" android:clickable="true" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <TextView android:textSize="@dimen/textSize18" android:layout_gravity="center_horizontal" android:id="@id/tv_sleep_total_time_two" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/sleep_time" />
+                <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/abc_action_bar_subtitle_bottom_margin_material">
+                    <TextView android:textSize="@dimen/textSize18" android:textColor="@color/sleep_bg" android:id="@id/tv_sleep_total_hour_two" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hour" />
+                    <TextView android:textSize="@dimen/textSize18" android:textColor="@color/sleep_bg" android:id="@id/sleep_total_minute_two" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/minute" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:background="@drawable/grid_bg_selector" android:clickable="true" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <TextView android:textSize="@dimen/textSize18" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/deep_sleep" />
+                <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/abc_action_bar_subtitle_bottom_margin_material">
+                    <TextView android:textSize="@dimen/textSize18" android:textColor="@color/sleep_bg" android:id="@id/tv_deep_sleep_hour_two" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hour" />
+                    <TextView android:textSize="@dimen/textSize18" android:textColor="@color/sleep_bg" android:id="@id/tv_deep_sleep_minute_two" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/minute" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:background="@drawable/grid_bg_selector" android:visibility="gone" android:clickable="true" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <TextView android:textSize="@dimen/textSize18" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="今天醒来" />
+                <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/abc_action_bar_subtitle_bottom_margin_material">
+                    <TextView android:textSize="@dimen/textSize18" android:textColor="@color/sleep_bg" android:id="@id/tv_xinglai_hour_two" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hour" />
+                    <TextView android:textSize="@dimen/textSize18" android:textColor="@color/sleep_bg" android:id="@id/tv_xinglai_minute_two" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/minute" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:background="@drawable/grid_bg_selector" android:clickable="true" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <TextView android:textSize="@dimen/textSize18" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/shallow_sleep" />
+                <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/abc_action_bar_subtitle_bottom_margin_material">
+                    <TextView android:textSize="@dimen/textSize18" android:textColor="@color/sleep_bg" android:id="@id/tv_shallow_sleep_hour_two" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hour" />
+                    <TextView android:textSize="@dimen/textSize18" android:textColor="@color/sleep_bg" android:id="@id/tv_shallow_sleep_minute_two" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/minute" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:background="@drawable/grid_bg_selector" android:clickable="true" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <TextView android:textSize="@dimen/textSize18" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wakeup_times" />
+                <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/abc_action_bar_subtitle_bottom_margin_material">
+                    <TextView android:textSize="@dimen/textSize18" android:textColor="@color/sleep_bg" android:id="@id/tv_wakeup_times_two" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/times" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:background="@drawable/grid_bg_selector" android:visibility="gone" android:clickable="true" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <TextView android:textSize="@dimen/textSize18" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="昨晚入睡" />
+                <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/abc_action_bar_subtitle_bottom_margin_material">
+                    <TextView android:textSize="@dimen/textSize18" android:textColor="@color/sleep_bg" android:id="@id/tv_zuowangrushui_textview_two" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hour" />
+                    <TextView android:textSize="@dimen/textSize18" android:textColor="@color/sleep_bg" android:id="@id/tv_zuowangrushui_minute_two" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/minute" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

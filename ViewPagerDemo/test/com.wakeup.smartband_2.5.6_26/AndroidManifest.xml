@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.wakeup.smartband" platformBuildVersionCode="23" platformBuildVersionName="6.0-2704002">
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG"/>
+    <uses-permission android:name="android.permission.USE_SIP"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.RECEIVE_WAP_PUSH"/>
+    <uses-permission android:name="android.permission.RECEIVE_MMS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.SET_DEBUG_APP"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.BATTERY_STATS"/>
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+    <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+    <application android:allowBackup="true" android:icon="@drawable/about_logo" android:label="@string/app_name" android:name="com.shell.SuperApplication" android:supportsRtl="true" android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        <meta-data android:name="com.amap.api.v2.apikey" android:value="4defa07fcaccc3f589eea2cdc08020ac"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyB8rWy8MWKrD2WtWD38546EotuhuKNOUUs"/>
+        <activity android:name="com.wakeup.smartband.ui.SplashActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboard|orientation|screenSize" android:launchMode="singleTask" android:name="com.wakeup.smartband.ui.MainActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.user.UserInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.GuiderActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.set.SettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.help.HelpActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.set.AboutActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.device.DeviceListActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.set.CheckUpdateActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.user.PersonalTargetActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.set.WeiXinSportActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.set.AppleHealthActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.device.DeviceManageActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.device.ConnectManagerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.alert.SmartAlertActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.alert.AppAlertActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.alert.ClockAlertActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.alert.ClockSettingActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.alert.CustomActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.alert.DisturbanceModelOrSedentarinessActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.SleepActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.HealthWeeklyActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.HrBpOActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.StepActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.widget.RemindActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.measure.MeasureActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.measure.HeartRateActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.measure.BloodPressureActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.measure.BloodOxActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.measure.TireActivity" android:screenOrientation="portrait"/>
+        <activity android:excludeFromRecents="true" android:name="com.umeng.socialize.editorpage.ShareActivity" android:theme="@style/Theme.UMDefault"/>
+        <meta-data android:name="UMENG_APPKEY" android:value="57343ba0e0f55a9be7000336"/>
+        <meta-data android:name="UMENG_CHANNEL" android:value="Umeng"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:exported="true" android:name="com.wakeup.smartband.wxapi.WXEntryActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboardHidden|orientation" android:name="com.wakeup.smartband.WBShareActivity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:configChanges="keyboardHidden|orientation" android:exported="false" android:name="com.sina.weibo.sdk.component.WeiboSdkBrowser" android:screenOrientation="portrait" android:windowSoftInputMode="adjustResize"/>
+        <activity android:launchMode="singleTask" android:name="com.tencent.tauth.AuthActivity" android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tencent1105389746"/>
+            </intent-filter>
+        </activity>
+        <activity android:name="com.tencent.connect.common.AssistActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.facebook.FacebookActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <provider android:authorities="com.facebook.app.FacebookContentProvider383219805375493" android:exported="true" android:name="com.facebook.FacebookContentProvider"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize" android:label="@string/app_name" android:name="com.umeng.socialize.handler.TwitterWebActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <service android:enabled="true" android:name="com.wakeup.smartband.ble_service.BleService"/>
+        <service android:exported="true" android:name="com.wakeup.smartband.service.DfuService">
+            <intent-filter>
+                <action android:name="no.nordicsemi.android.action.DFU_UPLOAD"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.wakeup.smartband.service.AlertService" android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService"/>
+            </intent-filter>
+        </service>
+        <service android:enabled="true" android:exported="true" android:name="com.wakeup.smartband.service.AlertAccessibilityService" android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+            <meta-data android:name="android.accessibilityservice" android:resource="@xml/accessibility"/>
+        </service>
+        <meta-data android:name="TA_APPKEY" android:value="Aqc1105389746"/>
+        <meta-data android:name="InstallChannel" android:value="OpenPlatform"/>
+        <activity android:name="com.wakeup.smartband.ui.GoogleFitActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.run.RunActivity" android:theme="@style/Anim_fade"/>
+        <activity android:name="com.wakeup.smartband.ui.run.RunStartActivity" android:theme="@style/Anim_fade"/>
+        <activity android:name="com.wakeup.smartband.ui.run.RunHistoryActivity"/>
+        <activity android:configChanges="keyboard|orientation|screenSize" android:name="com.wakeup.smartband.ui.run.MapActivity" android:screenOrientation="portrait" android:theme="@style/Anim_fade"/>
+        <service android:name="com.amap.api.location.APSService"/>
+        <activity android:name="com.wakeup.smartband.ui.run.GoogleMapActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.wakeup.smartband.ui.run.MapShowActivity"/>
+        <activity android:name="com.wakeup.smartband.ui.run.GoogleMapShowActivity"/>
+        <activity android:name="com.wakeup.smartband.ui.set.SuggestionActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.wakeup.smartband.ui.camera.CameraActivity"/>
+        <activity android:name="com.wakeup.smartband.ui.camera.CameraLibraryActivity" android:screenOrientation="portrait"/>
+        <activity android:configChanges="keyboardHidden|orientation|screenSize" android:name="com.wakeup.smartband.ui.camera.AlbumItemActivity"/>
+        <receiver android:name="com.wakeup.smartband.receiver.PhoneStateReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE"/>
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL"/>
+            </intent-filter>
+        </receiver>
+        <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version"/>
+    </application>
+</manifest>

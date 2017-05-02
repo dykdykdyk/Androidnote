@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:id="@id/item_tv_title" android:layout_width="fill_parent" android:layout_height="30.0dip" android:layout_marginLeft="@dimen/dimens10" android:layout_marginTop="@dimen/dimens30" android:text="@string/last_week_step" />
+    <LinearLayout android:orientation="vertical" android:id="@id/ll_chart" android:layout_width="fill_parent" android:layout_height="230.0dip">
+        <com.github.mikephil.charting.charts.BarChart android:id="@id/chart" android:background="@color/step_bg" android:layout_width="fill_parent" android:layout_height="210.0dip" />
+    </LinearLayout>
+    <TextView android:id="@id/tv_health_tips" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimens10" android:layout_marginTop="@dimen/dimens10" android:text="@string/health_tips" />
+    <TextView android:id="@id/tv_health_tip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimens10" android:layout_marginTop="@dimen/dimens5" android:text="@string/heart_rate_health_tip1" />
+    <View android:layout_width="fill_parent" android:layout_height="@dimen/dimens20" />
+</LinearLayout>

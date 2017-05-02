@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@color/sleep_bg" android:paddingLeft="30.0dip" android:paddingRight="30.0dip" android:layout_width="fill_parent" android:layout_height="240.0dip">
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dip">
+            <ImageView android:id="@id/iv_night" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/night" android:layout_alignParentRight="true" />
+            <ImageView android:id="@id/iv_daytime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/daytime" />
+        </RelativeLayout>
+        <RelativeLayout android:gravity="bottom" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <View android:background="@color/white" android:layout_width="1.0dip" android:layout_height="140.0dip" android:layout_alignParentBottom="true" />
+            <View android:background="@color/white" android:layout_width="1.0dip" android:layout_height="140.0dip" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+            <ImageView android:layout_width="fill_parent" android:layout_height="100.0dip" android:layout_marginLeft="2.0dip" android:layout_marginRight="2.0dip" android:src="@drawable/sleep_pregress_bg" android:layout_alignParentBottom="true" />
+            <lecho.lib.hellocharts.view.ColumnChartView android:id="@id/sleep_chart" android:layout_width="fill_parent" android:layout_height="160.0dip" android:layout_marginLeft="2.0dip" android:layout_marginRight="2.0dip" android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_marginBottom="10.0dip">
+            <TextView android:textSize="@dimen/textSize14" android:textColor="@color/white" android:id="@id/tv_last_night" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="23:46" />
+            <TextView android:textSize="@dimen/textSize14" android:textColor="@color/white" android:id="@id/tv_moring" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="07:35" android:layout_alignParentRight="true" />
+        </RelativeLayout>
+    </LinearLayout>
+    <GridLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:listSelector="@android:color/transparent" android:layout_weight="1.0" android:rowCount="2" android:columnCount="2">
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/sleep_total_time" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/textSize18" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/sleep_time" />
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip">
+                <TextView android:textSize="@dimen/textSize20" android:textColor="#ff31a1d3" android:id="@id/tv_sleep_total_hour" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hour" />
+                <TextView android:textSize="@dimen/textSize20" android:textColor="#ff12c2ff" android:id="@id/tv_sleep_total_minute" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/minute" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/textSize18" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/deep_sleep" />
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip">
+                <TextView android:textSize="@dimen/textSize20" android:textColor="#ff31a1d3" android:id="@id/tv_deep_sleep_hour" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hour" />
+                <TextView android:textSize="@dimen/textSize20" android:textColor="#ff31a1d3" android:id="@id/tv_deep_sleep_minute" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/minute" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/textSize18" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/shallow_sleep" />
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip">
+                <TextView android:textSize="@dimen/textSize20" android:textColor="#ff31a1d3" android:id="@id/tv_shallow_sleep_hour" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hour" />
+                <TextView android:textSize="@dimen/textSize20" android:textColor="#ff31a1d3" android:id="@id/tv_shallow_sleep_minute" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/minute" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TextView android:textSize="@dimen/textSize18" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wakeup_times" />
+            <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip">
+                <TextView android:textSize="@dimen/textSize20" android:textColor="#ff31a1d3" android:id="@id/tv_wakeup_times" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/times" />
+            </LinearLayout>
+        </LinearLayout>
+    </GridLayout>
+</LinearLayout>

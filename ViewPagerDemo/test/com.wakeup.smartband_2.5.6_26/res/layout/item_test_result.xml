@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/test_result_show" android:background="@color/white" android:padding="@dimen/dimens15" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/textSize16" android:textColor="@color/common_black" android:id="@id/tv_test_result" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <TextView android:textSize="@dimen/textSize14" android:textColor="@color/textcolor_666" android:id="@id/tv_test_result_analyse" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimens5" />
+    <TextView android:textSize="@dimen/textSize16" android:textColor="@color/common_black" android:id="@id/tv_health_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimens15" />
+    <TextView android:textSize="@dimen/textSize14" android:textColor="@color/textcolor_666" android:id="@id/tv_health_detail" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimens15" />
+    <TextView android:textSize="@dimen/textSize12" android:id="@id/result_attetion" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/dimens15" />
+</LinearLayout>

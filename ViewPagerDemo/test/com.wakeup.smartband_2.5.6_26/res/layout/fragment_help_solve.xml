@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@android:color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.het.comres.view.layout.ItemLinearLayout android:id="@id/help_solve_connect_failure" android:layout_width="fill_parent" android:layout_height="@dimen/common_btn_height" app:item_showLeftImage="false" app:item_funcName="@string/help_tip1" />
+    <com.het.comres.view.layout.ItemLinearLayout android:id="@id/help_solve_ble_disconnected" android:layout_width="fill_parent" android:layout_height="@dimen/common_btn_height" app:item_showLeftImage="false" app:item_funcName="@string/help_tip2" />
+    <com.het.comres.view.layout.ItemLinearLayout android:id="@id/help_solve_no_data" android:layout_width="fill_parent" android:layout_height="@dimen/common_btn_height" app:item_showLeftImage="false" app:item_funcName="@string/help_tip3" />
+    <com.het.comres.view.layout.ItemLinearLayout android:id="@id/help_solve_how_charged" android:layout_width="fill_parent" android:layout_height="@dimen/common_btn_height" app:item_showLeftImage="false" app:item_funcName="@string/help_tip4" />
+    <com.het.comres.view.layout.ItemLinearLayout android:id="@id/help_solve_how_updated" android:layout_width="fill_parent" android:layout_height="@dimen/common_btn_height" app:item_showLeftImage="false" app:item_funcName="@string/help_tip5" />
+</LinearLayout>

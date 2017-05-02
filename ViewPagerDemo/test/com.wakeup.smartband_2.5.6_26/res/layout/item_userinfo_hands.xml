@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/item_hands" android:background="@color/white" android:paddingLeft="@dimen/dimens15" android:paddingRight="@dimen/dimens15" android:layout_width="fill_parent" android:layout_height="60.0dip" android:layout_centerVertical="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/userinfo_hands" android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/Style.Text.Tag" />
+    <TextView android:gravity="center_vertical" android:id="@id/item_hands_left" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/userinfo_hands_left" android:drawableLeft="@drawable/icon_left_hand_checked" android:drawablePadding="5.0dip" android:layout_toLeftOf="@id/item_hands_right" android:layout_centerVertical="true" />
+    <TextView android:gravity="center_vertical" android:id="@id/item_hands_right" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/dimens30" android:text="@string/userinfo_hands_right" android:drawableLeft="@drawable/icon_right_hand_def" android:drawablePadding="5.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+</RelativeLayout>

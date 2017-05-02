@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/common_topbar" />
+    <RelativeLayout android:background="@color/bg_common_green" android:layout_width="fill_parent" android:layout_height="200.0dip">
+        <ImageView android:id="@id/iv_band_connected" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/band_connected" android:layout_centerInParent="true" />
+        <TextView android:textColor="@color/white" android:id="@id/tv_connect_state" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip" android:text="@string/connected" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/rl_band_connected" android:layout_width="fill_parent" android:layout_height="@dimen/common_btn_height">
+        <TextView android:id="@id/tv_device_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:text="HERO-A" android:layout_centerVertical="true" />
+        <ImageView android:id="@id/iv_device_connected" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0dip" android:src="@drawable/devicelist_connected" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <View android:id="@id/divider" style="@style/Style.Divider.Horizontal.Default" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:gravity="center" android:id="@id/tv_disconnect_band" android:background="@drawable/bg_check_version_selector" android:paddingLeft="60.0dip" android:paddingTop="10.0dip" android:paddingRight="60.0dip" android:paddingBottom="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="30.0dip" android:text="@string/disconnect_band" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</LinearLayout>

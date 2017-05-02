@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/common_topbar" />
+    <ListView android:id="@id/lv_clock" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <View style="@style/Style.Divider.Horizontal.Default" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textColor="@color/textcolor_default_gray" android:id="@id/tv_add_clock" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/add_clock" android:layout_centerInParent="true" />
+        <ImageView android:id="@id/iv_add_clock" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="30.0dip" android:src="@drawable/add_clock" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</LinearLayout>

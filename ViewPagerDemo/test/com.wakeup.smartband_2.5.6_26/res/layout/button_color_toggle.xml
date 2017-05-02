@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="200.0dip" android:layout_height="100.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.het.comres.widget.ColorChangeBgView android:id="@id/bg" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <com.het.comres.widget.AnimBall android:id="@id/animball" android:layout_width="50.0dip" android:layout_height="50.0dip" />
+</RelativeLayout>

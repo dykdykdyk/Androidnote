@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="80.0dip">
+        <ProgressBar android:layout_gravity="center" android:layout_width="50.0dip" android:layout_height="50.0dip" android:layout_marginLeft="50.0dip" />
+        <TextView android:textSize="16.0sp" android:gravity="center_vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginLeft="10.0dip" android:text="@string/news_sending" android:layout_weight="3.0" />
+    </LinearLayout>
+</LinearLayout>

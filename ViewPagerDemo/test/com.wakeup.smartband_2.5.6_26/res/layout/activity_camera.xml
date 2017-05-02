@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/activity_camera" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/option">
+        <com.linj.camera.view.CameraContainer android:id="@id/container" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <ImageView android:id="@id/flashBtn" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="40.0dip" android:src="@drawable/camera_flash_off" android:layout_alignParentLeft="true" />
+        <ImageView android:id="@id/camera_flip" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="40.0dip" android:src="@drawable/camera_flip" android:layout_alignParentRight="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/option" android:background="@color/black" android:layout_width="fill_parent" android:layout_height="80.0dip" android:layout_alignParentBottom="true">
+        <FrameLayout android:gravity="center" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="15.0dip">
+            <com.linj.album.view.FilterImageView android:layout_gravity="center" android:id="@id/btn_thumbnail" android:padding="0.5dip" android:layout_width="@dimen/thumbnail_imageview_size" android:layout_height="@dimen/thumbnail_imageview_size" android:scaleType="centerCrop" />
+            <ImageView android:layout_gravity="center" android:id="@id/camera_library" android:focusable="false" android:layout_width="25.0dip" android:layout_height="25.0dip" android:src="@drawable/camera_library" android:scaleType="fitXY" />
+        </FrameLayout>
+        <Button android:id="@id/btn_takephoto" android:background="@drawable/btn_take_photo" android:layout_width="60.0dip" android:layout_height="60.0dip" android:layout_marginBottom="10.0dip" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+        <ImageView android:id="@id/iv_back" android:layout_width="25.0dip" android:layout_height="25.0dip" android:layout_marginRight="15.0dip" android:src="@drawable/camera_back" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+</RelativeLayout>

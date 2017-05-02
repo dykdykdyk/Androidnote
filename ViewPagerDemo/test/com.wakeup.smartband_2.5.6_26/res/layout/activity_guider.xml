@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <android.support.v4.view.ViewPager android:id="@id/guider_vp" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textSize="@dimen/textSize16" android:textColor="@color/white" android:gravity="center" android:id="@id/guider_tv_describe" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="120.0dip" />
+        <TextView android:textSize="@dimen/textSize14" android:textColor="@color/white" android:gravity="center" android:id="@id/guider_tv_enter" android:layout_width="fill_parent" android:layout_height="@dimen/common_btn_height" android:layout_marginBottom="20.0dip" android:text="@string/direct_enter" android:layout_alignParentBottom="true" />
+        <TextView android:textSize="@dimen/textSize16" android:textColor="@color/white" android:gravity="center" android:id="@id/guider_buied" android:background="@drawable/buttonsure" android:layout_width="fill_parent" android:layout_height="@dimen/common_btn_height" android:text="@string/link_bracelet" android:layout_above="@id/guider_tv_enter" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/guider_ll_point" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip" android:layout_above="@id/guider_buied" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</FrameLayout>

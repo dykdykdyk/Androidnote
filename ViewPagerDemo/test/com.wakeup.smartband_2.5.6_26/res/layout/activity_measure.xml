@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/root" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:background="#ff52a3b5" android:layout_width="fill_parent" android:layout_height="50.0dip">
+        <include layout="@layout/common_topbar" />
+        <ImageView android:id="@id/iv_back" android:paddingLeft="15.0dip" android:paddingTop="5.0dip" android:paddingRight="15.0dip" android:paddingBottom="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/back" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <RelativeLayout android:background="@color/bg_common_green" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.wakeup.smartband.ui.widget.view.OneKeyView android:id="@id/one_key_view" android:layout_width="fill_parent" android:layout_height="230.0dip" />
+        <TextView android:textColor="#cc000000" android:gravity="center" android:id="@id/tv_one_key_measure" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/one_key_measure" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="horizontal" android:background="@color/bg_common_green" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textColor="@color/white" android:gravity="center_horizontal" android:id="@id/tv_measure_recently" android:paddingBottom="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/measure_recently" />
+        <TextView android:textColor="@color/white" android:id="@id/tv_measure_time" android:paddingBottom="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <RelativeLayout android:id="@id/rl_heart_rate" android:background="@drawable/grid_bg_selector" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <ImageView android:id="@id/iv_heart_rate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="25.0dip" android:src="@drawable/heart_rate" android:layout_centerHorizontal="true" />
+                <TextView android:id="@id/tv_heart_rate" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginTop="20.0dip" android:text="@string/measure_heart_rate" android:layout_below="@id/iv_heart_rate" android:layout_centerHorizontal="true" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/rl_blood_pressure" android:background="@drawable/grid_bg_selector" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <ImageView android:id="@id/iv_blood_pressure" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="25.0dip" android:src="@drawable/blood_pressure" android:layout_centerHorizontal="true" />
+                <TextView android:id="@id/tv_blood_pressure" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginTop="20.0dip" android:text="@string/measure_blood_pressure" android:layout_below="@id/iv_blood_pressure" android:layout_centerHorizontal="true" />
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <RelativeLayout android:id="@id/rl_blood_oxygen" android:background="@drawable/grid_bg_selector" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <ImageView android:id="@id/iv_blood_oxygen" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="25.0dip" android:src="@drawable/blood_oxygen" android:layout_centerHorizontal="true" />
+                <TextView android:id="@id/tv_blood_oxygen" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginTop="20.0dip" android:text="@string/measure_blood_oxygen" android:layout_below="@id/iv_blood_oxygen" android:layout_centerHorizontal="true" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/rl_tired" android:background="@drawable/grid_bg_selector" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <ImageView android:id="@id/iv_tired" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="25.0dip" android:src="@drawable/tired" android:layout_centerHorizontal="true" />
+                <TextView android:id="@id/tv_tired" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginTop="20.0dip" android:text="@string/measure_tired" android:layout_below="@id/iv_tired" android:layout_centerHorizontal="true" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

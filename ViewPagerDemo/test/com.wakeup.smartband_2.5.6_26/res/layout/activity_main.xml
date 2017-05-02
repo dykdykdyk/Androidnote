@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout android:id="@id/drawer_layout" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <FrameLayout android:id="@id/hold_fragment" android:focusable="true" android:focusableInTouchMode="false" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <ImageView android:id="@id/home_know_pic" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/chucishuoming" android:scaleType="fitXY" />
+        <TextView android:textSize="18.0sp" android:textColor="@android:color/white" android:gravity="center" android:id="@id/home_know" android:background="@drawable/button_bg" android:paddingLeft="15.0dip" android:paddingRight="15.0dip" android:clickable="true" android:layout_width="wrap_content" android:layout_height="40.0dip" android:layout_marginBottom="50.0dip" android:text="@string/i_know" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <FrameLayout android:layout_gravity="start" android:id="@id/fl_sliding" android:layout_width="270.0dip" android:layout_height="fill_parent">
+        <fragment android:name="com.wakeup.smartband.ui.fragment.SlidingFragment" android:id="@id/fragment_sliding" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    </FrameLayout>
+</android.support.v4.widget.DrawerLayout>

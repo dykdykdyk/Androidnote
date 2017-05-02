@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:background="#ff52a3b5" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include layout="@layout/common_topbar" />
+        <TextView android:textColor="@color/white" android:id="@id/tv_search" android:paddingLeft="15.0dip" android:paddingTop="10.0dip" android:paddingRight="15.0dip" android:paddingBottom="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/search" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <RelativeLayout android:background="#ff52a3b5" android:layout_width="fill_parent" android:layout_height="200.0dip">
+        <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerVertical="true">
+            <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:id="@id/ll_linkinga" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <ImageView android:paddingLeft="5.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:src="@drawable/linking_anim" android:scaleType="fitXY" android:layout_weight="1.0" />
+                <ImageView android:paddingLeft="5.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:src="@drawable/linking_anim" android:scaleType="fitXY" android:layout_weight="1.0" />
+                <ImageView android:layout_width="0.0dip" android:layout_height="wrap_content" android:src="@drawable/linking_anim" android:scaleType="fitXY" android:layout_weight="1.0" />
+            </LinearLayout>
+            <LinearLayout android:layout_gravity="center" android:orientation="horizontal" android:id="@id/ll_linkingb" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <ImageView android:paddingLeft="5.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:src="@drawable/linking_anim" android:scaleType="fitXY" android:layout_weight="1.0" />
+                <ImageView android:paddingLeft="5.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:src="@drawable/linking_anim" android:scaleType="fitXY" android:layout_weight="1.0" />
+                <ImageView android:layout_width="0.0dip" android:layout_height="wrap_content" android:src="@drawable/linking_anim" android:scaleType="fitXY" android:layout_weight="1.0" />
+            </LinearLayout>
+            <ImageView android:layout_gravity="center" android:id="@id/devicelist_iv_band" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/band_unconnect" />
+        </FrameLayout>
+        <TextView android:textSize="@dimen/textSize14" android:textColor="@color/white" android:id="@id/tv_device_hint" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ListView android:id="@id/lv_devices" android:layout_width="fill_parent" android:layout_height="fill_parent" android:choiceMode="singleChoice" />
+        <TextView android:gravity="center" android:layout_gravity="center" android:id="@id/tv_nofind_device" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tv_nofind_device" />
+    </FrameLayout>
+</LinearLayout>

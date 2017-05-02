@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <fragment android:id="@id/map" android:layout_width="fill_parent" android:layout_height="fill_parent" class="com.google.android.gms.maps.SupportMapFragment" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/ll_sport_info" android:background="@color/map_top" android:layout_width="fill_parent" android:layout_height="90.0dip" android:layout_alignParentBottom="true">
+        <LinearLayout android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="7.0">
+            <TextView android:textSize="35.0sp" android:textColor="@android:color/white" android:gravity="center" android:id="@id/tv_distance3" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="5.0dip" android:text="00.00" />
+            <TextView android:textSize="20.0sp" android:textColor="@android:color/white" android:gravity="center" android:id="@id/textView10" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="5.0dip" android:layout_marginTop="15.0dip" android:text="km" />
+            <TextView android:textColor="@android:color/white" android:gravity="center" android:background="@color/white" android:layout_width="2.0dip" android:layout_height="fill_parent" android:layout_marginLeft="15.0sp" android:layout_marginTop="20.0dip" android:layout_marginBottom="20.0dip" android:text="" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="4.0">
+            <TextView android:textSize="@dimen/complete_sport_info_size" android:textColor="@android:color/white" android:gravity="bottom|center" android:id="@id/tv_time3" android:layout_width="fill_parent" android:layout_height="0.0dip" android:text="00:00:00" android:layout_weight="1.0" />
+            <TextView android:textSize="@dimen/complete_sport_info_size2" android:textColor="@android:color/white" android:gravity="center|top" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginTop="8.0dip" android:text="@string/time" android:layout_weight="1.0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="3.0">
+            <TextView android:textSize="@dimen/complete_sport_info_size" android:textColor="@android:color/white" android:gravity="bottom|center" android:id="@id/tv_speed3" android:layout_width="fill_parent" android:layout_height="0.0dip" android:text="00" android:layout_weight="1.0" />
+            <TextView android:textSize="@dimen/complete_sport_info_size2" android:textColor="@android:color/white" android:gravity="center|top" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginTop="8.0dip" android:text="@string/speed" android:layout_weight="1.0" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="3.0">
+            <TextView android:textSize="@dimen/complete_sport_info_size" android:textColor="@android:color/white" android:gravity="bottom|center" android:id="@id/tv_expend" android:layout_width="fill_parent" android:layout_height="0.0dip" android:text="00" android:layout_weight="1.0" />
+            <TextView android:textSize="@dimen/complete_sport_info_size2" android:textColor="@android:color/white" android:gravity="center|top" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginTop="8.0dip" android:text="@string/expend2" android:layout_weight="1.0" />
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout android:id="@id/rl_topbar" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include layout="@layout/common_topbar" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/rl_time_info" android:background="@color/time_top" android:layout_width="fill_parent" android:layout_height="35.0dip" android:layout_below="@id/rl_topbar">
+        <TextView android:textColor="@android:color/white" android:gravity="center" android:id="@id/tv_time_info" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="20160202" />
+    </RelativeLayout>
+</RelativeLayout>

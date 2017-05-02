@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@id/layout_result" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <RelativeLayout android:paddingTop="5.0dip" android:paddingBottom="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+            <ImageView android:id="@id/my_breath_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:src="@drawable/ic_launcher" android:scaleType="centerInside" />
+            <TextView android:textColor="@color/textcolor_666" android:id="@id/my_breath_test_state" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/my_breath_test_state" android:layout_toRightOf="@id/my_breath_icon" android:layout_alignTop="@id/my_breath_icon" />
+            <TextView android:textSize="@dimen/textSize16" android:textColor="#ff636268" android:id="@id/my_breath_test_result" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/mybreath_test_stop" android:layout_toRightOf="@id/my_breath_icon" android:layout_below="@id/my_breath_test_state" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/rl_item_test_result" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginRight="23.0dip" android:layout_weight="1.0">
+        <RelativeLayout android:paddingTop="5.0dip" android:paddingBottom="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+            <ImageView android:id="@id/my_breath_result_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="5.0dip" android:src="@drawable/ic_launcher" android:scaleType="centerInside" />
+            <TextView android:textColor="@color/textcolor_666" android:id="@id/my_breath_result" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/my_breath_test_result" android:layout_toRightOf="@id/my_breath_result_icon" android:layout_alignTop="@id/my_breath_result_icon" />
+            <TextView android:textSize="@dimen/textSize16" android:textColor="#ff636268" android:id="@id/my_breath_result_info" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/mybreath_result_good" android:layout_toRightOf="@id/my_breath_result_icon" android:layout_below="@id/my_breath_result" />
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

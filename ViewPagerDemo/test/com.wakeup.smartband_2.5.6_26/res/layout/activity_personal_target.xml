@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/bg_common_green" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/common_topbar" />
+    <com.wakeup.smartband.pickerview.targetView.TargetView android:id="@id/loopview" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerInParent="true" />
+    <TextView android:textSize="@dimen/textSize14" android:textColor="@color/white" android:gravity="center" android:id="@id/tv_introduction" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="20.0dip" android:text="@string/tv_introduction" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+</RelativeLayout>

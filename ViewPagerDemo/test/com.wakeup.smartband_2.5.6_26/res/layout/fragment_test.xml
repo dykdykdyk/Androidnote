@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:id="@id/bt_heartrate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="心率" />
+        <TextView android:id="@id/tv_heartrate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="心率值" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:id="@id/bt_bloodpressure" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="血压" />
+        <TextView android:id="@id/tv_bloodpressure" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="血压值" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:id="@id/bt_stepcount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="计步" />
+        <TextView android:id="@id/tv_stepcount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="计步值" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <Button android:id="@id/bt_incall" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="来电提醒" />
+    <Button android:id="@id/bt_insms" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="短信提醒" />
+</LinearLayout>

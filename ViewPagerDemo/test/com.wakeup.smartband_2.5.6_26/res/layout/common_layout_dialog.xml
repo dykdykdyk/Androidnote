@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_gravity="center" android:orientation="vertical" android:background="@drawable/common_dialog_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/ll_comm_dialog_title" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="45.0dip">
+        <TextView android:textSize="20.0sp" android:textColor="@color/bg_common_green" android:gravity="center" android:layout_gravity="center" android:id="@id/tv_comm_dialog_title" android:paddingLeft="8.0dip" android:paddingRight="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/common_dialogText.Title" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/content" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:layout_gravity="center" android:id="@id/tv_comm_dialog_message" android:paddingLeft="25.0dip" android:paddingTop="20.0dip" android:paddingRight="15.0dip" android:paddingBottom="20.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dip" android:text="" android:drawableTop="@drawable/icon_alert" style="@style/common_dialogText" />
+    </LinearLayout>
+    <View android:background="@color/common_dividercolor" android:layout_width="fill_parent" android:layout_height="@dimen/common_diliverHeight" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/common_btn_height">
+        <Button android:textSize="@dimen/common_textsize_middle" android:textColor="#ff000000" android:gravity="center" android:id="@id/btn_comm_dialog_negative" android:background="@drawable/dialog_btn_bg_selector_a" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/common_cancel" android:layout_weight="1.0" />
+        <View android:background="@color/common_dividercolor" android:layout_width="@dimen/common_diliverHeight" android:layout_height="fill_parent" />
+        <Button android:textSize="@dimen/common_textsize_middle" android:textColor="#ffda3c3d" android:gravity="center" android:id="@id/btn_comm_dialog_positive" android:background="@drawable/dialog_btn_bg_selector_b" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/common_sure" android:layout_weight="1.0" />
+    </LinearLayout>
+</LinearLayout>

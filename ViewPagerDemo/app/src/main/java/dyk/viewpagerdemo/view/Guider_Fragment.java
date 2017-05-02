@@ -1,6 +1,7 @@
 package dyk.viewpagerdemo.view;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -12,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -36,13 +38,13 @@ public class Guider_Fragment extends Activity implements OnPageChangeListener {
 	private ArrayList<ImageView> mImageViewArrayList;
 	private LinearLayout  mLlContainear;
 	private int mPointWidth;
-
+	private TextView guider_tv_enter;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉标题栏
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);//去掉信息栏
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.guider_fragment);
 		initView();
 		initData();
 	}
@@ -52,6 +54,13 @@ public class Guider_Fragment extends Activity implements OnPageChangeListener {
 	 */
 	private void initView(){
 		//实例化ArrayList对象
+		guider_tv_enter =(TextView)findViewById(R.id.guider_tv_enter);
+		guider_tv_enter.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(Guider_Fragment.this,MainActivity.class));
+			}
+		});
 		views = new ArrayList<View>();
 		mImageViewArrayList =  new ArrayList<ImageView>();
 		//实例化ViewPager

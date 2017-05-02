@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include layout="@layout/common_topbar" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <ImageView android:id="@id/iv_about_logo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/about_logo" android:layout_centerInParent="true" />
+        <TextView android:id="@id/tv_versionName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_below="@id/iv_about_logo" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <TextView android:id="@id/tv_common_diliver" android:background="@color/common_dividercolor" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_alignParentBottom="true" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="20.0dip" android:src="@drawable/bottom_info" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+        <com.het.comres.view.layout.ItemLinearLayout android:id="@id/item_version_detection" android:layout_width="fill_parent" android:layout_height="@dimen/common_btn_height" android:layout_alignParentStart="true" app:item_funcName="@string/version_detection" />
+        <com.het.comres.view.layout.ItemLinearLayout android:id="@id/item_version_help" android:layout_width="fill_parent" android:layout_height="@dimen/common_btn_height" android:layout_below="@id/item_version_detection" android:layout_alignParentStart="true" app:item_funcName="@string/help_suggestion" />
+    </RelativeLayout>
+</LinearLayout>

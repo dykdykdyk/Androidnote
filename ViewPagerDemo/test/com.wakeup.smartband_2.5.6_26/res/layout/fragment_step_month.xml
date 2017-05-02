@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:background="@color/step_bg" android:layout_width="fill_parent" android:layout_height="240.0dip">
+        <com.wakeup.smartband.ui.widget.view.TimelineView android:id="@id/timeline" android:background="@color/step_bg" android:layout_width="fill_parent" android:layout_height="30.0dip" />
+        <com.github.mikephil.charting.charts.BarChart android:id="@id/chart" android:background="@color/step_bg" android:paddingTop="@dimen/dimens10" android:paddingBottom="@dimen/dimens10" android:layout_width="fill_parent" android:layout_height="200.0dip" android:layout_marginTop="@dimen/dimens30" />
+    </RelativeLayout>
+    <ScrollView android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip" android:layout_marginTop="20.0dip" android:layout_marginRight="30.0dip" android:layout_marginBottom="20.0dip">
+                <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true">
+                    <TextView android:id="@id/tv_average_daily_step" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/average_daily_step" android:drawableTop="@drawable/step_walk_samll" android:drawablePadding="10.0dip" />
+                    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_below="@id/tv_average_daily_step" android:layout_centerHorizontal="true">
+                        <TextView android:textColor="@color/step_bg" android:id="@id/walk_count" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/walk" />
+                    </LinearLayout>
+                </RelativeLayout>
+                <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                    <TextView android:id="@id/tv_average_daily_mileage" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/average_daily_mileage" android:drawableTop="@drawable/step_mileage_samll" android:drawablePadding="10.0dip" />
+                    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_below="@id/tv_average_daily_mileage" android:layout_centerHorizontal="true">
+                        <TextView android:textColor="@color/step_bg" android:id="@id/mileage_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--" />
+                        <TextView android:id="@id/tv_distanceUnit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="km" />
+                    </LinearLayout>
+                </RelativeLayout>
+                <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+                    <TextView android:id="@id/tv_average_daily_cal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/average_daily_cal" android:drawableTop="@drawable/step_cal_samll" android:drawablePadding="10.0dip" />
+                    <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:layout_below="@id/tv_average_daily_cal" android:layout_centerHorizontal="true">
+                        <TextView android:textColor="@color/step_bg" android:id="@id/cal_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="--" />
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="cal" />
+                    </LinearLayout>
+                </RelativeLayout>
+            </RelativeLayout>
+            <View style="@style/Style.Divider.Horizontal.Default" />
+            <LinearLayout android:orientation="vertical" android:paddingTop="20.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="30.0dip" android:layout_marginRight="30.0dip">
+                <TextView android:textSize="@dimen/textSize18" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/health_tips" />
+                <TextView android:id="@id/tv_health_detail" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

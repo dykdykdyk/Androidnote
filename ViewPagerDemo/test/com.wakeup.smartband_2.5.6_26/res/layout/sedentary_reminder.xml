@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <include layout="@layout/common_topbar" />
+    <com.het.comres.view.layout.ItemLinearLayout android:layout_width="fill_parent" android:layout_height="@dimen/common_btn_height" app:item_funcName="起始时间" app:item_rightText="8:00" />
+    <com.het.comres.view.layout.ItemLinearLayout android:layout_width="fill_parent" android:layout_height="@dimen/common_btn_height" app:item_funcName="结束时间" app:item_rightText="22:00" />
+    <com.het.comres.view.layout.ItemLinearLayout android:layout_width="fill_parent" android:layout_height="@dimen/common_btn_height" app:item_funcName="提醒频率" app:item_rightText="1小时" />
+    <TextView android:textSize="10.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:text="提醒频率设置为设定时间内多少小时未活动发出提醒" />
+</LinearLayout>
