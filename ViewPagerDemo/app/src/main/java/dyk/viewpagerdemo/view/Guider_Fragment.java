@@ -36,6 +36,7 @@ public class Guider_Fragment extends Activity implements OnPageChangeListener {
 	private ArrayList<ImageView> mImageViewArrayList;
 	private LinearLayout  mLlContainear;
 	private int mPointWidth;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
