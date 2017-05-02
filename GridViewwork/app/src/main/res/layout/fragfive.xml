@@ -89,7 +89,7 @@
             <EditText
                 android:layout_width="35dp"
                 android:id="@+id/edittext4"
-                android:paddingLeft="1dp"
+                android:paddingLeft="2dp"
                 android:textSize="18dp"
                 android:textColor="@color/actionBarColorDark"
                 android:digits="@string/alphabet_and_number"
@@ -111,7 +111,7 @@
             <EditText
                 android:layout_width="35dp"
                 android:id="@+id/edittext5"
-                android:paddingLeft="1dp"
+                android:paddingLeft="2dp"
                 android:textSize="18dp"
                 android:textColor="@color/actionBarColorDark"
                 android:digits="@string/alphabet_and_number"
@@ -134,7 +134,7 @@
                 android:layout_width="35dp"
                 android:id="@+id/edittext6"
                 android:textSize="18dp"
-                android:paddingLeft="1dp"
+                android:paddingLeft="2dp"
                 android:textColor="@color/actionBarColorDark"
                 android:digits="@string/alphabet_and_number"
                 android:inputType="number"
@@ -156,7 +156,7 @@
                 android:layout_width="35dp"
                 android:id="@+id/edittext7"
                 android:textSize="18dp"
-                android:paddingLeft="1dp"
+                android:paddingLeft="2dp"
                 android:textColor="@color/actionBarColorDark"
                 android:digits="@string/alphabet_and_number"
                 android:inputType="number"
@@ -175,9 +175,9 @@
                 android:layout_below="@+id/textview2" />
             <EditText
                 android:layout_width="40dp"
-                android:id="@+id/edittex8"
+                android:id="@+id/edittext8"
                 android:textSize="18dp"
-                android:paddingLeft="1dp"
+                android:paddingLeft="2dp"
                 android:textColor="@color/actionBarColorDark"
                 android:digits="@string/alphabet_and_number"
                 android:inputType="number"
@@ -194,7 +194,7 @@
                 android:textSize="15dp"
                 android:background="@drawable/shape"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/edittex8"
+                android:layout_toRightOf="@id/edittext8"
                 android:layout_below="@+id/textview2"
                 android:layout_alignBottom="@+id/edittext7" />
             <Button
@@ -207,20 +207,7 @@
                 android:layout_alignParentEnd="true"
                 android:id="@+id/nextbutton" />
 
-            <Button
-                android:id="@+id/edittext3button"
-                android:layout_width="wrap_content"
-                android:enabled="true"
-                android:text="发送命令"
-                android:layout_marginLeft="5dp"
-                android:textSize="15dp"
-                android:background="@drawable/shape"
-                android:layout_height="wrap_content"
-                android:layout_above="@+id/textview2"
-                android:layout_toEndOf="@+id/edittex8"
-                android:layout_alignTop="@+id/edittext3" />
-
-            <Button
+    <Button
                 android:id="@+id/edittext1button"
                 android:layout_width="wrap_content"
                 android:enabled="true"
@@ -264,5 +251,18 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textview3"
                 android:layout_alignStart="@+id/textview3" />
+
+    <Button
+        android:id="@+id/edittext3button"
+        android:layout_width="wrap_content"
+        android:enabled="true"
+        android:text="发送命令"
+        android:layout_marginLeft="5dp"
+        android:textSize="15dp"
+        android:background="@drawable/shape"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/edittext3"
+        android:layout_alignEnd="@+id/edittext1button"
+        android:layout_alignTop="@+id/edittext3" />
 
 </RelativeLayout>

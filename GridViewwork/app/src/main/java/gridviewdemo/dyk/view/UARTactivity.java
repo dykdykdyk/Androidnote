@@ -130,16 +130,24 @@ public class UARTactivity extends AppCompatActivity {
                                     break;
                                 }else if(i == mBLEList.size() -1){
                                     if( !(mBLEList.get(i).getAddress()).equals(bleDevice.getAddress())){
+                                        if(bleDevice  == null){
+                                            Toast.makeText(UARTactivity.this,"请重新扫描!",Toast.LENGTH_LONG).show();
+                                            return ;
+                                        }
                                         if(bleDevice.getName().equals("S1"))
-                                        mBLEList.add(bleDevice);
+                                            mBLEList.add(bleDevice);
                                     }
                                 }
                             }
-                            if(mBLEList.size() ==0 ){
-                                if(bleDevice.getName().equals("S1"))
-                                mBLEList.add(bleDevice);
+                            if(mBLEList.size() ==0 ) {
+                                if (bleDevice == null) {
+                                    Toast.makeText(UARTactivity.this, "请重新扫描!", Toast.LENGTH_LONG).show();
+                                    return;
+                                }
+                                if (bleDevice.getName().equals("S1")) {
+                                    mBLEList.add(bleDevice);
+                                }
                             }
-
 //                          if(!mBLEList.contains(bleDevice)){
 //                              mBLEList.add(bleDevice);
 //                          }

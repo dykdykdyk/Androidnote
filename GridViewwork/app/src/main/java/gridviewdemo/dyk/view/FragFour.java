@@ -6,6 +6,8 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,7 +34,7 @@ import static gridviewdemo.dyk.utils.Utils.bytetoarray;
  * 有线模式
  */
 
-public class FragFour extends Fragment{
+public class FragFour extends Fragment implements TextWatcher{
     @Nullable
     Button back,next,edittext1button,edittext3button;
     BleDevice mBleDevice;
@@ -58,6 +60,15 @@ public class FragFour extends Fragment{
         editText7 =(EditText)  view.findViewById(R.id.edittext7);
         editText8 =(EditText)  view.findViewById(R.id.edittext8);
         editText9 =(EditText)  view.findViewById(R.id.edittext9);
+        editText1.addTextChangedListener(this);//给edittext设置光标改变的监听
+        editText2.addTextChangedListener(this);//给edittext设置光标改变的监听
+        editText3.addTextChangedListener(this);//给edittext设置光标改变的监听
+        editText4.addTextChangedListener(this);//给edittext设置光标改变的监听
+        editText5.addTextChangedListener(this);//给edittext设置光标改变的监听
+        editText6.addTextChangedListener(this);//给edittext设置光标改变的监听
+        editText7.addTextChangedListener(this);//给edittext设置光标改变的监听
+        editText8.addTextChangedListener(this);//给edittext设置光标改变的监听
+        editText9.addTextChangedListener(this);//给edittext设置光标改变的监听
         edittext1button =(Button) view.findViewById(R.id.edittext1button);
         edittext3button =(Button) view.findViewById(R.id.edittext3button);
         mHandler =new MyHandler4();
@@ -120,6 +131,85 @@ public class FragFour extends Fragment{
         initListener();
         return view;
     }
+    /**
+     * This method is called to notify you that, within <code>s</code>,
+     * the <code>count</code> characters beginning at <code>start</code>
+     * are about to be replaced by new text with length <code>after</code>.
+     * It is an error to attempt to make changes to <code>s</code> from
+     * this callback.
+     *
+     * @param s
+     * @param start
+     * @param count
+     * @param after
+     */
+    @Override
+    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+    }
+
+    /**
+     * This method is called to notify you that, within <code>s</code>,
+     * the <code>count</code> characters beginning at <code>start</code>
+     * have just replaced old text that had length <code>before</code>.
+     * It is an error to attempt to make changes to <code>s</code> from
+     * this callback.
+     *
+     * @param s
+     * @param start
+     * @param before
+     * @param count
+     */
+    @Override
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+    }
+
+    /**
+     * This method is called to notify you that, somewhere within
+     * <code>s</code>, the text has been changed.
+     * It is legitimate to make further changes to <code>s</code> from
+     * this callback, but be careful not to get yourself into an infinite
+     * loop, because any changes you make will cause this method to be
+     * called again recursively.
+     * (You are not told where the change took place because other
+     * afterTextChanged() methods may already have made other changes
+     * and invalidated the offsets.  But if you need to know here,
+     * you can use {@link Spannable#setSpan} in {@link #onTextChanged}
+     * to mark your place and then look up from here where the span
+     * ended up.
+     *
+     * @param s
+     */
+    @Override
+    public void afterTextChanged(Editable s) {
+        Log.i("TAG","edittext1获取到焦点了1");
+        if(editText1.getText().length() ==3){
+            Log.i("TAG","edittext1获取到焦点了 editText1");
+            editText2.requestFocus();
+        } if(editText2.getText().length() ==3){
+            Log.i("TAG","edittext1获取到焦点了 editText2");
+            editText3.requestFocus();
+        }if(editText3.getText().length() ==3) {
+            Log.i("TAG", "edittext1获取到焦点了2333");
+            editText4.requestFocus();
+        }if(editText4.getText().length() ==3){
+            Log.i("TAG","edittext1获取到焦点了2333");
+            editText5.requestFocus();
+        } if(editText5.getText().length() ==3){
+            Log.i("TAG","edittext1获取到焦点了2333");
+            editText6.requestFocus();
+        }if(editText6.getText().length() ==3){
+            Log.i("TAG","edittext1获取到焦点了2333");
+            editText7.requestFocus();
+        }if(editText7.getText().length() ==3){
+            Log.i("TAG","edittext1获取到焦点了2333");
+            editText8.requestFocus();
+        } if(editText8.getText().length() ==3){
+            Log.i("TAG","edittext1获取到焦点了2333");
+            editText9.requestFocus();
+        }
+    }
+
     class MyHandler4 extends Handler {
         @Override
         public void handleMessage(Message msg) {

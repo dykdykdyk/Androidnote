@@ -10,11 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import java.util.Arrays;
-
 import gridviewdemo.dyk.application.BleDevice;
 import gridviewdemo.dyk.gridviewdemo.R;
-import gridviewdemo.dyk.interfaces.DeviceMessageListener;
 
 import static gridviewdemo.dyk.utils.Utils.bytetoarray;
 
@@ -51,7 +48,6 @@ public class FragSeven extends Fragment {
                 mSelectInterface.onTitleSelect("7back");
             }
         });
-        initListener();
         return view;
     }
     public  void strToByte(String str){
@@ -72,17 +68,6 @@ public class FragSeven extends Fragment {
             mBleDevice.write(length, cmd, data);
         }
 
-    }
-    public void initListener(){
-        mBleDevice.setDeviceMessageListener(new DeviceMessageListener() {
-            @Override
-            public void onSendResult(String address, int cmd, byte[] data) {
-                Log.i("收到", " :"+ Arrays.toString(data));
-//                Toast.makeText(getActivity(),"重启返回应答："+address,Toast.LENGTH_LONG).show();
-//                Message message=new Message();
-//                message.what=1;
-            }
-        });
     }
     public void setText(BleDevice text){
         mBleDevice=text;

@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -265,14 +266,24 @@ public class FragTwo extends Fragment implements View.OnClickListener{
                                     break;
                                 }else if(i == mBLEList.size() -1){
                                     if( !(mBLEList.get(i).getAddress()).equals(bleDevice.getAddress())){
+                                        if(bleDevice  == null){
+                                            Toast.makeText(getActivity(),"请重新扫描!",Toast.LENGTH_LONG).show();
+                                            return ;
+                                        }
                                         if(bleDevice.getName().equals("S1"))
                                             mBLEList.add(bleDevice);
                                     }
                                 }
                             }
                             if(mBLEList.size() ==0 ){
-                                if(bleDevice.getName().equals("S1"))
+                                if(bleDevice  == null){
+                                    Toast.makeText(getActivity(),"请重新扫描!",Toast.LENGTH_LONG).show();
+                                    return ;
+                                }
+                                if(bleDevice.getName().equals("S1")){
                                     mBLEList.add(bleDevice);
+                                }
+
                             }
                             if (!rssiMap.containsKey(rssi)) {
                                 rssiMap.put(bleDevice.getAddress(), rssi);

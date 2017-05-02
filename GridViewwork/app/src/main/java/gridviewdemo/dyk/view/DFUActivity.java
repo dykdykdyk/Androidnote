@@ -162,16 +162,37 @@ public class DFUActivity extends AppCompatActivity{
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        if( result == 0 ){
+                        if( result == 0 ) {
                             pbar.setVisibility(View.VISIBLE);
-                            scaning =true;
+                            scaning = true;
                             System.out.println("找到了device:"
                                     + bleDevice.getName() + " Rssi : "
                                     + rssi + "" + "Address : "
                                     + bleDevice.getAddress());
-                            if(!mBLEList.contains(bleDevice)){
-                                mBLEList.add(bleDevice);
-                            } if(!rssiMap.containsKey(rssi)){
+                            for (int i = 0; i < mBLEList.size(); i++) {
+                                if ((mBLEList.get(i).getAddress()).equals(bleDevice.getAddress())) {
+                                    break;
+                                } else if (i == mBLEList.size() - 1) {
+                                    if (!(mBLEList.get(i).getAddress()).equals(bleDevice.getAddress())) {
+                                        if (bleDevice == null) {
+                                            Toast.makeText(DFUActivity.this, "请重新扫描!", Toast.LENGTH_LONG).show();
+                                            return;
+                                        }
+                                        if (bleDevice.getName().equals("S1"))
+                                            mBLEList.add(bleDevice);
+                                    }
+                                }
+                            }
+                            if (mBLEList.size() == 0) {
+                                if (bleDevice == null) {
+                                    Toast.makeText(DFUActivity.this, "请重新扫描!", Toast.LENGTH_LONG).show();
+                                    return;
+                                }
+                                if (bleDevice.getName().equals("S1")) {
+                                    mBLEList.add(bleDevice);
+                                }
+                            }
+                        if(!rssiMap.containsKey(rssi)){
                                 rssiMap.put(bleDevice.getAddress(),rssi);
                             }
                             lv.setVisibility(View.VISIBLE);
