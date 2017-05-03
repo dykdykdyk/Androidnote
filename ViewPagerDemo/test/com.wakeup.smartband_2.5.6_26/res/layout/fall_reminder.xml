@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <include layout="@layout/common_topbar" />
-    <com.het.comres.view.layout.ItemLinearLayout android:layout_width="fill_parent" android:layout_height="@dimen/common_btn_height" app:item_funcName="紧急联系人" app:item_rightText="某某某" />
-    <TextView android:textSize="10.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:text="当开启提醒后，如摔倒将呼叫已设置的紧急联系人" />
-</LinearLayout>

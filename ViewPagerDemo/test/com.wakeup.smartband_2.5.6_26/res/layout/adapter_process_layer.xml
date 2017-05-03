@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.het.newhet.view.LoadingProcessView android:background="#55ffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ProgressBar android:id="@id/pb_progressbar" android:background="@drawable/shape_progressbar_bg" android:layout_width="50.0dip" android:layout_height="13.0dip" android:layout_margin="30.0dip" android:max="100" android:progress="0" style="@style/StyleProgressBarMini" />
-</com.het.newhet.view.LoadingProcessView>

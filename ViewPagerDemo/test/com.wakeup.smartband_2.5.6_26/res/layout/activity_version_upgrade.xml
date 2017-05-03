@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:orientation="vertical" android:background="@color/bg_common_green" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <include layout="@layout/common_topbar" />
-    <com.wakeup.smartband.ui.widget.view.CircleView android:id="@id/pb_upgdate_progress" android:layout_width="160.0dip" android:layout_height="160.0dip" android:layout_centerInParent="true" />
-    <ImageView android:id="@id/iv_row" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/update_progress" android:layout_centerInParent="true" />
-    <TextView android:textSize="@dimen/textSize14" android:textColor="@color/white" android:id="@id/tv_update_state" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_below="@id/iv_row" android:layout_centerHorizontal="true" />
-    <TextView android:id="@id/tv_update_again" android:background="@drawable/bg_upgrade_again_selector" android:paddingLeft="60.0dip" android:paddingTop="10.0dip" android:paddingRight="60.0dip" android:paddingBottom="10.0dip" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="30.0dip" android:text="@string/update_again" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
-</RelativeLayout>

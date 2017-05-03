@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:padding="@dimen/abc_action_bar_overflow_padding_start_material" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textSize="@dimen/textSize20" android:gravity="center" android:id="@id/time" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="8:00" android:layout_centerVertical="true" android:layout_marginStart="15.0dip" android:layout_alignParentStart="true" />
-    <TextView android:id="@id/view" android:background="#ffd2d2d2" android:layout_width="1.0dip" android:layout_height="fill_parent" android:layout_centerVertical="true" android:layout_marginStart="10.0dip" android:layout_toEndOf="@id/time" />
-    <TextView android:textSize="@dimen/textSize10" android:id="@id/mode" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="自定义" android:layout_centerVertical="true" android:layout_marginStart="10.0dip" android:layout_toEndOf="@id/view" />
-    <ImageView android:id="@id/status" android:paddingRight="@dimen/comm_padding" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginTop="20.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
-</RelativeLayout>

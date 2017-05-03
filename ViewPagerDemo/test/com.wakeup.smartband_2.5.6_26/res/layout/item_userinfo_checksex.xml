@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@id/item_sex" android:background="@color/white" android:paddingLeft="@dimen/dimens15" android:paddingRight="@dimen/dimens15" android:layout_width="fill_parent" android:layout_height="60.0dip" android:layout_centerVertical="true"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/userinfo_sex" android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/Style.Text.Tag" />
-    <TextView android:gravity="center_vertical" android:id="@id/item_sex_man" android:paddingLeft="20.0dip" android:paddingRight="20.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/userinfo_sex_man" android:drawableLeft="@drawable/man_selected" android:drawablePadding="@dimen/dimens5" android:layout_toLeftOf="@id/item_sex_woman" android:layout_centerVertical="true" />
-    <TextView android:gravity="center_vertical" android:id="@id/item_sex_woman" android:paddingLeft="20.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="20.0dip" android:text="@string/userinfo_sex_woman" android:drawableLeft="@drawable/women_unselected" android:drawablePadding="@dimen/dimens5" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
-</RelativeLayout>
