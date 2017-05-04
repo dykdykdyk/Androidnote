@@ -44,9 +44,9 @@ public class Guider_Activity extends Activity implements OnPageChangeListener {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉标题栏
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);//去掉信息栏
-		setContentView(R.layout.textlayout);
-//		initView();
-//		initData();
+		setContentView(R.layout.guider_activity);
+		initView();
+		initData();
 	}
 
 	/**

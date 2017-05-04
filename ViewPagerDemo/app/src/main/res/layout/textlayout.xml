@@ -1,112 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+<LinearLayout
+    android:orientation="horizontal"
+    android:id="@+id/item_home_heart_sleep"
+    android:background="@color/white"
+    android:paddingTop="@dimen/dimens15"
+    android:paddingBottom="@dimen/dimens15"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/dimens15"
+    android:layout_marginTop="@dimen/dimens10"
+    android:layout_marginRight="@dimen/dimens15"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recy"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-    <RelativeLayout
-        android:id="@+id/rl_expand"
-        android:background="@color/tired_bg"
-        android:layout_width="fill_parent"
-        android:layout_height="200.0dip">
-        <ImageView
-            android:id="@+id/iv"
-            android:layout_width="180.0dip"
-            android:layout_height="180.0dip"
-            android:src="@drawable/ring"
-            android:layout_centerInParent="true" />
-        <dyk.viewpagerdemo.view.TextProgressBar
-            android:id="@+id/circle_tired_progress"
-            android:layout_width="160.0dip"
-            android:layout_height="160.0dip"
-            android:layout_centerInParent="true" />
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_centerInParent="true">
-            <TextView
-                android:textSize="@dimen/textSize16"
-                android:textColor="@color/white"
-                android:id="@+id/tv_mild_tired"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="轻度疲劳"
-                android:layout_centerInParent="true" />
-            <RelativeLayout
-                android:id="@+id/ll"
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:layout_marginTop="5.0dip"
-                android:layout_below="@id/tv_mild_tired"
-                android:layout_centerHorizontal="true">
-                <TextView
-                    android:textSize="@dimen/abc_text_size_caption_material"
-                    android:textColor="@color/white"
-                    android:id="@+id/tv_recently_measure"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/recently_measure_time" />
-                <TextView
-                    android:textSize="@dimen/textSize12"
-                    android:textColor="@color/white"
-                    android:id="@+id/tv_right_measure_time"
-                    android:visibility="gone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5.0dip"
-                    android:text="今天：15:21"
-                    android:layout_toEndOf="@id/tv_recently_measure" />
-                <TextView
-                    android:textSize="@dimen/textSize12"
-                    android:textColor="@color/white"
-                    android:id="@+id/tv_below_measure_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="今天：15:21"
-                    android:layout_below="@id/tv_recently_measure"
-                    android:layout_centerHorizontal="true" />
-            </RelativeLayout>
-        </RelativeLayout>
-    </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/rl_measure"
-        android:background="@color/tired_bg"
-        android:layout_width="fill_parent"
-        android:layout_height="40.0dip"
-        android:layout_below="@id/rl_expand">
-        <TextView
-            android:textColor="@color/white"
-            android:gravity="center"
-            android:id="@+id/start_measure"
-            android:background="@drawable/measure_button_selector"
-            android:clickable="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10.0dip"
-            android:text="@string/start_measure"
-            android:layout_centerHorizontal="true" />
-    </RelativeLayout>
-    <TextView
-        android:textColor="#ccffffff"
-        android:gravity="center"
-        android:id="@+id/measure"
-        android:background="#ff00a6ac"
-        android:visibility="gone"
-        android:layout_width="fill_parent"
-        android:layout_height="30.0dip"
-        android:text="@string/measuring_30sec_complete"
-        android:layout_below="@id/rl_measure"
-        android:layout_centerHorizontal="true" />
-    <TextView
-        android:id="@+id/tv_not_available_data"
-        android:visibility="gone"
+    <ImageView
+        android:layout_gravity="center_vertical"
+        android:id="@+id/home_tired_icon"
+        android:paddingLeft="@dimen/dimens15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="130.0dip"
-        android:text="@string/not_available_data"
-        android:layout_below="@id/rl_measure"
-        android:layout_centerHorizontal="true" />
-</RelativeLayout>
+        android:src="@mipmap/icon_home_tired" />
+    <RelativeLayout
+        android:layout_width="0.0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5.0dip"
+        android:layout_marginRight="10.0dip"
+        android:layout_weight="1.0">
+        <TextView
+            android:id="@+id/home_tired_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/home_tired_proj_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true" />
+        <TextView
+            android:id="@+id/home_tired_proj_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/home_fatigue"
+            android:layout_toLeftOf="@id/home_tired_proj_value" />
+        <RelativeLayout
+            android:id="@+id/rl_tired"
+            android:visibility="gone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5.0dip"
+            android:layout_below="@id/home_tired_time">
+            <ImageView
+                android:id="@+id/iv_tired_progress"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/tired_progress"
+                android:scaleType="fitXY"
+                android:layout_centerVertical="true" />
+            <ImageView
+                android:id="@+id/iv_tired"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/position_presress" />
+        </RelativeLayout>
+        <ImageView
+            android:id="@+id/not_available_data"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/comm_pregress_height"
+            android:layout_marginTop="8.0dip"
+            android:src="@mipmap/no_blood_pressure"
+            android:scaleType="fitXY"
+            android:layout_below="@id/home_tired_time" />
+    </RelativeLayout>
+    <ImageView
+        android:layout_gravity="center_vertical"
+        android:id="@+id/home_tired_item_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dimens15"
+        android:src="@mipmap/icon_home_more"
+        android:scaleType="centerInside" />
+</LinearLayout>

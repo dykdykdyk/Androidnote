@@ -30,7 +30,7 @@ public class Main_Activity extends Activity{
     }
     private void initView(){
         leftListview =(ListView)findViewById(R.id.sliding_listview);
-        leftListview.setDividerHeight(0);
+        leftListview.setDividerHeight(0);//屏蔽掉listview的横线
         leftListview.setDivider(null);
         mDrawerLayout =(DrawerLayout)findViewById(R.id.drawerlayout);
         leftListview.setAdapter(new SlidingListviewAdapter(this,lefttitles,leftImageList));
