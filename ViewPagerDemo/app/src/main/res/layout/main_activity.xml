@@ -11,26 +11,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </dyk.viewpagerdemo.view.TitleLayout>
-        <dyk.viewpagerdemo.view.Fragment_Main_Step
+        <dyk.viewpagerdemo.view.customview.Fragment_Main_Step
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-        </dyk.viewpagerdemo.view.Fragment_Main_Step>
-        <dyk.viewpagerdemo.view.Fragment_Main_Sleep
+        </dyk.viewpagerdemo.view.customview.Fragment_Main_Step>
+        <dyk.viewpagerdemo.view.customview.Fragment_Main_Sleep
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-        </dyk.viewpagerdemo.view.Fragment_Main_Sleep>
-        <dyk.viewpagerdemo.view.Fragment_Main_Heart_Rate
+        </dyk.viewpagerdemo.view.customview.Fragment_Main_Sleep>
+        <dyk.viewpagerdemo.view.customview.Fragment_Main_Heart_Rate
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-        </dyk.viewpagerdemo.view.Fragment_Main_Heart_Rate>
-        <dyk.viewpagerdemo.view.Fragment_Main_Health_Temperature
+        </dyk.viewpagerdemo.view.customview.Fragment_Main_Heart_Rate>
+        <dyk.viewpagerdemo.view.customview.Fragment_Main_Health_Temperature
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-        </dyk.viewpagerdemo.view.Fragment_Main_Health_Temperature>
-        <dyk.viewpagerdemo.view.Fragment_Main_Others
+        </dyk.viewpagerdemo.view.customview.Fragment_Main_Health_Temperature>
+        <dyk.viewpagerdemo.view.customview.Fragment_Main_Others
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-        </dyk.viewpagerdemo.view.Fragment_Main_Others>
+        </dyk.viewpagerdemo.view.customview.Fragment_Main_Others>
     </LinearLayout>
 
     <LinearLayout
@@ -43,14 +43,14 @@
             android:layout_width="match_parent"
             android:layout_height="160.0dip"
             android:orientation="vertical"
-            android:background="@mipmap/sliding_bg">
+            android:background="@drawable/sliding_bg">
             <ImageView
                 android:id="@+id/sliding_imageview_logo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20.0dip"
-                android:src="@mipmap/sliding_logo"/>
+                android:src="@drawable/sliding_logo"/>
             <View
                 android:id="@+id/view"
                 android:layout_below="@id/sliding_imageview_logo"
@@ -94,7 +94,7 @@
                     android:indeterminate="false"
                     android:indeterminateOnly="false"
                     android:progressDrawable="@drawable/progressbar_horizontal1"
-                    android:background="@mipmap/sliding_battery"/>
+                    android:background="@drawable/sliding_battery"/>
             </RelativeLayout>
         </LinearLayout>
     <ListView

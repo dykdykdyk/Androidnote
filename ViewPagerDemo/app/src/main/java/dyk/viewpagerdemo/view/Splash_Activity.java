@@ -37,7 +37,7 @@ public class Splash_Activity extends FragmentActivity {
         fragment1 = new Guider_Activity();
         splsh_linearlayout =(LinearLayout)findViewById(R.id.splsh_linearlayout);
         mImageView =new ImageView(this);
-        mImageView.setImageResource(R.mipmap.guide_1);
+        mImageView.setImageResource(R.drawable.guide_1);
         mImageView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
         mImageView.setScaleType(ImageView.ScaleType. CENTER_CROP);
         scaleAnimation = new ScaleAnimation(0.0f,1.0f,0.0f,1.0f,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);

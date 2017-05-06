@@ -7,5 +7,14 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="Style.TopBar.White" parent="">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textColor">@color/common_white</item>
+    </style>
+    <style name="Style.Divider.Horizontal.Default" parent="">
+        <item name="android:background">@color/common_dividercolor</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/comm_diliver_height</item>
+    </style>
 
 </resources>

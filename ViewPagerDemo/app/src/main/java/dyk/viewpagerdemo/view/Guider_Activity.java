@@ -18,7 +18,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import dyk.viewpagerdemo.R;
-import dyk.viewpagerdemo.adapter.ViewPagerAdapter;
+import dyk.viewpagerdemo.view.adapter.ViewPagerAdapter;
 
 /**
  * @author yangyu
@@ -33,7 +33,7 @@ public class Guider_Activity extends Activity implements OnPageChangeListener {
 	//定义一个ArrayList来存放View
 	private ArrayList<View> views;
 	//引导图片资源
-	private static final int[] pics = {R.mipmap.guider_1,R.mipmap.guider_2,R.mipmap.guider_3};
+	private static final int[] pics = {R.drawable.guider_1,R.drawable.guider_2,R.drawable.guider_3};
     private ImageView mGuide_red_point;
 	private ArrayList<ImageView> mImageViewArrayList;
 	private LinearLayout  mLlContainear;

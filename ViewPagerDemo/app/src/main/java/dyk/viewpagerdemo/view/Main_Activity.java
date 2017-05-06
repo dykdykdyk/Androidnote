@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 
 import dyk.viewpagerdemo.R;
-import dyk.viewpagerdemo.adapter.SlidingListviewAdapter;
+import dyk.viewpagerdemo.view.adapter.SlidingListviewAdapter;
 
 
 /**
@@ -20,8 +20,8 @@ public class Main_Activity extends Activity{
     private DrawerLayout mDrawerLayout = null;
     private ListView leftListview;
     String [] lefttitles={"个人信息","健康周报","跑步","设备管理","设置","关于"};
-    int [] leftImageList={R.mipmap.sliding_personal_info,R.mipmap.sliding_health_news,R.mipmap.sliding_run,
-    R.mipmap.sliding_device_manage,R.mipmap.sliding_setting,R.mipmap.sliding_about};
+    int [] leftImageList={R.drawable.sliding_personal_info,R.drawable.sliding_health_news,R.drawable.sliding_run,
+    R.drawable.sliding_device_manage,R.drawable.sliding_setting,R.drawable.sliding_about};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

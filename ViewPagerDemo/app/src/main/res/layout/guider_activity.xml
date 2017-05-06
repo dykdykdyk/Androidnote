@@ -32,7 +32,7 @@
         android:textColor="@color/white"
         android:gravity="center"
         android:id="@+id/guider_buied"
-        android:background="@mipmap/buttonsure"
+        android:background="@drawable/buttonsure"
         android:layout_width="fill_parent"
         android:layout_height="@dimen/common_btn_height"
         android:text="@string/link_bracelet"
