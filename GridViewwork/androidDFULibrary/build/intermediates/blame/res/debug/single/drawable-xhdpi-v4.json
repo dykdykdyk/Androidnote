@@ -1,5 +1,13 @@
 [
     {
+        "merged": "C:\\Users\\Administrator\\Desktop\\git\\Androidnote\\GridViewwork\\androidDFULibrary\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_stat_notify_dfu.png",
+        "source": "C:\\Users\\Administrator\\Desktop\\git\\Androidnote\\GridViewwork\\androidDFULibrary\\src\\main\\res\\drawable-xhdpi\\ic_stat_notify_dfu.png"
+    },
+    {
+        "merged": "C:\\Users\\Administrator\\Desktop\\git\\Androidnote\\GridViewwork\\androidDFULibrary\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_action_notify_cancel.png",
+        "source": "C:\\Users\\Administrator\\Desktop\\git\\Androidnote\\GridViewwork\\androidDFULibrary\\src\\main\\res\\drawable-xhdpi\\ic_action_notify_cancel.png"
+    },
+    {
         "merged": "C:\\Users\\Administrator\\Desktop\\ASProject\\GridViewwork\\androidDFULibrary\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_action_notify_cancel.png",
         "source": "C:\\Users\\Administrator\\Desktop\\ASProject\\GridViewwork\\androidDFULibrary\\src\\main\\res\\drawable-xhdpi\\ic_action_notify_cancel.png"
     },
