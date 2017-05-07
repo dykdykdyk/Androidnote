@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:id="@+id/item_home_blood_oxygen" android:background="@color/white" android:paddingTop="@dimen/dimens15" android:paddingBottom="@dimen/dimens15" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimens15" android:layout_marginTop="@dimen/dimens10" android:layout_marginRight="@dimen/dimens15"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center_vertical" android:paddingLeft="@dimen/dimens15" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_home_blood_oxygen" />
+    <RelativeLayout android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginRight="10.0dip" android:layout_weight="1.0">
+        <TextView android:id="@+id/home_blood_oxygen_time" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:id="@+id/home_blood_oxygen_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" />
+        <TextView android:id="@+id/home_blood_oxygen_proj_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/home_blood_oxygen" android:layout_toLeftOf="@id/home_blood_oxygen_value" />
+        <RelativeLayout android:id="@+id/rl_bo" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:layout_below="@id/home_blood_oxygen_time">
+            <ImageView android:id="@+id/iv_blood_oxygen_progress" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/blood_oxygen_progress" android:scaleType="fitXY" android:layout_centerVertical="true" />
+            <ImageView android:id="@+id/iv_bo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/position_presress" />
+        </RelativeLayout>
+        <ImageView android:id="@+id/not_available_data" android:layout_width="fill_parent" android:layout_height="@dimen/comm_pregress_height" android:layout_marginTop="8.0dip" android:src="@drawable/no_blood_pressure" android:scaleType="fitXY" android:layout_below="@id/home_blood_oxygen_time" />
+    </RelativeLayout>
+    <ImageView android:layout_gravity="center_vertical" android:id="@+id/home_item_next" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimens15" android:src="@drawable/icon_home_more" android:scaleType="centerInside" />
+</LinearLayout>
