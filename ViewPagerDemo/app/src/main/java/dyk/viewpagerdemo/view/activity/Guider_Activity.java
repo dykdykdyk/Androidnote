@@ -1,4 +1,4 @@
-package dyk.viewpagerdemo.view;
+package dyk.viewpagerdemo.view.activity;
 
 import android.app.Activity;
 import android.content.Intent;

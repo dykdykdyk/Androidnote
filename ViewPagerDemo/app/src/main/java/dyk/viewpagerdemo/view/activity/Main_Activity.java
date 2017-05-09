@@ -1,10 +1,12 @@
-package dyk.viewpagerdemo.view;
+package dyk.viewpagerdemo.view.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -12,7 +14,9 @@ import dyk.viewpagerdemo.R;
 import dyk.viewpagerdemo.view.adapter.SlidingListviewAdapter;
 
 
-/**
+/**步数 睡眠 心率 体温 其他
+ * 环境温度 气压 海拔 血压 血氧 呼吸
+ * Fragment_Atmospheric_Pressure_Day
  * Created by dengyangkang on 2017/5/2.
  */
 
@@ -38,6 +42,17 @@ public class Main_Activity extends Activity{
             @Override
             public void onClick(View v) {
                 mDrawerLayout.openDrawer(Gravity.LEFT);
+            }
+        });
+        leftListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Toast.makeText(Main_Activity.this,"position:"+position,Toast.LENGTH_LONG).show();
+                switch (position){
+                    case 0 :
+                        startActivity(new Intent(Main_Activity.this,Personal_Activity.class));
+                        break;
+                }
             }
         });
     }

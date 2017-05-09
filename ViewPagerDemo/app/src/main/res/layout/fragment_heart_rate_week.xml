@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:background="@color/heart_rate_bg" android:layout_width="fill_parent" android:layout_height="240.0dip">
+        <com.github.mikephil.charting.charts.BarChart android:id="@+id/chart" android:background="@color/heart_rate_bg" android:paddingTop="@dimen/dimens10" android:paddingBottom="@dimen/dimens10" android:layout_width="fill_parent" android:layout_height="200.0dip" android:layout_marginTop="@dimen/dimens30" />
+    </RelativeLayout>
+    <ScrollView android:background="@color/white" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip" android:layout_marginRight="30.0dip">
+            <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <TextView android:id="@+id/average_heart_rate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:text="@string/average_heart_rate" android:layout_centerHorizontal="true" />
+                    <TextView android:id="@+id/average_heart_rate_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="--" android:layout_below="@id/average_heart_rate" android:layout_centerHorizontal="true" />
+                </RelativeLayout>
+                <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                    <TextView android:id="@+id/highest_heart_rate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:text="@string/highest_heart_rate" android:layout_centerHorizontal="true" />
+                    <TextView android:id="@+id/highest_heart_rate_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="--" android:layout_below="@id/highest_heart_rate" android:layout_centerHorizontal="true" />
+                </RelativeLayout>
+                <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true">
+                    <TextView android:id="@+id/lowest_heart_rate" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:text="@string/lowest_heart_rate" android:layout_centerHorizontal="true" />
+                    <TextView android:id="@+id/lowest_heart_rate_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="--" android:layout_below="@id/lowest_heart_rate" android:layout_centerHorizontal="true" />
+                </RelativeLayout>
+            </RelativeLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="25.0dip">
+                <TextView android:textSize="@dimen/textSize16" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/heart_rate_stat" />
+                <TextView android:id="@+id/heart_rate_state" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="@string/my_heart_rate_state" />
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="25.0dip">
+                <TextView android:textSize="@dimen/textSize16" android:id="@id/health_tips" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/health_tips" />
+                <TextView android:id="@+id/tv_health_detail" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
