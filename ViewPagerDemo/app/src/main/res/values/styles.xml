@@ -16,5 +16,8 @@
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">@dimen/comm_diliver_height</item>
     </style>
-
+    <style name="Style.Text.Tag" parent="">
+        <item name="android:textSize">@dimen/common_textsize_xmiddle</item>
+        <item name="android:textColor">@color/textcolor_666</item>
+    </style>
 </resources>

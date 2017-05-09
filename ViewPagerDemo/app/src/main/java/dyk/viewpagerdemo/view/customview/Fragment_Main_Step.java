@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import dyk.viewpagerdemo.R;
-import dyk.viewpagerdemo.view.Step_Activity;
+import dyk.viewpagerdemo.view.activity.Step_Activity;
 
 /**
  * Created by dengyangkang on 2017/5/4.

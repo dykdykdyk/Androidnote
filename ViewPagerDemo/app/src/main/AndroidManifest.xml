@@ -9,10 +9,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="dyk.viewpagerdemo.view.Guider_Activity"
+            android:name="dyk.viewpagerdemo.view.activity.Main_Activity"
             android:label="@string/app_name" >
         </activity>
-        <activity android:name=".view.Splash_Activity"
+        <activity android:name="dyk.viewpagerdemo.view.activity.Splash_Activity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
             <intent-filter>
@@ -20,9 +20,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.Main_Activity"></activity>
-        <activity android:name=".view.Other_Main_Activity"></activity>
-        <activity android:name=".view.Step_Activity"></activity>
+        <activity android:name="dyk.viewpagerdemo.view.activity.Guider_Activity"></activity>
+        <activity android:name="dyk.viewpagerdemo.view.activity.Other_Main_Activity"></activity>
+        <activity android:name="dyk.viewpagerdemo.view.activity.Step_Activity"></activity>
+        <activity android:name=".view.activity.Breathing_Activity"></activity>
+        <activity android:name=".view.activity.Altitude_Activity"></activity>
+        <activity android:name=".view.activity.Atmospheric_Pressure_Activity"></activity>
+        <activity android:name=".view.activity.Blood_Oxygen_Activity"></activity>
+        <activity android:name=".view.activity.Blood_Pressure_Activity"></activity>
+        <activity android:name=".view.activity.Enveronment_Temperature_Activity"></activity>
+        <activity android:name=".view.activity.Health_Temperature_Activity"></activity>
+        <activity android:name=".view.activity.Sleep_Activity"></activity>
+        <activity android:name=".view.activity.Heart_Rate_Activity"></activity>
+        <activity android:name=".view.activity.Personal_Activity"></activity>
+
     </application>
 
 </manifest>

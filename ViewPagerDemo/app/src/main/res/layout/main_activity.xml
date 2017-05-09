@@ -7,10 +7,10 @@
         android:layout_height="fill_parent"
         android:background="@color/design_fab_shadow_mid_color"
         android:orientation="vertical">
-        <dyk.viewpagerdemo.view.TitleLayout
+        <dyk.viewpagerdemo.view.customview.TitleLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-        </dyk.viewpagerdemo.view.TitleLayout>
+        </dyk.viewpagerdemo.view.customview.TitleLayout>
         <dyk.viewpagerdemo.view.customview.Fragment_Main_Step
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">

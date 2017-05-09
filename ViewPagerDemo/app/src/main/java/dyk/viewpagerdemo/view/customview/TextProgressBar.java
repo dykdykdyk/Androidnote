@@ -1,4 +1,4 @@
-package dyk.viewpagerdemo.view;
+package dyk.viewpagerdemo.view.customview;
 
 import android.content.Context;
 import android.widget.ProgressBar;
