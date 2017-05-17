@@ -2,6 +2,10 @@
 <LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <RelativeLayout android:background="@color/step_bg" android:layout_width="fill_parent" android:layout_height="240.0dip">
+        <dyk.viewpagerdemo.view.customview.TimeLine_ScrollView_Month
+            android:layout_width="match_parent"
+            android:layout_height="40.0dp">
+        </dyk.viewpagerdemo.view.customview.TimeLine_ScrollView_Month>
         <com.github.mikephil.charting.charts.BarChart android:id="@id/chart" android:background="@color/step_bg" android:paddingTop="@dimen/dimens10" android:paddingBottom="@dimen/dimens10" android:layout_width="fill_parent" android:layout_height="200.0dip" android:layout_marginTop="@dimen/dimens30" />
     </RelativeLayout>
     <ScrollView android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent">
@@ -32,7 +36,8 @@
             <View style="@style/Style.Divider.Horizontal.Default" />
             <LinearLayout android:orientation="vertical" android:paddingTop="20.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="30.0dip" android:layout_marginRight="30.0dip">
                 <TextView android:textSize="@dimen/textSize18" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/health_tips" />
-                <TextView android:id="@+id/tv_health_detail" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" />
+                <TextView
+                    android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

@@ -1,46 +1,396 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:fitsSystemWindows="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:view="http://schemas.android.com/apk/res-auto">
-    <include layout="@layout/common_topbar" />
-    <ScrollView android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linear"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+    <include layout="@layout/person_information_title"
+        />
+    <ScrollView
+        android:id="@+id/vertical_scroll_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffffff">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
             <include layout="@layout/item_userinfo_checksex" />
-            <TextView android:id="@+id/tv_common_diliver" android:background="@color/common_dividercolor" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginLeft="15.0dip" android:layout_marginRight="15.0dip" />
-            <LinearLayout android:id="@+id/item_userinfo_birthday" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="@dimen/common_btn_height" view:item_funcName="@string/userinfo_birthday" view:item_isShowRight="false" />
-            <LinearLayout android:id="@+id/item_userinfo_height" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="@dimen/common_btn_height" view:item_funcName="@string/userinfo_height" view:item_isShowRight="false" />
-            <LinearLayout android:id="@+id/item_userinfo_weight" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="@dimen/common_btn_height" view:item_funcName="@string/userinfo_weight" view:item_isShowRight="false" />
-            <LinearLayout android:id="@+id/item_step_length" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="@dimen/common_btn_height" view:item_funcName="@string/step_length" view:item_isShowRight="false" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="15.0dip"
+                android:layout_marginRight="15.0dip"
+                android:background="@color/common_dividercolor" />
+
+            <RelativeLayout
+                android:id="@+id/item_age"
+                android:layout_width="fill_parent"
+                android:layout_height="60.0dip"
+                android:layout_centerVertical="true"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/dimens15"
+                android:paddingRight="@dimen/dimens15">
+
+                <TextView
+                    style="@style/Style.Text.Tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/userinfo_birthday" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="15.0dip"
+                android:layout_marginRight="15.0dip"
+                android:background="@color/common_dividercolor" />
+
+            <RelativeLayout
+                android:id="@+id/item_heigh"
+                android:layout_width="fill_parent"
+                android:layout_height="60.0dip"
+                android:layout_centerVertical="true"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/dimens15"
+                android:paddingRight="@dimen/dimens15">
+
+                <TextView
+                    style="@style/Style.Text.Tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/userinfo_height" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="15.0dip"
+                android:layout_marginRight="15.0dip"
+                android:background="@color/common_dividercolor" />
+
+            <RelativeLayout
+                android:id="@+id/item_weigh"
+                android:layout_width="fill_parent"
+                android:layout_height="60.0dip"
+                android:layout_centerVertical="true"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/dimens15"
+                android:paddingRight="@dimen/dimens15">
+
+                <TextView
+                    style="@style/Style.Text.Tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/userinfo_weight" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_marginLeft="15.0dip"
+                android:layout_marginRight="15.0dip"
+                android:background="@color/common_dividercolor" />
+
             <include layout="@layout/item_userinfo_hands" />
-            <TextView android:background="@color/common_dividercolor" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginLeft="15.0dip" android:layout_marginRight="15.0dip" android:layout_alignParentBottom="true" />
-            <TextView android:textColor="#ff9d9e9e" android:id="@+id/item_userinfo_unit" android:background="@color/white" android:paddingLeft="15.0dip" android:paddingTop="25.0dip" android:layout_width="fill_parent" android:layout_height="50.0dip" android:text="@string/userinfo_unit" />
-            <TextView android:background="@color/common_dividercolor" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginLeft="15.0dip" android:layout_marginRight="15.0dip" android:layout_alignParentBottom="true" />
-            <RelativeLayout android:id="@+id/item_distance" android:background="@color/white" android:paddingLeft="@dimen/dimens15" android:paddingRight="@dimen/dimens15" android:layout_width="fill_parent" android:layout_height="60.0dip" android:layout_centerVertical="true">
-                <TextView android:textSize="@dimen/textSize16" android:id="@+id/tv_distance" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tv_distance" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
-                <Button android:id="@+id/sb_distance" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true" view:leftString="@string/mile" view:rightString="@string/kilo" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15.0dip"
+                android:layout_marginRight="15.0dip"
+                android:background="@color/common_dividercolor" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip"
+                android:background="@color/white"
+                android:paddingLeft="15.0dip"
+                android:paddingTop="25.0dip"
+                android:text="@string/userinfo_unit"
+                android:textColor="#ff9d9e9e" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15.0dip"
+                android:layout_marginRight="15.0dip"
+                android:background="@color/common_dividercolor" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="60.0dip"
+                android:layout_centerVertical="true"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/dimens15"
+                android:paddingRight="@dimen/dimens15">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/tv_distance"
+                    android:textSize="@dimen/textSize16" />
+
+                <TextView
+                    android:id="@+id/sb_distance_km"
+                    android:layout_width="60.0dp"
+                    android:layout_height="30.0dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="-10px"
+                    android:gravity="center"
+                    android:background="@drawable/button_shaperight_select"
+                    android:text="公里" />
+
+                <TextView
+                    android:id="@+id/sb_distance_mile"
+                    android:layout_width="60.0dp"
+                    android:layout_height="30.0dp"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:layout_toLeftOf="@id/sb_distance_km"
+                    android:background="@drawable/button_shapeleft"
+                    android:text="英里" />
             </RelativeLayout>
-            <TextView android:background="@color/common_dividercolor" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginLeft="15.0dip" android:layout_marginRight="15.0dip" android:layout_alignParentBottom="true" />
-            <RelativeLayout android:id="@+id/item_height" android:background="@color/white" android:paddingLeft="@dimen/dimens15" android:paddingRight="@dimen/dimens15" android:layout_width="fill_parent" android:layout_height="60.0dip" android:layout_centerVertical="true">
-                <TextView android:textSize="@dimen/textSize16" android:id="@+id/tv_height" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tv_height" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
-                <Button android:id="@+id/sb_height" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true" view:leftString="@string/feet" view:rightString="@string/cm" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15.0dip"
+                android:layout_marginRight="15.0dip"
+                android:background="@color/common_dividercolor" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="60.0dip"
+                android:layout_centerVertical="true"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/dimens15"
+                android:paddingRight="@dimen/dimens15">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/tv_height"
+                    android:textSize="@dimen/textSize16" />
+
+                <TextView
+                    android:id="@+id/sb_height_cm"
+                    android:layout_width="60.0dp"
+                    android:layout_height="30.0dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="-10px"
+                    android:gravity="center"
+                    android:background="@drawable/button_shaperight_select"
+                    android:text="@string/cm" />
+
+                <TextView
+                    android:id="@+id/sb_height_feet"
+                    android:layout_width="60.0dp"
+                    android:layout_height="30.0dp"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:layout_toLeftOf="@id/sb_height_cm"
+                    android:background="@drawable/button_shapeleft"
+                    android:text="@string/feet" />
             </RelativeLayout>
-            <TextView android:background="@color/common_dividercolor" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginLeft="15.0dip" android:layout_marginRight="15.0dip" android:layout_alignParentBottom="true" />
-            <RelativeLayout android:id="@+id/item_weight" android:background="@color/white" android:paddingLeft="@dimen/dimens15" android:paddingRight="@dimen/dimens15" android:layout_width="fill_parent" android:layout_height="60.0dip" android:layout_centerVertical="true">
-                <TextView android:textSize="@dimen/textSize16" android:id="@+id/tv_weight" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tv_weight" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
-                <Button android:id="@+id/sb_weight" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true" view:leftString="@string/pounds" view:rightString="@string/kilogram" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15.0dip"
+                android:layout_marginRight="15.0dip"
+                android:background="@color/common_dividercolor" />
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="60.0dip"
+                android:layout_centerVertical="true"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/dimens15"
+                android:paddingRight="@dimen/dimens15">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/tv_weight"
+                    android:textSize="@dimen/textSize16" />
+
+                <TextView
+                    android:id="@+id/sb_weight_kilogram"
+                    android:layout_width="60.0dp"
+                    android:layout_height="30.0dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="-10px"
+                    android:gravity="center"
+                    android:background="@drawable/button_shaperight_select"
+                    android:text="@string/kilogram" />
+
+                <TextView
+                    android:id="@+id/sb_weight_pounds"
+                    android:layout_width="60.0dp"
+                    android:layout_height="30.0dp"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:layout_toLeftOf="@id/sb_weight_kilogram"
+                    android:background="@drawable/button_shapeleft"
+                    android:text="@string/pounds" />
             </RelativeLayout>
-            <TextView android:background="@color/common_dividercolor" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginLeft="15.0dip" android:layout_marginRight="15.0dip" android:layout_alignParentBottom="true" />
-            <LinearLayout android:orientation="vertical" android:id="@+id/ll_sleep_time_set" android:layout_width="fill_parent" android:layout_height="wrap_content">
-                <TextView android:textColor="#ff9d9e9e" android:id="@+id/item_set_sleep_time" android:background="@color/white" android:paddingLeft="15.0dip" android:paddingTop="25.0dip" android:layout_width="fill_parent" android:layout_height="50.0dip" android:text="@string/sleep_time_setting" />
-                <TextView android:background="@color/common_dividercolor" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginLeft="15.0dip" android:layout_marginRight="15.0dip" android:layout_alignParentBottom="true" />
-                <com.het.comres.view.layout.ItemLinearLayout android:id="@id/item_fall_asleep" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="@dimen/common_btn_height" view:item_funcName="@string/fall_asleep" view:item_isShowRight="false" />
-                <com.het.comres.view.layout.ItemLinearLayout android:id="@id/item_wake_up_time" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="@dimen/common_btn_height" view:item_funcName="@string/wake_up_time" view:item_isShowRight="false" />
-            </LinearLayout>
-            <LinearLayout android:orientation="vertical" android:id="@+id/ll_bp" android:layout_width="fill_parent" android:layout_height="fill_parent">
-                <TextView android:textColor="#ff9d9e9e" android:background="@color/white" android:paddingLeft="15.0dip" android:paddingTop="25.0dip" android:layout_width="fill_parent" android:layout_height="50.0dip" android:text="@string/userinfo_bloodpress_reference" />
-                <TextView android:background="@color/common_dividercolor" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginLeft="15.0dip" android:layout_marginRight="15.0dip" android:layout_alignParentBottom="true" />
-                <com.het.comres.view.layout.ItemLinearLayout android:id="@id/item_userinfo_systaltic_pressure" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="@dimen/common_btn_height" view:item_funcName="@string/userinfo_systaltic_pressure" view:item_isShowRight="false" />
-                <com.het.comres.view.layout.ItemLinearLayout android:id="@id/item_userinfo_diastolic_pressure" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="@dimen/common_btn_height" view:item_funcName="@string/userinfo_diastolic_pressure" view:item_isShowRight="false" />
-                <TextView android:textSize="12.0sp" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@+id/tv_userinfo_tip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="13.0dip" android:layout_marginRight="13.0dip" android:layout_marginBottom="20.0dip" android:text="@string/userinfo_tip" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="1.0px"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="15.0dip"
+                android:layout_marginRight="15.0dip"
+                android:background="@color/common_dividercolor" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="50.0dip"
+                    android:background="@color/white"
+                    android:paddingLeft="15.0dip"
+                    android:paddingTop="25.0dip"
+                    android:text="@string/userinfo_bloodpress_reference"
+                    android:textColor="#ff9d9e9e" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1.0px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="15.0dip"
+                    android:layout_marginRight="15.0dip"
+                    android:background="@color/common_dividercolor" />
+
+                <RelativeLayout
+                    android:id="@+id/user_private_advice"
+                    android:layout_width="fill_parent"
+                    android:layout_height="60.0dip"
+                    android:layout_centerVertical="true"
+                    android:background="@color/white"
+                    android:paddingLeft="@dimen/dimens15"
+                    android:paddingRight="@dimen/dimens15">
+
+                    <TextView
+                        style="@style/Style.Text.Tag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="P(私人参考模式)" />
+
+                    <ImageView
+                        android:id="@+id/devicemanage_checking"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/devicemanage_checking"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1.0px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="15.0dip"
+                    android:layout_marginRight="15.0dip"
+                    android:background="@color/common_dividercolor" />
+
+                <RelativeLayout
+                    android:id="@+id/userinfo_systaltic_pressure"
+                    android:layout_width="fill_parent"
+                    android:layout_height="60.0dip"
+                    android:layout_centerVertical="true"
+                    android:background="@color/white"
+                    android:paddingLeft="@dimen/dimens15"
+                    android:paddingRight="@dimen/dimens15">
+
+                    <TextView
+                        android:id="@+id/userinfo_systaltic_text"
+                        style="@style/Style.Text.Tag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/userinfo_systaltic_pressure" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1.0px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="15.0dip"
+                    android:layout_marginRight="15.0dip"
+                    android:background="@color/common_dividercolor" />
+
+                <RelativeLayout
+                    android:id="@+id/userinfo_diastolic_pressure"
+                    android:layout_width="fill_parent"
+                    android:layout_height="60.0dip"
+                    android:layout_centerVertical="true"
+                    android:background="@color/white"
+                    android:paddingLeft="@dimen/dimens15"
+                    android:paddingRight="@dimen/dimens15">
+
+                    <TextView
+                        android:id="@+id/userinfo_diastolic_text"
+                        style="@style/Style.Text.Tag"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/userinfo_diastolic_pressure" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="1.0px"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="15.0dip"
+                    android:layout_marginRight="15.0dip"
+                    android:background="@color/common_dividercolor" />
+
+                <TextView
+                    android:id="@+id/tv_userinfo_tip"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="20.0dip"
+                    android:layout_marginLeft="13.0dip"
+                    android:layout_marginRight="13.0dip"
+                    android:gravity="center"
+                    android:text="@string/userinfo_tip"
+                    android:textSize="12.0sp" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

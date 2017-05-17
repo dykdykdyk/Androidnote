@@ -17,7 +17,7 @@ public class Fragment_Blood_Pressure extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = View.inflate(getActivity(), R.layout.fragment_blood_oxygen, null);
+        View view = View.inflate(getActivity(), R.layout.fragment_blood_pressure, null);
 //        TextView tv= (TextView) view.findViewById(R.id.textView);
 //        tv.setText("UFC");
         return view;

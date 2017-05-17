@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+   <dyk.viewpagerdemo.view.customview.TitleBar_View
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content">
+   </dyk.viewpagerdemo.view.customview.TitleBar_View>
+    <android.support.design.widget.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="20dip"
+        android:background="@android:color/holo_blue_light"
+        app:tabIndicatorColor="@android:color/holo_red_dark"
+        app:tabSelectedTextColor="@android:color/holo_red_dark"
+        app:tabTextColor="@android:color/background_dark"
+
+        />
+    <FrameLayout android:id="@+id/step_content"
+        android:background="@color/bg_color_f2"
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="1.0" />
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:background="@drawable/border_top"
+        android:layout_width="fill_parent" android:layout_height="50.0dip">
+        <TextView
+            android:textColor="@color/bottom_text_color"
+            android:gravity="center" android:id="@+id/tv_day"
+            android:background="@drawable/step_rzy_select"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="@string/day" android:layout_weight="1.0" />
+        <TextView
+            android:textColor="@color/bottom_text_color"
+            android:gravity="center" android:id="@+id/tv_week"
+            android:background="@drawable/step_rzy_select"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="@string/week" android:layout_weight="1.0" />
+        <TextView
+            android:textColor="@color/bottom_text_color"
+            android:gravity="center" android:id="@+id/tv_month"
+            android:background="@drawable/step_rzy_select"
+            android:layout_width="wrap_content" android:layout_height="fill_parent"
+            android:text="@string/month" android:layout_weight="1.0" />
+    </LinearLayout>
+
+</LinearLayout>

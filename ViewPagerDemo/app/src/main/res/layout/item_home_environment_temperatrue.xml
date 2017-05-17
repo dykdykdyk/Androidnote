@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_home_step"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/dimens15"
+    android:layout_marginRight="@dimen/dimens15"
+    android:layout_marginTop="@dimen/dimens10"
+    android:background="@color/white"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/dimens15"
+    android:paddingTop="@dimen/dimens15">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:paddingLeft="@dimen/dimens15"
+        android:src="@drawable/icon_home_environment_temperature" />
+
+    <RelativeLayout
+        android:layout_width="0.0dip"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5.0dip"
+        android:layout_marginRight="10.0dip"
+        android:layout_weight="1.0">
+
+        <TextView
+            android:id="@+id/home_step_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/home_step_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="@string/step_unit" />
+
+        <TextView
+            android:id="@+id/home_step_proj_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/home_step_unit"
+            android:text="--" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/home_step_proj_value"
+            android:text="@string/home_encironment_temperature" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/home_step_time"
+            android:layout_marginTop="5.0dip"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/comm_pregress_height"
+                android:background="@drawable/step_progress"
+                android:indeterminateOnly="false"
+                android:progressDrawable="@drawable/progressbar_horizontal_step"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/comm_pregress_height"
+            android:layout_below="@id/home_step_time"
+            android:layout_marginTop="8.0dip"
+            android:background="@drawable/no_step_count"
+            android:gravity="center"
+            android:text="@string/not_available_data"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSize12" />
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="@dimen/dimens15"
+        android:scaleType="centerInside"
+        android:src="@drawable/icon_home_more" />
+</LinearLayout>

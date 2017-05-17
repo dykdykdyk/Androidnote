@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:orientation="horizontal" android:id="@+id/item_home_heart_rate" android:background="@color/white" android:paddingTop="15.0dip" android:paddingBottom="15.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/dimens15" android:layout_marginTop="@dimen/dimens10" android:layout_marginRight="@dimen/dimens15"
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@+id/iv_home_heart_rate" android:paddingLeft="@dimen/dimens15" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_home_heart_rate" />
+    <ImageView
+        android:paddingLeft="@dimen/dimens15" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/icon_home_heart_rate" />
     <RelativeLayout android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginRight="10.0dip" android:layout_weight="1.0">
         <TextView android:id="@+id/home_heart_rate_time" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-        <TextView android:id="@+id/home_heart_rate_value" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/heart_rate2" android:layout_alignParentRight="true" />
-        <ImageView android:id="@+id/iv_heart_rate_progress" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:src="@drawable/heart_rate_progress" android:scaleType="fitXY" android:layout_below="@id/home_heart_rate_time" />
-        <ImageView android:id="@+id/not_available_data" android:layout_width="fill_parent" android:layout_height="@dimen/comm_pregress_height" android:layout_marginTop="8.0dip" android:src="@drawable/no_heart_rate" android:scaleType="fitXY" android:layout_below="@id/home_heart_rate_time" />
+        <TextView
+            android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/heart_rate2" android:layout_alignParentRight="true" />
+        <ImageView
+            android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:src="@drawable/heart_rate_progress" android:scaleType="fitXY" android:layout_below="@id/home_heart_rate_time" />
+        <ImageView
+            android:layout_width="fill_parent" android:layout_height="@dimen/comm_pregress_height" android:layout_marginTop="8.0dip" android:src="@drawable/no_heart_rate" android:scaleType="fitXY" android:layout_below="@id/home_heart_rate_time" />
     </RelativeLayout>
-    <ImageView android:layout_gravity="center_vertical" android:id="@+id/home_item_next" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimens15" android:src="@drawable/icon_home_more" android:scaleType="centerInside" />
+    <ImageView android:layout_gravity="center_vertical"
+        android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/dimens15" android:src="@drawable/icon_home_more" android:scaleType="centerInside" />
 </LinearLayout>

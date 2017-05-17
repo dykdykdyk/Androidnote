@@ -12,7 +12,10 @@ import java.util.List;
 
 public class DateHelper {
     public static List<String> tempTime =new ArrayList<String>();
-    public static void getTimeOfYear(){//月
+    public static List<String>  getTimeOfMonth(){//月
+        tempTime.clear();
+        tempTime.add("");
+        tempTime.add("");
         Calendar cal = Calendar.getInstance();//得到一个Calendar的实例
         cal.set(2016,01,00,00,00);
         Calendar calendar= Calendar.getInstance();
@@ -22,9 +25,13 @@ public class DateHelper {
             tempTime.add(sdf3.format(cal.getTime()));
             cal.add(Calendar.MONTH, 1);
         }
+        tempTime.add("");
+        tempTime.add("");
+        return tempTime;
     }
-    public static void getTimeOfWeek(){//周
+    public static List<String> getTimeOfWeek(){//周
         tempTime.clear();
+        tempTime.add("");
         Calendar cal = Calendar.getInstance();//得到一个Calendar的实例
         cal.set(2016,00,04,00,00);
         Calendar calendar= Calendar.getInstance();
@@ -34,17 +41,25 @@ public class DateHelper {
         SimpleDateFormat sdf4 = new SimpleDateFormat("MM.dd");
         for (int i = 0; i < 52+daytemp/7; i++) {
             if(i == (52+daytemp/7) -1){
-                System.out.println("本周");
+//                System.out.println("本周");
+                tempTime.add("本周");
             }else if(i == (52+daytemp/7) -2){
-                System.out.println("上周");
+//                System.out.println("上周");
+                tempTime.add("上周");
             }else {
-                System.out.println(sdf3.format(cal.getTime())+sdf4.format(calendar.getTime()));
+//                System.out.println(sdf3.format(cal.getTime())+sdf4.format(calendar.getTime()));
+                tempTime.add(sdf3.format(cal.getTime())+sdf4.format(calendar.getTime()));
             }
             cal.add(Calendar.WEEK_OF_YEAR, 1);
             calendar.add(Calendar.WEEK_OF_YEAR, 1);
         }
+        tempTime.add("");
+        return tempTime;
     }
-    public static void getTimeOfWeekStart(){//日期
+    public static List<String> getTimeOfDay(){//日期
+        tempTime.clear();
+        tempTime.add("");
+        tempTime.add("");
         Calendar cal = Calendar.getInstance();//得到一个Calendar的实例
         cal.set(2016,00,01,00,00);
 
@@ -61,11 +76,16 @@ public class DateHelper {
         for (int i = 0; i < 366+week; i++) {
             if((cal.get(Calendar.YEAR) == year) && (cal.get(Calendar.MONTH)+1 == month) &&
                     (cal.get(Calendar.DAY_OF_MONTH) == day)){
-                System.out.println("今天");
+//                System.out.println("今天");
+                tempTime.add("今天");
             }else{
-                System.out.println(sdf3.format(cal.getTime()));
+//                System.out.println(sdf3.format(cal.getTime()));
+                tempTime.add(sdf3.format(cal.getTime()));
             }
             cal.add(Calendar.DAY_OF_YEAR, 1);
         }
+        tempTime.add("");
+        tempTime.add("");
+        return tempTime;
     }
 }

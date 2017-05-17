@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import dyk.viewpagerdemo.R;
-import dyk.viewpagerdemo.view.activity.Heart_Rate_Activity;
+import dyk.viewpagerdemo.view.fragment.Heart_Rate_Activity;
 
 /**
  * Created by dengyangkang on 2017/5/4.

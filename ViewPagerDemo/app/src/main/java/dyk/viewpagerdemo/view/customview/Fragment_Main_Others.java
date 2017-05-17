@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import dyk.viewpagerdemo.R;
 import dyk.viewpagerdemo.view.activity.Other_Main_Activity;
@@ -15,11 +16,11 @@ import dyk.viewpagerdemo.view.activity.Other_Main_Activity;
  */
 
 public class Fragment_Main_Others extends LinearLayout {
-    LinearLayout linearLayout ;
+    RelativeLayout linearLayout ;
     public Fragment_Main_Others(final Context context, AttributeSet attrs) {
         super(context, attrs);
         LayoutInflater.from(context).inflate(R.layout.item_home_tired,this);
-        linearLayout =(LinearLayout)findViewById(R.id.item_home_others_linearlayout);
+        linearLayout =(RelativeLayout)findViewById(R.id.item_home_others_linearlayout);
         linearLayout.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

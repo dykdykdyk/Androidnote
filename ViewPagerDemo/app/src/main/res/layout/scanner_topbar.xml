@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/common_topbar_height"
+    android:background="@color/bg_common_green"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <RelativeLayout
+        android:id="@+id/smart_bracelet_back"
+        android:layout_width="@dimen/common_topbar_height"
+        android:layout_height="@dimen/common_topbar_height"
+        android:background="@drawable/btn_common_topbar">
+
+        <ImageView
+            android:id="@+id/left_image"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/btn_common_topbar"
+            android:contentDescription="@string/common_left_click"
+            android:padding="15.0dip"
+            android:scaleType="centerInside"
+            android:src="@drawable/arrow_back" />
+
+        <View
+            android:layout_width="5.0dip"
+            android:layout_height="5.0dip"
+            android:layout_alignEnd="@id/left_image"
+            android:layout_alignRight="@id/left_image"
+            android:layout_alignTop="@id/left_image"
+            android:background="@drawable/shape_oval_red"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/smart_bracelet_right_click"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingRight="@dimen/dimens15">
+
+        <TextView
+            android:layout_width="30.0dip"
+            android:layout_height="fill_parent"
+            android:scaleType="centerInside"
+            android:text="@string/search"
+            android:textColor="@color/common_white"
+            android:id="@+id/scanner_text"
+            android:gravity="center_vertical"
+            android:visibility="visible" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="@drawable/btn_common_topbar"
+            android:gravity="center_vertical"
+            android:paddingLeft="15.0dip"
+            android:paddingRight="15.0dip"
+            android:textAppearance="@style/Style.TopBar.White"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_toLeftOf="@id/smart_bracelet_right_click"
+        android:layout_toRightOf="@id/smart_bracelet_back"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="30.0dip"
+            android:layout_height="fill_parent"
+            android:rotation="180.0"
+            android:src="@drawable/topbar_time_choose_icon"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:singleLine="true"
+        android:text="TitleBar"
+        android:textAppearance="@style/Style.TopBar.White" />
+</RelativeLayout>

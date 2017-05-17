@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dyk.viewpagerdemo">
-
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:name=".utils.DataHelper.MyApplication"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
@@ -24,6 +45,7 @@
         <activity android:name="dyk.viewpagerdemo.view.activity.Other_Main_Activity"></activity>
         <activity android:name="dyk.viewpagerdemo.view.activity.Step_Activity"></activity>
         <activity android:name=".view.activity.Breathing_Activity"></activity>
+        <activity android:name=".view.activity.Scanner_Activity"></activity>
         <activity android:name=".view.activity.Altitude_Activity"></activity>
         <activity android:name=".view.activity.Atmospheric_Pressure_Activity"></activity>
         <activity android:name=".view.activity.Blood_Oxygen_Activity"></activity>
@@ -31,9 +53,11 @@
         <activity android:name=".view.activity.Enveronment_Temperature_Activity"></activity>
         <activity android:name=".view.activity.Health_Temperature_Activity"></activity>
         <activity android:name=".view.activity.Sleep_Activity"></activity>
-        <activity android:name=".view.activity.Heart_Rate_Activity"></activity>
+        <activity android:name=".view.activity.Heart_Rate_FragmentActivity"></activity>
         <activity android:name=".view.activity.Personal_Activity"></activity>
-
+        <activity android:name=".view.activity.Health_Weekly_Report_Activity"></activity>
+        <activity android:name=".view.fragment.Heart_Rate_Activity"></activity>
+        <activity android:name=".view.activity.Personal_Goals_Activity"></activity>
     </application>
 
 </manifest>

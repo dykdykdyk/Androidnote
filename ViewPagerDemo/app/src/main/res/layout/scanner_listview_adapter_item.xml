@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/devicet_tv"
+    >
+
+    <LinearLayout
+        android:id="@+id/linearable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/date_picker_header_text_size">
+        <TextView
+            android:id="@+id/bledevice_name"
+            android:layout_width="wrap_content"
+            android:textSize="15sp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/bledevice_mac"
+            android:layout_below="@id/bledevice_name"
+            android:layout_width="wrap_content"
+            android:textSize="15sp"
+            android:maxLines="1"
+            android:layout_height="wrap_content" />
+        </LinearLayout>
+    <ImageView
+            android:id="@+id/rssi_imageview"
+            android:layout_width="wrap_content"
+            android:layout_margin="@dimen/date_picker_header_text_size"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/iv_rssi_barp"
+            android:layout_height="wrap_content" />
+</RelativeLayout>

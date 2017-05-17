@@ -18,10 +18,13 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import dyk.viewpagerdemo.R;
+import dyk.viewpagerdemo.utils.DataHelper.MyApplication;
+import dyk.viewpagerdemo.utils.DataHelper.StorageSharedPreferenced;
+import dyk.viewpagerdemo.utils.UtilTools;
 import dyk.viewpagerdemo.view.adapter.ViewPagerAdapter;
 
 /**
- * @author yangyu
+ * @author dyk
  *	功能描述：主程序入口类
  */
 public class Guider_Activity extends Activity implements OnPageChangeListener {
@@ -38,29 +41,41 @@ public class Guider_Activity extends Activity implements OnPageChangeListener {
 	private ArrayList<ImageView> mImageViewArrayList;
 	private LinearLayout  mLlContainear;
 	private int mPointWidth;
-	private TextView guider_tv_enter;
+	private TextView guider_tv_enter,guider_buied;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉标题栏
 		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);//去掉信息栏
 		setContentView(R.layout.guider_activity);
+		MyApplication myapp = (MyApplication) getApplication();
+		StorageSharedPreferenced SP =new StorageSharedPreferenced(Guider_Activity.this);
+		StorageSharedPreferenced.putDataint(UtilTools.PERSONAL_GOALS,5000);//设置默认的步数值
 		initView();
 		initData();
 	}
-
 	/**
 	 * 初始化组件
 	 */
 	private void initView(){
 		//实例化ArrayList对象
 		guider_tv_enter =(TextView)findViewById(R.id.guider_tv_enter);
+			guider_buied =(TextView)findViewById(R.id.guider_buied);
 		guider_tv_enter.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				guider_tv_enter.setBackground(getResources().getDrawable(R.drawable.buttonsure));
+				guider_buied.setBackground(getResources().getDrawable(R.drawable.button_select));
 				startActivity(new Intent(Guider_Activity.this,Main_Activity.class));
 			}
 		});
+		guider_buied.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivity(new Intent(Guider_Activity.this,Scanner_Activity.class));
+			}
+		});
+
 		views = new ArrayList<View>();
 		mImageViewArrayList =  new ArrayList<ImageView>();
 		//实例化ViewPager
@@ -70,7 +85,6 @@ public class Guider_Activity extends Activity implements OnPageChangeListener {
 		vpAdapter = new ViewPagerAdapter(views);
 		mLlContainear =(LinearLayout)findViewById(R.id.llContainer);
 	}
-
 	/**
 	 * 初始化数据
 	 */
@@ -79,7 +93,6 @@ public class Guider_Activity extends Activity implements OnPageChangeListener {
 		LinearLayout.LayoutParams mParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
 				LinearLayout.LayoutParams.MATCH_PARENT);
 // 动态得出圆点的个数，距离，并添加到线性布局中
-
 		for (int i = 0;i<pics.length;i++){
 			ImageView iv = new ImageView(this);
 			iv.setBackgroundResource(pics[i]);
@@ -102,7 +115,6 @@ public class Guider_Activity extends Activity implements OnPageChangeListener {
 			iv.setScaleType(ImageView.ScaleType. CENTER_CROP);
 			views.add(iv);
 		}
-
 		//设置数据
 		viewPager.setAdapter(vpAdapter);
 		//设置监听
@@ -124,7 +136,6 @@ public class Guider_Activity extends Activity implements OnPageChangeListener {
 					}
 				});
 	}
-
 	/**
 	 * 当滑动状态改变时调用
 	 */
@@ -132,7 +143,6 @@ public class Guider_Activity extends Activity implements OnPageChangeListener {
 	public void onPageScrollStateChanged(int arg0) {
 
 	}
-
 	/**
 	 * 当前页面被滑动时调用
 	 */
@@ -146,7 +156,6 @@ public class Guider_Activity extends Activity implements OnPageChangeListener {
 			params.leftMargin = leftMargin;
 		mGuide_red_point.setLayoutParams(params);
 	}
-
 	/**
 	 * This method will be invoked when a new page becomes selected. Animation is not
 	 * necessarily complete.

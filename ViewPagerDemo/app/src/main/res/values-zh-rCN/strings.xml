@@ -269,7 +269,10 @@ c.解绑设备"</string>
     <string name="highest_heart_rate">最高心率</string>
     <string name="highest_tired">最高疲劳</string>
     <string name="home_blood_oxygen">血氧：</string>
+    <string name="home_breathing">呼吸：</string>
+    <string name="home_altitude">海拔：</string>
     <string name="home_blood_pressure">血压：</string>
+    <string name="home_atmospheric_pressure">气压：</string>
     <string name="home_date_tip">详情记录</string>
     <string name="home_fatigue">疲劳度：</string>
     <string name="home_heart_rate">心率：</string>
@@ -278,6 +281,8 @@ c.解绑设备"</string>
     <string name="home_sleep_quality">睡眠质量</string>
     <string name="home_sleep_record">睡眠记录</string>
     <string name="home_step">步行：</string>
+    <string name="home_health_temperatrue">体温：</string>
+    <string name="home_encironment_temperature">环境温度：</string>
     <string name="hour">小时</string>
     <string name="hr_20">心率（20秒）</string>
     <string name="hr_measuring">正在测量心率，请稍后！</string>

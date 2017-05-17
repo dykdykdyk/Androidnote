@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg_common_green"
+    android:fitsSystemWindows="true">
+
+    <include
+        android:id="@+id/topbar"
+        layout="@layout/common_topbar_person_goals" />
+    <TextView
+        android:id="@+id/tv_introduction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20.0dip"
+        android:gravity="center"
+        android:text="@string/tv_introduction"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSize14" />
+    <com.wx.wheelview.widget.WheelView
+        android:background="@color/bg_common_green"
+        android:id="@+id/popup_one_item_wheel"
+        android:layout_width="match_parent"
+        android:layout_below="@id/topbar"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/date_picker_header_height"
+        android:layout_marginBottom="@dimen/date_picker_header_height"
+        android:layout_above="@id/tv_introduction"
+        android:layout_gravity="center_horizontal"
+        >
+    </com.wx.wheelview.widget.WheelView>
+</RelativeLayout>

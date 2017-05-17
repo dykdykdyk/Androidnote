@@ -18,7 +18,7 @@ public class Fragment_Main_Health_Temperature extends LinearLayout {
     LinearLayout linearLayout ;
     public Fragment_Main_Health_Temperature(Context context, AttributeSet attrs) {
         super(context, attrs);
-        LayoutInflater.from(context).inflate(R.layout.item_home_health_thmperatrue,this);
+        LayoutInflater.from(context).inflate(R.layout.item_home_health_temperatrue,this);
         linearLayout =(LinearLayout)findViewById(R.id.item_home_step);
         linearLayout.setOnClickListener(new OnClickListener() {
             @Override

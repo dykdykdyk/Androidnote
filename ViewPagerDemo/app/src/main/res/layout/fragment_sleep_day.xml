@@ -3,7 +3,12 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout android:orientation="vertical" android:background="@color/sleep_bg" android:layout_width="fill_parent" android:layout_height="270.0dip">
         <TextView android:textSize="12.0sp" android:textColor="@color/white" android:gravity="center" android:id="@+id/tv_time_duration" android:layout_width="fill_parent" android:layout_height="wrap_content" />
-        <com.github.mikephil.charting.charts.HorizontalBarChart android:id="@+id/chart1" android:background="@color/sleep_bg" android:paddingTop="@dimen/dimens10" android:paddingBottom="@dimen/dimens10" android:layout_width="fill_parent" android:layout_height="220.0dip" />
+        <dyk.viewpagerdemo.view.customview.TimeLine_ScrollView_Day
+            android:layout_width="match_parent"
+            android:layout_height="40.0dp">
+        </dyk.viewpagerdemo.view.customview.TimeLine_ScrollView_Day>
+        <com.github.mikephil.charting.charts.HorizontalBarChart
+            android:background="@color/sleep_bg" android:paddingTop="@dimen/dimens10" android:paddingBottom="@dimen/dimens10" android:layout_width="fill_parent" android:layout_height="220.0dip" />
     </LinearLayout>
     <View android:background="#ffbfbfbf" android:layout_width="fill_parent" android:layout_height="1.0px" />
     <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">

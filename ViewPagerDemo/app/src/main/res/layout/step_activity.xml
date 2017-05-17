@@ -9,7 +9,6 @@
        android:layout_height="wrap_content">
    </dyk.viewpagerdemo.view.customview.TitleBar_View>
     <android.support.design.widget.TabLayout
-        android:id="@+id/tablayout"
         android:layout_width="match_parent"
         android:layout_height="20dip"
         android:background="@android:color/holo_blue_light"
@@ -18,16 +17,94 @@
         app:tabTextColor="@android:color/background_dark"
 
         />
-    <FrameLayout android:id="@+id/step_content"
-        android:background="@color/bg_color_f2"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recy"
         android:layout_width="fill_parent"
-        android:layout_height="0.0dip"
-        android:layout_weight="1.0" />
+        android:layout_height="fill_parent" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="240.0dip"
+        android:background="@color/heart_rate_bg">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="240.0dip">
+
+            <dyk.viewpagerdemo.view.customview.MeasureOne_View
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="40dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_heart_rate_value"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:id="@+id/tv_heart_rate_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textSize30" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14.0dip"
+                android:layout_toRightOf="@+id/tv_heart_rate_value"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textSize14" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_measure"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rl_heart_rate_value"
+            android:layout_marginLeft="30.0dip"
+            android:layout_marginRight="30.0dip"
+            android:layout_marginTop="38.0dip">
+
+            <RelativeLayout
+                android:id="@+id/rl_measure_range"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/tv_last_measure_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/last_measure_time"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="150"
+                    android:textColor="@color/white" />
+            </RelativeLayout>
+
+            <include layout="@layout/measure_button" />
+        </RelativeLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:gravity="center"
         android:orientation="horizontal"
-        android:id="@+id/linearLayout"
         android:background="@drawable/border_top"
         android:layout_width="fill_parent" android:layout_height="50.0dip">
         <TextView
