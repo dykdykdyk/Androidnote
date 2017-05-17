@@ -1,7 +1,9 @@
 package dyk.viewpagerdemo.view.activity;
 
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -18,6 +20,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import dyk.viewpagerdemo.R;
+import dyk.viewpagerdemo.utils.DataHelper.DatabaseHelper;
 import dyk.viewpagerdemo.utils.DataHelper.MyApplication;
 import dyk.viewpagerdemo.utils.DataHelper.StorageSharedPreferenced;
 import dyk.viewpagerdemo.utils.UtilTools;
@@ -42,6 +45,9 @@ public class Guider_Activity extends Activity implements OnPageChangeListener {
 	private LinearLayout  mLlContainear;
 	private int mPointWidth;
 	private TextView guider_tv_enter,guider_buied;
+	private DatabaseHelper dbHelper;
+	private SQLiteDatabase db ;
+	private ContentValues values;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -51,6 +57,9 @@ public class Guider_Activity extends Activity implements OnPageChangeListener {
 		MyApplication myapp = (MyApplication) getApplication();
 		StorageSharedPreferenced SP =new StorageSharedPreferenced(Guider_Activity.this);
 		StorageSharedPreferenced.putDataint(UtilTools.PERSONAL_GOALS,5000);//设置默认的步数值
+		dbHelper =new DatabaseHelper(this,"Data.db",null,1);//1表示 数据库版本
+		db =dbHelper.getWritableDatabase();
+		values=new ContentValues();
 		initView();
 		initData();
 	}
