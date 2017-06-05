@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomCircle">
+        <attr name="CircleColor" format="color"></attr>
+        <attr name="CircleRadius" format="dimension"></attr>
+        <attr name="Speed" format="integer"></attr>
+    </declare-styleable>
+    <declare-styleable name="TouchView">
+        <attr name="viewColor" format="color"></attr>
+        <attr name="yPosition" format="dimension"></attr>
+        <attr name="viewSpeed" format="integer"></attr>
+        <attr name="allpha" format="integer"></attr>
+    </declare-styleable>
+
+</resources>
