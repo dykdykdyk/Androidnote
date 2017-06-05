@@ -1,0 +1,15 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorBackground">@android:color/white</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorLink">#ff70b500</item>
+        <item name="colorPrimary">#ff0079bf</item>
+        <item name="colorPrimaryDark">#ff026aa7</item>
+
+        <!-- control color of drawArrowColor -->
+        <item name="colorControlNormal">@android:color/white</item>
+    </style>
+
+</resources>
