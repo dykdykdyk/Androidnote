@@ -1,17 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:circle_seekbar="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="测试"/>
-    <com.example.lenovo.touchview.CircleProgressView
-        android:id="@+id/circleProgressbar"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg_common_green"
+    android:orientation="vertical"
+    >
+    <com.lee.circleseekbar.person_goals_scrollview.LoopView
         android:layout_width="match_parent"
-        android:layout_below="@id/button"
-        android:layout_height="wrap_content" />
-</RelativeLayout>
+        android:layout_height="200dp"
+        android:id="@+id/dykview"/>
+    <com.lee.circleseekbar.view.CircleSeekBar
+        android:id="@+id/circle_seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:thumb="@drawable/thumb"
+        circle_seekbar:progress_text_size="30dp"
+        circle_seekbar:progress_text_stroke_width="4dp"
+        circle_seekbar:progress_width="2dp"
+        circle_seekbar:show_progress_text="true" />
+</LinearLayout>
