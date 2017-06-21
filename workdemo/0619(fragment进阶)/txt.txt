@@ -1,0 +1,46 @@
+ public void switchContent(Fragment from, Fragment to, String stackName,String TAGname) {
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction tx = manager.beginTransaction();
+        if(!stackName.equals("")){
+            tx.addToBackStack(TAGname);
+        }
+        if (!to.isAdded()) {    // 先判断是否被add过
+            tx.hide(from).add(R.id.fragment_container, to,TAGname).commitAllowingStateLoss(); // 隐藏当前的fragment，add下一个到Activity中
+        } else {
+            tx.hide(from).show(to).commitAllowingStateLoss(); // 隐藏当前的fragment，显示下一个
+        }
+    }
+
+
+//回退栈
+    public void remove_fra(Fragment from) {
+        LogUtil.i(TAG,"remove_fra:"+from);
+        FragmentManager manager = getSupportFragmentManager();
+        manager.popBackStack();
+    }
+//移除到指定的栈 并以这个  为栈顶
+    private void removeFragment(String fragmentNmae) {
+        LogUtil.i(TAG,"fragmentNmae:"+fragmentNmae);
+        FragmentManager manager = getSupportFragmentManager();
+        manager.popBackStack(fragmentNmae,FragmentManager.POP_BACK_STACK_INCLUSIVE);//上一层  0 这一层为栈顶
+    }
+
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {// 在fragment hide  show的时候 不会进入到fragment的声明周期  这个时候 可以监听这个方法来处理UI的更新
+        super.onHiddenChanged(hidden);
+        LogUtil.i(TAG, "hidden:" + hidden);
+        if (mBLEList != null) {
+            mBLEList.clear();//初始化View
+        }
+        String addressTemp = (String) StorageSharedPreferenced.getData(getContext(), UtilTools.DEVICE_ADDRESS, "");
+        if(!addressTemp.equals("")){
+            return ;
+        }
+        scan();
+        if (!hidden) {
+            if (CheckSystemVersion()) {
+                scanLeDevice();//开始扫描
+            }
+        }
+    }

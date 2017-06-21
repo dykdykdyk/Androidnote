@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/popup_one_item_ly"
+    android:background="@color/white"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grey_6"
+        >
+        <Button
+            android:id="@+id/popup_one_item_btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#0000"
+            android:text="取消"
+
+            android:textColor="@color/line_blue_main"
+            />
+
+        <Button
+            android:id="@+id/popup_one_item_btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="确定"
+            android:layout_alignParentRight="true"
+            android:background="#0000"
+            android:textColor="@color/line_blue_main"
+            ></Button>
+
+        <TextView
+            android:id="@+id/popup_one_item_txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_centerInParent="true"
+            />
+    </RelativeLayout>
+
+    <com.wx.wheelview.widget.WheelView
+        android:id="@+id/popup_one_item_wheel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20.0dp"
+        android:layout_marginRight="20.0dp"
+        >
+
+    </com.wx.wheelview.widget.WheelView>
+
+</LinearLayout>
