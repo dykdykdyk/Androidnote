@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.liuguilin.mpandroidchartsample"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.LineChartActivity"
+            android:label="线形图"/>
+
+        <activity
+            android:name=".activity.DoubleLineCharActivity"
+            android:label="双重轴线形图"/>
+
+        <activity
+            android:name=".activity.BarChartActivity"
+            android:label="条形图"/>
+
+        <activity
+            android:name=".activity.HorizontalBarChartActivity"
+            android:label="水平条形图"/>
+
+        <activity
+            android:name=".activity.PieChartActivity"
+            android:label="饼状图"/>
+
+        <activity
+            android:name=".activity.PiePolylineChartActivity"
+            android:label="折线饼状图"/>
+
+        <activity
+            android:name=".activity.ScatterChartActivity"
+            android:label="散点图"/>
+
+        <activity
+            android:name=".activity.BubbleChartActivity"
+            android:label="气泡图"/>
+
+        <activity
+            android:name=".activity.StackedBarActivity"
+            android:label="堆叠条形图"/>
+
+        <activity
+            android:name=".activity.StackedBarActivityNegative"
+            android:label="正负堆叠条形图"/>
+
+        <activity
+            android:name=".activity.AnotherBarActivity"
+            android:label="底部值柱形图"/>
+
+        <activity
+            android:name=".activity.MultiLineChartActivity"
+            android:label="多数据折线图"/>
+
+    </application>
+
+</manifest>
