@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/mBarChart"
+        android:layout_width="match_parent"
+        android:background="@color/bg_common_green"
+        android:layout_height="210dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_anim_y"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Y轴动画"/>
+
+    </LinearLayout>
+
+</LinearLayout>
