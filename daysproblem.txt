@@ -31,3 +31,5 @@ github上面记得找、jar文件，要在  COde  下面有四个大的选择框 commits，branches,re
 父控件的大小 一定要确定大小，否则在子控件中设置margin属性 会不起作用
 
 ctrl+shift+alt+l  全选后格式化代码
+
+utf-16  包头有两个字节  一个汉字两个字节   utf-8 一个汉字 三个字节

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/mLineChar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/btn_show_values"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="顶点显示值"/>
+
+        <Button
+            android:id="@+id/btn_actionToggleFilled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="是否填满"/>
+
+        <Button
+            android:id="@+id/btn_actionToggleCircles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="是否显示圆点"/>
+
+        <Button
+            android:id="@+id/btn_actionToggleCubic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="切换立方"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/btn_actionToggleStepped"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="切换尖角/矩形"/>
+
+        <Button
+            android:id="@+id/btn_actionToggleHorizontalCubic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="切换横向立方"/>
+
+        <Button
+            android:id="@+id/btn_anim_x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="X轴动画"/>
+
+        <Button
+            android:id="@+id/btn_anim_y"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Y轴动画"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_anim_xy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XY轴动画"/>
+
+        <Button
+            android:id="@+id/btn_save_sd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="保存到SD卡"/>
+
+
+        <Button
+            android:id="@+id/btn_auto_mix_max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="切换自动最大/小值"/>
+
+        <Button
+            android:id="@+id/btn_actionToggleHighlight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="切换高亮显示"/>
+
+    </LinearLayout>
+
+</LinearLayout>

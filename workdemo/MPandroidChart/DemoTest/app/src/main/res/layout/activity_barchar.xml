@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/mBarChart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/btn_show_values"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="顶点显示值"/>
+
+        <Button
+            android:id="@+id/btn_anim_x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="X轴动画"/>
+
+        <Button
+            android:id="@+id/btn_anim_y"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Y轴动画"/>
+
+        <Button
+            android:id="@+id/btn_anim_xy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="XY轴动画"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/btn_save_pic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="保存到相册"/>
+
+        <Button
+            android:id="@+id/btn_auto_mix_max"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自动最大最小值"/>
+
+        <Button
+            android:id="@+id/btn_actionToggleHighlight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="高亮显示"/>
+
+        <Button
+            android:id="@+id/btn_actionToggleBarBorders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="显示边框"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>
