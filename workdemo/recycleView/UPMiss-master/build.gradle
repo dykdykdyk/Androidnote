@@ -1,0 +1,28 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'com.android.tools.build:gradle:2.2.0'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+// Define versions in a single place
+ext {
+    // App dependencies
+    supportLibraryVersion = '25.3.0'
+    junitVersion = '4.12'
+    dbflowVersion = '4.0.0-beta5'
+    geniusVersion = '2.0.0'
+    gsonVersion = '2.8.0'
+    volleyVersion = '1.0.19'
+    calligraphyVersion = '2.2.0'
+}

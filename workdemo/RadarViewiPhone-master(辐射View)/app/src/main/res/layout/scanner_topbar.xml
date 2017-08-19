@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="60dp"
+    android:background="@color/bg_common_green"
+    android:focusable="true"
+    android:fitsSystemWindows="true"
+    android:focusableInTouchMode="true">
+
+
+        <ImageView
+            android:id="@+id/left_image"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:padding="15.0dip"
+            android:scaleType="centerInside"/>
+    <LinearLayout
+        android:id="@+id/smart_bracelet_right_click"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="50.0dip"
+            android:layout_height="fill_parent"
+            android:scaleType="centerInside"
+            android:id="@+id/scanner_text"
+            android:gravity="center_vertical"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_toLeftOf="@id/smart_bracelet_right_click"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="30.0dip"
+            android:layout_height="fill_parent"
+            android:rotation="180.0"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_toLeftOf="@id/smart_bracelet_right_click"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+    <TextView
+        android:id="@+id/scannar_title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:text="TitleBar"></TextView>
+    </LinearLayout>
+</RelativeLayout>

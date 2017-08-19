@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="array_quick_top_type">
+        <item>Birthday</item>
+        <item>Memorial</item>
+        <item>Future</item>
+    </array>
+    <array name="array_search_week">
+        <item>Sun</item>
+        <item>Mon</item>
+        <item>Tues</item>
+        <item>Wed</item>
+        <item>Thur</item>
+        <item>Fri</item>
+        <item>Sat</item>
+    </array>
+    <array name="array_search_zodiac">
+        <item>monkey</item>
+        <item>chicken</item>
+        <item>dog</item>
+        <item>pig</item>
+        <item>rat</item>
+        <item>cow</item>
+        <item>tiger</item>
+        <item>rabbit</item>
+        <item>dragon</item>
+        <item>snake</item>
+        <item>horse</item>
+        <item>sheep</item>
+    </array>
+    <array name="array_search_constellation">
+        <item>Aquarius</item>
+        <item>Pisces</item>
+        <item>Aries</item>
+        <item>Taurus</item>
+        <item>Gemini</item>
+        <item>Cancer</item>
+        <item>Leo</item>
+        <item>Virgo</item>
+        <item>Libra</item>
+        <item>Scorpio</item>
+        <item>Sagittarius</item>
+        <item>Capricornus</item>
+    </array>
+</resources>

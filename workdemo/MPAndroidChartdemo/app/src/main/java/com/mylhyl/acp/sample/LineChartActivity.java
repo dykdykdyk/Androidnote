@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
@@ -37,6 +38,7 @@ int i =0;
 
     public void ReFreshLineChart(String x, final int y,final LineChart chart,
                                  final ArrayList<Entry> vals) {
+
         final float f = Float.parseFloat(x);
         runOnUiThread(new Runnable() {
             @Override
@@ -103,13 +105,16 @@ int i =0;
         (findViewById(R.id.btn_a)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ReFreshLineChart("710",3,lineChart,values1);
-                ReFreshLineChart("711",4,lineChart,values1);
-                ReFreshLineChart("712",5,lineChart,values1);
-                ReFreshLineChart("713",6,lineChart,values1);
-                ReFreshLineChart("714",7,lineChart,values1);
-                ReFreshLineChart("715",8,lineChart,values1);
-                ReFreshLineChart("716",9,lineChart,values1);
+                for (int j = 0; j < 25; j++) {
+                    ReFreshLineChart(j+"00",j,lineChart,values1);
+                }
+//                ReFreshLineChart("710",3,lineChart,values1);
+//                ReFreshLineChart("711",4,lineChart,values1);
+//                ReFreshLineChart("712",5,lineChart,values1);
+//                ReFreshLineChart("713",6,lineChart,values1);
+//                ReFreshLineChart("714",7,lineChart,values1);
+//                ReFreshLineChart("715",8,lineChart,values1);
+//                ReFreshLineChart("716",9,lineChart,values1);
             }
         });
 //创建描述信息
@@ -133,9 +138,10 @@ int i =0;
         xAxis.setEnabled(true);//设置轴启用或禁用 如果禁用以下的设置全部不生效
         xAxis.setDrawAxisLine(false);//是否绘制轴线
         xAxis.setDrawGridLines(false);//设置x轴上每个点对应的线
-//        xAxis.setDrawLabels(true);//绘制标签  指x轴上的对应数值
+        xAxis.setDrawLabels(true);//绘制标签  指x轴上的对应数值
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);//设置x轴的显示位置
         xAxis.setTextSize(11f);//设置字体
+        xAxis.setGranularity(1f); // only intervals of 1 day
 //        xAxis.setLabelCount(7);
         xAxis.setTextColor(Color.parseColor("#fffafafa"));//设置字体颜色
         xAxis.setValueFormatter(xAxisFormatter);
@@ -182,6 +188,13 @@ int i =0;
         values1 = new ArrayList<>();
         //LineDataSet每一个对象就是一条连接线
     }
+    class DemoClass implements  IAxisValueFormatter{
+        @Override
+        public String getFormattedValue(float value, AxisBase axis) {
+
+            return null;
+        }
+    }
     private void setData(ArrayList<Entry> values1) {
         //判断图表中原来是否有数据
         LineDataSet set1;
@@ -196,7 +209,7 @@ int i =0;
             lineChart.invalidate();
         } else {
             //设置数据1  参数1：数据源 参数2：图例名称
-            set1 = new LineDataSet(values1, "");
+            set1 = new LineDataSet(values1, "sasdsd");
             set1.setColor(Color.parseColor("#fffafafa"));
             set1.setCircleColor(Color.parseColor("#fffafafa"));
             set1.setValueTextColor(Color.parseColor("#fffafafa"));
@@ -208,7 +221,7 @@ int i =0;
             set1.setHighlightEnabled(false);//是否禁用点击高亮线
 //            set1.setHighLightColor(Color.parseColor("#fffafafa"));//设置点击交点后显示交高亮线的颜色
             set1.setValueTextSize(15f);//设置显示值的文字大小
-            set1.setDrawFilled(false);//设置禁用范围背景填充
+            set1.setDrawFilled(true);//设置禁用范围背景填充
 
             //格式化显示数据
             final DecimalFormat mFormat = new DecimalFormat("###,###,##0");

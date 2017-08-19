@@ -37,7 +37,8 @@ public class XYMarkerView extends MarkerView {
     //回调函数每次MarkerView重绘,可以用来更新内容(用户界面)
     @Override
     public void refreshContent(Entry e, Highlight highlight) {
-        tvContent.setText("x: " + xAxisValueFormatter.getFormattedValue(e.getX(), null) + ", y: " + format.format(e.getY()));
+        int value =(int) Float.parseFloat(format.format(e.getY()));
+        tvContent.setText("" + xAxisValueFormatter.getFormattedValue(e.getX(), null) + "," + value);
         super.refreshContent(e, highlight);
     }
 

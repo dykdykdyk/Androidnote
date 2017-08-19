@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <net.qiujuer.tips.common.widget.RelationView
+        android:id="@+id/contacts_relation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/len_16"
+        android:paddingLeft="@dimen/len_4"
+        android:paddingRight="@dimen/len_4"
+        android:paddingTop="@dimen/len_16" />
+</LinearLayout>

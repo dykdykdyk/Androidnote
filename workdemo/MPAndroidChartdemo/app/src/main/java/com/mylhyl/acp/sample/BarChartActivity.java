@@ -17,7 +17,6 @@ import android.view.View;
 import android.widget.Button;
 
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
@@ -55,45 +54,27 @@ public class BarChartActivity extends Activity implements OnChartValueSelectedLi
         //设置表格上的点，被点击的时候，的回调函数
         mBarChart.setOnChartValueSelectedListener(this);
         mBarChart.setDrawBarShadow(false);
-        Description d = new Description();
-        d.setTextColor(Color.parseColor("#fffafafa"));
-        mBarChart.setDescription(d);
         mBarChart.setDrawValueAboveBar(true);// 如果设置为true，所有值都高于其 bar 的，而不是低于其顶部。默认：true
         mBarChart.getDescription().setEnabled(false);
-//        mBarChart.setMaxVisibleValueCount(60);
+//        Description d = new Description();
+//        d.setTextColor(Color.parseColor("#fffafafa"));
+//        mBarChart.setDescription(d);
+        mBarChart.setMaxVisibleValueCount(60);
         // 扩展现在只能分别在x轴和y轴
         mBarChart.setPinchZoom(false);//设置x轴和y轴能否同时缩放。默认是否
         //是否显示表格颜色
         mBarChart.setDrawGridBackground(false);//设置图表内格子背景是否显示，默认是false
-
-
-//        YAxis leftAxis = mBarChart.getAxisLeft();
-////        leftAxis.setTypeface(mTfLight);
-//        leftAxis.setLabelCount(8, false);
-////        leftAxis.setValueFormatter(custom);
-//        leftAxis.setPosition(YAxis.YAxisLabelPosition.OUTSIDE_CHART);
-//        leftAxis.setSpaceTop(15f);
-//        leftAxis.setAxisMinimum(0f); // this replaces setStartAtZero(true)
-
-//        YAxis rightAxis = mBarChart.getAxisRight();
-//        rightAxis.setDrawGridLines(false);
-////        rightAxis.setTypeface(mTfLight);
-//        rightAxis.setLabelCount(8, false);
-////        rightAxis.setValueFormatter(custom);
-//        rightAxis.setSpaceTop(15f);
-//        rightAxis.setAxisMinimum(0f); // this replaces setStartAtZero(true)
-
 //        mBarChart.setMinimumWidth(70);
         IAxisValueFormatter xAxisFormatter = new DayAxisValueFormatter(mBarChart);
         XAxis xAxis = mBarChart.getXAxis();
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);//把坐标轴放在下面
         xAxis.setDrawGridLines(false);//是否显示X坐标轴上的刻度竖线，默认是true
-        xAxis.setDrawAxisLine(false);//不显示x轴横线
-        xAxis.setLabelCount(30);
-        xAxis.setAxisMinimum(-0.5f);
-        xAxis.setAvoidFirstLastClipping(true);//图表将避免第一个和最后一个标签条目被减掉在图表或屏幕的边缘
-        xAxis.setTextColor(Color.parseColor("#fffafafa"));
+        xAxis.setGranularity(1f); // only intervals of 1 day
+        xAxis.setLabelCount(7);
         xAxis.setValueFormatter(xAxisFormatter);
+        xAxis.setDrawAxisLine(false);//不显示x轴横线
+//        xAxis.setAvoidFirstLastClipping(true);//图表将避免第一个和最后一个标签条目被减掉在图表或屏幕的边缘
+        xAxis.setTextColor(Color.parseColor("#fffafafa"));
         //设置悬浮
         YAxis leftAxis = mBarChart.getAxisLeft();
         leftAxis.setEnabled(false);
@@ -109,42 +90,54 @@ public class BarChartActivity extends Activity implements OnChartValueSelectedLi
         l.setForm(Legend.LegendForm.SQUARE);
         //字体
         l.setFormSize(9f);
-        l.setEnabled(false);//取消Label
         //大小
         l.setTextSize(11f);
         l.setXEntrySpace(4f);
+        l.setEnabled(false);//取消Label
+
+        XYMarkerView mv = new XYMarkerView(this, xAxisFormatter);
+        mv.setChartView(mBarChart); // For bounds control
+        mBarChart.setMarker(mv); // Set the marker to the chart
         //模拟数据
         yVals1 = new ArrayList<BarEntry>();
-        yVals1.add(new BarEntry(0, 2));//0
-        yVals1.add(new BarEntry(1, 1));
-        yVals1.add(new BarEntry(2, 1));
-        yVals1.add(new BarEntry(3, 1));
-        yVals1.add(new BarEntry(4, 1));
-        yVals1.add(new BarEntry(5, 3));
-        yVals1.add(new BarEntry(6, 1));//6
-        yVals1.add(new BarEntry(7, 5));
-        yVals1.add(new BarEntry(8, 1));
-        yVals1.add(new BarEntry(9, 7));
-        yVals1.add(new BarEntry(10, 7));
-        yVals1.add(new BarEntry(11, 7));
-        yVals1.add(new BarEntry(12, 7));//12
-        yVals1.add(new BarEntry(13, 7));
-        yVals1.add(new BarEntry(14, 7));
-        yVals1.add(new BarEntry(15, 7));
-        yVals1.add(new BarEntry(16, 7));
-        yVals1.add(new BarEntry(17, 7));
-        yVals1.add(new BarEntry(18, 7));//18
-        yVals1.add(new BarEntry(19, 7));
-        yVals1.add(new BarEntry(20, 7));
-        yVals1.add(new BarEntry(21, 7));
-        yVals1.add(new BarEntry(22, 7));
-        yVals1.add(new BarEntry(23, 7));
-        yVals1.add(new BarEntry(24, 7));//24
+//        yVals1.add(new BarEntry(0, 2));//0
+//        for (int i = 0; i <25 ; i++) {
+            yVals1.add(new BarEntry(731, i+2));//0
+//        }
+        yVals1.add(new BarEntry(801, i+2));//0
+        yVals1.add(new BarEntry(802, i+2));//0
+        yVals1.add(new BarEntry(803, i+2));//0
+        yVals1.add(new BarEntry(804, i+2));//0
+        yVals1.add(new BarEntry(805, i+2));//0
+        yVals1.add(new BarEntry(806, i+2));//0
+//        yVals1.add(new BarEntry(1, 1));
+//        yVals1.add(new BarEntry(2, 1));
+//        yVals1.add(new BarEntry(3, 1));
+//        yVals1.add(new BarEntry(4, 1));
+//        yVals1.add(new BarEntry(5, 3));
+//        yVals1.add(new BarEntry(6, 1));//6
+//        yVals1.add(new BarEntry(7, 5));
+//        yVals1.add(new BarEntry(8, 1));
+//        yVals1.add(new BarEntry(9, 7));
+//        yVals1.add(new BarEntry(10, 7));
+//        yVals1.add(new BarEntry(11, 7));
+//        yVals1.add(new BarEntry(12, 7));//12
+//        yVals1.add(new BarEntry(13, 7));
+//        yVals1.add(new BarEntry(14, 7));
+//        yVals1.add(new BarEntry(15, 7));
+//        yVals1.add(new BarEntry(16, 7));
+//        yVals1.add(new BarEntry(17, 7));
+//        yVals1.add(new BarEntry(18, 7));//18
+//        yVals1.add(new BarEntry(19, 7));
+//        yVals1.add(new BarEntry(20, 7));
+//        yVals1.add(new BarEntry(21, 7));
+//        yVals1.add(new BarEntry(22, 7));
+//        yVals1.add(new BarEntry(23, 7));
+//        yVals1.add(new BarEntry(24, 7));//24
         setData(yVals1, mBarChart);
         mBarChart.setNoDataText("没有数据呢(⊙o⊙)");
         mBarChart.animateY(3000);
     }
-
     //设置数据
     private void setData(ArrayList yVals1, BarChart mBarChart) {
         BarDataSet set1;
@@ -152,20 +145,21 @@ public class BarChartActivity extends Activity implements OnChartValueSelectedLi
                 mBarChart.getData().getDataSetCount() > 0) {
             set1 = (BarDataSet) mBarChart.getData().getDataSetByIndex(0);
             set1.setValues(yVals1);
-//            mBarChart.setVisibleXRange(3,7);
             mBarChart.getData().notifyDataChanged();
-            mBarChart.invalidate();
             mBarChart.notifyDataSetChanged();
+            mBarChart.invalidate();
         } else {
             set1 = new BarDataSet(yVals1, "");
+            set1.setDrawIcons(false);
             //设置有四种颜色
             set1.setColors(Color.parseColor("#fffafafa"));//设置条形图的颜色
-            ArrayList<IBarDataSet> dataSets = new ArrayList<IBarDataSet>();
+//            set1.setColors(ColorTemplate.MATERIAL_COLORS);
             set1.setValueTextColor(Color.parseColor("#fffafafa"));
+            ArrayList<IBarDataSet> dataSets = new ArrayList<IBarDataSet>();
             dataSets.add(set1);
             BarData data = new BarData(dataSets);
             data.setValueTextSize(10f);
-            data.setBarWidth(0.2f);
+            data.setBarWidth(0.9f);
             set1.setValueFormatter(new IValueFormatter() {
                 @Override
                 public String getFormattedValue(float value, Entry entry,
@@ -215,12 +209,9 @@ public class BarChartActivity extends Activity implements OnChartValueSelectedLi
             //y轴动画
             case R.id.btn_anim_y:
 //                mBarChart.animateY(3000);
-
                    yVals1.add(new BarEntry(2+i*2, 8+i*10));
-                  i=i+0.2f;
-
                 setData(yVals1,mBarChart);
-//                i++;
+                i++;
                 break;
         }
     }

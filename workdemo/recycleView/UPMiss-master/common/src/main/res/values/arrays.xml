@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="array_contacts_relations">
+        <item>None</item>
+
+        <item>wife</item>
+        <item>sister</item>
+        <item>girlfriend</item>
+        <item>mother</item>
+        <item>daughter</item>
+        <item>elder sister</item>
+
+        <item>husband</item>
+        <item>brother</item>
+        <item>boyfriend</item>
+        <item>father</item>
+        <item>son</item>
+        <item>elder brother</item>
+
+        <item>sworn followers</item>
+        <item>friend</item>
+
+        <item>schoolmate</item>
+        <item>elder</item>
+        <item>fellow</item>
+        <item>juniors</item>
+
+        <item>teacher</item>
+        <item>colleague</item>
+        <item>client</item>
+        <item>leader</item>
+    </array>
+
+    <array name="calendar_Sun_month">
+        <item>Jan</item>
+        <item>Feb</item>
+        <item>Mar</item>
+        <item>Apr</item>
+        <item>May</item>
+        <item>Jun</item>
+        <item>Jul</item>
+        <item>Aug</item>
+        <item>Sept</item>
+        <item>Oct</item>
+        <item>Nov</item>
+        <item>Dec</item>
+    </array>
+    <array name="calendar_sun_day">
+        <item>&#160;01&#160;</item>
+        <item>&#160;02&#160;</item>
+        <item>&#160;03&#160;</item>
+        <item>&#160;04&#160;</item>
+        <item>&#160;05&#160;</item>
+        <item>&#160;06&#160;</item>
+        <item>&#160;07&#160;</item>
+        <item>&#160;08&#160;</item>
+        <item>&#160;09&#160;</item>
+        <item>&#160;10&#160;</item>
+        <item>&#160;11&#160;</item>
+        <item>&#160;12&#160;</item>
+        <item>&#160;13&#160;</item>
+        <item>&#160;14&#160;</item>
+        <item>&#160;15&#160;</item>
+        <item>&#160;16&#160;</item>
+        <item>&#160;17&#160;</item>
+        <item>&#160;18&#160;</item>
+        <item>&#160;19&#160;</item>
+        <item>&#160;20&#160;</item>
+        <item>&#160;21&#160;</item>
+        <item>&#160;22&#160;</item>
+        <item>&#160;23&#160;</item>
+        <item>&#160;24&#160;</item>
+        <item>&#160;25&#160;</item>
+        <item>&#160;26&#160;</item>
+        <item>&#160;27&#160;</item>
+        <item>&#160;28&#160;</item>
+        <item>&#160;29&#160;</item>
+        <item>&#160;30&#160;</item>
+        <item>&#160;31&#160;</item>
+    </array>
+</resources>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/scanner_topbar"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"></include>
+
+    <com.example.xuhong.radarviewiphone_master.RadarView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:rb_duration="3000"
+        app:rb_radius="50dp"
+        app:rb_rippleAmount="3"
+        app:rb_scale="6">
+        <ImageView
+            android:id="@+id/centerImage"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/wave">
+        </ImageView>
+    </com.example.xuhong.radarviewiphone_master.RadarView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/bg_common_green"
+        android:orientation="vertical">
+        <!--<TextView-->
+        <!--android:id="@+id/tv"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/design_fab_size_mini"-->
+        <!--android:gravity="center"-->
+        <!--android:visibility="visible" />-->
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ListView
+            android:id="@+id/listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></ListView>
+    </LinearLayout>
+
+
+</RelativeLayout>
