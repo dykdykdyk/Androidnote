@@ -1,1 +1,11 @@
 spinner使用
+
+listview添加头尾 
+View header =LayoutInflater.from(this).inflate(R.layout.header,null);
+lv.addHeaderView(header);
+lv.addFooterView(footer,null,true);
+
+AutoCompleteTextView实现热门提示的效果
+
+ImageButton 一般来实现一个图片的点击事件
+ImageView ScaleType属性: centerCrop 表示的是居中显示

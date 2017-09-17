@@ -1,0 +1,2 @@
+onBind--> oncreate --> onBind  (再次onbind的时候 只会调用一次)
+onStart--> oncreate --> onStartCommand  (再次onstart的时候 onStartCommand  会再次调用)
