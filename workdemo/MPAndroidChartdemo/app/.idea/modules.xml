@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../MPAndroidChartdemo.iml" filepath="$PROJECT_DIR$/../MPAndroidChartdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../MPChartLib/MPChartLib.iml" filepath="$PROJECT_DIR$/../MPChartLib/MPChartLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/app.iml" filepath="$PROJECT_DIR$/app.iml" />
     </modules>
   </component>

@@ -71,6 +71,13 @@ public class BarChartActivity extends Activity implements OnChartValueSelectedLi
         xAxis.setDrawGridLines(false);//是否显示X坐标轴上的刻度竖线，默认是true
         xAxis.setGranularity(1f); // only intervals of 1 day
         xAxis.setLabelCount(7);
+        xAxis.setAxisLineWidth(0f);
+//        xAxis.setSpaceBetweenLabels
+//                xAxis.setAxisLineWidth(0);
+//        xAxis.setSpaceMax(0);
+//        xAxis.setSpaceMin(0);
+//        xAxis.setAxisLineWidth(0f);
+//        xAxis.setGridLineWidth(0f);
         xAxis.setValueFormatter(xAxisFormatter);
         xAxis.setDrawAxisLine(false);//不显示x轴横线
 //        xAxis.setAvoidFirstLastClipping(true);//图表将避免第一个和最后一个标签条目被减掉在图表或屏幕的边缘
@@ -81,6 +88,8 @@ public class BarChartActivity extends Activity implements OnChartValueSelectedLi
         YAxis rightAxis = mBarChart.getAxisRight();
         rightAxis.setEnabled(false);//不显示y轴右边坐标轴以及刻度竖线
         // 设置标示，就是那个一组y的value的
+
+         mBarChart.setBorderWidth(0);
         Legend l = mBarChart.getLegend();
         l.setVerticalAlignment(Legend.LegendVerticalAlignment.BOTTOM);
         l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
@@ -92,7 +101,7 @@ public class BarChartActivity extends Activity implements OnChartValueSelectedLi
         l.setFormSize(9f);
         //大小
         l.setTextSize(11f);
-        l.setXEntrySpace(4f);
+        l.setXEntrySpace(0f);
         l.setEnabled(false);//取消Label
 
         XYMarkerView mv = new XYMarkerView(this, xAxisFormatter);
@@ -102,14 +111,14 @@ public class BarChartActivity extends Activity implements OnChartValueSelectedLi
         yVals1 = new ArrayList<BarEntry>();
 //        yVals1.add(new BarEntry(0, 2));//0
 //        for (int i = 0; i <25 ; i++) {
-            yVals1.add(new BarEntry(731, i+2));//0
+//            yVals1.add(new BarEntry(731, i+2));//0
 //        }
-        yVals1.add(new BarEntry(801, i+2));//0
-        yVals1.add(new BarEntry(802, i+2));//0
-        yVals1.add(new BarEntry(803, i+2));//0
-        yVals1.add(new BarEntry(804, i+2));//0
-        yVals1.add(new BarEntry(805, i+2));//0
-        yVals1.add(new BarEntry(806, i+2));//0
+//        yVals1.add(new BarEntry(801, i+2));//0
+//        yVals1.add(new BarEntry(802, i+2));//0
+//        yVals1.add(new BarEntry(803, i+2));//0
+//        yVals1.add(new BarEntry(804, i+2));//0
+//        yVals1.add(new BarEntry(805, i+2));//0
+//        yVals1.add(new BarEntry(806, i+2));//0
 //        yVals1.add(new BarEntry(1, 1));
 //        yVals1.add(new BarEntry(2, 1));
 //        yVals1.add(new BarEntry(3, 1));
@@ -139,7 +148,7 @@ public class BarChartActivity extends Activity implements OnChartValueSelectedLi
         mBarChart.animateY(3000);
     }
     //设置数据
-    private void setData(ArrayList yVals1, BarChart mBarChart) {
+    private void setData(ArrayList<BarEntry> yVals1, BarChart mBarChart) {
         BarDataSet set1;
         if (mBarChart.getData() != null &&
                 mBarChart.getData().getDataSetCount() > 0) {
@@ -152,14 +161,21 @@ public class BarChartActivity extends Activity implements OnChartValueSelectedLi
             set1 = new BarDataSet(yVals1, "");
             set1.setDrawIcons(false);
             //设置有四种颜色
-            set1.setColors(Color.parseColor("#fffafafa"));//设置条形图的颜色
+//            set1.setColors(new int[] { R.color.common_red, R.color.colorAccent});
+            set1.setColors(new int[] { R.color.bg_common_green, R.color.abc_search_url_text_normal});
+
+//            set1.setColors(Color.parseColor("#fffafafa"));//设置条形图的颜色
 //            set1.setColors(ColorTemplate.MATERIAL_COLORS);
             set1.setValueTextColor(Color.parseColor("#fffafafa"));
+//            set1.setBarSpacePercent(2f);
+//            set1.setBarSpacePercent(2f);
             ArrayList<IBarDataSet> dataSets = new ArrayList<IBarDataSet>();
             dataSets.add(set1);
             BarData data = new BarData(dataSets);
             data.setValueTextSize(10f);
-            data.setBarWidth(0.9f);
+            data.setBarWidth(2f);
+
+//            data.groupBars(0, 5, 0);
             set1.setValueFormatter(new IValueFormatter() {
                 @Override
                 public String getFormattedValue(float value, Entry entry,
@@ -172,6 +188,7 @@ public class BarChartActivity extends Activity implements OnChartValueSelectedLi
                     return n + "";
                 }
             });
+
             //设置数据
 //            mBarChart.setVisibleXRange(3,7);
             mBarChart.setData(data);
@@ -202,7 +219,7 @@ public class BarChartActivity extends Activity implements OnChartValueSelectedLi
     public void onNothingSelected() {
 
     }
-    float i = 0.2f;
+    float i = 2f;
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
